@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * The RecyclerViewAdapter for the Card Columns to display on the Game Screen
  *
+ *
  * @author Maximilian Knodt
  */
 public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColumnRecyclerViewAdapter.ViewHolder>{

@@ -35,7 +35,7 @@ public class GameScreen extends AppCompatActivity {
             startActivity(intentSettings);
         });
 
-        // --------- RECYCLERVIEW HANDLING ---------
+        // -------- RECYCLERVIEW HANDLING --------
         int[] platzhalter = new int[4];
         for(int i = 0; i < platzhalter.length; i++) platzhalter[i] = i + 1;
 

@@ -31,7 +31,7 @@ public class SettingsScreen extends AppCompatActivity {
 
         EditText editTextTimer = this.findViewById(R.id.editText_Settings_Timer);
 
-        // -------- SWITCH CONTROL --------
+        // --------- SWITCH CONTROL ---------
         switchSPD.setOnCheckedChangeListener((cb, b) -> {
             if(b){
                 switchSPD.setText(R.string.switchOn);

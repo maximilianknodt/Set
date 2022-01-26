@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="#525252">
 
-    <!--@author Maximilian Knodt-->
+    <!-- @author Maximilian Knodt-->
 
     <TextView
         android:id="@+id/textview_Start_Headline"
