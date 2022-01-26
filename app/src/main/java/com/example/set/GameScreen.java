@@ -3,16 +3,22 @@ package com.example.set;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * @author Maximilian Knodt
+ */
 public class GameScreen extends AppCompatActivity {
     private RecyclerView rvList;
 
+    /**
+     * Class to handle onClickListener and to commit necessary information to the CardRowRecyclerViewAdapter
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +26,7 @@ public class GameScreen extends AppCompatActivity {
 
         ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Settings);
 
-        // -------- SETTINGS --------
+        // --------- SETTINGS ---------
         btnSettings.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Gamesscreen to Settingsscreen");
 
@@ -36,7 +42,7 @@ public class GameScreen extends AppCompatActivity {
         this.rvList = findViewById(R.id.recyclerView_Game_Field);
         // LinearLayout will show the Data in a horizontal List
         this.rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-        this.rvList.setAdapter(new CardRowRecyclerViewAdapter(this.getBaseContext(),platzhalter));
+        this.rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(),platzhalter));
         this.rvList.getAdapter();
 
     }

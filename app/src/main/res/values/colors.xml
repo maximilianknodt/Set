@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- @autor Maximilian Knodt-->
+
     <color name="darkmode_Headline">#DEffffff</color>
     <color name="darkmode_Text_Normal">#A3ffffff</color>
     <color name="darkmode_Text_Desciption">#4Dffffff</color>
