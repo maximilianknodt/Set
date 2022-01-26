@@ -26,7 +26,7 @@ public class GameScreen extends AppCompatActivity {
 
         ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Settings);
 
-        // -------- SETTINGS --------
+        // --------- SETTINGS ---------
         btnSettings.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Gamesscreen to Settingsscreen");
 
@@ -35,7 +35,7 @@ public class GameScreen extends AppCompatActivity {
             startActivity(intentSettings);
         });
 
-        // -------- RECYCLERVIEW HANDLING --------
+        // --------- RECYCLERVIEW HANDLING ---------
         int[] platzhalter = new int[4];
         for(int i = 0; i < platzhalter.length; i++) platzhalter[i] = i + 1;
 
