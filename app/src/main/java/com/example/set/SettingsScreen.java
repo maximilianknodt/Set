@@ -8,6 +8,14 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Class for the Settings Screen
+ * It will handle the Interaction with every Element within itself
+ *
+ * TODO: Creating the Adapter for the Spinner Element, handle the EditText Element for the Timer
+ *
+ * @author Maximilian Knodt
+ */
 public class SettingsScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +39,8 @@ public class SettingsScreen extends AppCompatActivity {
             }
             else {
                 switchSPD.setText(R.string.switchOff);
-                switchSPD.setTypeface(null, Typeface.NORMAL);               // null -> the active Typeface will not be kept -> Style: bold can be removed
+                // Typeface ist null so the active Typeface will not be kept -> Style: bold can be removed
+                switchSPD.setTypeface(null, Typeface.NORMAL);
             }
         });
 
