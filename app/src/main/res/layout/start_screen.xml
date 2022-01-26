@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/start_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_Start_Headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/set"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+    <View
+        android:id="@+id/view_Start_Underline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="#777676"/>
+
+    <Button
+        android:id="@+id/button_Start_SP"
+        android:layout_width="210dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:text="@string/singleplayer" />
+
+    <Button
+        android:id="@+id/button_Start_MP"
+        android:layout_width="210dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:text="@string/multiplayer" />
+
+    <Button
+        android:id="@+id/button_Start_Settings"
+        android:layout_width="210dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:text="@string/settings" />
+
+    <Button
+        android:id="@+id/button_Start_Highscore"
+        android:layout_width="210dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:text="@string/highscore" />
+
+</LinearLayout>

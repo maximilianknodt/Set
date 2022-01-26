@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Game_Right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Game_Left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Game_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Game_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="24dp" />
+
+    <View
+        android:id="@+id/view_Game_DividerFieldSettings"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="#777676"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_Game_Break"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/string_break"
+        app:layout_constraintBottom_toTopOf="@+id/button_Game_Set"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
+        app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintTop_toTopOf="@+id/guidelineVerticalHalf" />
+
+    <Button
+        android:id="@+id/button_Game_Set"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/set"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
+        app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintTop_toBottomOf="@+id/button_Game_Break" />
+
+    <ImageButton
+        android:id="@+id/imageButton_Game_Settings"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:contentDescription="@string/settings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top"
+        app:srcCompat="@drawable/ic_settings" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineDivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalHalf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_Game_Field"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="horizontal"
+        android:orientation="horizontal"
+        android:contentDescription="@string/gamefield"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Game_Left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

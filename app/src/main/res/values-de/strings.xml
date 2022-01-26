@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SET</string>
+    <string name="singleplayer">Einzelspieler</string>
+    <string name="multiplayer">Mehrspieler</string>
+    <string name="settings">Einstellungen</string>
+    <string name="set">SET</string>
+    <string name="gamefield">Spielfeld mit Karten</string>
+    <string name="string_break">Pause</string>
+    <string name="highscore">Bestenliste</string>
+    <string name="language">Sprache</string>
+    <string name="rulesSP">Einzelspielerregeln</string>
+    <string name="rulesMP">Mehrspielerregeln</string>
+    <string name="nightmode">Nachtmodus</string>
+    <string name="timer">Zeit</string>
+    <string name="deduction">Punktabzug</string>
+    <string name="suspended">Aussetzten</string>
+    <string name="switchOn">an</string>
+    <string name="deductionText">Ein Punkt Abzug bei falschem Set</string>
+    <string name="suspendedText">Aussetzten bis zum nächsten globalen Set</string>
+    <string name="timerText">Zeit zum Wählen des Sets</string>
+    <string name="switchOff">aus</string>
+</resources>
