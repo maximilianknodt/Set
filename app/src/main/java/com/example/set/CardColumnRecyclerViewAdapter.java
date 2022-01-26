@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 //Source: https://developer.android.com/guide/topics/ui/layout/recyclerview#java
 
 /**
- * The RecyclerViewAdapter for the Card Rows to display on the Game Screen
+ * The RecyclerViewAdapter for the Card Columns to display on the Game Screen
  *
  * @author Maximilian Knodt
  */

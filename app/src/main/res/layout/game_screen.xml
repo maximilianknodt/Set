@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--@author Maximilian Knodt-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_Right"

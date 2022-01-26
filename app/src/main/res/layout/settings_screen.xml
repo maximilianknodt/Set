@@ -8,6 +8,8 @@
     android:orientation="vertical"
     android:background="#525252">
 
+    <!--@author Maximilian Knodt-->
+
     <TextView
         android:id="@+id/textview_Start_Headline"
         android:layout_width="match_parent"
