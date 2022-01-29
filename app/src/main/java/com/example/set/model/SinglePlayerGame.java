@@ -43,7 +43,7 @@ public class SinglePlayerGame extends Game {
      * @param position2 position of the second card
      * @param position3 position of the third card
      */
-    void takeCard(int position1, int position2, int position3) {
+    public void takeCards(int position1, int position2, int position3) {
         if (takeSetChecked(position1, position2, position3)) {
             setAmount++;
             revealCards();
@@ -51,7 +51,7 @@ public class SinglePlayerGame extends Game {
             setAmount--;
         }
 
-        testForGameOver();
+        isOver();
     }
 
     /**
@@ -60,7 +60,7 @@ public class SinglePlayerGame extends Game {
      *
      * @return amount of found sets the player found
      */
-    int getSetAmount() {
+    public int getSetAmount() {
         return setAmount;
     }
 }

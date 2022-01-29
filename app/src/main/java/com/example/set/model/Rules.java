@@ -1,7 +1,5 @@
 package com.example.set.model;
 
-import androidx.annotation.NonNull;
-
 /**
  * The rules class for of the logic
  * Holds and returns the defined rules of the game.
@@ -48,7 +46,6 @@ public class Rules {
         this.multiPlayerSetTime = multiPlayerSetTime;
     }
 
-    @NonNull
     public Rules clone() {
         return new Rules(this.singlePlayerDeduction, this.multiPlayerDeduction, this.multiPlayerExposure, this.multiPlayerSetTime);
     }

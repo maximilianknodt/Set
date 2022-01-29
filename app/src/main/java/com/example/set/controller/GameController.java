@@ -1,29 +1,30 @@
 package com.example.set.controller;
 
+import com.example.set.model.Card;
+import com.example.set.model.Game;
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.Player;
 import com.example.set.model.Rules;
 import com.example.set.model.SinglePlayerGame;
 
-public class GameController {
-    private SinglePlayerGame currentSinglePlayerGame;
-    private MultiPlayerGame currentMultiPlayerGame;
+import java.util.ArrayList;
 
-    GameController() {
+public abstract class GameController {
+    protected Game game;
 
-    }
+    abstract void newGame();
 
-    void createNewSinglePlayerGame() {
-        currentSinglePlayerGame = new SinglePlayerGame(getCurrentRules());
-    }
-
-    void createNewMultiPlayerGame(Player[] players) {
-        currentMultiPlayerGame = new MultiPlayerGame(players, getCurrentRules());
-    }
-
-
-    private Rules getCurrentRules() {
+    protected Rules getCurrentRules() {
         //TODO: read current rules wand write them
         return new Rules(true,true,true,10);
     }
+
+    protected void updateCards() {
+        ArrayList<Card> cards = game.getTableCards();
+        //TODO: write to UI
+    }
+
+    abstract protected void updateScore();
+
+    abstract protected void gameEndScreen();
 }

@@ -29,6 +29,16 @@ public abstract class Game {
     private long startTime;
 
     /**
+     * the time the game resumed
+     */
+    private long resumeTime;
+
+    /**
+     * the time the game took before paused
+     */
+    private long timeBeforePaused;
+
+    /**
      * Constructor
      * Creates a game with as parameter given rules. Creates a table for the game.
      *
@@ -42,8 +52,10 @@ public abstract class Game {
     /**
      * starts a game by revealing the first cards and setting the time the game started
      */
-    void startGame() {
+    public void startGame() {
+        timeBeforePaused = 0;
         startTime = System.currentTimeMillis();
+        resumeTime = startTime;
         revealCards();
     }
 
@@ -51,15 +63,15 @@ public abstract class Game {
      * Getter
      * returns the time the game lasted at the current moment in seconds
      */
-    long getDuration() {
-        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime);
+    public long getDuration() {
+        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - resumeTime + timeBeforePaused);
     }
 
     /**
      * Getter
      * returns the time the game started in seconds
      */
-    long getStartTime() {
+    public long getStartTime() {
         return TimeUnit.MILLISECONDS.toSeconds(startTime);
     }
 
@@ -70,14 +82,26 @@ public abstract class Game {
     protected abstract void revealCards();
 
     /**
-     * checks if the game is over and messages the UI
-     * <p>
-     * TODO: implement the messaging of the UI via Controller
+     * pauses game (timer)
      */
-    protected void testForGameOver() {
-        if (table.getStackSize() <= 0 && noSetExists()) {
+    public void pause() {
+        timeBeforePaused = getDuration();
+    }
 
-        }
+    /**
+     * resumes game (timer)
+     */
+    public void resume() {
+        resumeTime = System.currentTimeMillis();
+    }
+
+    /**
+     * checks if the game is over
+     *
+     * @return the game is over
+     */
+    public boolean isOver() {
+        return table.getStackSize() <= 0 && noSetExists();
     }
 
     /**
@@ -135,6 +159,26 @@ public abstract class Game {
             return ((sameColor(card1, card2, card3) || differentColor(card1, card2, card3)) && (sameShape(card1, card2, card3) || differentForm(card1, card2, card3)) && (sameFilling(card1, card2, card3) || differentFilling(card1, card2, card3)) && (sameCount(card1, card2, card3) || differentCount(card1, card2, card3)));
         }
         return false;
+    }
+
+    /**
+     * Getter
+     * Returns the table cards.
+     *
+     * @return table cards
+     */
+    public ArrayList<Card> getTableCards() {
+        return table.getTableCards();
+    }
+
+    /**
+     * Getter
+     * Returns the rules of the game.
+     *
+     * @return the rules of the game
+     */
+    public Rules getRules() {
+        return rules;
     }
 
     /**
