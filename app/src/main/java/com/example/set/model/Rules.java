@@ -1,4 +1,4 @@
-package com.example.set.logic;
+package com.example.set.model;
 
 /**
  * The rules class for of the logic
@@ -28,7 +28,7 @@ public class Rules {
     /**
      * The time a player has in a multiplayer game to select a set after pressing set button
      */
-    private final long multiPlayerSetTime;
+    private final int multiPlayerSetTime;
 
     /**
      * Constructor
@@ -39,7 +39,7 @@ public class Rules {
      * @param multiPlayerExposure   Rule if wrong set in multi player mode should lead to exposure
      * @param multiPlayerSetTime    The time a player has in a multiplayer game to select a set after pressing set button
      */
-    public Rules(boolean singlePlayerDeduction, boolean multiPlayerDeduction, boolean multiPlayerExposure, long multiPlayerSetTime) {
+    public Rules(boolean singlePlayerDeduction, boolean multiPlayerDeduction, boolean multiPlayerExposure, int multiPlayerSetTime) {
         this.singlePlayerDeduction = singlePlayerDeduction;
         this.multiPlayerDeduction = multiPlayerDeduction;
         this.multiPlayerExposure = multiPlayerExposure;
@@ -82,7 +82,7 @@ public class Rules {
      *
      * @return the time a player has in a multiplayer game to select a set after pressing set button
      */
-    public long getMultiPlayerSetTime() {
+    public int getMultiPlayerSetTime() {
         return multiPlayerSetTime;
     }
 }

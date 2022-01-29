@@ -1,4 +1,4 @@
-package com.example.set.logic;
+package com.example.set.model;
 
 /**
  * The player class for of the logic

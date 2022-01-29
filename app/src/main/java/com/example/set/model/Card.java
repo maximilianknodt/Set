@@ -1,4 +1,4 @@
-package com.example.set.logic;
+package com.example.set.model;
 
 /**
  * colors of a Elements on a card

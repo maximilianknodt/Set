@@ -1,4 +1,4 @@
-package com.example.set.logic;
+package com.example.set.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

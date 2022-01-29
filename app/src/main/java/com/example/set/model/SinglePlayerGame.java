@@ -1,4 +1,4 @@
-package com.example.set.logic;
+package com.example.set.model;
 
 /**
  * The single player game class for of the logic

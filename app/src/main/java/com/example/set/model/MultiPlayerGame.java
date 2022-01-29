@@ -1,4 +1,4 @@
-package com.example.set.logic;
+package com.example.set.model;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,7 +12,7 @@ import java.util.TimerTask;
  * @author Linus Kurze
  * @version 1.0
  * <p>
- * TODO: Replace timer to a timer with visible remaining time
+ * TODO: Implement Messaging
  */
 public class MultiPlayerGame extends Game {
     /**
@@ -21,9 +21,9 @@ public class MultiPlayerGame extends Game {
     private final Player[] players;
 
     /**
-     * timer checking the time a player has to select a found set
+     * the time a player has to select a found set count down as timer
      */
-    private Timer setZeitTimer;
+    private Timer takeSetTimer;
 
     /**
      * Constructor
@@ -70,12 +70,20 @@ public class MultiPlayerGame extends Game {
         }
 
         if (rules.getMultiPlayerSetTime() > 0) {
-            setZeitTimer = new Timer();
-            setZeitTimer.schedule(new TimerTask() {
+            takeSetTimer = new Timer();
+
+            takeSetTimer.scheduleAtFixedRate(new TimerTask() {
+                int timeLeft = rules.getMultiPlayerSetTime();
+
                 public void run() {
-                    punishPlayer(player);
+                    timeLeft--;
+                    //TODO: Notify current time
+                    if (timeLeft < 0) {
+                        takeSetTimer.cancel();
+                        //TODO: Notify time over
+                    }
                 }
-            }, rules.getMultiPlayerSetTime());
+            }, 0, 1000);
         }
         return true;
     }
@@ -89,7 +97,7 @@ public class MultiPlayerGame extends Game {
      * @param position3 position of the third card
      */
     void takeSet(Player player, int position1, int position2, int position3) {
-        setZeitTimer.cancel();
+        takeSetTimer.cancel();
 
         if (takeSetChecked(position1, position2, position3)) {
             player.increaseSetAmount();
