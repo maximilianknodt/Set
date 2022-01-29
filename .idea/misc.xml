@@ -4,13 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/activity_main.xml" value="0.3541666666666667" />
-        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/game_screen.xml" value="0.371875" />
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/game_screen.xml" value="0.33958333333333335" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/game_screen_card_row.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/layout.xml" value="0.42552083333333335" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen.xml" value="0.371875" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen2.xml" value="0.34010416666666665" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen_alternate.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen_grid.xml" value="0.2998236331569665" />
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen_spinner_item.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/start_screen.xml" value="0.371875" />
       </map>
     </option>
