@@ -1,4 +1,4 @@
-package com.example.set;
+package com.example.set.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+
+import com.example.set.R;
+import com.example.set.ui.GameScreen;
+import com.example.set.ui.SettingsScreen;
 
 public class StartScreen extends AppCompatActivity {
 

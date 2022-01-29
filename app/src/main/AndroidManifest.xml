@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".StartScreen"
+            android:name=".ui.StartScreen"
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
@@ -20,10 +20,10 @@
             </intent-filter>
         </activity>
 
-    <activity android:name=".GameScreen"
+    <activity android:name=".ui.GameScreen"
         android:screenOrientation="landscape" />
 
-    <activity android:name=".SettingsScreen"
+    <activity android:name=".ui.SettingsScreen"
         android:screenOrientation="landscape" />
     </application>
 

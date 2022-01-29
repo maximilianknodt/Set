@@ -1,4 +1,4 @@
-package com.example.set;
+package com.example.set.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.set.R;
+
 /**
  * @author Maximilian Knodt
  */
@@ -16,7 +18,7 @@ public class GameScreen extends AppCompatActivity {
     private RecyclerView rvList;
 
     /**
-     * Class to handle onClickListener and to commit necessary information to the CardRowRecyclerViewAdapter
+     * Class to handle onClickListener and to commit necessary information to the CardColumnRecyclerViewAdapter
      * @param savedInstanceState
      */
     @Override

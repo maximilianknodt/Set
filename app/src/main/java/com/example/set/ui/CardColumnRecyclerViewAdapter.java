@@ -1,4 +1,4 @@
-package com.example.set;
+package com.example.set.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,11 +8,12 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.set.R;
+
 //Source: https://developer.android.com/guide/topics/ui/layout/recyclerview#java
 
 /**
  * The RecyclerViewAdapter for the Card Columns to display on the Game Screen
- *
  *
  * @author Maximilian Knodt
  */
@@ -22,7 +23,6 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
 
     /**
      * Constructor CardColumnRecyclerViewAdapter
-     *
      * @param context
      * @param cards int Array with Values for the Cards
      */
@@ -32,8 +32,7 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     }
 
     /**
-     * Creates a new Views for every Card Column
-     *
+     * Creates a new View for every Card Column
      * @param viewGroup
      * @param viewType
      * @return
@@ -74,7 +73,6 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
 
         /**
          * Constructor ViewHolder
-         *
          * @param view
          */
         public ViewHolder(View view){
