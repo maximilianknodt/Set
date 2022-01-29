@@ -21,9 +21,14 @@ public class MultiPlayerGame extends Game {
     private final Player[] players;
 
     /**
-     * the time a player has to select a found set count down as timer
+     * the time a player has to select a set count down as timer
      */
     private Timer takeSetTimer;
+
+    /**
+     * the time a player has left to select a set
+     */
+    private int takeSetTimeLeft;
 
     /**
      * Constructor
@@ -32,7 +37,7 @@ public class MultiPlayerGame extends Game {
      * @param players players playing in the game
      * @param rules   the rules for the game
      */
-    MultiPlayerGame(Player[] players, Rules rules) {
+    public MultiPlayerGame(Player[] players, Rules rules) {
         super(rules);
         this.players = players;
     }
@@ -64,7 +69,7 @@ public class MultiPlayerGame extends Game {
      * <p>
      * TODO: implement the messaging of the UI via Controller
      */
-    boolean set(Player player) {
+    <takeSetTimeLeft> boolean set(Player player) {
         if (player.isExposed()) {
             return false;
         }
@@ -72,20 +77,33 @@ public class MultiPlayerGame extends Game {
         if (rules.getMultiPlayerSetTime() > 0) {
             takeSetTimer = new Timer();
 
+            takeSetTimeLeft = rules.getMultiPlayerSetTime();
             takeSetTimer.scheduleAtFixedRate(new TimerTask() {
-                int timeLeft = rules.getMultiPlayerSetTime();
-
                 public void run() {
-                    timeLeft--;
-                    //TODO: Notify current time
-                    if (timeLeft < 0) {
+                    takeSetTimeLeft--;
+                    if (takeSetTimeLeft <= 0) {
+                        punishPlayer(player);
                         takeSetTimer.cancel();
-                        //TODO: Notify time over
                     }
                 }
-            }, 0, 1000);
+            }, 1000, 1000);
         }
         return true;
+    }
+
+    /**
+     * Getter
+     * returns the time a player has left to select a set in seconds
+     */
+    int getTakeSetTimeLeft() {
+        return takeSetTimeLeft;
+    }
+    /**
+     * Getter
+     * returns the time a player has left to select a set in seconds
+     */
+    boolean isTakeSetTimeOver() {
+        return takeSetTimeLeft <= 0;
     }
 
     /**

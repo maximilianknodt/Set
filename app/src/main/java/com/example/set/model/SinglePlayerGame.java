@@ -21,7 +21,7 @@ public class SinglePlayerGame extends Game {
      *
      * @param rules the rules for the game
      */
-    SinglePlayerGame(Rules rules) {
+    public SinglePlayerGame(Rules rules) {
         super(rules);
         setAmount = 0;
     }

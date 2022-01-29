@@ -1,6 +1,7 @@
 package com.example.set.model;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The game class for of the logic
@@ -15,12 +16,12 @@ public abstract class Game {
     /**
      * the table for the game
      */
-    protected Table table;
+    protected final Table table;
 
     /**
      * the rules for the game
      */
-    protected Rules rules;
+    protected final Rules rules;
 
     /**
      * the time the game started
@@ -34,7 +35,7 @@ public abstract class Game {
      * @param rules the rules for the game
      */
     Game(Rules rules) {
-        this.rules = rules;
+        this.rules = rules.clone();
         this.table = new Table();
     }
 
@@ -48,18 +49,18 @@ public abstract class Game {
 
     /**
      * Getter
-     * returns the time the game lasted at the current moment
+     * returns the time the game lasted at the current moment in seconds
      */
     long getDuration() {
-        return System.currentTimeMillis() - startTime;
+        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startTime);
     }
 
     /**
      * Getter
-     * returns the time the game started
+     * returns the time the game started in seconds
      */
     long getStartTime() {
-        return startTime;
+        return TimeUnit.MILLISECONDS.toSeconds(startTime);
     }
 
     /**
