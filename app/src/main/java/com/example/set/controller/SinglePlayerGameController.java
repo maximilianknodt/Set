@@ -4,20 +4,25 @@ import com.example.set.model.SinglePlayerGame;
 
 public class SinglePlayerGameController extends GameController {
 
-    @Override
-    void newGame() {
+    SinglePlayerGameController () {
+        super();
         game = new SinglePlayerGame(getCurrentRules());
-        game.startGame();
     }
 
     @Override
-    protected void updateScore() {
+    protected void writeScore() {
         int score = ((SinglePlayerGame)game).getSetAmount();
         //TODO: write to UI
     }
 
     @Override
-    protected void gameEndScreen() {
+    protected void writeEndScreen() {
+        //TODO: write to ui game over
+        writeGameInfo();
+    }
+
+    @Override
+    protected void writeGameInfo() {
         int score = ((SinglePlayerGame)game).getSetAmount();
         long start = game.getStartTime();
         long duration = game.getDuration();
@@ -25,12 +30,18 @@ public class SinglePlayerGameController extends GameController {
         //TODO: write to UI
     }
 
+    @Override
+    protected void periodicallyUpdate() {
+        updateTimer();
+    }
+
     void takeSetPressed(int position1, int position2, int position3) {
         ((SinglePlayerGame)game).takeCards(position1, position2, position3);
         updateCards();
-        updateScore();
+        writeScore();
         if(game.isOver()) {
-            gameEndScreen();
+            writeEndScreen();
         }
     }
+
 }

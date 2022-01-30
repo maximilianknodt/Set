@@ -76,7 +76,7 @@ public class Rules {
      *
      * @return if wrong set in multi player mode should lead to exposure
      */
-    public boolean getMultiPlayerExposure() {
+    public boolean isMultiPlayerExposure() {
         return multiPlayerExposure;
     }
 

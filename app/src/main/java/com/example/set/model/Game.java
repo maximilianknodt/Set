@@ -64,7 +64,7 @@ public abstract class Game {
      * returns the time the game lasted at the current moment in seconds
      */
     public long getDuration() {
-        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - resumeTime + timeBeforePaused);
+        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - resumeTime) + timeBeforePaused;
     }
 
     /**

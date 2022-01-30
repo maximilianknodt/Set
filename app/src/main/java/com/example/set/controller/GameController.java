@@ -2,17 +2,24 @@ package com.example.set.controller;
 
 import com.example.set.model.Card;
 import com.example.set.model.Game;
-import com.example.set.model.MultiPlayerGame;
-import com.example.set.model.Player;
 import com.example.set.model.Rules;
-import com.example.set.model.SinglePlayerGame;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class GameController {
     protected Game game;
+    private Timer timer;
 
-    abstract void newGame();
+    private final int UPDATES_PER_SECOND = 60;
+
+    public void startGame() {
+        game.startGame();
+        updateCards();
+        writeScore();
+        createPeriodicalTimer();
+    }
 
     protected Rules getCurrentRules() {
         //TODO: read current rules wand write them
@@ -24,7 +31,38 @@ public abstract class GameController {
         //TODO: write to UI
     }
 
-    abstract protected void updateScore();
+    protected void updateTimer() {
+        long duration = game.getDuration();
+        //TODO: write to UI
+    }
 
-    abstract protected void gameEndScreen();
+    abstract protected void writeScore();
+
+    abstract protected void writeEndScreen();
+
+    abstract protected void writeGameInfo();
+
+    abstract protected void periodicallyUpdate();
+
+    protected void pause() {
+        game.pause();
+        timer.cancel();
+        writeGameInfo();
+    }
+
+    protected void resume() {
+        game.resume();
+        createPeriodicalTimer();
+        //TODO: write to UI
+    }
+
+    private void createPeriodicalTimer() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                periodicallyUpdate();
+            }
+        }, 0, 1000 / UPDATES_PER_SECOND);
+    }
 }

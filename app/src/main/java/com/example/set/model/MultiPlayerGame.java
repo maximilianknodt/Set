@@ -1,7 +1,6 @@
 package com.example.set.model;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The multi player game class for of the logic
@@ -11,8 +10,6 @@ import java.util.TimerTask;
  *
  * @author Linus Kurze
  * @version 1.0
- * <p>
- * TODO: Implement Messaging
  */
 public class MultiPlayerGame extends Game {
     /**
@@ -21,14 +18,9 @@ public class MultiPlayerGame extends Game {
     private final Player[] players;
 
     /**
-     * the time a player has to select a set count down as timer
+     * the time a player has pressed set
      */
-    private Timer takeSetTimer;
-
-    /**
-     * the time a player has left to select a set
-     */
-    private int takeSetTimeLeft;
+    private long takeSetTimeStart;
 
     /**
      * Constructor
@@ -67,27 +59,13 @@ public class MultiPlayerGame extends Game {
      * @param player player called set
      * @return player can try to take it (is not exposed)
      * <p>
-     * TODO: implement the messaging of the UI via Controller
      */
-    <takeSetTimeLeft> boolean set(Player player) {
+    public <takeSetTimeLeft> boolean set(Player player) {
         if (player.isExposed()) {
             return false;
         }
 
-        if (rules.getMultiPlayerSetTime() > 0) {
-            takeSetTimer = new Timer();
-
-            takeSetTimeLeft = rules.getMultiPlayerSetTime();
-            takeSetTimer.scheduleAtFixedRate(new TimerTask() {
-                public void run() {
-                    takeSetTimeLeft--;
-                    if (takeSetTimeLeft <= 0) {
-                        punishPlayer(player);
-                        takeSetTimer.cancel();
-                    }
-                }
-            }, 1000, 1000);
-        }
+        takeSetTimeStart = System.currentTimeMillis();
         return true;
     }
 
@@ -95,15 +73,15 @@ public class MultiPlayerGame extends Game {
      * Getter
      * returns the time a player has left to select a set in seconds
      */
-    int getTakeSetTimeLeft() {
-        return takeSetTimeLeft;
+    public long getTakeSetTimeLeft() {
+        return rules.getMultiPlayerSetTime() - TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - takeSetTimeStart);
     }
     /**
      * Getter
      * returns the time a player has left to select a set in seconds
      */
-    boolean isTakeSetTimeOver() {
-        return takeSetTimeLeft <= 0;
+    public boolean isTakeSetTimeOver() {
+        return getTakeSetTimeLeft() <= 0;
     }
 
     /**
@@ -114,9 +92,7 @@ public class MultiPlayerGame extends Game {
      * @param position2 position of the second card
      * @param position3 position of the third card
      */
-    void takeSet(Player player, int position1, int position2, int position3) {
-        takeSetTimer.cancel();
-
+    public void takeCards(Player player, int position1, int position2, int position3) {
         if (takeSetChecked(position1, position2, position3)) {
             player.increaseSetAmount();
         } else {
@@ -137,10 +113,10 @@ public class MultiPlayerGame extends Game {
      *
      * @param player the player getting punished
      */
-    private void punishPlayer(Player player) {
+    public void punishPlayer(Player player) {
         if (rules.isMultiPlayerDeduction()) {
             player.decreaseSetAmount();
-        } else if (rules.getMultiPlayerExposure()) {
+        } else if (rules.isMultiPlayerExposure()) {
             player.startExposure();
         }
     }

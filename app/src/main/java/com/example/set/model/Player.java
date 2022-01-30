@@ -29,7 +29,7 @@ public class Player {
      *
      * @param name name of the player
      */
-    Player(String name) {
+    public Player(String name) {
         this.name = name;
         this.setAmount = 0;
         this.exposed = false;
@@ -57,7 +57,7 @@ public class Player {
      *
      * @return amount of found sets the player found
      */
-    int getSetAmount() {
+    public int getSetAmount() {
         return setAmount;
     }
 
@@ -67,7 +67,7 @@ public class Player {
      *
      * @return the name of the player
      */
-    String getName() {
+    public String getName() {
         return name;
     }
 
@@ -75,7 +75,7 @@ public class Player {
      * Getter
      * returns if the player is exposed
      */
-    boolean isExposed() {
+    public boolean isExposed() {
         return exposed;
     }
 
