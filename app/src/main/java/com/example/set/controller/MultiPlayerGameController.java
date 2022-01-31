@@ -66,6 +66,18 @@ public class MultiPlayerGameController extends GameController {
         }
     }
 
+    @Override
+    protected void resume() {
+        game.resume();
+        createPeriodicalTimer();
+        if (currentPlayerIndex != -1) {
+            writeSetSelection();
+        } else {
+            writeCards();
+            writeScore();
+        }
+    }
+
     String[] getPlayerNames() {
         String[] names = new String[players.length];
         for(int i = 0; i < players.length; i++) {
@@ -82,20 +94,33 @@ public class MultiPlayerGameController extends GameController {
         return exposures;
     }
 
-    boolean setPressed(int playerIndex) {
+    void setPressed(int playerIndex) {
         currentPlayerIndex = playerIndex;
-        return ((MultiPlayerGame)game).set(players[currentPlayerIndex]);
+        if (((MultiPlayerGame)game).set(players[currentPlayerIndex])) {
+            writeSetSelection();
+        } else {
+            closeSetSelection();
+        }
     }
 
     void takeSetPressed(int position1, int position2, int position3) {
         if(currentPlayerIndex > -1) {
             ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
-            updateCards();
+            writeCards();
             writeScore();
             currentPlayerIndex = -1;
             if (game.isOver()) {
                 writeEndScreen();
             }
         }
+    }
+
+    private void writeSetSelection() {
+        String name = players[currentPlayerIndex].getName();
+        //TODO: Write to UI
+    }
+
+    private void closeSetSelection() {
+        //TODO: Close in UI
     }
 }

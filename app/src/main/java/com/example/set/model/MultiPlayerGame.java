@@ -18,9 +18,14 @@ public class MultiPlayerGame extends Game {
     private final Player[] players;
 
     /**
-     * the time a player has pressed set
+     * the time a player has pressed set or the time resumed
      */
     private long takeSetTimeStart;
+
+    /**
+     * the time passed a player has pressed set before paused
+     */
+    private long takeSetTimeBeforePaused;
 
     /**
      * Constructor
@@ -60,22 +65,48 @@ public class MultiPlayerGame extends Game {
      * @return player can try to take it (is not exposed)
      * <p>
      */
-    public <takeSetTimeLeft> boolean set(Player player) {
+    public boolean set(Player player) {
         if (player.isExposed()) {
             return false;
         }
 
         takeSetTimeStart = System.currentTimeMillis();
+        takeSetTimeBeforePaused = 0;
         return true;
     }
 
     /**
+     * pauses game
+     */
+    public void pause() {
+        timeBeforePaused = getDuration();
+        takeSetTimeBeforePaused = getTakeSetDuration();
+    }
+
+    /**
+     * resumes game
+     */
+    public void resume() {
+        resumeTime = System.currentTimeMillis();
+        takeSetTimeStart = System.currentTimeMillis();
+    }
+
+    /**
      * Getter
-     * returns the time a player has left to select a set in seconds
+     * returns the time a player has left to select a set
      */
     public long getTakeSetTimeLeft() {
-        return rules.getMultiPlayerSetTime() - TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - takeSetTimeStart);
+        return rules.getMultiPlayerSetTime() - getTakeSetDuration();
     }
+
+    /**
+     * Getter
+     * returns the time since a player pressed set
+     */
+    private long getTakeSetDuration() {
+        return System.currentTimeMillis() - takeSetTimeStart + takeSetTimeBeforePaused;
+    }
+
     /**
      * Getter
      * returns the time a player has left to select a set in seconds

@@ -16,7 +16,7 @@ public abstract class GameController {
 
     public void startGame() {
         game.startGame();
-        updateCards();
+        writeCards();
         writeScore();
         createPeriodicalTimer();
     }
@@ -26,7 +26,7 @@ public abstract class GameController {
         return new Rules(true,true,true,10);
     }
 
-    protected void updateCards() {
+    protected void writeCards() {
         ArrayList<Card> cards = game.getTableCards();
         //TODO: write to UI
     }
@@ -47,16 +47,13 @@ public abstract class GameController {
     protected void pause() {
         game.pause();
         timer.cancel();
+        //TODO: write pause screen
         writeGameInfo();
     }
 
-    protected void resume() {
-        game.resume();
-        createPeriodicalTimer();
-        //TODO: write to UI
-    }
+    protected abstract void resume();
 
-    private void createPeriodicalTimer() {
+    protected void createPeriodicalTimer() {
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

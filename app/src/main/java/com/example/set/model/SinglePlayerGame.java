@@ -55,6 +55,20 @@ public class SinglePlayerGame extends Game {
     }
 
     /**
+     * pauses game
+     */
+    public void pause() {
+        timeBeforePaused = getDuration();
+    }
+
+    /**
+     * resumes game
+     */
+    public void resume() {
+        resumeTime = System.currentTimeMillis();
+    }
+
+    /**
      * Getter
      * returns the amount of found sets the player found
      *

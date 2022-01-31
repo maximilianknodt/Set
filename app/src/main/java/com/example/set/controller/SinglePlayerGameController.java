@@ -35,9 +35,17 @@ public class SinglePlayerGameController extends GameController {
         updateTimer();
     }
 
+    @Override
+    protected void resume() {
+        game.resume();
+        createPeriodicalTimer();
+        writeCards();
+        writeScore();
+    }
+
     void takeSetPressed(int position1, int position2, int position3) {
         ((SinglePlayerGame)game).takeCards(position1, position2, position3);
-        updateCards();
+        writeCards();
         writeScore();
         if(game.isOver()) {
             writeEndScreen();

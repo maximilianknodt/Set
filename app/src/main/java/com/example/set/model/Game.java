@@ -31,12 +31,12 @@ public abstract class Game {
     /**
      * the time the game resumed
      */
-    private long resumeTime;
+    protected long resumeTime;
 
     /**
      * the time the game took before paused
      */
-    private long timeBeforePaused;
+    protected long timeBeforePaused;
 
     /**
      * Constructor
@@ -84,16 +84,12 @@ public abstract class Game {
     /**
      * pauses game (timer)
      */
-    public void pause() {
-        timeBeforePaused = getDuration();
-    }
+    public abstract void pause();
 
     /**
      * resumes game (timer)
      */
-    public void resume() {
-        resumeTime = System.currentTimeMillis();
-    }
+    public abstract void resume();
 
     /**
      * checks if the game is over
