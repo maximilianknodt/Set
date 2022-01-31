@@ -3,10 +3,32 @@ package com.example.set.controller;
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.Player;
 
+/**
+ * The multi player game controller class
+ * A class holding the logic of multi player games.
+ * <p>
+ * The author is responsible for this class.
+ *
+ * @author Linus Kurze
+ * @version 1.0
+ */
 public class MultiPlayerGameController extends GameController {
+    /**
+     * the players for the game
+     */
     private Player[] players;
+
+    /**
+     * the player index who is selected for selecting a set (if there is no selected player: -1)
+     */
     private int currentPlayerIndex;
 
+    /**
+     * Constructor
+     * Calls super constructor. Initializes the players, the currentPlayerIndex and the game with a new instance.
+     *
+     * @param names names of the players
+     */
     MultiPlayerGameController (String[] names) {
         super();
         currentPlayerIndex = -1;
@@ -19,6 +41,9 @@ public class MultiPlayerGameController extends GameController {
         game = new MultiPlayerGame(players, getCurrentRules());
     }
 
+    /**
+     * Writes the score to the UI.
+     */
     @Override
     protected void writeScore() {
         for(Player player : players) {
@@ -27,6 +52,9 @@ public class MultiPlayerGameController extends GameController {
         }
     }
 
+    /**
+     * Writes the screen at the end of a game to the UI.
+     */
     @Override
     protected void writeEndScreen() {
         //TODO: write to UI game over
@@ -40,6 +68,9 @@ public class MultiPlayerGameController extends GameController {
         writeGameInfo();
     }
 
+    /**
+     * Writes the game info to the UI.
+     */
     @Override
     protected void writeGameInfo() {
         for(Player player : players) {
@@ -53,9 +84,12 @@ public class MultiPlayerGameController extends GameController {
         //TODO: write to UI
     }
 
+    /**
+     * Contains the things to be periodically updated.
+     */
     @Override
     protected void periodicallyUpdate() {
-        updateTimer();
+        writeDuration();
         if (currentPlayerIndex != -1) {
             long selectSetTimeLeft = ((MultiPlayerGame)game).getTakeSetTimeLeft();
             if (((MultiPlayerGame)game).isTakeSetTimeOver()) {
@@ -66,6 +100,9 @@ public class MultiPlayerGameController extends GameController {
         }
     }
 
+    /**
+     * Resumes the game.
+     */
     @Override
     protected void resume() {
         game.resume();
@@ -78,31 +115,36 @@ public class MultiPlayerGameController extends GameController {
         }
     }
 
-    String[] getPlayerNames() {
-        String[] names = new String[players.length];
-        for(int i = 0; i < players.length; i++) {
-            names[i] = players[i].getName();
-        }
-        return names;
+    /**
+     * Function called when button set is pressed.
+     */
+    void setPressed() {
+        writePlayerSelection();
     }
 
-    boolean[] getPlayerExposed() {
-        boolean[] exposures = new boolean[players.length];
-        for(int i = 0; i < players.length; i++) {
-            exposures[i] = players[i].isExposed();
-        }
-        return exposures;
-    }
-
-    void setPressed(int playerIndex) {
+    /**
+     * Function called when player is selected.
+     *
+     * @param playerIndex the index of the player beeing selected
+     */
+    void selectPlayer(int playerIndex) {
         currentPlayerIndex = playerIndex;
         if (((MultiPlayerGame)game).set(players[currentPlayerIndex])) {
             writeSetSelection();
         } else {
+            // TODO: notify via UI that player is exposed
             closeSetSelection();
         }
     }
 
+    /**
+     * Function called when the button take set is pressed.
+     *
+     * @param position1 position of the first card
+     * @param position2 position of the second card
+     * @param position3 position of the third card
+     */
+    @Override
     void takeSetPressed(int position1, int position2, int position3) {
         if(currentPlayerIndex > -1) {
             ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
@@ -115,12 +157,55 @@ public class MultiPlayerGameController extends GameController {
         }
     }
 
+    /**
+     * Writes the players to select to the UI.
+     */
+    private void writePlayerSelection() {
+        String[] names = getPlayerNames();
+        boolean[] exposures = getPlayersExposed();
+        //TODO: Write to UI
+    }
+
+    /**
+     * Writes the set selection to select to the UI.
+     */
     private void writeSetSelection() {
         String name = players[currentPlayerIndex].getName();
         //TODO: Write to UI
     }
 
+    /**
+     * Closes the set selection to select on the UI.
+     */
     private void closeSetSelection() {
         //TODO: Close in UI
+    }
+
+    /**
+     * Getter
+     * Returns all players names.
+     *
+     * @return all players names
+     */
+    private String[] getPlayerNames() {
+        String[] names = new String[players.length];
+        for(int i = 0; i < players.length; i++) {
+            names[i] = players[i].getName();
+        }
+        return names;
+    }
+
+    /**
+     * Getter
+     * Returns for each player if he is exposed.
+     *
+     * @return exposure for each player
+     */
+    private boolean[] getPlayersExposed() {
+        boolean[] exposures = new boolean[players.length];
+        for(int i = 0; i < players.length; i++) {
+            exposures[i] = players[i].isExposed();
+        }
+        return exposures;
     }
 }

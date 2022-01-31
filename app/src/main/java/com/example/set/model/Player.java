@@ -36,14 +36,14 @@ public class Player {
     }
 
     /**
-     * increases the amount of found sets the player found
+     * Increases the amount of found sets the player found.
      */
     void increaseSetAmount() {
         setAmount++;
     }
 
     /**
-     * decreases the amount of found sets the player found
+     * Decreases the amount of found sets the player found.
      */
     void decreaseSetAmount() {
         if (setAmount > 0) {
@@ -53,7 +53,7 @@ public class Player {
 
     /**
      * Getter
-     * returns the amount of found sets the player found
+     * Returns the amount of found sets the player found.
      *
      * @return amount of found sets the player found
      */
@@ -63,7 +63,7 @@ public class Player {
 
     /**
      * Getter
-     * returns the name of the player
+     * Returns the name of the player.
      *
      * @return the name of the player
      */
@@ -73,7 +73,7 @@ public class Player {
 
     /**
      * Getter
-     * returns if the player is exposed
+     * Returns if the player is exposed.
      */
     public boolean isExposed() {
         return exposed;
@@ -81,7 +81,7 @@ public class Player {
 
     /**
      * Setter
-     * starts the exposure of the player
+     * Starts the exposure of the player.
      */
     void startExposure() {
         exposed = true;
@@ -89,7 +89,7 @@ public class Player {
 
     /**
      * Setter
-     * ends the exposure of the player
+     * Ends the exposure of the player.
      */
     void endExposure() {
         exposed = false;

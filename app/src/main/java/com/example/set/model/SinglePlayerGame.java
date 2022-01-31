@@ -1,7 +1,7 @@
 package com.example.set.model;
 
 /**
- * The single player game class for of the logic
+ * The single player game class
  * A class holding the logic of single player games.
  * <p>
  * The author is responsible for this class.
@@ -55,14 +55,14 @@ public class SinglePlayerGame extends Game {
     }
 
     /**
-     * pauses game
+     * Pauses the game.
      */
     public void pause() {
         timeBeforePaused = getDuration();
     }
 
     /**
-     * resumes game
+     * Resumes the game.
      */
     public void resume() {
         resumeTime = System.currentTimeMillis();
@@ -70,7 +70,7 @@ public class SinglePlayerGame extends Game {
 
     /**
      * Getter
-     * returns the amount of found sets the player found
+     * Returns the amount of found sets the player found.
      *
      * @return amount of found sets the player found
      */

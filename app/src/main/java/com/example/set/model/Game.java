@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 /**
- * The game class for of the logic
+ * The game class
  * An abstract class holding the common logic of single player and multiplayer games.
  * <p>
  * The author is responsible for this class.
@@ -50,7 +50,7 @@ public abstract class Game {
     }
 
     /**
-     * starts a game by revealing the first cards and setting the time the game started
+     * Starts a game by revealing the first cards and setting the time the game started.
      */
     public void startGame() {
         timeBeforePaused = 0;
@@ -61,7 +61,9 @@ public abstract class Game {
 
     /**
      * Getter
-     * returns the time the game lasted at the current moment in seconds
+     * Returns the time the game lasted at the current moment in seconds.
+     *
+     * @return the time the game lasted at the current moment in seconds
      */
     public long getDuration() {
         return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - resumeTime) + timeBeforePaused;
@@ -69,7 +71,9 @@ public abstract class Game {
 
     /**
      * Getter
-     * returns the time the game started in seconds
+     * Returns the time the game started in seconds.
+     *
+     * @return the time the game started in seconds
      */
     public long getStartTime() {
         return TimeUnit.MILLISECONDS.toSeconds(startTime);
@@ -77,22 +81,22 @@ public abstract class Game {
 
     /**
      * Abstract method
-     * reveals as much cards as necessary or possible
+     * Reveals as much cards as necessary or possible.
      */
     protected abstract void revealCards();
 
     /**
-     * pauses game (timer)
+     * Pauses the game.
      */
     public abstract void pause();
 
     /**
-     * resumes game (timer)
+     * Resumes the game.
      */
     public abstract void resume();
 
     /**
-     * checks if the game is over
+     * Checks if the game is over.
      *
      * @return the game is over
      */

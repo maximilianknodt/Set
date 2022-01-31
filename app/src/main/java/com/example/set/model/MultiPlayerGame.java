@@ -1,9 +1,7 @@
 package com.example.set.model;
 
-import java.util.concurrent.TimeUnit;
-
 /**
- * The multi player game class for of the logic
+ * The multi player game class
  * A class holding the logic of multi player games.
  * <p>
  * The author is responsible for this class.
@@ -40,7 +38,7 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
-     * reveals cards till the default amount is reached if possible
+     * Reveals cards till the default amount is reached if possible.
      */
     @Override
     protected void revealCards() {
@@ -76,7 +74,7 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
-     * pauses game
+     * Pauses the game.
      */
     public void pause() {
         timeBeforePaused = getDuration();
@@ -84,7 +82,7 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
-     * resumes game
+     * Resumes the game.
      */
     public void resume() {
         resumeTime = System.currentTimeMillis();
@@ -93,7 +91,9 @@ public class MultiPlayerGame extends Game {
 
     /**
      * Getter
-     * returns the time a player has left to select a set
+     * Returns the time a player has left to select a set.
+     *
+     * @return the time a player has left to select a set
      */
     public long getTakeSetTimeLeft() {
         return rules.getMultiPlayerSetTime() - getTakeSetDuration();
@@ -101,7 +101,9 @@ public class MultiPlayerGame extends Game {
 
     /**
      * Getter
-     * returns the time since a player pressed set
+     * Returns the time since a player pressed set.
+     *
+     * @return the time since a player pressed set
      */
     private long getTakeSetDuration() {
         return System.currentTimeMillis() - takeSetTimeStart + takeSetTimeBeforePaused;
@@ -109,7 +111,9 @@ public class MultiPlayerGame extends Game {
 
     /**
      * Getter
-     * returns the time a player has left to select a set in seconds
+     * Returns if the time a player has left to select is over.
+     *
+     * @return the time a player has left to select is over
      */
     public boolean isTakeSetTimeOver() {
         return getTakeSetTimeLeft() <= 0;
