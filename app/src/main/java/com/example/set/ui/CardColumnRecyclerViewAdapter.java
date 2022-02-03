@@ -18,7 +18,8 @@ import com.example.set.R;
  * @author Maximilian Knodt
  */
 public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColumnRecyclerViewAdapter.ViewHolder>{
-    private int cards[];                                // Contains the Data for the RecyclerView
+    // Contains the Data for the RecyclerView
+    private int cards[];
     private LayoutInflater inflater;
 
     /**
