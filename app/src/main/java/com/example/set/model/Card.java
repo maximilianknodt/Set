@@ -18,7 +18,7 @@ enum Shape {
  * fillings of a Elements on a card
  */
 enum Filling {
-    EMPTY, DOTTED, FULL
+    EMPTY, HALF_FULL, FULL
 }
 
 /**
