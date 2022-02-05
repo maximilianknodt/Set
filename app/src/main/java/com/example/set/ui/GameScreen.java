@@ -42,7 +42,7 @@ public class GameScreen extends AppCompatActivity {
         for(int i = 0; i < platzhalter.length; i++) platzhalter[i] = i + 1;
 
         this.rvList = findViewById(R.id.recyclerView_Game_Field);
-        // LinearLayout will show the Data in a horizontal List
+        // LinearLayout will show the Data in a horizontal List and will lay out from start to end ( = false)
         this.rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
         this.rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(),platzhalter));
         this.rvList.getAdapter();

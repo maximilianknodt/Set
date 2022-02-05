@@ -1,5 +1,7 @@
 package com.example.set.ui;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
+
+import java.util.Locale;
 
 /**
  * Class for the Settings Screen that handles the interaction with every element within itself
@@ -100,7 +104,26 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
      */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // TODO: Ueberpruefung welche Sprache ausgewaehlt wurde -> Aenderung der Sprachausgabe
+        // TODO: Ueberpruefung der Methode und Korrektur -> noch nicht funktionabel
+        // Get the string and transform it to Uppercase via the neutral locale ROOT
+        // Can be used as constant for the language code for a new locale
+        String language = parent.getItemAtPosition(position).toString().toUpperCase(Locale.ROOT);
+/**
+        String lang = parent.getItemAtPosition(position).toString();
+        String language = "";
+        if(lang.equals("English")) language = "en";
+        else if(lang.equals("German")) language ="de";
+*/
+        // Locale is the Object to format languages or numbers to a specific region of the world
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+
+        //Configuration descrices all device information -> need to be changed when language is changed
+        Configuration config = getResources().getConfiguration();
+        // Retrieving the LocalList with the default Local at the first position
+        config.getLocales().get(0);
+        getBaseContext().createConfigurationContext(config);
+
     }
 
     /**

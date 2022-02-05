@@ -98,8 +98,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_Game_Field"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_gravity="center"
         android:scrollbars="horizontal"
         android:orientation="horizontal"
         android:contentDescription="@string/gamefield"

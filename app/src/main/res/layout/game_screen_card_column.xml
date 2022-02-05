@@ -2,51 +2,53 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_row"
-    android:layout_width="70dp"
-    android:layout_height="match_parent">
+    android:id="@+id/card_column"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginHorizontal="10dp">
 
     <!-- @author Maximilian Knodt-->
 
     <TextView
         android:id="@+id/platzhalterOne"
-        android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
         android:background="#808080"
         android:gravity="center|center_horizontal"
         android:text="Platzhalter"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/platzhalterTwo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/platzhalterTwo"
-        android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
         android:background="#808080"
         android:gravity="center|center_horizontal"
         android:text="Platzhalter"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/platzhalterThree"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/platzhalterOne" />
 
     <TextView
         android:id="@+id/platzhalterThree"
-        android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
         android:background="#808080"
         android:gravity="center|center_horizontal"
         android:text="Platzhalter"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/platzhalterTwo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
