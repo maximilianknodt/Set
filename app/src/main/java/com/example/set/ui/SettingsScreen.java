@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         Switch switchDarkmode = this.findViewById(R.id.switch_Settings_Darkmode);
 
         Spinner spinnerLanguage = this.findViewById(R.id.spinner_Settings_Language);
+        spinnerLanguage.setOnItemSelectedListener(this);
 
         EditText editTextTimer = this.findViewById(R.id.editText_Settings_Timer);
 
@@ -123,6 +125,8 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         // Retrieving the LocalList with the default Local at the first position
         config.getLocales().get(0);
         getBaseContext().createConfigurationContext(config);
+
+        Toast.makeText(getApplicationContext(), "Language Changed", Toast.LENGTH_SHORT).show();
 
     }
 

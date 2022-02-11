@@ -19,7 +19,7 @@ import com.example.set.R;
  */
 public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColumnRecyclerViewAdapter.ViewHolder>{
     // Contains the Data for the RecyclerView
-    private int cards[];
+    private int cards[][];
     private LayoutInflater inflater;
 
     /**
@@ -27,7 +27,7 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
      * @param context
      * @param cards int Array with Values for the Cards
      */
-    public CardColumnRecyclerViewAdapter(Context context, int[] cards){
+    public CardColumnRecyclerViewAdapter(Context context, int[][] cards){
         this.inflater = LayoutInflater.from(context);
         this.cards = cards;
     }
@@ -51,9 +51,9 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position){
-        holder.cardOne.setText(Integer.toString(cards[position]));
-        holder.cardTwo.setText(Integer.toString(cards[position]));
-        holder.cardThree.setText(Integer.toString(cards[position]));
+        holder.cardOne.setText(Integer.toString(cards[position][0]));
+        holder.cardTwo.setText(Integer.toString(cards[position][1]));
+        holder.cardThree.setText(Integer.toString(cards[position][2]));
     }
 
     /**

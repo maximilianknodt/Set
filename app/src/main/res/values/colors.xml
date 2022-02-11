@@ -12,5 +12,9 @@
 
     <color name="darkmode_Headline">#DEffffff</color>
     <color name="darkmode_Text_Normal">#A3ffffff</color>
-    <color name="darkmode_Text_Desciption">#4Dffffff</color>
+    <color name="darkmode_Text_Description">#4Dffffff</color>
+    <color name="darkmode_Primary">#2b2b2b</color>
+    <color name="switchTrack">#ffebd2</color>
+    <color name="switchThumb">#e67e00</color>
+
 </resources>
