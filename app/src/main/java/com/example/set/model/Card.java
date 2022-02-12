@@ -3,28 +3,28 @@ package com.example.set.model;
 /**
  * colors of a Elements on a card
  */
-enum Color {
+public enum Color {
     RED, BLUE, GREEN
 }
 
 /**
  * shapes of a Elements on a card
  */
-enum Shape {
+public enum Shape {
     WAVE, OVAL, DIAMOND
 }
 
 /**
  * fillings of a Elements on a card
  */
-enum Filling {
+public enum Filling {
     EMPTY, HALF_FULL, FULL
 }
 
 /**
  * count of a Elements on a card
  */
-enum Count {
+public enum Count {
     ONE, TWO, THREE
 }
 
@@ -80,7 +80,7 @@ public class Card {
      *
      * @return color of Elements on the card
      */
-    Color getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -90,7 +90,7 @@ public class Card {
      *
      * @return shape of Elements on the card
      */
-    Shape getShape() {
+    public Shape getShape() {
         return shape;
     }
 
@@ -100,7 +100,7 @@ public class Card {
      *
      * @return filling of Elements on the card
      */
-    Filling getFilling() {
+    public Filling getFilling() {
         return filling;
     }
 
@@ -110,7 +110,7 @@ public class Card {
      *
      * @return count of Elements on the card
      */
-    Count getCount() {
+    public Count getCount() {
         return count;
     }
 
