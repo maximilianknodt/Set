@@ -104,9 +104,11 @@ public class GameScreen extends AppCompatActivity {
         ArrayList<Card> platzhalter = new ArrayList<>();
         for(int i = 0; i < 21; i++) {
             Card card1 = new Card(Color.RED, Shape.WAVE, Filling.EMPTY, Count.THREE);
-            Card card2 = new Card(Color.RED, Shape.WAVE, Filling.EMPTY, Count.TWO);
+            Card card2 = new Card(Color.BLUE, Shape.DIAMOND, Filling.HALF_FULL, Count.TWO);
+            Card card3 = new Card(Color.GREEN, Shape.OVAL, Filling.FULL, Count.ONE);
             if(i % 3 == 0) platzhalter.add(card1);
-            else platzhalter.add(card2);
+            else if (i % 3 == 1) platzhalter.add(card2);
+                    else platzhalter.add(card3);
         }
 
         this.rvList = findViewById(R.id.recyclerView_Game_Field);
