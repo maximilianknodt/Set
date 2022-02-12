@@ -1,34 +1,6 @@
 package com.example.set.model;
 
 /**
- * colors of a Elements on a card
- */
-enum Color {
-    RED, BLUE, GREEN
-}
-
-/**
- * shapes of a Elements on a card
- */
-enum Shape {
-    WAVE, OVAL, DIAMOND
-}
-
-/**
- * fillings of a Elements on a card
- */
-enum Filling {
-    EMPTY, HALF_FULL, FULL
-}
-
-/**
- * count of a Elements on a card
- */
-enum Count {
-    ONE, TWO, THREE
-}
-
-/**
  * The card class for of the logic
  * Holds and returns the characteristics of a Card.
  * <p>
@@ -67,7 +39,7 @@ public class Card {
      * @param filling filling of the elements on the card
      * @param count   count of the elements on the card
      */
-    Card(Color color, Shape shape, Filling filling, Count count) {
+    public Card(Color color, Shape shape, Filling filling, Count count) { //TODO: Sichtbarkeit wieder veringern
         this.color = color;
         this.shape = shape;
         this.filling = filling;
@@ -80,7 +52,7 @@ public class Card {
      *
      * @return color of Elements on the card
      */
-    Color getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -90,7 +62,7 @@ public class Card {
      *
      * @return shape of Elements on the card
      */
-    Shape getShape() {
+    public Shape getShape() {
         return shape;
     }
 
@@ -100,7 +72,7 @@ public class Card {
      *
      * @return filling of Elements on the card
      */
-    Filling getFilling() {
+    public Filling getFilling() {
         return filling;
     }
 
@@ -110,7 +82,7 @@ public class Card {
      *
      * @return count of Elements on the card
      */
-    Count getCount() {
+    public Count getCount() {
         return count;
     }
 

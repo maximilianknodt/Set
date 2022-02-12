@@ -10,45 +10,93 @@
 
     <!-- @author Maximilian Knodt-->
 
-    <TextView
-        android:id="@+id/platzhalterOne"
-        android:layout_width="55dp"
-        android:layout_height="75dp"
-        android:background="#808080"
-        android:gravity="center|center_horizontal"
-        android:text="Platzhalter"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/platzhalterTwo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/platzhalterTwo"
+    <LinearLayout
+        android:id="@+id/cardTop"
         android:layout_width="55dp"
         android:layout_height="75dp"
-        android:background="#808080"
-        android:gravity="center|center_horizontal"
-        android:text="Platzhalter"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/platzhalterThree"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/platzhalterOne" />
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/cardMiddle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/platzhalterThree"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cardMiddle"
         android:layout_width="55dp"
         android:layout_height="75dp"
-        android:background="#808080"
-        android:gravity="center|center_horizontal"
-        android:text="Platzhalter"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/cardBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardTop">
+
+        <ImageView
+            android:id="@+id/cardMiddle_imageView_Top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_item_diamond_empty" />
+
+        <ImageView
+            android:id="@+id/cardMiddle_imageView_Middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_item_diamond_empty" />
+
+        <ImageView
+            android:id="@+id/cardMiddle_imageView_Bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_item_diamond_empty" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cardBottom"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/platzhalterTwo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardMiddle"
+        tools:layout_editor_absoluteX="1dp">
+
+        <ImageView
+            android:id="@+id/cardBottom_imageView_Top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_item_diamond_empty" />
+
+        <ImageView
+            android:id="@+id/cardBottom_imageView_Middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_item_diamond_empty" />
+
+        <ImageView
+            android:id="@+id/cardBottom_imageView_Bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_item_diamond_empty" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

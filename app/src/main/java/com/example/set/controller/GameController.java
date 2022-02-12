@@ -3,6 +3,7 @@ package com.example.set.controller;
 import com.example.set.model.Card;
 import com.example.set.model.Game;
 import com.example.set.model.Rules;
+import com.example.set.ui.GameScreen;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -27,6 +28,8 @@ public abstract class GameController {
      * the timer for periodical updates
      */
     private Timer timer;
+
+    GameScreen gameScreen = new GameScreen();
 
     /**
      * the time for periodical updates in Hz (1/s)
@@ -59,6 +62,7 @@ public abstract class GameController {
     protected void writeCards() {
         ArrayList<Card> cards = game.getTableCards();
         //TODO: write to UI
+        this.gameScreen.setCards(cards);
     }
 
     /**
