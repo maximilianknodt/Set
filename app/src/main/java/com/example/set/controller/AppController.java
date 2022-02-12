@@ -1,5 +1,14 @@
 package com.example.set.controller;
 
+/**
+ * The controller class for the whole logic
+ * Holds and returns other controllers.
+ * <p>
+ * The author is responsible for this class.
+ *
+ * @author Linus Kurze
+ * @version 1.0
+ */
 public class AppController {
     /**
      * the controller of the current single player game

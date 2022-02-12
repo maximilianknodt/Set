@@ -29,7 +29,7 @@ enum Count {
 }
 
 /**
- * The card class for of the logic
+ * The card class of the logic
  * Holds and returns the characteristics of a Card.
  * <p>
  * The author is responsible for this class.
