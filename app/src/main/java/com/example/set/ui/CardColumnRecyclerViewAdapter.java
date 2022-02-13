@@ -64,17 +64,6 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position){
-        //holder.cardOne.setText(Integer.toString(cards[position][0]));
-        //holder.cardTwo.setText(Integer.toString(cards[position][1]));
-        //holder.cardThree.setText(Integer.toString(cards[position][2]));
-
-        //holder.cardOne.findViewById(R.id.cardTop_imageView_Top).setVisibility(View.VISIBLE);
-
-        /**
-        holder.test(holder.cardOne, this.cards[position][0]);
-        holder.test(holder.cardTwo, this.cards[position][1]);
-        holder.test(holder.cardThree, this.cards[position][2]);
-*/
         holder.cardOne.setOnClickListener(view -> {
             gameScreen.cardClicked(position, 0, view);
         });
@@ -120,26 +109,6 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
             this.cardTwo = view.findViewById(R.id.cardMiddle);
             this.cardThree = view.findViewById(R.id.cardBottom);
         }
-
-        /**
-        private void test(LinearLayout linearlayout, Card card){
-            Count count = card.getCount();
-            switch(count){
-                case ONE: linearlayout.findViewById(R.id.cardTop_imageView_Top).setVisibility(View.VISIBLE);
-                    break;
-                case TWO: ImageView iv = linearlayout.findViewById(R.id.cardTop_imageView_Top);
-                        iv.setVisibility(View.VISIBLE);
-                    linearlayout.findViewById(R.id.cardTop_imageView_Middle).setVisibility(View.VISIBLE);
-                    break;
-                case THREE: linearlayout.findViewById(R.id.cardTop_imageView_Top).setVisibility(View.VISIBLE);
-                    linearlayout.findViewById(R.id.cardTop_imageView_Middle).setVisibility(View.VISIBLE);
-                    linearlayout.findViewById(R.id.cardTop_imageView_Bottom).setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    break;
-            }
-        }
-         */
 
         /**
          * Getter

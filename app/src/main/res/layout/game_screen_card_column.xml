@@ -23,7 +23,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </LinearLayout>
 
     <LinearLayout
@@ -38,30 +37,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardTop">
-
-        <ImageView
-            android:id="@+id/cardMiddle_imageView_Top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_item_diamond_empty" />
-
-        <ImageView
-            android:id="@+id/cardMiddle_imageView_Middle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_item_diamond_empty" />
-
-        <ImageView
-            android:id="@+id/cardMiddle_imageView_Bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_item_diamond_empty" />
     </LinearLayout>
 
     <LinearLayout
@@ -77,29 +52,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardMiddle"
         tools:layout_editor_absoluteX="1dp">
-
-        <ImageView
-            android:id="@+id/cardBottom_imageView_Top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_item_diamond_empty" />
-
-        <ImageView
-            android:id="@+id/cardBottom_imageView_Middle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_item_diamond_empty" />
-
-        <ImageView
-            android:id="@+id/cardBottom_imageView_Bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_item_diamond_empty" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
