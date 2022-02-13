@@ -139,8 +139,6 @@ public class MultiPlayerGame extends Game {
                 p.endExposure();
             }
         }
-
-        isOver();
     }
 
     /**

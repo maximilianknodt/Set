@@ -1,5 +1,7 @@
 package com.example.set.controller;
 
+import android.util.Log;
+
 import com.example.set.model.SinglePlayerGame;
 import com.example.set.ui.GameScreen;
 
@@ -39,6 +41,7 @@ public class SinglePlayerGameController extends GameController {
     protected void writeEndScreen() {
         //TODO: write to ui game over
         writeGameInfo();
+        Log.wtf("Gamestatus", "over");
     }
 
     /**

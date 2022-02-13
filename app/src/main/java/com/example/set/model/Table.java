@@ -49,6 +49,7 @@ public class Table {
         }
 
         Collections.shuffle(stack);
+        stack.setSize(21);
     }
 
     /**
@@ -94,9 +95,21 @@ public class Table {
             replaceCardFromStack(position2);
             replaceCardFromStack(position3);
         } else {
-            replaceCard(position1, getTableCardsCount() - 1);
-            replaceCard(position2, getTableCardsCount() - 1);
-            replaceCard(position3, getTableCardsCount() - 1);
+            if(position1 < getTableCardsCount() -3) {
+                replaceCard(position1, getTableCardsCount() - 1);
+            } else {
+                tableCards.remove(position1);
+            }
+            if(position2 < getTableCardsCount() -2) {
+                replaceCard(position2, getTableCardsCount() - 1);
+            } else {
+                tableCards.remove(position2);
+            }
+            if(position3 < getTableCardsCount() -1) {
+                replaceCard(position3, getTableCardsCount() - 1);
+            } else {
+                tableCards.remove(position3);
+            }
         }
     }
 
@@ -143,6 +156,9 @@ public class Table {
      */
     private void replaceCard(int positionToReplace, int positionToTake) {
         tableCards.remove(positionToReplace);
+        if(positionToReplace < positionToTake) {
+            positionToTake -= 1;
+        }
         Card card = tableCards.remove(positionToTake);
         if (card != null) {
             tableCards.add(positionToReplace, card);

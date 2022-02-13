@@ -36,6 +36,12 @@ public class GameScreen extends AppCompatActivity {
     private LinkedList<CardData> lastCardPos;
 
     /**
+     * Class to handle onClickListener and to commit necessary information to the CardColumnRecyclerViewAdapter
+     *
+     * @param savedInstanceState
+     */
+
+    /**
      * onCreate method of the gameScreen, called when a game starts
      *
      * @param savedInstanceState
@@ -92,6 +98,24 @@ public class GameScreen extends AppCompatActivity {
 
     }
 
+
+    private int[][] cardValues(ArrayList<Integer> test){
+        int[][] result = new int[test.size()/rows][rows];
+        int counterColumn = -1;
+        int counterRow = -1;
+
+        for(int i = 0; i < test.size(); i++){
+            if(i % 3 == 0){
+                counterColumn++;
+                counterRow = 0;
+            } else {
+                counterRow++;
+            }
+            result[counterColumn][counterRow] = test.get(i);
+        }
+        return result;
+    }
+
     /**
      * Method called when a card is clicked.
      *
@@ -101,7 +125,6 @@ public class GameScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     public void cardClicked(int x, int y, View view) {
-        Log.wtf("Selected Card", "x: " + x + " y: " + y);
         CardData current = new CardData(x,y,view);
         if(lastCardPos.contains(current)) {
             setCardNotSelected(view);
@@ -246,6 +269,26 @@ public class GameScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     private void envokeRecyclerView(ArrayList<Card> cards){
+        //TODO: Ersetzten des Platzhalter durch Array mit den korrekten Kartendaten
+        /*ArrayList<Card> platzhalter = new ArrayList<>();
+        for(int i = 0; i < 21; i++) {
+            Card card1 = new Card(Color.RED, Shape.WAVE, Filling.EMPTY, Count.THREE);
+            Card card2 = new Card(Color.BLUE, Shape.DIAMOND, Filling.HALF_FULL, Count.TWO);
+            Card card3 = new Card(Color.GREEN, Shape.OVAL, Filling.FULL, Count.ONE);
+            if(i % 3 == 0) platzhalter.add(card1);
+            else if (i % 3 == 1) platzhalter.add(card2);
+                    else platzhalter.add(card3);
+        }
+        cards = platzhalter;*/
+
+
+        /*this.rvList = findViewById(R.id.recyclerView_Game_Field);
+        // LinearLayout will show the Data in a horizontal List and will lay out from start to end ( = false)
+        this.rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
+        this.rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(),this.alignTableCards(cards)));
+        this.rvList.getAdapter();*/
+
+
         // LinearLayout will show the Data in a horizontal List and will lay out from start to end ( = false)
         rvList.removeAllViews();
         rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
