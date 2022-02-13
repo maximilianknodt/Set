@@ -1,20 +1,34 @@
 package com.example.set.ui;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableWrapper;
 import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import androidx.recyclerview.widget.*;
 
 import com.example.set.R;
 import com.example.set.model.Card;
 import com.example.set.model.Color;
 import com.example.set.model.Count;
+import com.example.set.model.Filling;
+import com.example.set.model.Shape;
 
 //Source: https://developer.android.com/guide/topics/ui/layout/recyclerview#java
 
@@ -127,22 +141,93 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
         }
          */
 
+        /**
+         * Getter
+         * Returns the drawable for a card.
+         *
+         * @return drawable for a card
+         *
+         * @author Linus Kurze
+         */
+        private int symbolImage(Card card){
+            int image = 0;
+            Shape shape = card.getShape();
+            Filling filling = card.getFilling();
+            switch(shape){
+                case DIAMOND:
+                    switch(filling){
+                        case FULL:
+                            image = R.drawable.card_item_diamond_full;
+                            break;
+                        case HALF_FULL:
+                            image = R.drawable.card_item_diamond_half_full;
+                            break;
+                        case EMPTY:
+                            image = R.drawable.card_item_diamond_empty;
+                            break;
+                    }
+                    break;
+                case OVAL:
+                    switch(filling){
+                        case FULL:
+                            image = R.drawable.card_item_oval_full;
+                            break;
+                        case HALF_FULL:
+                            image = R.drawable.card_item_oval_half_full;
+                            break;
+                        case EMPTY:
+                            image = R.drawable.card_item_oval_empty;
+                            break;
+                    }
+                    break;
+                case WAVE:
+                    switch(filling){
+                        case FULL:
+                            image = R.drawable.card_item_wave_full;
+                            break;
+                        case HALF_FULL:
+                            image = R.drawable.card_item_wave_half_full;
+                            break;
+                        case EMPTY:
+                            image = R.drawable.card_item_wave_empty;
+                            break;
+                    }
+                    break;
+            }
+            return image;
+        }
+
+        /**
+         * Getter
+         * Returns the color for a card.
+         *
+         * @return color for a card
+         *
+         * @author Maximilian Knodt
+         * @author Linus Kurze
+         */
         private int symbolColor(Card card){
             int colorValue = 0;
             Color color = card.getColor();
             switch(color){
-                case RED: colorValue = 2550000;
+                case RED: colorValue = R.color.card_red;
                     break;
-                case GREEN: colorValue = 0025500;
+                case GREEN: colorValue = R.color.card_green;
                     break;
-                case BLUE: colorValue = 0000255;
-                    break;
-                default:
+                case BLUE: colorValue = R.color.card_blue;
                     break;
             }
             return colorValue;
         }
 
+        /**
+         * Getter
+         * Returns the symbol cound for a card.
+         *
+         * @return symbol count for a card
+         *
+         * @author Maximilian Knodt
+         */
         private int symbolCount(Card card){
             int countValue = 0;
             Count count = card.getCount();
@@ -153,21 +238,29 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
                     break;
                 case THREE: countValue = 3;
                     break;
-                default:
-                    break;
             }
             return countValue;
         }
 
+        /**
+         * Draws a card.
+         *
+         * @author Maximilian Knodt
+         * @author Linus Kurze
+         */
         private void drawCard(Context context,LinearLayout linearlayout, Card card){
             int count = this.symbolCount(card);
-            int color = 0;
-            //LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            int color = this.symbolColor(card);
+            int image = this.symbolImage(card);
 
             for(int i = 0; i < count; i++){
                 ImageView symbol = new ImageView(context);
-                symbol.setImageResource(R.drawable.card_item_diamond_empty);
-                //symbol.setLayoutParams(params);
+
+                Drawable drawable = AppCompatResources.getDrawable(context, image);
+                drawable.setTint(ContextCompat.getColor(context, color));
+                symbol.setImageDrawable(drawable);
+
+                symbol.setLayoutParams(new ViewGroup.LayoutParams((int)((55-2*7) * context.getResources().getDisplayMetrics().density), (int)((75-2*7) / count * context.getResources().getDisplayMetrics().density)));
                 linearlayout.addView(symbol);
             }
 
