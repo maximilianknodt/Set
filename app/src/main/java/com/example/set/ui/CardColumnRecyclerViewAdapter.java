@@ -260,7 +260,10 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
                 drawable.setTint(ContextCompat.getColor(context, color));
                 symbol.setImageDrawable(drawable);
 
-                symbol.setLayoutParams(new ViewGroup.LayoutParams((int)((55-2*7) * context.getResources().getDisplayMetrics().density), (int)((75-2*7) / count * context.getResources().getDisplayMetrics().density)));
+                int height = (int)((75-2*7) / 3 * context.getResources().getDisplayMetrics().density);
+                int width = (int)((55-2*7) * context.getResources().getDisplayMetrics().density);
+
+                symbol.setLayoutParams(new ViewGroup.LayoutParams(width, height));
                 linearlayout.addView(symbol);
             }
 

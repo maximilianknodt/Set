@@ -1,5 +1,7 @@
 package com.example.set.controller;
 
+import com.example.set.ui.GameScreen;
+
 /**
  * The controller class for the whole logic
  * Holds and returns other controllers.
@@ -32,15 +34,15 @@ public class AppController {
     /**
      * Creates a new single player game.
      */
-    public void createNewSinglePlayerGame() {
-        this.singlePlayerGameController = new SinglePlayerGameController();
+    public void createNewSinglePlayerGame(GameScreen gameScreen) {
+        this.singlePlayerGameController = new SinglePlayerGameController(gameScreen);
     }
 
     /**
      * Creates a new multi player game.
      */
-    public void createNewMultiPlayerGame(String[] players) {
-        this.multiPlayerGameController = new MultiPlayerGameController(players);
+    public void createNewMultiPlayerGame(GameScreen gameScreen, String[] players) {
+        this.multiPlayerGameController = new MultiPlayerGameController(gameScreen, players);
     }
 
     /**

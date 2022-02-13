@@ -2,6 +2,7 @@ package com.example.set.controller;
 
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.Player;
+import com.example.set.ui.GameScreen;
 
 /**
  * The multi player game controller class
@@ -29,8 +30,8 @@ public class MultiPlayerGameController extends GameController {
      *
      * @param names names of the players
      */
-    MultiPlayerGameController (String[] names) {
-        super();
+    MultiPlayerGameController(GameScreen gameScreen, String[] names) {
+        super(gameScreen);
         currentPlayerIndex = -1;
 
         players = new Player[names.length];

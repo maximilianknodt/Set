@@ -1,6 +1,7 @@
 package com.example.set.controller;
 
 import com.example.set.model.SinglePlayerGame;
+import com.example.set.ui.GameScreen;
 
 /**
  * The single player game controller class
@@ -17,8 +18,8 @@ public class SinglePlayerGameController extends GameController {
      * Constructor
      * Calls super constructor. Initializes the game with a new instance.
      */
-    SinglePlayerGameController () {
-        super();
+    SinglePlayerGameController (GameScreen gameScreen) {
+        super(gameScreen);
         game = new SinglePlayerGame(getCurrentRules());
     }
 

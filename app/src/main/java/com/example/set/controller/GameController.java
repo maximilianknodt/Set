@@ -29,12 +29,23 @@ public abstract class GameController {
      */
     private Timer timer;
 
-    GameScreen gameScreen = new GameScreen();
+    /**
+     * the ui element for writing the game
+     */
+    private GameScreen gameScreen;
 
     /**
      * the time for periodical updates in Hz (1/s)
      */
     private final int UPDATES_PER_SECOND = 60;
+
+    /**
+     * Constructor
+     * Initializes the ui element for the game.
+     */
+    protected GameController(GameScreen gameScreen) {
+        this.gameScreen = gameScreen;
+    }
 
     /**
      * Starts the game.
@@ -62,7 +73,7 @@ public abstract class GameController {
     protected void writeCards() {
         ArrayList<Card> cards = game.getTableCards();
         //TODO: write to UI
-        this.gameScreen.setCards(cards);
+        gameScreen.setCards(cards);
     }
 
     /**
