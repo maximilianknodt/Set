@@ -49,7 +49,7 @@ public class Table {
         }
 
         Collections.shuffle(stack);
-        stack.setSize(21); //TODO: Rausnehmen
+        //stack.setSize(21); //TODO: Rausnehmen
     }
 
     /**
@@ -90,7 +90,7 @@ public class Table {
      * @param position3 position of the third card
      */
     void takeCardsFromTableCards(int position1, int position2, int position3) {
-        if (tableCards.size() <= DEFAULT_CARD_COUNT) {
+        /*if (tableCards.size() <= DEFAULT_CARD_COUNT) {
             replaceCardFromStack(position1);
             if(position2 >= getTableCardsCount()) {
                 position2--;
@@ -105,17 +105,55 @@ public class Table {
                 replaceCard(position1, getTableCardsCount() - 1);
             } else {
                 tableCards.remove(position1);
+                if(position2 > position1) {
+                    position2--;
+                }
+                if(position3 > position1) {
+                    position3--;
+                }
             }
             if(position2 < getTableCardsCount() -2) {
                 replaceCard(position2, getTableCardsCount() - 1);
             } else {
                 tableCards.remove(position2);
+                if(position3 > position2) {
+                    position3--;
+                }
             }
             if(position3 < getTableCardsCount() -1) {
                 replaceCard(position3, getTableCardsCount() - 1);
             } else {
                 tableCards.remove(position3);
             }
+        }*/
+
+        Card card1 = tableCards.get(position1);
+        Card card2 = tableCards.get(position2);
+        Card card3 = tableCards.get(position3);
+
+        if (tableCards.size() <= DEFAULT_CARD_COUNT) {
+            replaceCardFromStack(card1);
+            replaceCardFromStack(card2);
+            replaceCardFromStack(card3);
+        } else {
+            replaceCardWithLast(card1);
+            replaceCardWithLast(card2);
+            replaceCardWithLast(card3);
+        }
+    }
+
+    /**
+     * Replaces a card with the last Card on the Table
+     *
+     * @param card card to be replaced
+     */
+    private void replaceCardWithLast(Card card) {
+        Card last = tableCards.get(tableCards.size() - 1);
+        if (last == card) {
+            tableCards.remove(card);
+        } else {
+            tableCards.remove(last);
+            replaceCardExplicit(card, last);
         }
     }
 
@@ -148,6 +186,8 @@ public class Table {
 
     /**
      * Removes the card from the position given as parameter. Replaces it with a card from the stack if the stack is not empty.
+     *
+     * @param position position of the card to replace
      */
     private void replaceCardFromStack(int position) {
         tableCards.remove(position);
@@ -158,11 +198,37 @@ public class Table {
     }
 
     /**
+     * Removes the card from the position given as parameter. Replaces it with a card from the stack if the stack is not empty.
+     *
+     * @param card card to replace
+     */
+    private void replaceCardFromStack(Card card) {
+        replaceCardExplicit(card, takeCardFromStack());
+    }
+
+    /**
+     * Replaces a card on the table with another card
+     *
+     * @param card1 card to be replaced on the table
+     * @param card2 replacement card; not on table
+     */
+    private void replaceCardExplicit(Card card1, Card card2) {
+        int index = tableCards.indexOf(card1);
+        tableCards.remove(card1);
+        if (card2 != null) {
+            tableCards.add(index, card2);
+        }
+    }
+
+    /**
      * Removes the card from the position given as parameter. Replaces it with the card from the position given as other parameter.
+     *
+     * @param positionToReplace position of the card to replace
+     * @param positionToTake    position of the card to take for replacement
      */
     private void replaceCard(int positionToReplace, int positionToTake) {
         tableCards.remove(positionToReplace);
-        if(positionToReplace < positionToTake) {
+        if (positionToReplace < positionToTake) {
             positionToTake -= 1;
         }
         Card card = tableCards.remove(positionToTake);
