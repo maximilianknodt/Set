@@ -29,7 +29,7 @@ public class SinglePlayerGameController extends GameController {
     @Override
     protected void writeScore() {
         int score = ((SinglePlayerGame)game).getSetAmount();
-        //TODO: write to UI
+        gameScreen.setPoints(score);
     }
 
     /**
@@ -80,7 +80,7 @@ public class SinglePlayerGameController extends GameController {
      * @param position3 position of the third card
      */
     @Override
-    void takeSetPressed(int position1, int position2, int position3) {
+    public void takeSetPressed(int position1, int position2, int position3) {
         ((SinglePlayerGame)game).takeCards(position1, position2, position3);
         writeCards();
         writeScore();

@@ -1,14 +1,7 @@
 package com.example.set.ui;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableWrapper;
-import android.media.Image;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +10,8 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import androidx.recyclerview.widget.*;
 
 import com.example.set.R;
 import com.example.set.model.Card;
@@ -41,15 +31,17 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     // Contains the Data for the RecyclerView
     private Card cards[][];
     private LayoutInflater inflater;
+    private GameScreen gameScreen;
 
     /**
      * Constructor CardColumnRecyclerViewAdapter
      * @param context
      * @param cards int Array with Values for the Cards
      */
-    public CardColumnRecyclerViewAdapter(Context context, Card[][] cards){
+    public CardColumnRecyclerViewAdapter(Context context, GameScreen gameScreen, Card[][] cards){
         this.inflater = LayoutInflater.from(context);
         this.cards = cards;
+        this.gameScreen = gameScreen;
     }
 
     /**
@@ -83,12 +75,20 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
         holder.test(holder.cardTwo, this.cards[position][1]);
         holder.test(holder.cardThree, this.cards[position][2]);
 */
+        holder.cardOne.setOnClickListener(view -> {
+            gameScreen.cardClicked(position, 0, view);
+        });
+        holder.cardTwo.setOnClickListener(view -> {
+            gameScreen.cardClicked(position, 1, view);
+        });
+        holder.cardThree.setOnClickListener(view -> {
+            gameScreen.cardClicked(position, 2, view);
+        });
 
         Context context = this.inflater.getContext();
         holder.drawCard(context, holder.cardOne, this.cards[position][0]);
         holder.drawCard(context, holder.cardTwo, this.cards[position][1]);
         holder.drawCard(context, holder.cardThree, this.cards[position][2]);
-
     }
 
     /**
@@ -266,7 +266,6 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
                 symbol.setLayoutParams(new ViewGroup.LayoutParams(width, height));
                 linearlayout.addView(symbol);
             }
-
         }
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- @author Maximilian Knodt-->
     <string name="app_name">SET</string>
     <string name="singleplayer">Einzelspieler</string>
     <string name="multiplayer">Mehrspieler</string>
@@ -20,4 +21,7 @@
     <string name="suspendedText">Aussetzten bis zum nächsten globalen Set</string>
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
+    <!-- @author Linus Kurze-->
+    <string name="duration">Zeit:</string>
+    <string name="points">Punkte:</string>
 </resources>

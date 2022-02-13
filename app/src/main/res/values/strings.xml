@@ -1,4 +1,5 @@
 <resources>
+    <!-- @author Maximilian Knodt-->
     <string name="app_name">SET</string>
     <string name="singleplayer">Singleplayer</string>
     <string name="multiplayer">Multiplayer</string>
@@ -19,4 +20,7 @@
     <string name="suspendedText">Suspended until next global Set</string>
     <string name="timerText">Time for choosing a Set</string>
     <string name="switchOff">off</string>
+    <!-- @author Linus Kurze-->
+    <string name="duration">Time:</string>
+    <string name="points">Points:</string>
 </resources>

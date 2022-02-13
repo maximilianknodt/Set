@@ -32,7 +32,7 @@ public abstract class GameController {
     /**
      * the ui element for writing the game
      */
-    private GameScreen gameScreen;
+    protected GameScreen gameScreen;
 
     /**
      * the time for periodical updates in Hz (1/s)
@@ -71,17 +71,14 @@ public abstract class GameController {
      * Writes the cards to the UI.
      */
     protected void writeCards() {
-        ArrayList<Card> cards = game.getTableCards();
-        //TODO: write to UI
-        gameScreen.setCards(cards);
+        gameScreen.setCards(game.getTableCards());
     }
 
     /**
      * Writes the duration of the game to the UI.
      */
     protected void writeDuration() {
-        long duration = game.getDuration();
-        //TODO: write to UI
+        gameScreen.setTime(game.getDuration());
     }
 
     /**

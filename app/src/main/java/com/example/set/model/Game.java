@@ -113,10 +113,8 @@ public abstract class Game {
      * @return if the given cards are a set
      */
     protected boolean takeSetChecked(int position1, int position2, int position3) {
-        if (positionsValid(position1, position2, position3)) {
-            if (isSet(position1, position2, position3)) {
-                table.takeCardsFromTableCards(position1, position2, position3);
-            }
+        if (positionsValid(position1, position2, position3) && isSet(position1, position2, position3)) {
+            table.takeCardsFromTableCards(position1, position2, position3);
             return true;
         }
         return false;
