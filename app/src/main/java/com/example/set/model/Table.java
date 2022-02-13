@@ -49,7 +49,7 @@ public class Table {
         }
 
         Collections.shuffle(stack);
-        stack.setSize(21);
+        stack.setSize(21); //TODO: Rausnehmen
     }
 
     /**
@@ -92,7 +92,13 @@ public class Table {
     void takeCardsFromTableCards(int position1, int position2, int position3) {
         if (tableCards.size() <= DEFAULT_CARD_COUNT) {
             replaceCardFromStack(position1);
+            if(position2 >= getTableCardsCount()) {
+                position2--;
+            }
             replaceCardFromStack(position2);
+            while(position3 >= getTableCardsCount()) {
+                position3--;
+            }
             replaceCardFromStack(position3);
         } else {
             if(position1 < getTableCardsCount() -3) {
