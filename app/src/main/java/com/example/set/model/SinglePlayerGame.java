@@ -1,5 +1,7 @@
 package com.example.set.model;
 
+import android.util.Log;
+
 /**
  * The single player game class
  * A class holding the logic of single player games.
@@ -31,7 +33,7 @@ public class SinglePlayerGame extends Game {
      */
     @Override
     protected void revealCards() {
-        while (table.getTableCardsCount() < table.DEFAULT_CARD_COUNT || noSetExists()) {
+        while ((table.getTableCardsCount() < table.DEFAULT_CARD_COUNT || noSetExists()) && table.getStackSize() > 0) {
             table.revealThreeCards();
         }
     }
@@ -50,8 +52,6 @@ public class SinglePlayerGame extends Game {
         } else if (rules.isSinglePlayerDeduction()) {
             setAmount--;
         }
-
-        isOver();
     }
 
     /**
