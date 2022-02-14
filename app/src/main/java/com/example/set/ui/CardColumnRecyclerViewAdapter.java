@@ -36,6 +36,7 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     /**
      * Constructor CardColumnRecyclerViewAdapter
      * @param context
+     * @param gameScreen
      * @param cards int Array with Values for the Cards
      */
     public CardColumnRecyclerViewAdapter(Context context, GameScreen gameScreen, Card[][] cards){
@@ -53,7 +54,7 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
      */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
-        View view = inflater.inflate(R.layout.game_screen_card_column, viewGroup, false);
+        View view = this.inflater.inflate(R.layout.game_screen_card_column, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -91,7 +92,6 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     /**
      * Inner Class to handle the Elements within the Views that are used by the RecyclerViewAdapter (Outer Class)
      */
-    // ------- Inner Class -------
     public static class ViewHolder extends RecyclerView.ViewHolder{
         protected final LinearLayout cardOne;               // TODO: Durch "Kartendatei" ersetzen
         protected final LinearLayout cardTwo;
@@ -191,7 +191,7 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
 
         /**
          * Getter
-         * Returns the symbol cound for a card.
+         * Returns the symbol count for a card.
          *
          * @return symbol count for a card
          *
@@ -216,6 +216,10 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
          *
          * @author Maximilian Knodt
          * @author Linus Kurze
+         *
+         * @param context
+         * @param linearlayout the layout that is the shown card container
+         * @param card the data for the cards to be drawn
          */
         private void drawCard(Context context,LinearLayout linearlayout, Card card){
             int count = this.symbolCount(card);

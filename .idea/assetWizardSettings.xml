@@ -37,7 +37,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\Maximilian\Desktop\Settings.png" />
+                                                <entry key="imagePath" value="C:\Users\Maximilian\Desktop\pause.png" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
@@ -71,8 +71,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\Maximilian\Desktop\Settings.png" />
-                                      <entry key="outputName" value="ic_settings" />
+                                      <entry key="imageAsset" value="C:\Users\Maximilian\Desktop\pause.png" />
+                                      <entry key="outputName" value="ic_pause" />
                                     </map>
                                   </option>
                                 </PersistentState>

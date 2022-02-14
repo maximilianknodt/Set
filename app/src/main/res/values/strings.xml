@@ -23,10 +23,11 @@
     <string name="game_type">Game type:</string>
     <string name="startOfPlay">Start of Play:</string>
     <string name="rules">Rules:</string>
-    <string name="congratulatoin">Congratulations, you have successfully completed the game!</string>
+    <string name="congratulatoin">Congratulations! \nYou have successfully completed the game!</string>
     <string name="mainmenue">Main Menue</string>
     <string name="newGame">New Game</string>
-    <string name="winner">Winner</string>
+    <string name="winner">Winner:</string>
+    <string name="pause">Pause Game</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Time:</string>
     <string name="points">Points:</string>
