@@ -25,6 +25,9 @@
 
     <activity android:name=".ui.SettingsScreen"
         android:screenOrientation="landscape" />
+
+        <activity android:name=".ui.GameEndScreen"
+        android:screenOrientation="landscape" />
     </application>
 
 </manifest>

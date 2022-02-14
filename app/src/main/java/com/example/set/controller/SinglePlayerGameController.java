@@ -39,9 +39,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     protected void writeEndScreen() {
-        //TODO: write to ui game over
-        writeGameInfo();
-        Log.wtf("Gamestatus", "over");
+        gameScreen.gameOver(((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
     }
 
     /**

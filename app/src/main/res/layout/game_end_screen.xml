@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_VerticalHalf"
@@ -110,13 +110,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Headerdivider">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/textView_Game_End_Winner_Header"
-                android:layout_width="wrap_content"
+                android:layout_width="72dp"
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:gravity="center_vertical"

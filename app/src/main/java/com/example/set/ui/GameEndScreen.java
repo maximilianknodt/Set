@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * @author Maximilian Knodt
  */
@@ -35,6 +38,20 @@ public class GameEndScreen extends AppCompatActivity {
         TextView tvStart = findViewById(R.id.textView_Game_End_Start_Body);
         TextView tvRules = findViewById(R.id.textView_Game_End_Rules_Body);
 
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            tvPoints.setText(""+bundle.getInt("points"));
+            tvTime.setText(bundle.getString("duration"));
+            tvStart.setText(timestampToString(bundle.getLong("startTime")));
+            String rules = getResources().getString(R.string.deduction) + ": ";
+            if (bundle.getBoolean("deduction")) {
+                rules += getResources().getString(R.string.switchOn);
+            } else {
+                rules += getResources().getString(R.string.switchOff);
+            }
+            tvRules.setText(rules);
+        }
+
         btnNewGame.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Games_End_Screen to Game_screen");
 
@@ -50,5 +67,18 @@ public class GameEndScreen extends AppCompatActivity {
             intentSettings.setClass(this, StartScreen.class);
             startActivity(intentSettings);
         });
+    }
+
+    /**
+     * Convertes a time stamp to a string
+     *
+     * @param timeStamp the time stamp to convert
+     * @return the time stamp as string
+     *
+     * @author Linus Kurze
+     */
+    public String timestampToString(long timeStamp){
+        Date date = new Date(timeStamp);
+        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
     }
 }

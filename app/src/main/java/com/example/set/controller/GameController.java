@@ -122,8 +122,9 @@ public abstract class GameController {
      * @param position1 position of the first card
      * @param position2 position of the second card
      * @param position3 position of the third card
+     * @return if the set was correct
      */
-    abstract void takeSetPressed(int position1, int position2, int position3);
+    abstract boolean takeSetPressed(int position1, int position2, int position3);
 
     /**
      * Creates the timer for the periodical update.

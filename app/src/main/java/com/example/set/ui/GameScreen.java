@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -88,9 +89,14 @@ public class GameScreen extends AppCompatActivity {
                 cardData = lastCardPos.removeLast();
                 int card3 = cardData.getX()*3 + cardData.getY();
 
-                singlePlayerGameController.takeSetPressed(card1, card2, card3);
+                if(singlePlayerGameController.takeSetPressed(card1, card2, card3)) {
+                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_successful, Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_incorrect, Toast.LENGTH_SHORT).show();
+                }
             } else {
-                //TODO: ggf. Benachrichtigungen
+                Toast.makeText(this.getBaseContext(), R.string.message_select_3_cards, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -127,14 +133,14 @@ public class GameScreen extends AppCompatActivity {
     public void cardClicked(int x, int y, View view) {
         CardData current = new CardData(x,y,view);
         if(lastCardPos.contains(current)) {
-            setCardNotSelected(view);
+            unselectCard(view);
             lastCardPos.remove(current);
         } else {
             if (lastCardPos.size() >= 3) {
-                setCardNotSelected(lastCardPos.removeLast().getView());
+                unselectCard(lastCardPos.removeLast().getView());
             }
             lastCardPos.add(current);
-            setCardSelected(view);
+            selectCard(view);
         }
     }
 
@@ -143,7 +149,7 @@ public class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void setCardSelected(View view){
+    public void selectCard(View view){
         view.setBackgroundColor(ContextCompat.getColor(this, R.color.card_selected));
     }
 
@@ -152,7 +158,7 @@ public class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void setCardNotSelected(View view){
+    public void unselectCard(View view){
         view.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
     }
 
@@ -193,6 +199,26 @@ public class GameScreen extends AppCompatActivity {
      */
     public void setPoints(int value){
         points.setText(""+value);
+    }
+
+    /**
+     * Method called when the game is over
+     *
+     * @param time the time the game took
+     * @param points the points the player received
+     * @param startTime the time the game started
+     * @param deduction if the deduction rule was enabled
+     *
+     * @author Linus Kurze
+     */
+    public void gameOver( int points, long duration, long startTime, boolean deduction) {
+        Intent intentES = new Intent();
+        intentES.setClass(this, GameEndScreen.class);
+        intentES.putExtra("points", points);
+        intentES.putExtra("duration", convertTime(duration));
+        intentES.putExtra("startTime", startTime);
+        intentES.putExtra("deductionRule", deduction);
+        startActivity(intentES);
     }
 
     /**
@@ -290,7 +316,7 @@ public class GameScreen extends AppCompatActivity {
 
 
         // LinearLayout will show the Data in a horizontal List and will lay out from start to end ( = false)
-        rvList.removeAllViews();
+        //rvList.removeAllViews();
         rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
         rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(), this, this.alignTableCards(cards)));
     }

@@ -76,7 +76,7 @@ public abstract class Game {
      * @return the time the game started in seconds
      */
     public long getStartTime() {
-        return TimeUnit.MILLISECONDS.toSeconds(startTime);
+        return startTime;
     }
 
     /**
