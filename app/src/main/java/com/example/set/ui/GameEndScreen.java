@@ -75,18 +75,11 @@ public class GameEndScreen extends AppCompatActivity {
         btnMenu.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Games_End_Screen to Start_Screen");
 
-            goToMainMenu();
+            Intent intentStart = new Intent();
+            intentStart.setClass(this, StartScreen.class);
+            intentStart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intentStart);
         });
-    }
-
-    /**
-     * Method called when back button is pressed.
-     *
-     * @author Linus Kurze
-     */
-    @Override
-    public void onBackPressed() {
-        goToMainMenu();
     }
 
     /**
@@ -100,16 +93,5 @@ public class GameEndScreen extends AppCompatActivity {
     public String timestampToString(long timeStamp){
         Date date = new Date(timeStamp);
         return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
-    }
-
-    /**
-     * Starts an intent to the main menu
-     *
-     * @author Maximilian Knodt
-     */
-    public void goToMainMenu() {
-        Intent intentSettings = new Intent();
-        intentSettings.setClass(this, StartScreen.class);
-        startActivity(intentSettings);
     }
 }

@@ -30,6 +30,7 @@
         android:screenOrientation="landscape" />
 
         <activity android:name=".ui.GameEndScreen"
+            android:noHistory="true"
         android:screenOrientation="landscape" />
     </application>
 

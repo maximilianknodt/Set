@@ -6,11 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.set.R;
 
 
 public class StartScreen extends AppCompatActivity {
+    /**
+     * the last time back was pressed
+     */
+    private long lastPressedBackTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,12 @@ public class StartScreen extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        this.moveTaskToBack(true);
+        if (lastPressedBackTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), R.string.press_back_again, Toast.LENGTH_SHORT).show();
+        }
+        lastPressedBackTime = System.currentTimeMillis();
     }
 }

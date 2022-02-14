@@ -239,6 +239,7 @@ public class GameScreen extends AppCompatActivity {
         intentES.putExtra("startTime", startTime);
         intentES.putExtra("deductionRule", deduction);
         startActivity(intentES);
+        finish();
     }
 
     /**
