@@ -81,15 +81,17 @@ public class SinglePlayerGameController extends GameController {
      * @param position1 position of the first card
      * @param position2 position of the second card
      * @param position3 position of the third card
+     * @return if the set was correct
      */
     @Override
-    public void takeSetPressed(int position1, int position2, int position3) {
-        ((SinglePlayerGame)game).takeCards(position1, position2, position3);
+    public boolean takeSetPressed(int position1, int position2, int position3) {
+        boolean result = ((SinglePlayerGame)game).takeCards(position1, position2, position3);
         writeCards();
         writeScore();
         if(game.isOver()) {
             writeEndScreen();
         }
+        return result;
     }
 
 }

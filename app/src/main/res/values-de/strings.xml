@@ -30,4 +30,7 @@
     <!-- @author Linus Kurze-->
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>
+    <string name="message_select_3_cards">Bitte drei Karten für ein Set auswählen.</string>
+    <string name="message_take_set_successful">Das Set wurde erfolgreich genommen.</string>
+    <string name="message_take_set_incorrect">Das Set war falsch.</string>
 </resources>

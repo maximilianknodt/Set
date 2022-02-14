@@ -144,11 +144,13 @@ public class MultiPlayerGameController extends GameController {
      * @param position1 position of the first card
      * @param position2 position of the second card
      * @param position3 position of the third card
+     * @return if the set was correct
      */
     @Override
-    void takeSetPressed(int position1, int position2, int position3) {
+    boolean takeSetPressed(int position1, int position2, int position3) {
+        boolean result = false;
         if(currentPlayerIndex > -1) {
-            ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
+            result = ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
             writeCards();
             writeScore();
             currentPlayerIndex = -1;
@@ -156,6 +158,7 @@ public class MultiPlayerGameController extends GameController {
                 writeEndScreen();
             }
         }
+        return result;
     }
 
     /**

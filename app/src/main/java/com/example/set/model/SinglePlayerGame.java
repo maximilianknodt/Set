@@ -44,14 +44,17 @@ public class SinglePlayerGame extends Game {
      * @param position1 position of the first card
      * @param position2 position of the second card
      * @param position3 position of the third card
+     * @return if the set was correct
      */
-    public void takeCards(int position1, int position2, int position3) {
+    public boolean takeCards(int position1, int position2, int position3) {
         if (takeSetChecked(position1, position2, position3)) {
             setAmount++;
             revealCards();
+            return true;
         } else if (rules.isSinglePlayerDeduction()) {
             setAmount--;
         }
+        return false;
     }
 
     /**
