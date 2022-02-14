@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- @author Maximilian Knodt-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Right"
         android:layout_width="wrap_content"
@@ -76,24 +78,24 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Top" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_New_Game"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/newGame"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/button_Menu"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Buttondivider"
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_VerticalHalf" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_Menu"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/mainmenue"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Game_End_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Buttondivider"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/button_New_Game" />
 
 
 
@@ -113,7 +115,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/textView_Game_End_Header"
+                android:id="@+id/textView_Game_End_Winner_Header"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="0"
