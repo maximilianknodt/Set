@@ -20,6 +20,12 @@
     <string name="suspendedText">Suspended until next global Set</string>
     <string name="timerText">Time for choosing a Set</string>
     <string name="switchOff">off</string>
+    <string name="winner">Winner</string>
+    <string name="startOfPlay">Start of Play:</string>
+    <string name="rules">Rules:</string>
+    <string name="congratulatoin">Congratulations, you have successfully completed the game!</string>
+    <string name="mainmenue">Main Menue</string>
+    <string name="newGame">New Game</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Time:</string>
     <string name="points">Points:</string>

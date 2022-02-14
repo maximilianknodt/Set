@@ -21,6 +21,12 @@
     <string name="suspendedText">Aussetzten bis zum nächsten globalen Set</string>
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
+    <string name="winner">Sieger</string>
+    <string name="startOfPlay">Start des Spiels:</string>
+    <string name="rules">Regeln:</string>
+    <string name="congratulatoin">Herzlichen Glückwunsch, Sie haben das Spiel erfolgreich beendet!</string>
+    <string name="mainmenue">Hauptmenü</string>
+    <string name="newGame">Neues Spiel</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>
