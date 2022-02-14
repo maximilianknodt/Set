@@ -29,6 +29,10 @@
     <activity android:name=".ui.SettingsScreen"
         android:screenOrientation="landscape" />
 
+        <activity android:name=".ui.BreakeScreen"
+            android:noHistory="true"
+            android:screenOrientation="landscape" />
+
         <activity android:name=".ui.GameEndScreen"
             android:noHistory="true"
         android:screenOrientation="landscape" />

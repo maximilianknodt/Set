@@ -104,17 +104,26 @@ public class MultiPlayerGameController extends GameController {
     }
 
     /**
-     * Resumes the game.
+     * Called when pause is clicked.
      */
     @Override
-    protected void resume() {
-        game.resume();
-        createPeriodicalTimer();
+    public void pauseScreen() {
+        //TODO: write pause screen
+        //TODO: abstract und in die jeweiligen klassen wegen write Game Info
+        writeGameInfo();
+    }
+
+    /**
+     * Called when resume is clicked.
+     */
+    @Override
+    protected void resumeGameSpecific() {
         if (currentPlayerIndex != -1) {
             writeSetSelection();
         } else {
             writeCards();
             writeScore();
+            writeCardsLeft();
         }
     }
 
@@ -155,6 +164,7 @@ public class MultiPlayerGameController extends GameController {
             result = ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
             writeCards();
             writeScore();
+            writeCardsLeft();
             currentPlayerIndex = -1;
             if (game.isOver()) {
                 writeEndScreen();

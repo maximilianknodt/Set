@@ -20,7 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.set.R;
 import com.example.set.model.Card;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -34,6 +36,8 @@ public class GameScreen extends AppCompatActivity {
     private TextView points;
     private TextView cardsLeft;
     private Button takeSet;
+
+    private SinglePlayerGameController singlePlayerGameController;
 
     private LinkedList<CardData> lastCardPos;
 
@@ -56,16 +60,7 @@ public class GameScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_screen);
 
-        ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Settings);
-
-        // --------- SETTINGS ---------
-        btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From Gamesscreen to Settingsscreen");
-
-            Intent intentSettings = new Intent();
-            intentSettings.setClass(this, SettingsScreen.class);
-            startActivity(intentSettings);
-        });
+        ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Pause);
 
         // -------- Controller --------
         AppController appController = new AppController();
@@ -75,8 +70,14 @@ public class GameScreen extends AppCompatActivity {
             shortGame = true;
         }
         appController.createNewSinglePlayerGame(this, shortGame);
-        SinglePlayerGameController singlePlayerGameController = appController.getSinglePlayerGameController();
+        singlePlayerGameController = appController.getSinglePlayerGameController();
 
+        // --------- PAUSE ---------
+        btnSettings.setOnClickListener(v -> {
+            Log.d("Debug", "On Click - From Gamesscreen to BreakeScreen");
+
+            singlePlayerGameController.pauseScreen();
+        });
 
         // -------- set Elements --------
         rvList = findViewById(R.id.recyclerView_Game_Field);
@@ -109,6 +110,18 @@ public class GameScreen extends AppCompatActivity {
 
         singlePlayerGameController.startGame();
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        singlePlayerGameController.pause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        singlePlayerGameController.resume();
     }
 
 
@@ -191,7 +204,7 @@ public class GameScreen extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                timer.setText(convertTime(time));
+                timer.setText(timeToString(time));
             }
         });
 
@@ -219,6 +232,19 @@ public class GameScreen extends AppCompatActivity {
         cardsLeft.setText(""+value);
     }
 
+
+    public void openPause(boolean shortGame, int points, int cardsLeft, long duration, long startTime, boolean deduction) {
+        Intent intentBreakeScreen = new Intent();
+        intentBreakeScreen.setClass(this, BreakeScreen.class);
+        intentBreakeScreen.putExtra("gameType", gameTypeToString(shortGame));
+        intentBreakeScreen.putExtra("points", points);
+        intentBreakeScreen.putExtra("cardsLeft", cardsLeft);
+        intentBreakeScreen.putExtra("duration", timeToString(duration));
+        intentBreakeScreen.putExtra("startTime", timestampToString(startTime));
+        intentBreakeScreen.putExtra("rules", rulesToString(deduction));
+        startActivity(intentBreakeScreen);
+    }
+
     /**
      * Method called when the game is over
      *
@@ -233,11 +259,11 @@ public class GameScreen extends AppCompatActivity {
     public void gameOver(boolean shortGame, int points, long duration, long startTime, boolean deduction) {
         Intent intentES = new Intent();
         intentES.setClass(this, GameEndScreen.class);
-        intentES.putExtra("shortGame", shortGame);
+        intentES.putExtra("gameType", gameTypeToString(shortGame));
         intentES.putExtra("points", points);
-        intentES.putExtra("duration", convertTime(duration));
-        intentES.putExtra("startTime", startTime);
-        intentES.putExtra("deductionRule", deduction);
+        intentES.putExtra("duration", timeToString(duration));
+        intentES.putExtra("startTime", timestampToString(startTime));
+        intentES.putExtra("rules", rulesToString(deduction));
         startActivity(intentES);
         finish();
     }
@@ -250,7 +276,7 @@ public class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    private String convertTime(long time) {
+    private String timeToString(long time) {
         long hrs = time / 3600;
         long min = time % 3600 / 60;
         long sec = time % 3600 % 60;
@@ -261,6 +287,42 @@ public class GameScreen extends AppCompatActivity {
             text = fillToTwoDigits(hrs) + ":" + fillToTwoDigits(min) + ":" + fillToTwoDigits(sec);
         }
         return text;
+    }
+
+    /**
+     * Converts rules in seconds as long to a string.
+     *
+     * @param deduction if the deduction is active
+     * @return the rules as readable String
+     *
+     * @author Linus Kurze
+     */
+    private String rulesToString(boolean deduction) {
+        String rules = getResources().getString(R.string.deduction) + ": ";
+        if (deduction) {
+            rules += getResources().getString(R.string.switchOn);
+        } else {
+            rules += getResources().getString(R.string.switchOff);
+        }
+        return rules;
+    }
+
+    /**
+     * Converts the game type to a string.
+     *
+     * @param shortGame if the game is a short game
+     * @return the game type as readable String
+     *
+     * @author Linus Kurze
+     */
+    public String gameTypeToString(boolean shortGame) {
+        String type = getResources().getString(R.string.singleplayer) + " ";
+        if (shortGame) {
+            type += getResources().getString(R.string.short_game);
+        } else {
+            type += getResources().getString(R.string.normal_game);
+        }
+        return type;
     }
 
     /**
@@ -281,7 +343,18 @@ public class GameScreen extends AppCompatActivity {
         return string;
     }
 
-
+    /**
+     * Convertes a time stamp to a string
+     *
+     * @param timeStamp the time stamp to convert
+     * @return the time stamp as string
+     *
+     * @author Linus Kurze
+     */
+    public String timestampToString(long timeStamp){
+        Date date = new Date(timeStamp);
+        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
+    }
 
     /**
      * Method to create a new '2D' array of the parameter
@@ -411,6 +484,11 @@ class CardData {
         return view;
     }
 
+    /**
+     * Equals method
+     *
+     * @return if the objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -419,6 +497,11 @@ class CardData {
         return x == cardData.x && y == cardData.y;
     }
 
+    /**
+     * hash code method
+     *
+     * @return the hash code
+     */
     @Override
     public int hashCode() {
         return Objects.hash(x, y);

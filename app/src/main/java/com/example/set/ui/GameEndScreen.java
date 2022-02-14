@@ -42,24 +42,11 @@ public class GameEndScreen extends AppCompatActivity {
         boolean shortGame = false;
 
         if (bundle != null) {
-            shortGame = bundle.getBoolean("shortGame");
-            String type = getResources().getString(R.string.singleplayer) + " ";
-            if (shortGame) {
-                type += getResources().getString(R.string.short_game);
-            } else {
-                type += getResources().getString(R.string.normal_game);
-            }
-            tvType.setText(type);
+            tvType.setText(bundle.getString("gameType"));
             tvPoints.setText(""+bundle.getInt("points"));
             tvTime.setText(bundle.getString("duration"));
-            tvStart.setText(timestampToString(bundle.getLong("startTime")));
-            String rules = getResources().getString(R.string.deduction) + ": ";
-            if (bundle.getBoolean("deduction")) {
-                rules += getResources().getString(R.string.switchOn);
-            } else {
-                rules += getResources().getString(R.string.switchOff);
-            }
-            tvRules.setText(rules);
+            tvStart.setText(bundle.getString("startTime"));
+            tvRules.setText(bundle.getString("rules"));
         }
 
         final boolean finalShortGame = shortGame;
@@ -80,18 +67,5 @@ public class GameEndScreen extends AppCompatActivity {
             intentStart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intentStart);
         });
-    }
-
-    /**
-     * Convertes a time stamp to a string
-     *
-     * @param timeStamp the time stamp to convert
-     * @return the time stamp as string
-     *
-     * @author Linus Kurze
-     */
-    public String timestampToString(long timeStamp){
-        Date date = new Date(timeStamp);
-        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
     }
 }

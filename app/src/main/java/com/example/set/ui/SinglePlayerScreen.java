@@ -1,5 +1,8 @@
 package com.example.set.ui;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,7 +64,15 @@ public class SinglePlayerScreen extends AppCompatActivity {
         // -------- RESUME GAME --------
         btnResumeG.setOnClickListener(v -> {
             Log.d("Debug", "On Click - Single Player Game Resumes");
-            //TODO: Funktionalität einbauen
+            ActivityManager am = (ActivityManager)this.getSystemService(Context.ACTIVITY_SERVICE);
+
+            int sizeStack =  am.getRunningTasks(2).size();
+
+            for(int i = 0;i < sizeStack;i++){
+
+                ComponentName cn = am.getRunningTasks(2).get(i).topActivity;
+                Log.d("CLASSNAME", cn.getClassName()); //TODO: try to go to GameScreen activity
+            }
         });
     }
 }

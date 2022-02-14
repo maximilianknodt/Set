@@ -1,7 +1,5 @@
 package com.example.set.controller;
 
-import android.util.Log;
-
 import com.example.set.model.SinglePlayerGame;
 import com.example.set.ui.GameScreen;
 
@@ -66,12 +64,18 @@ public class SinglePlayerGameController extends GameController {
     }
 
     /**
-     * Resumes the game.
+     * Called when pause is clicked.
      */
     @Override
-    protected void resume() {
-        game.resume();
-        createPeriodicalTimer();
+    public void pauseScreen() {
+        gameScreen.openPause(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+    }
+
+    /**
+     * Called when resume is clicked.
+     */
+    @Override
+    protected void resumeGameSpecific() {
         writeCards();
         writeScore();
         writeCardsLeft();

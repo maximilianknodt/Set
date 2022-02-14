@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.65" />
 
     <ImageButton
         android:id="@+id/imageButton_Break_Screen_Play"
@@ -132,6 +132,32 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/textView_Break_Screen_Game_Type_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/game_type"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Game_Type_Body"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:gravity="center_vertical"
+                android:text="Game Type"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
                 android:id="@+id/textView_Break_Screen_Time_Header"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -147,7 +173,7 @@
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:gravity="center_vertical"
-                android:text="00:00 min"
+                android:text="00:00:00"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -182,6 +208,57 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/textView_Break_Screen_Points_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/points"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_Body"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Cards_Left_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/cards_left"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Cards_Left_Body"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
                 android:id="@+id/textView_Break_Screen_Rules_Header"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -200,42 +277,20 @@
                 android:text="TextView"
                 android:textSize="16sp" />
         </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/points"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="0"
-                android:textSize="16sp" />
-        </TableRow>
     </TableLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_Breake_Screen_PlayerPoints"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Textdivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_Break_Screen_Text_Recycler_Divider" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider"
+        app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline"
+        app:layout_constraintVertical_bias="0.0" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

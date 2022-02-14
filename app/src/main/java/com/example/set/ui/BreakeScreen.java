@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,7 @@ import com.example.set.R;
 
 /**
  * @author Maximilian Knodt
+ * @author Linus Kurze
  */
 public class BreakeScreen extends AppCompatActivity {
     @Override
@@ -22,6 +25,14 @@ public class BreakeScreen extends AppCompatActivity {
         Button btnSettings = findViewById(R.id.button_Break_Screen_Settings);
         Button btnMenu = findViewById(R.id.button_Break_Screen_Menu);
         ImageButton ibtnPlay = findViewById(R.id.imageButton_Break_Screen_Play);
+
+        TextView gameType = findViewById(R.id.textView_Break_Screen_Game_Type_Body);
+        TextView time = findViewById(R.id.textView_Break_Screen_Time_Body);
+        TextView startTime = findViewById(R.id.textView_Break_Screen_Start_Body);
+        TextView points = findViewById(R.id.textView_Break_Screen_Points_Body);
+        TextView cardsLeft = findViewById(R.id.textView_Break_Screen_Cards_Left_Body);
+        TextView rules = findViewById(R.id.textView_Break_Screen_Rules_Body);
+
 
         btnSettings.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From PauseScreen to Settingsscreen");
@@ -42,9 +53,17 @@ public class BreakeScreen extends AppCompatActivity {
         ibtnPlay.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From PauseScreen back to Gamescreen");
 
-            Intent intentSettings = new Intent();
-            intentSettings.setClass(this, GameScreen.class);
-            startActivity(intentSettings);
+            onBackPressed();
         });
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            gameType.setText(bundle.getString("gameType"));
+            time.setText(bundle.getString("duration"));
+            startTime.setText(bundle.getString("startTime"));
+            points.setText(""+bundle.getInt("points"));
+            cardsLeft.setText(""+bundle.getInt("cardsLeft"));
+            rules.setText(bundle.getString("rules"));
+        }
     }
 }

@@ -1,11 +1,9 @@
 package com.example.set.controller;
 
-import com.example.set.model.Card;
 import com.example.set.model.Game;
 import com.example.set.model.Rules;
 import com.example.set.ui.GameScreen;
 
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -55,7 +53,7 @@ public abstract class GameController {
         writeCards();
         writeScore();
         writeCardsLeft();
-        createPeriodicalTimer();
+        createTimer();
     }
 
     /**
@@ -110,19 +108,14 @@ public abstract class GameController {
     abstract protected void periodicallyUpdate();
 
     /**
-     * Pauses the game.
+     * Called when pause is clicked.
      */
-    protected void pause() {
-        game.pause();
-        timer.cancel();
-        //TODO: write pause screen
-        writeGameInfo();
-    }
+    public abstract void pauseScreen();
 
     /**
-     * Resumes the game.
+     * Called when game resumes.
      */
-    protected abstract void resume();
+    protected abstract void resumeGameSpecific();
 
     /**
      * Function called when the button take set is pressed.
@@ -135,9 +128,23 @@ public abstract class GameController {
     abstract boolean takeSetPressed(int position1, int position2, int position3);
 
     /**
-     * Creates the timer for the periodical update.
+     * Pauses the game.
      */
-    protected void createPeriodicalTimer() {
+    public void pause() {
+        game.pause();
+        timer.cancel();
+    }
+
+    /**
+     * Resumes the game.
+     */
+    public void resume() {
+        game.resume();
+        createTimer();
+        resumeGameSpecific();
+    }
+
+    private void createTimer() {
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
