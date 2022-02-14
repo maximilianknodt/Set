@@ -39,7 +39,7 @@ public class GameEndScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - From Games_End_Screen to Game_screen");
 
             Intent intentSettings = new Intent();
-            intentSettings.setClass(this, GameEndScreen.class);
+            intentSettings.setClass(this, GameScreen.class);
             startActivity(intentSettings);
         });
 
@@ -47,7 +47,7 @@ public class GameEndScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - From Games_End_Screen to Start_Screen");
 
             Intent intentSettings = new Intent();
-            intentSettings.setClass(this, GameEndScreen.class);
+            intentSettings.setClass(this, StartScreen.class);
             startActivity(intentSettings);
         });
     }
