@@ -19,10 +19,13 @@ public class SinglePlayerGameController extends GameController {
     /**
      * Constructor
      * Calls super constructor. Initializes the game with a new instance.
+     *
+     * @param gameScreen the gameScreen object for the game
+     * @param shortGame if the game should be a short game
      */
-    SinglePlayerGameController(GameScreen gameScreen) {
+    SinglePlayerGameController(GameScreen gameScreen, boolean shortGame) {
         super(gameScreen);
-        game = new SinglePlayerGame(getCurrentRules(), true);
+        game = new SinglePlayerGame(getCurrentRules(), shortGame);
     }
 
     /**
@@ -71,6 +74,7 @@ public class SinglePlayerGameController extends GameController {
         createPeriodicalTimer();
         writeCards();
         writeScore();
+        writeCardsLeft();
     }
 
     /**
@@ -86,6 +90,7 @@ public class SinglePlayerGameController extends GameController {
         boolean result = ((SinglePlayerGame)game).takeCards(position1, position2, position3);
         writeCards();
         writeScore();
+        writeCardsLeft();
         if(game.isOver()) {
             writeEndScreen();
         }

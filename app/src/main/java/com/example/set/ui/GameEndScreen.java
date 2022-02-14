@@ -39,9 +39,12 @@ public class GameEndScreen extends AppCompatActivity {
         TextView tvRules = findViewById(R.id.textView_Game_End_Rules_Body);
 
         Bundle bundle = getIntent().getExtras();
+        boolean shortGame = false;
+
         if (bundle != null) {
+            shortGame = bundle.getBoolean("shortGame");
             String type = getResources().getString(R.string.singleplayer) + " ";
-            if (bundle.getBoolean("shortGame")) {
+            if (shortGame) {
                 type += getResources().getString(R.string.short_game);
             } else {
                 type += getResources().getString(R.string.normal_game);
@@ -59,12 +62,14 @@ public class GameEndScreen extends AppCompatActivity {
             tvRules.setText(rules);
         }
 
+        final boolean finalShortGame = shortGame;
         btnNewGame.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Games_End_Screen to Game_screen");
 
-            Intent intentSettings = new Intent();
-            intentSettings.setClass(this, GameScreen.class);
-            startActivity(intentSettings);
+            Intent intentSP = new Intent();
+            intentSP.setClass(this, GameScreen.class);
+            intentSP.putExtra("shortGame", finalShortGame);
+            startActivity(intentSP);
         });
 
         btnMenu.setOnClickListener(v -> {

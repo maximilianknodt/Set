@@ -178,6 +178,16 @@ public abstract class Game {
 
     /**
      * Getter
+     * Returns the count of cards on the stack.
+     *
+     * @return count of cards on the stack
+     */
+    public int getCardsLeft() {
+        return table.getStackSize();
+    }
+
+    /**
+     * Getter
      * Returns the rules of the game.
      *
      * @return the rules of the game

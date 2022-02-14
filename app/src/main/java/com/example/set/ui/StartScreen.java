@@ -8,8 +8,7 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.example.set.R;
-import com.example.set.ui.GameScreen;
-import com.example.set.ui.SettingsScreen;
+
 
 public class StartScreen extends AppCompatActivity {
 
@@ -19,17 +18,17 @@ public class StartScreen extends AppCompatActivity {
         setContentView(R.layout.start_screen);
 
         // Searching in Ressources for the IDs
-        Button btnSP = this.findViewById(R.id.button_Start_SP);
-        Button btnMP = this.findViewById(R.id.button_Start_MP);
-        Button btnSettings = this.findViewById(R.id.button_Start_Settings);
+        Button btnSP = this.findViewById(R.id.button_Start_NG);
+        Button btnMP = this.findViewById(R.id.button_Start_SG);
+        Button btnSettings = this.findViewById(R.id.button_Resume);
         Button btnScore = this.findViewById(R.id.button_Start_Highscore);
 
         // -------- SINGLEPLAYER --------
         btnSP.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Singleplayer Match startet");
+            Log.d("Debug", "On Click - From StartScreen to SinglePlayerScreen");
 
             Intent intentSP = new Intent();
-            intentSP.setClass(this, GameScreen.class);
+            intentSP.setClass(this, SinglePlayerScreen.class);
             startActivity(intentSP);
         });
 

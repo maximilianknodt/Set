@@ -34,15 +34,15 @@ public class AppController {
     /**
      * Creates a new single player game.
      */
-    public void createNewSinglePlayerGame(GameScreen gameScreen) {
-        this.singlePlayerGameController = new SinglePlayerGameController(gameScreen);
+    public void createNewSinglePlayerGame(GameScreen gameScreen, boolean shortGame) {
+        this.singlePlayerGameController = new SinglePlayerGameController(gameScreen, shortGame);
     }
 
     /**
      * Creates a new multi player game.
      */
-    public void createNewMultiPlayerGame(GameScreen gameScreen, String[] players) {
-        this.multiPlayerGameController = new MultiPlayerGameController(gameScreen, players);
+    public void createNewMultiPlayerGame(GameScreen gameScreen, String[] players, boolean shortGame) {
+        this.multiPlayerGameController = new MultiPlayerGameController(gameScreen, players, shortGame);
     }
 
     /**

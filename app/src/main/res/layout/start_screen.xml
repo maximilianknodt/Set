@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/start_screen"
+    android:id="@+id/singleplayer_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textview_Start_Headline"
+        android:id="@+id/textview_Singleplayer_Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -19,7 +19,7 @@
         android:textStyle="bold"/>
 
     <View
-        android:id="@+id/view_Start_Underline"
+        android:id="@+id/view_Singleplayer_Underline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginLeft="40dp"
@@ -28,21 +28,21 @@
         android:background="#777676"/>
 
     <Button
-        android:id="@+id/button_Start_SP"
+        android:id="@+id/button_Start_NG"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:text="@string/singleplayer" />
 
     <Button
-        android:id="@+id/button_Start_MP"
+        android:id="@+id/button_Start_SG"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:text="@string/multiplayer" />
 
     <Button
-        android:id="@+id/button_Start_Settings"
+        android:id="@+id/button_Resume"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"

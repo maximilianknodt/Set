@@ -11,7 +11,7 @@
     <!-- @author Maximilian Knodt-->
 
     <TextView
-        android:id="@+id/textview_Start_Headline"
+        android:id="@+id/textview_Singleplayer_Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
@@ -23,7 +23,7 @@
         android:textColor="@color/darkmode_Headline"/>
 
     <View
-        android:id="@+id/view_Start_Underline"
+        android:id="@+id/view_Singleplayer_Underline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginLeft="40dp"

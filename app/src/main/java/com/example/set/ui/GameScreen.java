@@ -32,6 +32,7 @@ public class GameScreen extends AppCompatActivity {
     private RecyclerView rvList;
     private TextView timer;
     private TextView points;
+    private TextView cardsLeft;
     private Button takeSet;
 
     private LinkedList<CardData> lastCardPos;
@@ -68,7 +69,12 @@ public class GameScreen extends AppCompatActivity {
 
         // -------- Controller --------
         AppController appController = new AppController();
-        appController.createNewSinglePlayerGame(this);
+        boolean shortGame = false;
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.getBoolean("shortGame")) {
+            shortGame = true;
+        }
+        appController.createNewSinglePlayerGame(this, shortGame);
         SinglePlayerGameController singlePlayerGameController = appController.getSinglePlayerGameController();
 
 
@@ -76,6 +82,7 @@ public class GameScreen extends AppCompatActivity {
         rvList = findViewById(R.id.recyclerView_Game_Field);
         timer = findViewById(R.id.duration_content);
         points = findViewById(R.id.points_content);
+        cardsLeft = findViewById(R.id.cards_left_content);
         lastCardPos = new LinkedList<>();
 
         // -------- set onClick Listener --------
@@ -202,10 +209,22 @@ public class GameScreen extends AppCompatActivity {
     }
 
     /**
+     * Method called when the ui should write the cards left
+     *
+     * @param value the cards left
+     *
+     * @author Linus Kurze
+     */
+    public void setCardsLeft(int value){
+        cardsLeft.setText(""+value);
+    }
+
+    /**
      * Method called when the game is over
      *
-     * @param time the time the game took
+     * @param shortGame if the game is a short game
      * @param points the points the player received
+     * @param duration the time the game took
      * @param startTime the time the game started
      * @param deduction if the deduction rule was enabled
      *

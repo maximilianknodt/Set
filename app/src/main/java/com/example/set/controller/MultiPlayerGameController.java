@@ -28,9 +28,11 @@ public class MultiPlayerGameController extends GameController {
      * Constructor
      * Calls super constructor. Initializes the players, the currentPlayerIndex and the game with a new instance.
      *
+     * @param gameScreen the gameScreen object for the game
      * @param names names of the players
+     * @param shortGame if the game should be a short game
      */
-    MultiPlayerGameController(GameScreen gameScreen, String[] names) {
+    MultiPlayerGameController(GameScreen gameScreen, String[] names, boolean shortGame) {
         super(gameScreen);
         currentPlayerIndex = -1;
 
@@ -39,7 +41,7 @@ public class MultiPlayerGameController extends GameController {
             players[i] = new Player(names[i]);
         }
 
-        game = new MultiPlayerGame(players, getCurrentRules(), false);
+        game = new MultiPlayerGame(players, getCurrentRules(), shortGame);
     }
 
     /**

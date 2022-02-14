@@ -30,8 +30,10 @@
     <!-- @author Linus Kurze-->
     <string name="duration">Time:</string>
     <string name="points">Points:</string>
-    <string name="short_game">Short game</string>
-    <string name="normal_game">Normal game</string>
+    <string name="cards_left">Cards left:</string>
+    <string name="resume_game">Resume Game</string>
+    <string name="short_game">Short Game</string>
+    <string name="normal_game">Normal Game</string>
     <string name="message_select_3_cards">Please select three cards for taking a set.</string>
     <string name="message_take_set_successful">The set has been taken successfully.</string>
     <string name="message_take_set_incorrect">The set selected was incorrect.</string>

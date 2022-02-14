@@ -54,6 +54,7 @@ public abstract class GameController {
         game.startGame();
         writeCards();
         writeScore();
+        writeCardsLeft();
         createPeriodicalTimer();
     }
 
@@ -79,6 +80,13 @@ public abstract class GameController {
      */
     protected void writeDuration() {
         gameScreen.setTime(game.getDuration());
+    }
+
+    /**
+     * Writes the score to the UI.
+     */
+    protected void writeCardsLeft() {
+        gameScreen.setCardsLeft(game.getCardsLeft());
     }
 
     /**

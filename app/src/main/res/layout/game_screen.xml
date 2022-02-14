@@ -137,6 +137,15 @@
         app:layout_constraintTop_toBottomOf="@+id/duration_text" />
 
     <TextView
+        android:id="@+id/cards_left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/cards_left"
+        app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintTop_toBottomOf="@+id/points_text" />
+
+    <TextView
         android:id="@+id/points_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,5 +153,14 @@
         android:text="0"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
         app:layout_constraintTop_toBottomOf="@+id/duration_content" />
+
+    <TextView
+        android:id="@+id/cards_left_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
+        app:layout_constraintTop_toBottomOf="@+id/points_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
