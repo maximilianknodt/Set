@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
@@ -63,10 +64,18 @@ public class GameEndScreen extends AppCompatActivity {
         btnMenu.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Games_End_Screen to Start_Screen");
 
-            Intent intentSettings = new Intent();
-            intentSettings.setClass(this, StartScreen.class);
-            startActivity(intentSettings);
+            goToMainMenu();
         });
+    }
+
+    /**
+     * Method called when back button is pressed.
+     *
+     * @author Linus Kurze
+     */
+    @Override
+    public void onBackPressed() {
+        goToMainMenu();
     }
 
     /**
@@ -80,5 +89,16 @@ public class GameEndScreen extends AppCompatActivity {
     public String timestampToString(long timeStamp){
         Date date = new Date(timeStamp);
         return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
+    }
+
+    /**
+     * Starts an intent to the main menu
+     *
+     * @author Maximilian Knodt
+     */
+    public void goToMainMenu() {
+        Intent intentSettings = new Intent();
+        intentSettings.setClass(this, StartScreen.class);
+        startActivity(intentSettings);
     }
 }

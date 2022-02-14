@@ -61,4 +61,14 @@ public class StartScreen extends AppCompatActivity {
             startActivity(intentScore);
         });
     }
+
+    /**
+     * Method called when back button is pressed.
+     *
+     * @author Linus Kurze
+     */
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
 }
