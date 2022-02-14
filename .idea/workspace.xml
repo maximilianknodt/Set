@@ -11,10 +11,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="End-Screen erzeugt">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameEndScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" afterDir="false" />
+    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="End-Screen Javaklasse erzeugt">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameEndScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameEndScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644834203115</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="End-Screen Javaklasse erzeugt">
+      <created>1644835271484</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1644835271484</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,7 +306,8 @@
     <MESSAGE value="Enums in separate öffentliche Klassen rausgezogen&#10;Änderung der Kartenspalte" />
     <MESSAGE value="Aktueller Stand mit geloeschten Kommentaren" />
     <MESSAGE value="End-Screen erzeugt" />
-    <option name="LAST_COMMIT_MESSAGE" value="End-Screen erzeugt" />
+    <MESSAGE value="End-Screen Javaklasse erzeugt" />
+    <option name="LAST_COMMIT_MESSAGE" value="End-Screen Javaklasse erzeugt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
