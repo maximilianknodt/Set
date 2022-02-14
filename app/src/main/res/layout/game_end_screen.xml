@@ -115,23 +115,23 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/textView_Game_End_Winner_Header"
+                android:id="@+id/textView_Game_End_Type_Header"
                 android:layout_width="72dp"
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:gravity="center_vertical"
-                android:text="@string/winner"
+                android:text="@string/game_type"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView_Game_End_Winner_Body"
+                android:id="@+id/textView_Game_End_Type_Body"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Winner"
+                android:text="Game Type"
                 android:textSize="16sp" />
         </TableRow>
 

@@ -39,14 +39,21 @@ public abstract class Game {
     protected long timeBeforePaused;
 
     /**
+     * if the game is a short game
+     */
+    protected boolean shortGame;
+
+    /**
      * Constructor
      * Creates a game with as parameter given rules. Creates a table for the game.
      *
      * @param rules the rules for the game
+     * @param shortGame if the game is a short game
      */
-    Game(Rules rules) {
+    Game(Rules rules, boolean shortGame) {
         this.rules = rules.clone();
-        this.table = new Table();
+        this.table = new Table(shortGame);
+        this.shortGame = shortGame;
     }
 
     /**
@@ -177,6 +184,16 @@ public abstract class Game {
      */
     public Rules getRules() {
         return rules;
+    }
+
+    /**
+     * Getter
+     * Returns if the game is a short game.
+     *
+     * @return if the game is a short game
+     */
+    public boolean isShortGame() {
+        return shortGame;
     }
 
     /**

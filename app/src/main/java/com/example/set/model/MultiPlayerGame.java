@@ -32,8 +32,8 @@ public class MultiPlayerGame extends Game {
      * @param players players playing in the game
      * @param rules   the rules for the game
      */
-    public MultiPlayerGame(Player[] players, Rules rules) {
-        super(rules);
+    public MultiPlayerGame(Player[] players, Rules rules, boolean shortGame) {
+        super(rules, shortGame);
         this.players = players;
     }
 

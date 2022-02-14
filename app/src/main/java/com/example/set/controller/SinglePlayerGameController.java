@@ -20,9 +20,9 @@ public class SinglePlayerGameController extends GameController {
      * Constructor
      * Calls super constructor. Initializes the game with a new instance.
      */
-    SinglePlayerGameController (GameScreen gameScreen) {
+    SinglePlayerGameController(GameScreen gameScreen) {
         super(gameScreen);
-        game = new SinglePlayerGame(getCurrentRules());
+        game = new SinglePlayerGame(getCurrentRules(), true);
     }
 
     /**
@@ -39,7 +39,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     protected void writeEndScreen() {
-        gameScreen.gameOver(((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        gameScreen.gameOver(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
     }
 
     /**

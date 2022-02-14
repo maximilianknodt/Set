@@ -6,7 +6,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
@@ -33,7 +32,7 @@ public class GameEndScreen extends AppCompatActivity {
 
         Button btnNewGame = findViewById(R.id.button_New_Game);
         Button btnMenu = findViewById(R.id.button_Menu);
-        TextView tvWinner = findViewById(R.id.textView_Game_End_Winner_Body);
+        TextView tvType = findViewById(R.id.textView_Game_End_Type_Body);
         TextView tvPoints = findViewById(R.id.textView_Game_End_Points_Body);
         TextView tvTime = findViewById(R.id.textView_Game_End_Time_Body);
         TextView tvStart = findViewById(R.id.textView_Game_End_Start_Body);
@@ -41,6 +40,13 @@ public class GameEndScreen extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
+            String type = getResources().getString(R.string.singleplayer) + " ";
+            if (bundle.getBoolean("shortGame")) {
+                type += getResources().getString(R.string.short_game);
+            } else {
+                type += getResources().getString(R.string.normal_game);
+            }
+            tvType.setText(type);
             tvPoints.setText(""+bundle.getInt("points"));
             tvTime.setText(bundle.getString("duration"));
             tvStart.setText(timestampToString(bundle.getLong("startTime")));

@@ -211,9 +211,10 @@ public class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void gameOver( int points, long duration, long startTime, boolean deduction) {
+    public void gameOver(boolean shortGame, int points, long duration, long startTime, boolean deduction) {
         Intent intentES = new Intent();
         intentES.setClass(this, GameEndScreen.class);
+        intentES.putExtra("shortGame", shortGame);
         intentES.putExtra("points", points);
         intentES.putExtra("duration", convertTime(duration));
         intentES.putExtra("startTime", startTime);

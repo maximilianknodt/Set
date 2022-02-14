@@ -18,14 +18,22 @@ public class Table {
      * The default count of table cards on the table
      */
     final int DEFAULT_CARD_COUNT = 12;
+
     /**
      * The maximum count of table cards on the table
      */
     final int MAX_CARD_COUNT = 21;
+
+    /**
+     * The maximum count of table cards on the table
+     */
+    final int SHORT_GAME_CARD_COUNT = 39;
+
     /**
      * Stack of Cards
      */
     private Stack<Card> stack;
+
     /**
      * Cards revealed on the table
      */
@@ -34,8 +42,10 @@ public class Table {
     /**
      * Constructor
      * Creates a table with a shuffled stack of cards.
+     *
+     * @param shortGame if the game is a short game with reduced amount of cards
      */
-    Table() {
+    Table(boolean shortGame) {
         stack = new Stack<>();
         tableCards = new ArrayList<>();
         for (Color color : Color.values()) {
@@ -49,7 +59,10 @@ public class Table {
         }
 
         Collections.shuffle(stack);
-        //stack.setSize(21); //TODO: Rausnehmen
+
+        if (shortGame) {
+            stack.setSize(SHORT_GAME_CARD_COUNT);
+        }
     }
 
     /**

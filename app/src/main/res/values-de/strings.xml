@@ -21,15 +21,18 @@
     <string name="suspendedText">Aussetzten bis zum nächsten globalen Set</string>
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
-    <string name="winner">Sieger</string>
+    <string name="game_type">Spielart:</string>
     <string name="startOfPlay">Start des Spiels:</string>
     <string name="rules">Regeln:</string>
     <string name="congratulatoin">Herzlichen Glückwunsch, Sie haben das Spiel erfolgreich beendet!</string>
     <string name="mainmenue">Hauptmenü</string>
     <string name="newGame">Neues Spiel</string>
+    <string name="winner">Sieger</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>
+    <string name="short_game">Kurzspiel</string>
+    <string name="normal_game">Normalspiel</string>
     <string name="message_select_3_cards">Bitte drei Karten für ein Set auswählen.</string>
     <string name="message_take_set_successful">Das Set wurde erfolgreich genommen.</string>
     <string name="message_take_set_incorrect">Das Set war falsch.</string>
