@@ -1,5 +1,6 @@
 package com.example.set.ui;
 
+import com.example.set.controller.AppControlerHolder;
 import com.example.set.controller.AppController;
 import com.example.set.controller.SinglePlayerGameController;
 
@@ -62,29 +63,41 @@ public class GameScreen extends AppCompatActivity {
 
         ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Pause);
 
-        // -------- Controller --------
-        AppController appController = new AppController();
-        boolean shortGame = false;
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.getBoolean("shortGame")) {
-            shortGame = true;
-        }
-        appController.createNewSinglePlayerGame(this, shortGame);
-        singlePlayerGameController = appController.getSinglePlayerGameController();
-
-        // --------- PAUSE ---------
-        btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From Gamesscreen to BreakeScreen");
-
-            singlePlayerGameController.pauseScreen();
-        });
-
         // -------- set Elements --------
         rvList = findViewById(R.id.recyclerView_Game_Field);
         timer = findViewById(R.id.duration_content);
         points = findViewById(R.id.points_content);
         cardsLeft = findViewById(R.id.cards_left_content);
         lastCardPos = new LinkedList<>();
+
+        // -------- Controller --------
+        AppController appController = AppControlerHolder.getAppController();
+        boolean newGame = true;
+        boolean shortGame = false;
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            newGame = bundle.getBoolean("newGame");
+            if(newGame) {
+                shortGame = bundle.getBoolean("shortGame");
+            }
+        }
+        if(newGame) {
+            appController.createNewSinglePlayerGame(this, shortGame);
+        }
+        singlePlayerGameController = appController.getSinglePlayerGameController();
+        if(newGame) {
+            singlePlayerGameController.startGame();
+        } else {
+            singlePlayerGameController.resume(this);
+        }
+
+        // --------- PAUSE ---------
+        btnSettings.setOnClickListener(v -> {
+            Log.d("Debug", "On Click - From Game" +
+                    "sscreen to BreakeScreen");
+
+            singlePlayerGameController.pauseScreen();
+        });
 
         // -------- set onClick Listener --------
         takeSet = findViewById(R.id.button_Game_Set);
@@ -107,8 +120,6 @@ public class GameScreen extends AppCompatActivity {
                 Toast.makeText(this.getBaseContext(), R.string.message_select_3_cards, Toast.LENGTH_SHORT).show();
             }
         });
-
-        singlePlayerGameController.startGame();
 
     }
 
@@ -264,6 +275,7 @@ public class GameScreen extends AppCompatActivity {
         intentES.putExtra("duration", timeToString(duration));
         intentES.putExtra("startTime", timestampToString(startTime));
         intentES.putExtra("rules", rulesToString(deduction));
+        intentES.putExtra("shortGame", shortGame);
         startActivity(intentES);
         finish();
     }

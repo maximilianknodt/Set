@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
+import com.example.set.controller.AppControlerHolder;
 
 /**
  * The single player screen class
@@ -35,7 +37,7 @@ public class SinglePlayerScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.singleplayer_screen);
 
-        // Searching in Ressources for the IDs
+        // Searching in Resources for the IDs
         Button btnNormalG = this.findViewById(R.id.button_Start_NG);
         Button btnShortG = this.findViewById(R.id.button_Start_SG);
         Button btnResumeG = this.findViewById(R.id.button_Resume);
@@ -46,6 +48,7 @@ public class SinglePlayerScreen extends AppCompatActivity {
 
             Intent intentSP = new Intent();
             intentSP.setClass(this, GameScreen.class);
+            intentSP.putExtra("newGame", true);
             intentSP.putExtra("shortGame", false);
             startActivity(intentSP);
         });
@@ -57,6 +60,7 @@ public class SinglePlayerScreen extends AppCompatActivity {
 
             Intent intentSP = new Intent();
             intentSP.setClass(this, GameScreen.class);
+            intentSP.putExtra("newGame", true);
             intentSP.putExtra("shortGame", true);
             startActivity(intentSP);
         });
@@ -64,14 +68,14 @@ public class SinglePlayerScreen extends AppCompatActivity {
         // -------- RESUME GAME --------
         btnResumeG.setOnClickListener(v -> {
             Log.d("Debug", "On Click - Single Player Game Resumes");
-            ActivityManager am = (ActivityManager)this.getSystemService(Context.ACTIVITY_SERVICE);
 
-            int sizeStack =  am.getRunningTasks(2).size();
-
-            for(int i = 0;i < sizeStack;i++){
-
-                ComponentName cn = am.getRunningTasks(2).get(i).topActivity;
-                Log.d("CLASSNAME", cn.getClassName()); //TODO: try to go to GameScreen activity
+            if(AppControlerHolder.getAppController().singlePlayerGameExists()) {
+                Intent intentSP = new Intent();
+                intentSP.setClass(this, GameScreen.class);
+                intentSP.putExtra("newGame", false);
+                startActivity(intentSP);
+            } else {
+                Toast.makeText(this.getBaseContext(), R.string.no_game_to_resume, Toast.LENGTH_SHORT).show();
             }
         });
     }

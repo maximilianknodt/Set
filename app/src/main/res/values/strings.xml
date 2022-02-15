@@ -34,9 +34,12 @@
     <string name="cards_left">Cards left:</string>
     <string name="resume_game">Resume Game</string>
     <string name="short_game">Short Game</string>
+    <string name="new_short_game">new Short Game</string>
+    <string name="new_normal_game">new Normal Game</string>
     <string name="normal_game">Normal Game</string>
     <string name="message_select_3_cards">Please select three cards for taking a set.</string>
     <string name="message_take_set_successful">The set has been taken successfully.</string>
     <string name="message_take_set_incorrect">The set selected was incorrect.</string>
     <string name="press_back_again">Press back again to exit.</string>
+    <string name="no_game_to_resume">There is no game to resume.</string>
 </resources>

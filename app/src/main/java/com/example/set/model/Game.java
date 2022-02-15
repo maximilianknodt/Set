@@ -1,5 +1,7 @@
 package com.example.set.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -60,6 +62,7 @@ public abstract class Game {
      * Starts a game by revealing the first cards and setting the time the game started.
      */
     public void startGame() {
+        Log.wtf("Log","startGameCalled");
         timeBeforePaused = 0;
         startTime = System.currentTimeMillis();
         resumeTime = startTime;

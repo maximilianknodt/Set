@@ -4,19 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.set.R;
+import com.example.set.controller.AppController;
 
+import java.io.Serializable;
 
+/**
+ * Start screen class
+ * Implements the main menu.
+ *
+ * @author Maximilian Knodt
+ * @author Linus Kurze
+ */
 public class StartScreen extends AppCompatActivity {
     /**
      * the last time back was pressed
      */
     private long lastPressedBackTime;
 
+    /**
+     * the method called when the screen is created
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

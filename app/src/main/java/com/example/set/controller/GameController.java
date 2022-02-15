@@ -136,6 +136,16 @@ public abstract class GameController {
     }
 
     /**
+     * Resumes the game on a given game screen.
+     *
+     * @param gameScreen the game screen
+     */
+    public void resume(GameScreen gameScreen) {
+        this.gameScreen = gameScreen;
+        resume();
+    }
+
+    /**
      * Resumes the game.
      */
     public void resume() {

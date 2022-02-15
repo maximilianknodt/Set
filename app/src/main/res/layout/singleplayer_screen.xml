@@ -31,14 +31,14 @@
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
-        android:text="@string/normal_game" />
+        android:text="@string/new_normal_game" />
 
     <Button
         android:id="@+id/button_Start_SG"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
-        android:text="@string/short_game" />
+        android:text="@string/new_short_game" />
 
     <Button
         android:id="@+id/button_Resume"

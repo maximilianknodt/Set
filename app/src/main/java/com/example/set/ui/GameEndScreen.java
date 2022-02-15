@@ -47,6 +47,7 @@ public class GameEndScreen extends AppCompatActivity {
             tvTime.setText(bundle.getString("duration"));
             tvStart.setText(bundle.getString("startTime"));
             tvRules.setText(bundle.getString("rules"));
+            shortGame = bundle.getBoolean("shortGame");
         }
 
         final boolean finalShortGame = shortGame;

@@ -48,6 +48,7 @@ public class BreakeScreen extends AppCompatActivity {
             Intent intentSettings = new Intent();
             intentSettings.setClass(this, StartScreen.class);
             startActivity(intentSettings);
+            finish();
         });
 
         ibtnPlay.setOnClickListener(v -> {

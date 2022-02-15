@@ -34,10 +34,13 @@
     <string name="points">Punkte:</string>
     <string name="cards_left">Karten übrig:</string>
     <string name="resume_game">Spiel fortsetzen</string>
-    <string name="short_game">Kurzspiel</string>
+    <string name="short_game">Schnellspiel</string>
     <string name="normal_game">Normalspiel</string>
+    <string name="new_short_game">neues Schnellspiel</string>
+    <string name="new_normal_game">neues Normalspiel</string>
     <string name="message_select_3_cards">Bitte drei Karten für ein Set auswählen.</string>
     <string name="message_take_set_successful">Das Set wurde erfolgreich genommen.</string>
     <string name="message_take_set_incorrect">Das Set war falsch.</string>
     <string name="press_back_again">Zurück erneut dürcken zum verlassen.</string>
+    <string name="no_game_to_resume">Es gibt kein Spiel zum fortsetzen.</string>
 </resources>

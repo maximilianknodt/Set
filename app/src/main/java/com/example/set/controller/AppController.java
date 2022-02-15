@@ -64,4 +64,24 @@ public class AppController {
     public MultiPlayerGameController getMultiPlayerGameController() {
         return multiPlayerGameController;
     }
+
+    /**
+     * Getter
+     * Returns the controller of the current single player game.
+     *
+     * @return controller of the current single player game
+     */
+    public boolean singlePlayerGameExists() {
+        return singlePlayerGameController != null;
+    }
+
+    /**
+     * Getter
+     * Returns the controller of the current multi player game.
+     *
+     * @return controller of the current multi player game
+     */
+    public boolean multiPlayerGameExists() {
+        return multiPlayerGameController != null;
+    }
 }
