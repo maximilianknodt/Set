@@ -47,12 +47,19 @@ public class GameEndScreen extends AppCompatActivity {
             shortGame = bundle.getBoolean("shortGame");
         }
 
+        if(shortGame) {
+            btnNewGame.setText(R.string.new_short_game);
+        } else {
+            btnNewGame.setText(R.string.new_normal_game);
+        }
+
         final boolean finalShortGame = shortGame;
         btnNewGame.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From Games_End_Screen to Game_screen");
 
             Intent intentSP = new Intent();
-            intentSP.setClass(this, GameScreen.class);
+            intentSP.setClass(this, SinglePlayerGameScreen.class);
+            intentSP.putExtra("newGame", true);
             intentSP.putExtra("shortGame", finalShortGame);
             startActivity(intentSP);
         });

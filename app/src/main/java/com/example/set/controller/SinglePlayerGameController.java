@@ -1,7 +1,7 @@
 package com.example.set.controller;
 
 import com.example.set.model.SinglePlayerGame;
-import com.example.set.ui.GameScreen;
+import com.example.set.ui.SinglePlayerGameScreen;
 
 /**
  * The single player game controller class
@@ -18,11 +18,11 @@ public class SinglePlayerGameController extends GameController {
      * Constructor
      * Calls super constructor. Initializes the game with a new instance.
      *
-     * @param gameScreen the gameScreen object for the game
+     * @param singlePlayerGameScreen the singlePlayerGameScreen object for the game
      * @param shortGame if the game should be a short game
      */
-    SinglePlayerGameController(GameScreen gameScreen, boolean shortGame) {
-        super(gameScreen);
+    SinglePlayerGameController(SinglePlayerGameScreen singlePlayerGameScreen, boolean shortGame) {
+        super(singlePlayerGameScreen);
         game = new SinglePlayerGame(getCurrentRules(), shortGame);
     }
 
@@ -36,11 +36,12 @@ public class SinglePlayerGameController extends GameController {
     }
 
     /**
-     * Writes the screen at the end of a game to the UI.
+     * Called when the game is over. Writes the screen at the end of a game to the UI.
      */
     @Override
-    protected void writeEndScreen() {
+    protected void gameOver() {
         gameScreen.gameOver(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        super.gameOver();
     }
 
     /**
@@ -96,7 +97,7 @@ public class SinglePlayerGameController extends GameController {
         writeScore();
         writeCardsLeft();
         if(game.isOver()) {
-            writeEndScreen();
+            gameOver();
         }
         return result;
     }

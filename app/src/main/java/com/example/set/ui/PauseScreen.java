@@ -54,7 +54,7 @@ public class PauseScreen extends AppCompatActivity {
         });
 
         ibtnPlay.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen back to GameScreen");
+            Log.d("Debug", "On Click - From PauseScreen back to SinglePlayerGameScreen");
 
             onBackPressed();
         });

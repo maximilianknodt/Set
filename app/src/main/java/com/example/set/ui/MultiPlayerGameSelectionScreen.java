@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
-import com.example.set.controller.AppControlerHolder;
+import com.example.set.controller.AppControllerHolder;
 
 /**
  * The single player screen class
@@ -49,7 +49,7 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - Multi Player Normal Game starts");
 
             Intent intentMP = new Intent();
-            intentMP.setClass(this, GameScreen.class);
+            intentMP.setClass(this, SinglePlayerGameScreen.class);
             intentMP.putExtra("newGame", true);
             intentMP.putExtra("shortGame", false);
             startActivity(intentMP);
@@ -61,7 +61,7 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - Multi Player Short Game starts");
 
             Intent intentMP = new Intent();
-            intentMP.setClass(this, GameScreen.class);
+            intentMP.setClass(this, SinglePlayerGameScreen.class);
             intentMP.putExtra("newGame", true);
             intentMP.putExtra("shortGame", true);
             startActivity(intentMP);
@@ -71,9 +71,9 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
         btnResumeG.setOnClickListener(v -> {
             Log.d("Debug", "On Click - Multi Player Game Resumes");
 
-            if(AppControlerHolder.getAppController().multiPlayerGameExists()) {
+            if(AppControllerHolder.getAppController().multiPlayerGameExists()) {
                 Intent intentMP = new Intent();
-                intentMP.setClass(this, GameScreen.class);
+                intentMP.setClass(this, SinglePlayerGameScreen.class);
                 intentMP.putExtra("newGame", false);
                 startActivity(intentMP);
             } else {

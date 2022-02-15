@@ -1,8 +1,8 @@
 package com.example.set.ui;
 
-import com.example.set.controller.AppControlerHolder;
+import com.example.set.controller.AppControllerHolder;
 import com.example.set.controller.AppController;
-import com.example.set.controller.SinglePlayerGameController;
+import com.example.set.controller.GameController;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,18 +34,18 @@ import java.util.Objects;
  * @author Maximilian Knodt
  * @author Linus Kurze
  */
-public class GameScreen extends AppCompatActivity {
+public abstract class GameScreen extends AppCompatActivity {
     private static final int ROW_COUNT = 3;
 
     private RecyclerView rvList;
     private TextView timer;
     private TextView points;
     private TextView cardsLeft;
-    private Button takeSet;
+    Button takeSet;
 
-    private SinglePlayerGameController singlePlayerGameController;
+    GameController gameController;
 
-    private LinkedList<CardData> lastCardPos;
+    LinkedList<CardData> lastCardPos;
 
     /**
      * onCreate method of the gameScreen, called when a game starts
@@ -69,68 +69,24 @@ public class GameScreen extends AppCompatActivity {
         cardsLeft = findViewById(R.id.cards_left_content);
         lastCardPos = new LinkedList<>();
 
-        // -------- Controller --------
-        AppController appController = AppControlerHolder.getAppController();
-        boolean newGame = true;
-        boolean shortGame = false;
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            newGame = bundle.getBoolean("newGame");
-            if(newGame) {
-                shortGame = bundle.getBoolean("shortGame");
-            }
-        }
-        if(newGame) {
-            appController.createNewSinglePlayerGame(this, shortGame);
-        }
-        singlePlayerGameController = appController.getSinglePlayerGameController();
-        if(newGame) {
-            singlePlayerGameController.startGame();
-        } else {
-            singlePlayerGameController.resume(this);
-        }
-
         // --------- PAUSE ---------
         btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From GameScreen to PauseScreen");
+            Log.d("Debug", "On Click - From SinglePlayerGameScreen to PauseScreen");
 
-            singlePlayerGameController.pauseScreen();
+            gameController.pauseScreen();
         });
-
-        // -------- set onClick Listener --------
-        takeSet = findViewById(R.id.button_Game_Set);
-        takeSet.setOnClickListener(view -> {
-            if(lastCardPos.size() == 3) {
-                CardData cardData = lastCardPos.removeLast();
-                int card1 = cardData.getX()*3 + cardData.getY();
-                cardData = lastCardPos.removeLast();
-                int card2 = cardData.getX()*3 + cardData.getY();
-                cardData = lastCardPos.removeLast();
-                int card3 = cardData.getX()*3 + cardData.getY();
-
-                if(singlePlayerGameController.takeSetPressed(card1, card2, card3)) {
-                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_successful, Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_incorrect, Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(this.getBaseContext(), R.string.message_select_3_cards, Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        singlePlayerGameController.pause();
+        gameController.pause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        singlePlayerGameController.resume();
+        gameController.resume();
     }
 
 

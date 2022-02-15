@@ -1,6 +1,6 @@
 package com.example.set.controller;
 
-import com.example.set.ui.GameScreen;
+import com.example.set.ui.SinglePlayerGameScreen;
 
 /**
  * The controller class for the whole logic
@@ -34,15 +34,15 @@ public class AppController {
     /**
      * Creates a new single player game.
      */
-    public void createNewSinglePlayerGame(GameScreen gameScreen, boolean shortGame) {
-        this.singlePlayerGameController = new SinglePlayerGameController(gameScreen, shortGame);
+    public void createNewSinglePlayerGame(SinglePlayerGameScreen singlePlayerGameScreen, boolean shortGame) {
+        this.singlePlayerGameController = new SinglePlayerGameController(singlePlayerGameScreen, shortGame);
     }
 
     /**
      * Creates a new multi player game.
      */
-    public void createNewMultiPlayerGame(GameScreen gameScreen, String[] players, boolean shortGame) {
-        this.multiPlayerGameController = new MultiPlayerGameController(gameScreen, players, shortGame);
+    public void createNewMultiPlayerGame(SinglePlayerGameScreen singlePlayerGameScreen, String[] players, boolean shortGame) {
+        this.multiPlayerGameController = new MultiPlayerGameController(singlePlayerGameScreen, players, shortGame);
     }
 
     /**

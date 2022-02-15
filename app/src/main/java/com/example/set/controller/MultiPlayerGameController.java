@@ -2,7 +2,7 @@ package com.example.set.controller;
 
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.Player;
-import com.example.set.ui.GameScreen;
+import com.example.set.ui.SinglePlayerGameScreen;
 
 /**
  * The multi player game controller class
@@ -32,7 +32,7 @@ public class MultiPlayerGameController extends GameController {
      * @param names names of the players
      * @param shortGame if the game should be a short game
      */
-    MultiPlayerGameController(GameScreen gameScreen, String[] names, boolean shortGame) {
+    MultiPlayerGameController(SinglePlayerGameScreen gameScreen, String[] names, boolean shortGame) {
         super(gameScreen);
         currentPlayerIndex = -1;
 
@@ -56,10 +56,10 @@ public class MultiPlayerGameController extends GameController {
     }
 
     /**
-     * Writes the screen at the end of a game to the UI.
+     * Called when the game is over. Writes the screen at the end of a game to the UI.
      */
     @Override
-    protected void writeEndScreen() {
+    protected void gameOver() {
         //TODO: write to UI game over
         Player winner = players[0];
         for(int i = 1; i < players.length; i++) {
@@ -69,6 +69,7 @@ public class MultiPlayerGameController extends GameController {
         }
         //TODO: write winner to UI
         writeGameInfo();
+        super.gameOver();
     }
 
     /**
@@ -158,7 +159,7 @@ public class MultiPlayerGameController extends GameController {
      * @return if the set was correct
      */
     @Override
-    boolean takeSetPressed(int position1, int position2, int position3) {
+    public boolean takeSetPressed(int position1, int position2, int position3) {
         boolean result = false;
         if(currentPlayerIndex > -1) {
             result = ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
@@ -167,7 +168,7 @@ public class MultiPlayerGameController extends GameController {
             writeCardsLeft();
             currentPlayerIndex = -1;
             if (game.isOver()) {
-                writeEndScreen();
+                gameOver();
             }
         }
         return result;

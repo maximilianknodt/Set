@@ -8,7 +8,7 @@ package com.example.set.controller;
  * @author Linus Kurze
  * @version 1.0
  */
-public class AppControlerHolder {
+public class AppControllerHolder {
     /**
      * the controller for the app
      */

@@ -2,7 +2,7 @@ package com.example.set.controller;
 
 import com.example.set.model.Game;
 import com.example.set.model.Rules;
-import com.example.set.ui.GameScreen;
+import com.example.set.ui.SinglePlayerGameScreen;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,7 +30,7 @@ public abstract class GameController {
     /**
      * the ui element for writing the game
      */
-    protected GameScreen gameScreen;
+    protected SinglePlayerGameScreen gameScreen;
 
     /**
      * the time for periodical updates in Hz (1/s)
@@ -41,7 +41,7 @@ public abstract class GameController {
      * Constructor
      * Initializes the ui element for the game.
      */
-    protected GameController(GameScreen gameScreen) {
+    protected GameController(SinglePlayerGameScreen gameScreen) {
         this.gameScreen = gameScreen;
     }
 
@@ -93,9 +93,12 @@ public abstract class GameController {
     abstract protected void writeScore();
 
     /**
-     * Writes the screen at the end of a game to the UI.
+     * Called when the game is over.
      */
-    abstract protected void writeEndScreen();
+    protected void gameOver() {
+        timer.cancel();
+        this.game = null;
+    };
 
     /**
      * Writes the game info to the UI.
@@ -125,7 +128,7 @@ public abstract class GameController {
      * @param position3 position of the third card
      * @return if the set was correct
      */
-    abstract boolean takeSetPressed(int position1, int position2, int position3);
+    public abstract boolean takeSetPressed(int position1, int position2, int position3);
 
     /**
      * Pauses the game.
@@ -138,10 +141,10 @@ public abstract class GameController {
     /**
      * Resumes the game on a given game screen.
      *
-     * @param gameScreen the game screen
+     * @param singlePlayerGameScreen the game screen
      */
-    public void resume(GameScreen gameScreen) {
-        this.gameScreen = gameScreen;
+    public void resume(SinglePlayerGameScreen singlePlayerGameScreen) {
+        this.gameScreen = singlePlayerGameScreen;
         resume();
     }
 
@@ -159,7 +162,9 @@ public abstract class GameController {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                periodicallyUpdate();
+                if(game != null) {
+                    periodicallyUpdate();
+                }
             }
         }, 0, 1000 / UPDATES_PER_SECOND);
     }

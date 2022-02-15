@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
-import com.example.set.controller.AppControlerHolder;
+import com.example.set.controller.AppControllerHolder;
 
 /**
  * The single player screen class
@@ -44,7 +44,7 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - Single Player Normal Game starts");
 
             Intent intentSP = new Intent();
-            intentSP.setClass(this, GameScreen.class);
+            intentSP.setClass(this, SinglePlayerGameScreen.class);
             intentSP.putExtra("newGame", true);
             intentSP.putExtra("shortGame", false);
             startActivity(intentSP);
@@ -56,7 +56,7 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - Single Player Short Game starts");
 
             Intent intentSP = new Intent();
-            intentSP.setClass(this, GameScreen.class);
+            intentSP.setClass(this, SinglePlayerGameScreen.class);
             intentSP.putExtra("newGame", true);
             intentSP.putExtra("shortGame", true);
             startActivity(intentSP);
@@ -66,9 +66,9 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
         btnResumeG.setOnClickListener(v -> {
             Log.d("Debug", "On Click - Single Player Game Resumes");
 
-            if(AppControlerHolder.getAppController().singlePlayerGameExists()) {
+            if(AppControllerHolder.getAppController().singlePlayerGameExists()) {
                 Intent intentSP = new Intent();
-                intentSP.setClass(this, GameScreen.class);
+                intentSP.setClass(this, SinglePlayerGameScreen.class);
                 intentSP.putExtra("newGame", false);
                 startActivity(intentSP);
             } else {

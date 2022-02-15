@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-    <activity android:name=".ui.GameScreen"
+    <activity android:name=".ui.SinglePlayerGameScreen"
         android:screenOrientation="landscape" />
 
         <activity android:name=".ui.SinglePlayerGameSelectionScreen"
@@ -33,7 +33,6 @@
         android:screenOrientation="landscape" />
 
         <activity android:name=".ui.PauseScreen"
-            android:noHistory="true"
             android:screenOrientation="landscape" />
 
         <activity android:name=".ui.GameEndScreen"
