@@ -35,7 +35,8 @@ import java.util.Objects;
  * @author Linus Kurze
  */
 public class GameScreen extends AppCompatActivity {
-    private static final int rows = 3;
+    private static final int ROW_COUNT = 3;
+
     private RecyclerView rvList;
     private TextView timer;
     private TextView points;
@@ -134,7 +135,7 @@ public class GameScreen extends AppCompatActivity {
 
 
     private int[][] cardValues(ArrayList<Integer> test){
-        int[][] result = new int[test.size()/rows][rows];
+        int[][] result = new int[test.size()/ ROW_COUNT][ROW_COUNT];
         int counterColumn = -1;
         int counterRow = -1;
 
@@ -372,7 +373,7 @@ public class GameScreen extends AppCompatActivity {
      * @return '2D' array with the cards customised for the ViewHolder of the RecyclerViewAdapter to fit to the column layout
      */
     private Card[][] alignTableCards(ArrayList<Card> tableCards){
-        Card[][] result = new Card[tableCards.size()/rows][rows];
+        Card[][] result = new Card[tableCards.size()/ ROW_COUNT][ROW_COUNT];
 
         int counterColumn = -1;
         int counterRow = -1;

@@ -40,7 +40,7 @@
         android:id="@+id/textview_Break_Screen_Headline"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/string_break"
+        android:text="@string/pause"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
@@ -109,7 +109,7 @@
         android:id="@+id/button_Break_Screen_Menu"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/mainmenue"
+        android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
@@ -188,7 +188,7 @@
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:gravity="center_vertical"
-                android:text="@string/startOfPlay"
+                android:text="@string/game_start"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

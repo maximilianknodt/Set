@@ -23,7 +23,10 @@
     <activity android:name=".ui.GameScreen"
         android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.SinglePlayerScreen"
+        <activity android:name=".ui.SinglePlayerGameSelectionScreen"
+            android:screenOrientation="landscape" />
+
+        <activity android:name=".ui.MultiPlayerGameSelectionScreen"
             android:screenOrientation="landscape" />
 
     <activity android:name=".ui.SettingsScreen"

@@ -1,8 +1,5 @@
 package com.example.set.ui;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +20,7 @@ import com.example.set.controller.AppControlerHolder;
  * @author Linus Kurze
  * @version 1.0
  */
-public class SinglePlayerScreen extends AppCompatActivity {
+public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
 
     /**
      * Method called when screen is created. Handles clicks on the different buttons.
@@ -35,7 +32,7 @@ public class SinglePlayerScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.singleplayer_screen);
+        setContentView(R.layout.single_player_game_selection_screen);
 
         // Searching in Resources for the IDs
         Button btnNormalG = this.findViewById(R.id.button_Start_NG);

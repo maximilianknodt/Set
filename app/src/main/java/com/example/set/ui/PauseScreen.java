@@ -22,7 +22,7 @@ public class PauseScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.breake_screen);
+        setContentView(R.layout.pause_screen);
 
         Button btnSettings = findViewById(R.id.button_Break_Screen_Settings);
         Button btnMenu = findViewById(R.id.button_Break_Screen_Menu);

@@ -35,7 +35,7 @@ public abstract class GameController {
     /**
      * the time for periodical updates in Hz (1/s)
      */
-    private final int UPDATES_PER_SECOND = 60;
+    private final static int UPDATES_PER_SECOND = 60;
 
     /**
      * Constructor

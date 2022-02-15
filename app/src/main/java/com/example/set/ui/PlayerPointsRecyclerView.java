@@ -29,7 +29,7 @@ public class PlayerPointsRecyclerView extends RecyclerView.Adapter<PlayerPointsR
      */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = this.inflater.inflate(R.layout.breake_screen, viewGroup, false);
+        View view = this.inflater.inflate(R.layout.pause_screen, viewGroup, false);
         return new ViewHolder(view);
     }
 

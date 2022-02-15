@@ -4,15 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.set.R;
-import com.example.set.controller.AppController;
-
-import java.io.Serializable;
 
 /**
  * Home screen class
@@ -43,10 +39,10 @@ public class HomeScreen extends AppCompatActivity {
 
         // -------- SINGLEPLAYER --------
         btnSP.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From HomeScreen to SinglePlayerScreen");
+            Log.d("Debug", "On Click - From HomeScreen to SinglePlayerGameSelectionScreen");
 
             Intent intentSP = new Intent();
-            intentSP.setClass(this, SinglePlayerScreen.class);
+            intentSP.setClass(this, SinglePlayerGameSelectionScreen.class);
             startActivity(intentSP);
         });
 
@@ -56,7 +52,7 @@ public class HomeScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - Multiplayer Match startet");
 
             Intent intentMP = new Intent();
-            intentMP.setClass(this, GameScreen.class);          // TODO: Klasse MPzwischenScreen + die entsprechende .xml Datei erzeugen (?)
+            intentMP.setClass(this, MultiPlayerGameSelectionScreen.class);
             startActivity(intentMP);
         });
 
