@@ -13,7 +13,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="24dp"
         android:layout_marginRight="40dp"
-        android:text="@string/singleplayer"
+        android:text="@string/single_player"
         android:textSize="28sp"
         android:textStyle="bold" />
 

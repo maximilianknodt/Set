@@ -28,7 +28,11 @@ import java.util.LinkedList;
 import java.util.Objects;
 
 /**
+ * Game screen class
+ * Class which implements the ui and their function for the game
+ *
  * @author Maximilian Knodt
+ * @author Linus Kurze
  */
 public class GameScreen extends AppCompatActivity {
     private static final int rows = 3;
@@ -41,12 +45,6 @@ public class GameScreen extends AppCompatActivity {
     private SinglePlayerGameController singlePlayerGameController;
 
     private LinkedList<CardData> lastCardPos;
-
-    /**
-     * Class to handle onClickListener and to commit necessary information to the CardColumnRecyclerViewAdapter
-     *
-     * @param savedInstanceState
-     */
 
     /**
      * onCreate method of the gameScreen, called when a game starts
@@ -93,8 +91,7 @@ public class GameScreen extends AppCompatActivity {
 
         // --------- PAUSE ---------
         btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From Game" +
-                    "sscreen to BreakeScreen");
+            Log.d("Debug", "On Click - From GameScreen to PauseScreen");
 
             singlePlayerGameController.pauseScreen();
         });
@@ -246,7 +243,7 @@ public class GameScreen extends AppCompatActivity {
 
     public void openPause(boolean shortGame, int points, int cardsLeft, long duration, long startTime, boolean deduction) {
         Intent intentBreakeScreen = new Intent();
-        intentBreakeScreen.setClass(this, BreakeScreen.class);
+        intentBreakeScreen.setClass(this, PauseScreen.class);
         intentBreakeScreen.putExtra("gameType", gameTypeToString(shortGame));
         intentBreakeScreen.putExtra("points", points);
         intentBreakeScreen.putExtra("cardsLeft", cardsLeft);
@@ -328,7 +325,7 @@ public class GameScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     public String gameTypeToString(boolean shortGame) {
-        String type = getResources().getString(R.string.singleplayer) + " ";
+        String type = getResources().getString(R.string.single_player) + " ";
         if (shortGame) {
             type += getResources().getString(R.string.short_game);
         } else {
@@ -398,31 +395,8 @@ public class GameScreen extends AppCompatActivity {
      * @param cards the cards to write on the screen
      *
      * @author Maximilian Knodt
-     * @author Linus Kurze
      */
     private void envokeRecyclerView(ArrayList<Card> cards){
-        //TODO: Ersetzten des Platzhalter durch Array mit den korrekten Kartendaten
-        /*ArrayList<Card> platzhalter = new ArrayList<>();
-        for(int i = 0; i < 21; i++) {
-            Card card1 = new Card(Color.RED, Shape.WAVE, Filling.EMPTY, Count.THREE);
-            Card card2 = new Card(Color.BLUE, Shape.DIAMOND, Filling.HALF_FULL, Count.TWO);
-            Card card3 = new Card(Color.GREEN, Shape.OVAL, Filling.FULL, Count.ONE);
-            if(i % 3 == 0) platzhalter.add(card1);
-            else if (i % 3 == 1) platzhalter.add(card2);
-                    else platzhalter.add(card3);
-        }
-        cards = platzhalter;*/
-
-
-        /*this.rvList = findViewById(R.id.recyclerView_Game_Field);
-        // LinearLayout will show the Data in a horizontal List and will lay out from start to end ( = false)
-        this.rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-        this.rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(),this.alignTableCards(cards)));
-        this.rvList.getAdapter();*/
-
-
-        // LinearLayout will show the Data in a horizontal List and will lay out from start to end ( = false)
-        //rvList.removeAllViews();
         rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
         rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(), this, this.alignTableCards(cards)));
     }

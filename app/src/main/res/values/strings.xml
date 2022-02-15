@@ -1,17 +1,17 @@
 <resources>
     <!-- @author Maximilian Knodt-->
     <string name="app_name">SET</string>
-    <string name="singleplayer">Singleplayer</string>
-    <string name="multiplayer">Multiplayer</string>
+    <string name="single_player">Singleplayer</string>
+    <string name="multi_player">Multiplayer</string>
     <string name="settings">Settings</string>
     <string name="set">SET</string>
-    <string name="gamefield">Field of Cards</string>
-    <string name="string_break">Break</string>
+    <string name="game_field">Field of Cards</string>
+    <string name="pause">Pause</string>
     <string name="highscore">Highscore</string>
     <string name="language">Language</string>
     <string name="rulesSP">Singleplayer Rules</string>
     <string name="rulesMP">Multiplayer Rules</string>
-    <string name="nightmode">Dark Mode</string>
+    <string name="dark_mode">Dark Mode</string>
     <string name="timer">Timer</string>
     <string name="deduction">Point Deduction</string>
     <string name="suspended">Suspended</string>
@@ -21,13 +21,12 @@
     <string name="timerText">Time for choosing a Set</string>
     <string name="switchOff">off</string>
     <string name="game_type">Game type:</string>
-    <string name="startOfPlay">Start of Play:</string>
+    <string name="game_start">Game start:</string>
     <string name="rules">Rules:</string>
-    <string name="congratulatoin">Congratulations! \nYou have successfully completed the game!</string>
-    <string name="mainmenue">Main Menue</string>
-    <string name="newGame">New Game</string>
+    <string name="congrats">Congratulations! \nYou have successfully completed the game!</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="new_game">New Game</string>
     <string name="winner">Winner:</string>
-    <string name="pause">Pause Game</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Time:</string>
     <string name="points">Points:</string>

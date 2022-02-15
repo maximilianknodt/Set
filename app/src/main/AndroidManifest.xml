@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".ui.StartScreen"
+            android:name=".ui.HomeScreen"
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
@@ -29,7 +29,7 @@
     <activity android:name=".ui.SettingsScreen"
         android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.BreakeScreen"
+        <activity android:name=".ui.PauseScreen"
             android:noHistory="true"
             android:screenOrientation="landscape" />
 

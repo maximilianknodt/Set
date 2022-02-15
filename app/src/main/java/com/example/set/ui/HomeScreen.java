@@ -15,13 +15,13 @@ import com.example.set.controller.AppController;
 import java.io.Serializable;
 
 /**
- * Start screen class
+ * Home screen class
  * Implements the main menu.
  *
  * @author Maximilian Knodt
  * @author Linus Kurze
  */
-public class StartScreen extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity {
     /**
      * the last time back was pressed
      */
@@ -43,7 +43,7 @@ public class StartScreen extends AppCompatActivity {
 
         // -------- SINGLEPLAYER --------
         btnSP.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From StartScreen to SinglePlayerScreen");
+            Log.d("Debug", "On Click - From HomeScreen to SinglePlayerScreen");
 
             Intent intentSP = new Intent();
             intentSP.setClass(this, SinglePlayerScreen.class);

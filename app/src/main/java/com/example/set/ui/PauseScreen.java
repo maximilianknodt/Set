@@ -6,17 +6,19 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
 
 /**
+ * Pause screen class
+ * Implements the pause screen.
+ *
  * @author Maximilian Knodt
  * @author Linus Kurze
  */
-public class BreakeScreen extends AppCompatActivity {
+public class PauseScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public class BreakeScreen extends AppCompatActivity {
 
 
         btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen to Settingsscreen");
+            Log.d("Debug", "On Click - From PauseScreen to SettingsScreen");
 
             Intent intentSettings = new Intent();
             intentSettings.setClass(this, SettingsScreen.class);
@@ -43,16 +45,16 @@ public class BreakeScreen extends AppCompatActivity {
         });
 
         btnMenu.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen to Startscreen");
+            Log.d("Debug", "On Click - From PauseScreen to StartScreen");
 
             Intent intentSettings = new Intent();
-            intentSettings.setClass(this, StartScreen.class);
+            intentSettings.setClass(this, HomeScreen.class);
             startActivity(intentSettings);
             finish();
         });
 
         ibtnPlay.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen back to Gamescreen");
+            Log.d("Debug", "On Click - From PauseScreen back to GameScreen");
 
             onBackPressed();
         });

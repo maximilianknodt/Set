@@ -2,17 +2,17 @@
 <resources>
     <!-- @author Maximilian Knodt-->
     <string name="app_name">SET</string>
-    <string name="singleplayer">Einzelspieler</string>
-    <string name="multiplayer">Mehrspieler</string>
+    <string name="single_player">Einzelspieler</string>
+    <string name="multi_player">Mehrspieler</string>
     <string name="settings">Einstellungen</string>
     <string name="set">SET</string>
-    <string name="gamefield">Spielfeld mit Karten</string>
-    <string name="string_break">Pause</string>
+    <string name="game_field">Spielfeld mit Karten</string>
+    <string name="pause">Pause</string>
     <string name="highscore">Bestenliste</string>
     <string name="language">Sprache</string>
     <string name="rulesSP">Einzelspielerregeln</string>
     <string name="rulesMP">Mehrspielerregeln</string>
-    <string name="nightmode">Nachtmodus</string>
+    <string name="dark_mode">Nachtmodus</string>
     <string name="timer">Zeit</string>
     <string name="deduction">Punktabzug</string>
     <string name="suspended">Aussetzten</string>
@@ -22,13 +22,12 @@
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
     <string name="game_type">Spielart:</string>
-    <string name="startOfPlay">Start des Spiels:</string>
+    <string name="game_start">Spielbeginn:</string>
     <string name="rules">Regeln:</string>
-    <string name="congratulatoin">Herzlichen Glückwunsch! \nSie haben das Spiel erfolgreich beendet!</string>
-    <string name="mainmenue">Hauptmenü</string>
-    <string name="newGame">Neues Spiel</string>
+    <string name="congrats">Herzlichen Glückwunsch! \nSie haben das Spiel erfolgreich beendet!</string>
+    <string name="main_menu">Hauptmenü</string>
+    <string name="new_game">Neues Spiel</string>
     <string name="winner">Sieger:</string>
-    <string name="pause">Spiel pausieren</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>

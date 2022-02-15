@@ -10,9 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * @author Maximilian Knodt
  */
@@ -64,7 +61,7 @@ public class GameEndScreen extends AppCompatActivity {
             Log.d("Debug", "On Click - From Games_End_Screen to Start_Screen");
 
             Intent intentStart = new Intent();
-            intentStart.setClass(this, StartScreen.class);
+            intentStart.setClass(this, HomeScreen.class);
             intentStart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intentStart);
         });
