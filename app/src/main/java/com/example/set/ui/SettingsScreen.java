@@ -1,5 +1,6 @@
 package com.example.set.ui;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -109,23 +110,24 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         // TODO: Ueberpruefung der Methode und Korrektur -> noch nicht funktionabel
         // Get the string and transform it to Uppercase via the neutral locale ROOT
         // Can be used as constant for the language code for a new locale
-        String language = parent.getItemAtPosition(position).toString().toUpperCase(Locale.ROOT);
+        //String language = parent.getItemAtPosition(position).toString().toUpperCase(Locale.ROOT);
+        String lang = parent.getItemAtPosition(position).toString();
+        String language = "";
+        if(lang.equals("English")) language = "en";
+        else if(lang.equals("German")) language ="de";
+        LocalManager.setLocale(this, language);
+
+
 /**
         String lang = parent.getItemAtPosition(position).toString();
         String language = "";
         if(lang.equals("English")) language = "en";
         else if(lang.equals("German")) language ="de";
-*/
-        // Locale is the Object to format languages or numbers to a specific region of the world
-        Locale locale = new Locale(language);
-        Locale.setDefault(locale);
 
-        //Configuration descrices all device information -> need to be changed when language is changed
-        Configuration config = getResources().getConfiguration();
         // Retrieving the LocalList with the default Local at the first position
         config.getLocales().get(0);
         getBaseContext().createConfigurationContext(config);
-
+ */
         Toast.makeText(getApplicationContext(), "Language Changed", Toast.LENGTH_SHORT).show();
 
     }
@@ -139,4 +141,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     public void onNothingSelected(AdapterView<?> parent){
         // I need to be here because of the implemented interface
     }
+
+
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(LocalManager.setLocale(newBase, "de"));
+    }
+
 }
