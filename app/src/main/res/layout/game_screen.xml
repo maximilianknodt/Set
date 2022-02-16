@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/set"
+        android:text="@string/take_set"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
         app:layout_constraintStart_toStartOf="@+id/guidelineDivider"

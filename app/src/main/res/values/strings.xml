@@ -41,4 +41,5 @@
     <string name="message_take_set_incorrect">The set selected was incorrect.</string>
     <string name="press_back_again">Press back again to exit.</string>
     <string name="no_game_to_resume">There is no game to resume.</string>
+    <string name="take_set">Take Set</string>
 </resources>

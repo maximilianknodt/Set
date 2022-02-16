@@ -42,4 +42,5 @@
     <string name="message_take_set_incorrect">Das Set war falsch.</string>
     <string name="press_back_again">Zurück erneut dürcken zum verlassen.</string>
     <string name="no_game_to_resume">Es gibt kein Spiel zum fortsetzen.</string>
+    <string name="take_set">Set nehmen</string>
 </resources>
