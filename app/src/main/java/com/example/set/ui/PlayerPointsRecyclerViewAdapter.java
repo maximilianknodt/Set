@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.set.R;
 
 
-public class PlayerPointsRecyclerView extends RecyclerView.Adapter<PlayerPointsRecyclerView.ViewHolder>{
+public class PlayerPointsRecyclerViewAdapter extends RecyclerView.Adapter<PlayerPointsRecyclerViewAdapter.ViewHolder>{
     private String[][] playerData;
     private LayoutInflater inflater;
 
-    public PlayerPointsRecyclerView(Context context, String[][] data){
+    public PlayerPointsRecyclerViewAdapter(Context context, String[][] data){
         this.inflater = LayoutInflater.from(context);
         this.playerData = data;
     }

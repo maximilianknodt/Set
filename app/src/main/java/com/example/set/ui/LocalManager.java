@@ -74,11 +74,7 @@ public class LocalManager {
 
         Configuration config = resources.getConfiguration();
         config.locale = locale;
-        // For devices with version between Nougat and Jelly Bean
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
-            config.setLayoutDirection(locale);
-        }
-        // For devices lower Jelly Bean
+
         resources.updateConfiguration(config, resources.getDisplayMetrics());
 
         return context;

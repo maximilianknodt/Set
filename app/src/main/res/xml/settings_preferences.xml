@@ -1,0 +1,60 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/language">
+
+        <ListPreference
+            app:key="Settings_Preferences_Language"
+            app:title="@string/language_selection"
+            app:defaultValue="english"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/rulesSP">
+
+        <SwitchPreferenceCompat
+            app:key="Settings_Preferences_SP_Deduction"
+            app:title="@string/deduction"
+            app:summaryOff="@string/deduction_off"
+            app:summaryOn="@string/deduction_on"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/rulesMP">
+
+        <SwitchPreferenceCompat
+            app:key="Settings_Preferences_MP_Deduction"
+            app:title="@string/deduction"
+            app:summaryOff="@string/deduction_off"
+            app:summaryOn="@string/deduction_on"/>
+
+        <SwitchPreferenceCompat
+            app:key="Settings_Preferences_Suspended"
+            app:title="@string/suspended"
+            app:summaryOff="@string/suspended_off"
+            app:summaryOn="@string/suspended_on" />
+
+        <ListPreference
+            app:key="Settings_Preferences_Timer"
+            app:title="@string/timer"
+            app:defaultValue="10"
+            app:entries="@array/timer_entries"
+            app:entryValues="@array/timer_values"
+            app:useSimpleSummaryProvider="true"
+             />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/theme">
+
+        <SwitchPreferenceCompat
+            app:key="Settings_Preferences_Dark_Mode"
+            app:title="@string/dark_mode"
+            app:summaryOff="@string/dark_mode_off"
+            app:summaryOn="@string/dark_mode_on" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

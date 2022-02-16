@@ -13,12 +13,12 @@
     <string name="rulesSP">Einzelspielerregeln</string>
     <string name="rulesMP">Mehrspielerregeln</string>
     <string name="dark_mode">Nachtmodus</string>
-    <string name="timer">Zeit</string>
+    <string name="timer">Zeit um Set zu wählen</string>
     <string name="deduction">Punktabzug</string>
     <string name="suspended">Aussetzten</string>
     <string name="switchOn">an</string>
-    <string name="deductionText">Ein Punkt Abzug bei falschem Set</string>
-    <string name="suspendedText">Aussetzten bis zum nächsten globalen Set</string>
+    <string name="deduction_on">Ein Punkt Abzug bei falschem Set</string>
+    <string name="suspended_on">Aussetzten bis zum nächsten globalen Set</string>
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
     <string name="game_type">Spielart:</string>
@@ -28,6 +28,12 @@
     <string name="main_menu">Hauptmenü</string>
     <string name="new_game">Neues Spiel</string>
     <string name="winner">Sieger:</string>
+    <string name="deduction_off">Kein Punkt abzug bei falschem Set</string>
+    <string name="suspended_off">Kein Aussetzten bis zum nächsten globalen Set</string>
+    <string name="theme">Darstellung</string>
+    <string name="dark_mode_off">Dunkle Darstellung aus</string>
+    <string name="dark_mode_on">Dunkle Darstellung an</string>
+    <string name="language_selection">Sprachauswahl</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>

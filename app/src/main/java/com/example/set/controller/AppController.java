@@ -1,5 +1,12 @@
 package com.example.set.controller;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.example.set.SettingsFragment;
+import com.example.set.ui.LocalManager;
+import com.example.set.ui.SettingsScreen;
 import com.example.set.ui.SinglePlayerGameScreen;
 
 /**
