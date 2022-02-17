@@ -5,54 +5,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+    <!-- @author Maximilian Knodt-->
 
     <TextView
         android:id="@+id/textview_Singleplayer_Headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="24dp"
         android:text="@string/set"
-        android:textSize="28sp"
-        android:textStyle="bold"/>
+        style="@style/TextView_Base.Headline.Linear" />
 
     <View
         android:id="@+id/view_Singleplayer_Underline"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="40dp"
-        android:background="#777676"/>
+        style="@style/View_Base.Underline_Linear"
+        android:layout_marginBottom="40dp"       />
 
     <Button
-        android:id="@+id/button_Start_NG"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:text="@string/single_player" />
+        android:id="@+id/button_Start_Screen_SPG"
+        android:text="@string/single_player"
+        style="@style/Button_Base.LinearLayout" />
 
     <Button
-        android:id="@+id/button_Start_SG"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:text="@string/multi_player" />
+        android:id="@+id/button_Start_Screen_MPG"
+        android:text="@string/multi_player"
+        style="@style/Button_Base.LinearLayout" />
 
     <Button
-        android:id="@+id/button_Resume"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:text="@string/settings" />
+        android:id="@+id/button_Start_Screen_Settings"
+        android:text="@string/settings"
+        style="@style/Button_Base.LinearLayout" />
 
     <Button
-        android:id="@+id/button_Start_Highscore"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:text="@string/highscore" />
+        android:id="@+id/button_Start_Screen_Highscore"
+        android:text="@string/highscore"
+        style="@style/Button_Base.LinearLayout" />
 
 </LinearLayout>

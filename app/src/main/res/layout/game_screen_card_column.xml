@@ -10,15 +10,9 @@
 
     <!-- @author Maximilian Knodt-->
 
-
     <LinearLayout
         android:id="@+id/cardTop"
-        android:layout_width="55dp"
-        android:layout_height="75dp"
-        android:background="@color/card_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="7dp"
+        style="@style/LinearLayout_Card"
         app:layout_constraintBottom_toTopOf="@+id/cardMiddle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +20,7 @@
 
     <LinearLayout
         android:id="@+id/cardMiddle"
-        android:layout_width="55dp"
-        android:layout_height="75dp"
-        android:background="@color/card_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="7dp"
+        style="@style/LinearLayout_Card"
         app:layout_constraintBottom_toTopOf="@+id/cardBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,12 +28,7 @@
 
     <LinearLayout
         android:id="@+id/cardBottom"
-        android:layout_width="55dp"
-        android:layout_height="75dp"
-        android:background="@color/card_background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="7dp"
+        style="@style/LinearLayout_Card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- @autor Maximilian Knodt-->
-
+    <color name="Button_Primary">#FF880066</color>
     <color name="darkmode_Headline">#DEffffff</color>
     <color name="darkmode_Text_Normal">#A3ffffff</color>
     <color name="darkmode_Text_Description">#4Dffffff</color>

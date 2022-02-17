@@ -24,7 +24,8 @@
     <string name="game_type">Spielart:</string>
     <string name="game_start">Spielbeginn:</string>
     <string name="rules">Regeln:</string>
-    <string name="congrats">Herzlichen Glückwunsch! \nSie haben das Spiel erfolgreich beendet!</string>
+    <string name="congrats">Herzlichen Glückwunsch</string>
+    <string name="congrats_text">Sie haben das Spiel erfolgreich beendet!</string>
     <string name="main_menu">Hauptmenü</string>
     <string name="new_game">Neues Spiel</string>
     <string name="winner">Sieger:</string>
@@ -37,7 +38,7 @@
     <!-- @author Linus Kurze-->
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>
-    <string name="cards_left">Karten übrig:</string>
+    <string name="cards_left">Stapel:</string>
     <string name="resume_game">Spiel fortsetzen</string>
     <string name="short_game">Schnellspiel</string>
     <string name="normal_game">Normalspiel</string>

@@ -23,7 +23,8 @@
     <string name="game_type">Game type:</string>
     <string name="game_start">Game start:</string>
     <string name="rules">Rules:</string>
-    <string name="congrats">Congratulations! \nYou have successfully completed the game!</string>
+    <string name="congrats">Congratulations</string>
+    <string name="congrats_text">You have successfully completed the game!</string>
     <string name="main_menu">Main Menu</string>
     <string name="new_game">New Game</string>
     <string name="winner">Winner:</string>
@@ -33,10 +34,12 @@
     <string name="dark_mode_off">Dark Mode off</string>
     <string name="dark_mode_on">Dark Mode on</string>
     <string name="language_selection">Language selection</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="zero_timer" translatable="false">00:00:00</string>
     <!-- @author Linus Kurze-->
     <string name="duration">Time:</string>
     <string name="points">Points:</string>
-    <string name="cards_left">Cards left:</string>
+    <string name="cards_left">Stack:</string>
     <string name="resume_game">Resume Game</string>
     <string name="short_game">Short Game</string>
     <string name="new_short_game">new Short Game</string>
@@ -48,4 +51,5 @@
     <string name="press_back_again">Press back again to exit.</string>
     <string name="no_game_to_resume">There is no game to resume.</string>
     <string name="take_set">Take Set</string>
+
 </resources>

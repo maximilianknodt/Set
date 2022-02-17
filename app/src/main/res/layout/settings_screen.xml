@@ -12,22 +12,13 @@
 
     <TextView
         android:id="@+id/textview_Singleplayer_Headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="24dp"
         android:text="@string/settings"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        style="@style/TextView_Base.Headline.Linear"
         android:textColor="@color/darkmode_Headline"/>
 
     <View
         android:id="@+id/view_Singleplayer_Underline"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        style="@style/View_Base.Underline_Linear"
         android:background="@color/darkmode_Headline"/>
 
     <androidx.fragment.app.FragmentContainerView

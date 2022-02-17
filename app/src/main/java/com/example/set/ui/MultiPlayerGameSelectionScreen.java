@@ -40,9 +40,9 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
         headline.setText(R.string.multi_player);
 
         // Searching in Resources for the IDs
-        Button btnNormalG = this.findViewById(R.id.button_Start_NG);
-        Button btnShortG = this.findViewById(R.id.button_Start_SG);
-        Button btnResumeG = this.findViewById(R.id.button_Resume);
+        Button btnNormalG = this.findViewById(R.id.button_Start_Screen_SPG);
+        Button btnShortG = this.findViewById(R.id.button_Start_Screen_MPG);
+        Button btnResumeG = this.findViewById(R.id.button_Start_Screen_Settings);
 
         // -------- NORMAL GAME --------
         btnNormalG.setOnClickListener(v -> {
