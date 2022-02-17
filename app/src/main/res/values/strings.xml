@@ -12,20 +12,29 @@
     <string name="rulesSP">Singleplayer Rules</string>
     <string name="rulesMP">Multiplayer Rules</string>
     <string name="dark_mode">Dark Mode</string>
-    <string name="timer">Timer</string>
+    <string name="timer">Time to choose set</string>
     <string name="deduction">Point Deduction</string>
     <string name="suspension">Suspension</string>
     <string name="switchOn">on</string>
-    <string name="deductionText">One Point Deduction for wrong set</string>
-    <string name="suspendedText">Suspended until next global Set</string>
+    <string name="deduction_on">One point deduction for wrong set</string>
+    <string name="suspended_on">Suspended until next global Set</string>
     <string name="timerText">Time for choosing a Set</string>
     <string name="switchOff">off</string>
+    <string name="game_type">Game type:</string>
     <string name="game_start">Game start:</string>
     <string name="rules">Rules:</string>
     <string name="congrats">Congratulations! \nYou have successfully completed the game!</string>
     <string name="main_menu">Main Menu</string>
     <string name="new_game">New Game</string>
     <string name="winner">Winner:</string>
+    <string name="deduction_off">No point deduction for wrong set</string>
+    <string name="suspended_off">No suspending until next global Set</string>
+    <string name="theme">Theme</string>
+    <string name="dark_mode_off">Dark Mode off</string>
+    <string name="dark_mode_on">Dark Mode on</string>
+    <string name="language_selection">Language selection</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="zero_timer" translatable="false">00:00:00</string>
     <!-- @author Linus Kurze-->
     <string name="game_type">Game type:</string>
     <string name="game_mode">Game mode:</string>

@@ -1,6 +1,13 @@
 package com.example.set.controller;
 
 import com.example.set.ui.MultiPlayerGameScreen;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.example.set.SettingsFragment;
+import com.example.set.ui.LocalManager;
+import com.example.set.ui.SettingsScreen;
 import com.example.set.ui.SinglePlayerGameScreen;
 
 /**
@@ -42,8 +49,8 @@ public class AppController {
     /**
      * Creates a new multi player game.
      */
-    public void createNewMultiPlayerGame(MultiPlayerGameScreen multiPlayerGameScreen, String[] players, boolean shortGame) {
-        this.multiPlayerGameController = new MultiPlayerGameController(multiPlayerGameScreen, players, shortGame);
+    public void createNewMultiPlayerGame(SinglePlayerGameScreen singlePlayerGameScreen, String[] players, boolean shortGame) {
+        this.multiPlayerGameController = new MultiPlayerGameController(singlePlayerGameScreen, players, shortGame);
     }
 
     /**
