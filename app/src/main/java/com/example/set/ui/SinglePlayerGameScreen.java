@@ -67,6 +67,7 @@ public class SinglePlayerGameScreen extends GameScreen {
     public void gameOver(boolean shortGame, int points, long duration, long startTime, boolean deduction) {
         Intent intentES = new Intent();
         intentES.setClass(this, GameEndScreen.class);
+        intentES.putExtra("gameMode", getResources().getString(R.string.single_player));
         intentES.putExtra("gameType", gameTypeToString(shortGame));
         intentES.putExtra("points", points);
         intentES.putExtra("duration", timeToString(duration));

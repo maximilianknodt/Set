@@ -29,21 +29,21 @@
         android:background="#777676"/>
 
     <Button
-        android:id="@+id/button_Start_Screen_SPG"
+        android:id="@+id/button_Singleplayer_Screen_NG"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:text="@string/new_normal_game" />
 
     <Button
-        android:id="@+id/button_Start_Screen_MPG"
+        android:id="@+id/button_Singleplayer_Screen_SG"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:text="@string/new_short_game" />
 
     <Button
-        android:id="@+id/button_Start_Screen_Settings"
+        android:id="@+id/button_Singleplayer_Screen_Resume"
         android:layout_width="210dp"
         android:layout_height="55dp"
         android:layout_gravity="center"

@@ -176,7 +176,7 @@ public class MultiPlayerGameScreen extends GameScreen {
                 if(((MultiPlayerGameController)gameController).selectPlayer(finalI)) {
                     Toast.makeText(this.getBaseContext(), R.string.message_player_is_selected, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this.getBaseContext(), R.string.message_player_is_exposed, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this.getBaseContext(), R.string.message_player_is_suspended, Toast.LENGTH_SHORT).show();
                 }
             });
         }

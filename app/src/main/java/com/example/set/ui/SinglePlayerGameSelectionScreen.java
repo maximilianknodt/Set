@@ -35,9 +35,9 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
         setContentView(R.layout.single_player_game_selection_screen);
 
         // Searching in Resources for the IDs
-        Button btnNormalG = this.findViewById(R.id.button_Start_Screen_SPG);
-        Button btnShortG = this.findViewById(R.id.button_Start_Screen_MPG);
-        Button btnResumeG = this.findViewById(R.id.button_Start_Screen_Settings);
+        Button btnNormalG = this.findViewById(R.id.button_Singleplayer_Screen_NG);
+        Button btnShortG = this.findViewById(R.id.button_Singleplayer_Screen_SG);
+        Button btnResumeG = this.findViewById(R.id.button_Singleplayer_Screen_Resume);
 
         // -------- NORMAL GAME --------
         btnNormalG.setOnClickListener(v -> {

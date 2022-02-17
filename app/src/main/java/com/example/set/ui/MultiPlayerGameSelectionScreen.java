@@ -38,9 +38,9 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
         TextView headline = this.findViewById(R.id.textview_Singleplayer_Headline);
         headline.setText(R.string.multi_player);
 
-        Button btnNormalG = this.findViewById(R.id.button_Start_NG);
-        Button btnShortG = this.findViewById(R.id.button_Start_SG);
-        Button btnResumeG = this.findViewById(R.id.button_Resume);
+        Button btnNormalG = this.findViewById(R.id.button_Singleplayer_Screen_NG);
+        Button btnShortG = this.findViewById(R.id.button_Singleplayer_Screen_SG);
+        Button btnResumeG = this.findViewById(R.id.button_Singleplayer_Screen_Resume);
 
         btnNormalG.setOnClickListener(v -> {
             Intent intentMP = new Intent();

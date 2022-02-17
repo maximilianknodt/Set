@@ -129,7 +129,9 @@ public abstract class GameController {
      * Pauses the game.
      */
     public void pause() {
-        game.pause();
+        if(game != null) {
+            game.pause();
+        }
         timer.cancel();
     }
 

@@ -21,7 +21,6 @@
     <string name="suspended_on">Aussetzten bis zum nächsten globalen Set</string>
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
-    <string name="game_type">Spielart:</string>
     <string name="game_start">Spielbeginn:</string>
     <string name="rules">Regeln:</string>
     <string name="congrats">Herzlichen Glückwunsch! \nSie haben das Spiel erfolgreich beendet!</string>
@@ -59,7 +58,7 @@
     <string name="add_cards">Dazulegen</string>
     <string name="message_add_cards_successful">Drei Karten erfolgreich dazugelegt.</string>
     <string name="message_add_cards_not_possible">Dazulegen ist nicht möglich.</string>
-    <string name="message_player_is_exposed">Der ausgewählte Spieler muss aussetzen.</string>
+    <string name="message_player_is_suspended">Der ausgewählte Spieler muss aussetzen.</string>
     <string name="message_player_is_selected">Der Spieler wurde erfolgreich asugewählt.</string>
     <string name="congrats_multiplayer_singular">Herzlichen Glückwunsch! \nDer Gewinner ist:</string>
     <string name="congrats_multiplayer_plural">Herzlichen Glückwunsch! \nDie Gewinner sind:</string>
