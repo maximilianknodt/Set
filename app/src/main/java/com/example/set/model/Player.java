@@ -75,7 +75,7 @@ public class Player {
      * Getter
      * Returns if the player is exposed.
      */
-    public boolean isExposed() {
+    public boolean isSuspended() {
         return exposed;
     }
 
@@ -83,7 +83,7 @@ public class Player {
      * Setter
      * Starts the exposure of the player.
      */
-    void startExposure() {
+    void startSuspension() {
         exposed = true;
     }
 
@@ -91,7 +91,7 @@ public class Player {
      * Setter
      * Ends the exposure of the player.
      */
-    void endExposure() {
+    void endSuspension() {
         exposed = false;
     }
 }

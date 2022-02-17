@@ -254,7 +254,7 @@ public class MultiPlayerGameScreen extends GameScreen {
             public void run() {
                 Toast.makeText(baseContext, R.string.message_set_selection_ended, Toast.LENGTH_SHORT).show();
                 selectedCards.clear();
-                ((MultiPlayerGameController)gameController).writeCards();
+                gameController.writeCards();
                 writeDefaultView();
             }
         });

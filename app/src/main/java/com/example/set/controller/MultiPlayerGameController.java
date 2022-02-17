@@ -111,8 +111,8 @@ public class MultiPlayerGameController extends GameController {
      * @return
      */
     public boolean selectPlayer(int playerIndex) {
-        currentPlayerIndex = playerIndex;
-        if (((MultiPlayerGame)game).set(players[currentPlayerIndex])) {
+        if (((MultiPlayerGame)game).set(players[playerIndex])) {
+            currentPlayerIndex = playerIndex;
             ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
             return true;
         }

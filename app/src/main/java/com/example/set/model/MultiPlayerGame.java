@@ -68,8 +68,14 @@ public class MultiPlayerGame extends Game {
      * <p>
      */
     public boolean set(Player player) {
-        if (player.isExposed()) {
+        if (player.isSuspended()) {
             return false;
+        }
+
+        for (Player p : players) {
+            if (p.isSuspended()) {
+                p.endSuspension();
+            }
         }
 
         takeSetTimeStart = System.currentTimeMillis();
@@ -135,12 +141,6 @@ public class MultiPlayerGame extends Game {
     public boolean takeCards(Player player, int position1, int position2, int position3) {
         boolean result = false;
 
-        for (Player p : players) {
-            if (p.isExposed()) {
-                p.endExposure();
-            }
-        }
-
         if(!isTakeSetTimeOver()) {
             if (takeSetChecked(position1, position2, position3)) {
                 player.increaseSetAmount();
@@ -162,7 +162,7 @@ public class MultiPlayerGame extends Game {
             player.decreaseSetAmount();
         }
         if (rules.isMultiPlayerSuspension()) {
-            player.startExposure();
+            player.startSuspension();
         }
     }
 }
