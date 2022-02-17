@@ -63,4 +63,13 @@
     <string name="message_player_is_selected">Player has been successfully selected.</string>
     <string name="congrats_multiplayer_singular">Congratulations! \nThe winner is:</string>
     <string name="congrats_multiplayer_plural">Congratulations! \nThe winners are:</string>
+    <string name="add_player">Add Player</string>
+    <string name="remove_player">Remove Player</string>
+    <string name="player_name">Player Name</string>
+    <string name="player">Player</string>
+    <string name="start_game">Start game</string>
+    <string name="message_added_player">Added player successfully.</string>
+    <string name="message_can_not_add_player">Can not add any more players.</string>
+    <string name="message_deleted_player">Deleted player successfully.</string>
+    <string name="message_can_not_delete_player">Can not delete any more players.</string>
 </resources>

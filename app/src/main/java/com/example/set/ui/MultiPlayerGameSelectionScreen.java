@@ -44,8 +44,7 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
 
         btnNormalG.setOnClickListener(v -> {
             Intent intentMP = new Intent();
-            intentMP.setClass(this, MultiPlayerGameScreen.class);
-            intentMP.putExtra("newGame", true);
+            intentMP.setClass(this, MultiPlayerPlayersScreen.class);
             intentMP.putExtra("shortGame", false);
             startActivity(intentMP);
         });
@@ -53,8 +52,7 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
 
         btnShortG.setOnClickListener(v -> {
             Intent intentMP = new Intent();
-            intentMP.setClass(this, MultiPlayerGameScreen.class);
-            intentMP.putExtra("newGame", true);
+            intentMP.setClass(this, MultiPlayerPlayersScreen.class);
             intentMP.putExtra("shortGame", true);
             startActivity(intentMP);
         });

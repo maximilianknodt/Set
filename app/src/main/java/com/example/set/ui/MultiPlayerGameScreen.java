@@ -99,7 +99,7 @@ public class MultiPlayerGameScreen extends GameScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String[] players = {"Player 1", "Player 2", "Player 3","Player 4","Player 5","Player 6","Player 7","Player 8"};
+        String[] players = {getString(R.string.player) + " 1", getString(R.string.player) + " 2"};
 
         AppController appController = AppControllerHolder.getAppController();
         boolean newGame = true;
@@ -109,6 +109,7 @@ public class MultiPlayerGameScreen extends GameScreen {
             newGame = bundle.getBoolean("newGame");
             if(newGame) {
                 shortGame = bundle.getBoolean("shortGame");
+                players = bundle.getStringArray("namesList");
             }
         }
 

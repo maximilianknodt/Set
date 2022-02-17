@@ -32,6 +32,10 @@
         <activity android:name=".ui.MultiPlayerGameSelectionScreen"
             android:screenOrientation="landscape" />
 
+        <activity android:name=".ui.MultiPlayerPlayersScreen"
+            android:noHistory="true"
+            android:screenOrientation="landscape" />
+
     <activity android:name=".ui.SettingsScreen"
         android:screenOrientation="landscape" />
 

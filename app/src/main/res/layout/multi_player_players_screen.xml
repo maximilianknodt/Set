@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/players_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- @author Maximilian Knodt -->
+    <!-- @author Linus Kurze -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Players_Screen_Right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Players_Screen_Left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Players_Screen_Top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Players_Screen_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Players_Screen_Buttondivider2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Players_Screen_VerticalHalf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <Button
+        android:id="@+id/button_Players_Screen_add_player"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_player"
+        app:layout_constraintBottom_toTopOf="@+id/button_Players_Screen_start_game"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Players_Screen_Buttondivider2" />
+
+    <Button
+        android:id="@+id/button_Players_Screen_remove_player"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/remove_player"
+        app:layout_constraintBottom_toTopOf="@+id/button_Players_Screen_add_player"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Players_Screen_Buttondivider2" />
+
+    <Button
+        android:id="@+id/button_Players_Screen_start_game"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start_game"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Players_Screen_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Players_Screen_Buttondivider2" />
+
+    <ScrollView
+        android:id="@+id/players_scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Players_Screen_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Buttondivider2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Players_Screen_Left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Players_Screen_Top"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/players_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Players_Screen_player_name_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Players_Screen_Buttondivider2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Players_Screen_Top">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_input_player_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/player_name"
+            android:inputType="textPersonName"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
