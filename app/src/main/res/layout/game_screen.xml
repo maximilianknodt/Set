@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- @author Maximilian Knodt-->
+    <!-- @author Linus Kurze-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_Right"
@@ -46,18 +47,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button_Game_Set"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/take_set"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
-        app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
-        app:layout_constraintTop_toTopOf="@+id/guidelineVerticalHalf" />
-
     <ImageButton
         android:id="@+id/imageButton_Game_Pause"
         android:layout_width="48dp"
@@ -65,7 +54,7 @@
         android:background="@null"
         android:contentDescription="@string/pause"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top"
         app:srcCompat="@drawable/ic_pause" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -80,91 +69,109 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.68" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_Game_Field"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/main_game_screen"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:contentDescription="@string/game_field"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guidelineDivider"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_Left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_Game_Top">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_Game_Field"
+            android:layout_width="wrap_content"
+            android:layout_height="326dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/game_field"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/duration_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center_vertical"
-        android:text="00:00:00"
-        app:layout_constraintBottom_toTopOf="@+id/points_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|right|center_vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/duration_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/duration_text"
         app:layout_constraintTop_toBottomOf="@+id/imageButton_Game_Pause" />
 
     <TextView
         android:id="@+id/duration_text"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_vertical"
         android:text="@string/duration"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/points_text"
-        app:layout_constraintEnd_toStartOf="@+id/duration_content"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/view_Game_DividerFieldSettings"
         app:layout_constraintTop_toBottomOf="@+id/imageButton_Game_Pause" />
 
     <TextView
         android:id="@+id/points_text"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_vertical"
         android:text="@string/points"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cards_left_text"
         app:layout_constraintEnd_toStartOf="@+id/points_content"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/view_Game_DividerFieldSettings"
-        app:layout_constraintTop_toBottomOf="@+id/duration_text" />
+        app:layout_constraintTop_toBottomOf="@+id/cards_left_text" />
+
+    <TextView
+        android:id="@+id/points_list_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineVerticalHalf"
+        app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintTop_toBottomOf="@+id/points_text" />
+
+    <TextView
+        android:id="@+id/points_list_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="right"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineVerticalHalf"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
+        app:layout_constraintStart_toEndOf="@+id/points_list_text"
+        app:layout_constraintTop_toBottomOf="@+id/points_text" />
 
     <TextView
         android:id="@+id/points_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center|right|center_vertical"
-        android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/cards_left_content"
+        app:layout_constraintBottom_toBottomOf="@+id/points_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/points_text"
-        app:layout_constraintTop_toBottomOf="@+id/duration_content" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="62dp" />
+        app:layout_constraintTop_toBottomOf="@+id/cards_left_content" />
 
     <TextView
         android:id="@+id/cards_left_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center|right|center_vertical"
-        android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineVerticalHalf"
+        app:layout_constraintBottom_toBottomOf="@+id/cards_left_text"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cards_left_text"
-        app:layout_constraintTop_toBottomOf="@+id/points_content" />
+        app:layout_constraintTop_toBottomOf="@+id/duration_content" />
 
     <TextView
         android:id="@+id/cards_left_text"
@@ -174,11 +181,30 @@
         android:gravity="center_vertical"
         android:text="@string/cards_left"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineVerticalHalf"
         app:layout_constraintEnd_toStartOf="@+id/cards_left_content"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/view_Game_DividerFieldSettings"
         app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
-        app:layout_constraintTop_toBottomOf="@+id/points_text" />
+        app:layout_constraintTop_toBottomOf="@+id/duration_text" />
+
+    <LinearLayout
+        android:id="@+id/game_buttons_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_Right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineDivider"
+        app:layout_constraintTop_toTopOf="@+id/guidelineVerticalHalf"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/button_game_take_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/take_set" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

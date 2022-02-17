@@ -2,7 +2,7 @@ package com.example.set.controller;
 
 import com.example.set.model.Game;
 import com.example.set.model.Rules;
-import com.example.set.ui.SinglePlayerGameScreen;
+import com.example.set.ui.GameScreen;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,7 +30,7 @@ public abstract class GameController {
     /**
      * the ui element for writing the game
      */
-    protected SinglePlayerGameScreen gameScreen;
+    protected GameScreen gameScreen;
 
     /**
      * the time for periodical updates in Hz (1/s)
@@ -41,7 +41,7 @@ public abstract class GameController {
      * Constructor
      * Initializes the ui element for the game.
      */
-    protected GameController(SinglePlayerGameScreen gameScreen) {
+    protected GameController(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
     }
 
@@ -63,28 +63,28 @@ public abstract class GameController {
      */
     protected Rules getCurrentRules() {
         //TODO: read current rules and return them
-        return new Rules(true,true,true,10);
+        return new Rules(true,true,true,20);
     }
 
     /**
      * Writes the cards to the UI.
      */
-    protected void writeCards() {
-        gameScreen.setCards(game.getTableCards());
+    public void writeCards() {
+        gameScreen.writeCards(game.getTableCards());
     }
 
     /**
      * Writes the duration of the game to the UI.
      */
     protected void writeDuration() {
-        gameScreen.setTime(game.getDuration());
+        gameScreen.writeTime(game.getDuration());
     }
 
     /**
      * Writes the score to the UI.
      */
     protected void writeCardsLeft() {
-        gameScreen.setCardsLeft(game.getCardsLeft());
+        gameScreen.writeCardsLeft(game.getCardsLeft());
     }
 
     /**
@@ -99,11 +99,6 @@ public abstract class GameController {
         timer.cancel();
         this.game = null;
     };
-
-    /**
-     * Writes the game info to the UI.
-     */
-    abstract protected void writeGameInfo();
 
     /**
      * Contains the things to be periodically updated.
@@ -141,10 +136,10 @@ public abstract class GameController {
     /**
      * Resumes the game on a given game screen.
      *
-     * @param singlePlayerGameScreen the game screen
+     * @param gameScreen the game screen
      */
-    public void resume(SinglePlayerGameScreen singlePlayerGameScreen) {
-        this.gameScreen = singlePlayerGameScreen;
+    public void resume(GameScreen gameScreen) {
+        this.gameScreen = gameScreen;
         resume();
     }
 
@@ -157,6 +152,9 @@ public abstract class GameController {
         resumeGameSpecific();
     }
 
+    /**
+     * creates the timer.
+     */
     private void createTimer() {
         timer = new Timer();
         timer.schedule(new TimerTask() {

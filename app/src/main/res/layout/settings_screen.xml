@@ -151,7 +151,7 @@
                 android:layout_height="55dp"
                 android:gravity="center_vertical"
                 android:paddingLeft="32dp"
-                android:text="@string/suspended"
+                android:text="@string/suspension"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/darkmode_Text_Normal"

@@ -1,30 +1,37 @@
 package com.example.set.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageButton;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.set.R;
 import com.example.set.controller.AppController;
 import com.example.set.controller.AppControllerHolder;
 
-import java.util.LinkedList;
-
+/**
+ * The single player game screen class
+ * A class implementing the ui for the single player game screen.
+ * <p>
+ * The author is responsible for this class.
+ *
+ * @author Linus Kurze
+ * @version 1.0
+ */
 public class SinglePlayerGameScreen extends GameScreen {
+
     /**
      * onCreate method of the gameScreen, called when a game starts
      *
      * @param savedInstanceState
      *
-     * @author Maximilian Knodt
      * @author Linus Kurze
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // -------- Controller --------
         AppController appController = AppControllerHolder.getAppController();
         boolean newGame = true;
         boolean shortGame = false;
@@ -44,28 +51,96 @@ public class SinglePlayerGameScreen extends GameScreen {
         } else {
             gameController.resume(this);
         }
+    }
 
-        // -------- set onClick Listener --------
-        takeSet = findViewById(R.id.button_Game_Set);
-        takeSet.setOnClickListener(view -> {
-            if(lastCardPos.size() == 3) {
-                CardData cardData = lastCardPos.removeLast();
-                int card1 = cardData.getX()*3 + cardData.getY();
-                cardData = lastCardPos.removeLast();
-                int card2 = cardData.getX()*3 + cardData.getY();
-                cardData = lastCardPos.removeLast();
-                int card3 = cardData.getX()*3 + cardData.getY();
+    /**
+     * Method called when the game is over
+     *
+     * @param shortGame if the game is a short game
+     * @param points the points the player received
+     * @param duration the time the game took
+     * @param startTime the time the game started
+     * @param deduction if the deduction rule was enabled
+     *
+     * @author Linus Kurze
+     */
+    public void gameOver(boolean shortGame, int points, long duration, long startTime, boolean deduction) {
+        Intent intentES = new Intent();
+        intentES.setClass(this, GameEndScreen.class);
+        intentES.putExtra("gameType", gameTypeToString(shortGame));
+        intentES.putExtra("points", points);
+        intentES.putExtra("duration", timeToString(duration));
+        intentES.putExtra("startTime", timestampToString(startTime));
+        intentES.putExtra("rules", rulesToString(deduction));
+        intentES.putExtra("shortGame", shortGame);
+        startActivity(intentES);
+        finish();
+    }
 
-                if(gameController.takeSetPressed(card1, card2, card3)) {
-                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_successful, Toast.LENGTH_SHORT).show();
+    /**
+     * Method called when the pause screen should be opened
+     *
+     * @param shortGame if the game is a short game
+     * @param points the points the player received
+     * @param cardsLeft the cards left on the stack
+     * @param duration the time the game took
+     * @param startTime the time the game started
+     * @param deduction if the deduction rule was enabled
+     *
+     * @author Linus Kurze
+     */
+    public void openPause(boolean shortGame, int points, int cardsLeft, long duration, long startTime, boolean deduction) {
+        Intent intentPauseScreen = new Intent();
+        intentPauseScreen.setClass(this, PauseScreen.class);
+        intentPauseScreen.putExtra("gameMode", getResources().getString(R.string.single_player));
+        intentPauseScreen.putExtra("gameType", gameTypeToString(shortGame));
+        intentPauseScreen.putExtra("points", points);
+        intentPauseScreen.putExtra("cardsLeft", cardsLeft);
+        intentPauseScreen.putExtra("duration", timeToString(duration));
+        intentPauseScreen.putExtra("startTime", timestampToString(startTime));
+        intentPauseScreen.putExtra("rules", rulesToString(deduction));
+        startActivity(intentPauseScreen);
+    }
 
-                } else {
-                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_incorrect, Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(this.getBaseContext(), R.string.message_select_3_cards, Toast.LENGTH_SHORT).show();
-            }
-        });
+    /**
+     * Method called when the ui should write the points.
+     *
+     * @param value the points to write
+     *
+     * @author Linus Kurze
+     */
+    public void writePoints(int value){
+        points.setText(""+value);
+    }
 
+    /**
+     * Method called when a card is clicked.
+     *
+     * @param x the x position of the card
+     * @param y the y position of the card
+     * @param view the view of the card
+     *
+     * @author Linus Kurze
+     */
+    public void onCardClicked(int x, int y, View view) {
+        cardSelected(x, y, view);
+    }
+
+    /**
+     * Converts rules in seconds as long to a string.
+     *
+     * @param deduction if the deduction is active
+     * @return the rules as readable String
+     *
+     * @author Linus Kurze
+     */
+    private String rulesToString(boolean deduction) {
+        String rules = getResources().getString(R.string.deduction) + ": ";
+        if (deduction) {
+            rules += getResources().getString(R.string.switchOn);
+        } else {
+            rules += getResources().getString(R.string.switchOff);
+        }
+        return rules;
     }
 }

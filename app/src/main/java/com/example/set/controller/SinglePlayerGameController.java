@@ -32,7 +32,7 @@ public class SinglePlayerGameController extends GameController {
     @Override
     protected void writeScore() {
         int score = ((SinglePlayerGame)game).getSetAmount();
-        gameScreen.setPoints(score);
+        ((SinglePlayerGameScreen)gameScreen).writePoints(score);
     }
 
     /**
@@ -40,20 +40,8 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        gameScreen.gameOver(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        ((SinglePlayerGameScreen)gameScreen).gameOver(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
         super.gameOver();
-    }
-
-    /**
-     * Writes the game info to the UI.
-     */
-    @Override
-    protected void writeGameInfo() {
-        int score = ((SinglePlayerGame)game).getSetAmount();
-        long start = game.getStartTime();
-        long duration = game.getDuration();
-        boolean deduction = game.getRules().isSinglePlayerDeduction();
-        //TODO: write to UI
     }
 
     /**
@@ -69,7 +57,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        gameScreen.openPause(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        ((SinglePlayerGameScreen)gameScreen).openPause(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
     }
 
     /**

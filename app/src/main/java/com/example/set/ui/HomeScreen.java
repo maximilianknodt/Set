@@ -25,6 +25,8 @@ public class HomeScreen extends AppCompatActivity {
 
     /**
      * the method called when the screen is created
+     *
+     * @author Maximilian Knodt
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

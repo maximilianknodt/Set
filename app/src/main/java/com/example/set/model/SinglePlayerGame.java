@@ -52,7 +52,9 @@ public class SinglePlayerGame extends Game {
             revealCards();
             return true;
         } else if (rules.isSinglePlayerDeduction()) {
-            setAmount--;
+            if(setAmount > 0) {
+                setAmount--;
+            }
         }
         return false;
     }

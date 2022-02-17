@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- @author Maximilian Knodt-->
+    <!-- @author Linus Kurze-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Break_Screen_Right"
@@ -20,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="72dp" />
+        app:layout_constraintGuide_begin="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Break_Screen_Top"
@@ -52,38 +53,24 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="@color/cardview_dark_background"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_Break_Screen_Play"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
         app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Textdivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Break_Screen_Buttondivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Break_Screen_VerticalHalf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Text_Recycler_Divider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.68" />
 
     <ImageButton
         android:id="@+id/imageButton_Break_Screen_Play"
@@ -92,205 +79,257 @@
         android:background="@null"
         android:contentDescription="@string/resume_game"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintTop_toBottomOf="@+id/view_Start_Underline"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Break_Screen_Top"
         app:srcCompat="@drawable/ic_play" />
 
     <Button
         android:id="@+id/button_Break_Screen_Settings"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/settings"
         app:layout_constraintBottom_toTopOf="@+id/button_Break_Screen_Menu"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
-        app:layout_constraintTop_toTopOf="@+id/guideline_Break_Screen_VerticalHalf" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider" />
 
     <Button
         android:id="@+id/button_Break_Screen_Menu"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
-        app:layout_constraintTop_toBottomOf="@+id/button_Break_Screen_Settings" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider" />
 
-    <TableLayout
-        android:id="@+id/tableLayout_Game_End"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:stretchColumns="*"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Text_Recycler_Divider"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Textdivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
-        app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Game_Type_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_type"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Game_Type_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="Game Type"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Time_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/duration"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Time_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="00:00:00"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Start_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_start"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Start_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="00.00.2022"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/points"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="0"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Cards_Left_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/cards_left"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Cards_Left_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="0"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Rules_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/rules"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Rules_Body"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:gravity="center_vertical"
-                android:text="TextView"
-                android:textSize="16sp" />
-        </TableRow>
-    </TableLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_Breake_Screen_PlayerPoints"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_End_Screen_Content"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider"
-        app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline"
-        app:layout_constraintVertical_bias="0.0" >
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
+        app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_End_Screen_Content_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/layout_End_Screen_Content_right"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Game_Mode_Body"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:text="Game Mode"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Game_Mode_Header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Game_Mode_Header"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Game_Mode_Header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/game_mode"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Game_Type_Body"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_column="1"
+                android:gravity="right|center_vertical"
+                android:text="Game Type"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Game_Type_Header"
+                app:layout_constraintEnd_toEndOf="@+id/textView_Break_Screen_Game_Mode_Body"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Game_Type_Header"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Mode_Body" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Game_Type_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/game_type"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Mode_Header" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Start_Body"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:text="00.00.2022"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Start_Header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Start_Header"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Type_Body" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Start_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/game_start"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Type_Header" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Rules_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/rules"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Start_Header" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Rules_Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Rules_Header"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Start_Body" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_End_Screen_Content_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/layout_End_Screen_Content_left"
+            tools:layout_editor_absoluteY="62dp">
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Time_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/duration"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Time_Body"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:text="00:00:00"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Time_Header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Time_Header"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/points"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Cards_Left_Header" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_List_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Points_Header" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_Body"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Points_Header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Points_Header"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Cards_Left_Body" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_List_Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Points_List_Header"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Points_Body" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Cards_Left_Body"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_column="1"
+                android:layout_marginEnd="8dp"
+                android:gravity="right|center_vertical"
+                android:text="0"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Cards_Left_Header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Cards_Left_Header"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Time_Body" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Cards_Left_Header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:gravity="center_vertical"
+                android:text="@string/cards_left"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Time_Header" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

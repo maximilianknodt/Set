@@ -19,6 +19,14 @@ import com.example.set.R;
  * @author Linus Kurze
  */
 public class PauseScreen extends AppCompatActivity {
+
+    /**
+     * on Create method
+     * Called when the screen is created. Writes the information to the screen. Implements button functions.
+     *
+     * @author Maximilian Knodt
+     * @author Linus Kurze
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -28,10 +36,13 @@ public class PauseScreen extends AppCompatActivity {
         Button btnMenu = findViewById(R.id.button_Break_Screen_Menu);
         ImageButton ibtnPlay = findViewById(R.id.imageButton_Break_Screen_Play);
 
+        TextView gameMode = findViewById(R.id.textView_Break_Screen_Game_Mode_Body);
         TextView gameType = findViewById(R.id.textView_Break_Screen_Game_Type_Body);
         TextView time = findViewById(R.id.textView_Break_Screen_Time_Body);
         TextView startTime = findViewById(R.id.textView_Break_Screen_Start_Body);
         TextView points = findViewById(R.id.textView_Break_Screen_Points_Body);
+        TextView pointsList = findViewById(R.id.textView_Break_Screen_Points_List_Body);
+        TextView namesList = findViewById(R.id.textView_Break_Screen_Points_List_Header);
         TextView cardsLeft = findViewById(R.id.textView_Break_Screen_Cards_Left_Body);
         TextView rules = findViewById(R.id.textView_Break_Screen_Rules_Body);
 
@@ -61,12 +72,19 @@ public class PauseScreen extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
+            String gameModeText = bundle.getString("gameMode");
+            gameMode.setText(gameModeText);
             gameType.setText(bundle.getString("gameType"));
             time.setText(bundle.getString("duration"));
             startTime.setText(bundle.getString("startTime"));
-            points.setText(""+bundle.getInt("points"));
             cardsLeft.setText(""+bundle.getInt("cardsLeft"));
             rules.setText(bundle.getString("rules"));
+            if(gameModeText.equals(getString(R.string.multi_player))) {
+                pointsList.setText(bundle.getString("pointsList"));
+                namesList.setText(bundle.getString("namesList"));
+            } else {
+                points.setText(""+bundle.getInt("points"));
+            }
         }
     }
 }

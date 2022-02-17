@@ -65,13 +65,13 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position){
         holder.cardOne.setOnClickListener(view -> {
-            gameScreen.cardClicked(position, 0, view);
+            gameScreen.onCardClicked(position, 0, view);
         });
         holder.cardTwo.setOnClickListener(view -> {
-            gameScreen.cardClicked(position, 1, view);
+            gameScreen.onCardClicked(position, 1, view);
         });
         holder.cardThree.setOnClickListener(view -> {
-            gameScreen.cardClicked(position, 2, view);
+            gameScreen.onCardClicked(position, 2, view);
         });
 
         Context context = this.inflater.getContext();

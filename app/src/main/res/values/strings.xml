@@ -14,13 +14,12 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="timer">Timer</string>
     <string name="deduction">Point Deduction</string>
-    <string name="suspended">Suspended</string>
+    <string name="suspension">Suspension</string>
     <string name="switchOn">on</string>
     <string name="deductionText">One Point Deduction for wrong set</string>
     <string name="suspendedText">Suspended until next global Set</string>
     <string name="timerText">Time for choosing a Set</string>
     <string name="switchOff">off</string>
-    <string name="game_type">Game type:</string>
     <string name="game_start">Game start:</string>
     <string name="rules">Rules:</string>
     <string name="congrats">Congratulations! \nYou have successfully completed the game!</string>
@@ -28,9 +27,15 @@
     <string name="new_game">New Game</string>
     <string name="winner">Winner:</string>
     <!-- @author Linus Kurze-->
+    <string name="game_type">Game type:</string>
+    <string name="game_mode">Game mode:</string>
     <string name="duration">Time:</string>
     <string name="points">Points:</string>
     <string name="cards_left">Cards left:</string>
+    <string name="selection_time">Time left:</string>
+    <string name="selected_player">Player:</string>
+    <string name="cancel">Cancel</string>
+    <string name="and">and</string>
     <string name="resume_game">Resume Game</string>
     <string name="short_game">Short Game</string>
     <string name="new_short_game">new Short Game</string>
@@ -39,7 +44,15 @@
     <string name="message_select_3_cards">Please select three cards for taking a set.</string>
     <string name="message_take_set_successful">The set has been taken successfully.</string>
     <string name="message_take_set_incorrect">The set selected was incorrect.</string>
+    <string name="message_set_selection_ended">The set selection ended.</string>
     <string name="press_back_again">Press back again to exit.</string>
     <string name="no_game_to_resume">There is no game to resume.</string>
     <string name="take_set">Take Set</string>
+    <string name="add_cards">Add cards</string>
+    <string name="message_add_cards_successful">Added three cards successfully.</string>
+    <string name="message_add_cards_not_possible">Adding cards is not possible.</string>
+    <string name="message_player_is_exposed">The selected player is exposed.</string>
+    <string name="message_player_is_selected">Player has been successfully selected.</string>
+    <string name="congrats_multiplayer_singular">Congratulations! \nThe winner is:</string>
+    <string name="congrats_multiplayer_plural">Congratulations! \nThe winners are:</string>
 </resources>

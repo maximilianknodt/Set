@@ -21,9 +21,9 @@ public class Rules {
     private final boolean multiPlayerDeduction;
 
     /**
-     * Rule if wrong set in multi player mode should lead to exposure
+     * Rule if wrong set in multi player mode should lead to suspension
      */
-    private final boolean multiPlayerExposure;
+    private final boolean multiPlayerSuspension;
 
     /**
      * The time a player has in a multiplayer game to select a set after pressing set button
@@ -36,18 +36,18 @@ public class Rules {
      *
      * @param singlePlayerDeduction Rule if wrong set in single player mode should deduct players count of sets
      * @param multiPlayerDeduction  Rule if wrong set in multi player mode should deduct players count of sets
-     * @param multiPlayerExposure   Rule if wrong set in multi player mode should lead to exposure
+     * @param multiPlayerSuspension   Rule if wrong set in multi player mode should lead to exposure
      * @param multiPlayerSetTime    The time a player has in a multiplayer game to select a set after pressing set button
      */
-    public Rules(boolean singlePlayerDeduction, boolean multiPlayerDeduction, boolean multiPlayerExposure, int multiPlayerSetTime) {
+    public Rules(boolean singlePlayerDeduction, boolean multiPlayerDeduction, boolean multiPlayerSuspension, int multiPlayerSetTime) {
         this.singlePlayerDeduction = singlePlayerDeduction;
         this.multiPlayerDeduction = multiPlayerDeduction;
-        this.multiPlayerExposure = multiPlayerExposure;
+        this.multiPlayerSuspension = multiPlayerSuspension;
         this.multiPlayerSetTime = multiPlayerSetTime;
     }
 
     public Rules clone() {
-        return new Rules(this.singlePlayerDeduction, this.multiPlayerDeduction, this.multiPlayerExposure, this.multiPlayerSetTime);
+        return new Rules(this.singlePlayerDeduction, this.multiPlayerDeduction, this.multiPlayerSuspension, this.multiPlayerSetTime);
     }
 
     /**
@@ -76,8 +76,8 @@ public class Rules {
      *
      * @return if wrong set in multi player mode should lead to exposure
      */
-    public boolean isMultiPlayerExposure() {
-        return multiPlayerExposure;
+    public boolean isMultiPlayerSuspension() {
+        return multiPlayerSuspension;
     }
 
     /**

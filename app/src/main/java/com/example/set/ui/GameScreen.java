@@ -1,10 +1,7 @@
 package com.example.set.ui;
 
-import com.example.set.controller.AppControllerHolder;
-import com.example.set.controller.AppController;
 import com.example.set.controller.GameController;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,15 +34,15 @@ import java.util.Objects;
 public abstract class GameScreen extends AppCompatActivity {
     private static final int ROW_COUNT = 3;
 
-    private RecyclerView rvList;
+    protected RecyclerView rvList;
     private TextView timer;
-    private TextView points;
     private TextView cardsLeft;
-    Button takeSet;
+    protected Button takeSet;
+    protected TextView points;
 
-    GameController gameController;
+    protected GameController gameController;
 
-    LinkedList<CardData> lastCardPos;
+    protected LinkedList<CardData> selectedCards;
 
     /**
      * onCreate method of the gameScreen, called when a game starts
@@ -61,13 +58,15 @@ public abstract class GameScreen extends AppCompatActivity {
         setContentView(R.layout.game_screen);
 
         ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Pause);
+        takeSet = this.findViewById(R.id.button_game_take_set);
 
         // -------- set Elements --------
         rvList = findViewById(R.id.recyclerView_Game_Field);
         timer = findViewById(R.id.duration_content);
-        points = findViewById(R.id.points_content);
         cardsLeft = findViewById(R.id.cards_left_content);
-        lastCardPos = new LinkedList<>();
+        points = findViewById(R.id.points_content);
+
+        selectedCards = new LinkedList<>();
 
         // --------- PAUSE ---------
         btnSettings.setOnClickListener(v -> {
@@ -75,36 +74,49 @@ public abstract class GameScreen extends AppCompatActivity {
 
             gameController.pauseScreen();
         });
+
+        // -------- takeSet onClick Listener --------
+        takeSet.setOnClickListener(view -> {
+            if(selectedCards.size() == 3) {
+                CardData cardData = selectedCards.removeLast();
+                int card1 = cardData.getX()*3 + cardData.getY();
+                cardData = selectedCards.removeLast();
+                int card2 = cardData.getX()*3 + cardData.getY();
+                cardData = selectedCards.removeLast();
+                int card3 = cardData.getX()*3 + cardData.getY();
+
+                if(gameController.takeSetPressed(card1, card2, card3)) {
+                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_successful, Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(this.getBaseContext(), R.string.message_take_set_incorrect, Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this.getBaseContext(), R.string.message_select_3_cards, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
+    /**
+     * Method called when the activity is paused.
+     *
+     * @author Linus Kurze
+     */
     @Override
     public void onPause() {
         super.onPause();
         gameController.pause();
     }
 
+    /**
+     * Method called when the activity is resumed.
+     *
+     * @author Linus Kurze
+     */
     @Override
     public void onResume() {
         super.onResume();
         gameController.resume();
-    }
-
-
-    private int[][] cardValues(ArrayList<Integer> test){
-        int[][] result = new int[test.size()/ ROW_COUNT][ROW_COUNT];
-        int counterColumn = -1;
-        int counterRow = -1;
-
-        for(int i = 0; i < test.size(); i++){
-            if(i % 3 == 0){
-                counterColumn++;
-                counterRow = 0;
-            } else {
-                counterRow++;
-            }
-            result[counterColumn][counterRow] = test.get(i);
-        }
-        return result;
     }
 
     /**
@@ -112,19 +124,31 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param x the x position of the card
      * @param y the y position of the card
+     * @param view the view of the card
      *
      * @author Linus Kurze
      */
-    public void cardClicked(int x, int y, View view) {
-        CardData current = new CardData(x,y,view);
-        if(lastCardPos.contains(current)) {
+    public abstract void onCardClicked(int x, int y, View view);
+
+    /**
+     * Method changing the card selection with the selected card.
+     *
+     * @param x the x position of the card
+     * @param y the y position of the card
+     * @param view the view of the card
+     *
+     * @author Linus Kurze
+     */
+    protected void cardSelected(int x, int y, View view) {
+        CardData current = new CardData(x, y, view);
+        if (selectedCards.contains(current)) {
             unselectCard(view);
-            lastCardPos.remove(current);
+            selectedCards.remove(current);
         } else {
-            if (lastCardPos.size() >= 3) {
-                unselectCard(lastCardPos.removeLast().getView());
+            if (selectedCards.size() >= 3) {
+                unselectCard(selectedCards.removeLast().getView());
             }
-            lastCardPos.add(current);
+            selectedCards.add(current);
             selectCard(view);
         }
     }
@@ -154,7 +178,7 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void setCards(ArrayList<Card> cards){
+    public void writeCards(ArrayList<Card> cards){
         this.envokeRecyclerView(cards);
     }
 
@@ -165,25 +189,13 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void setTime(long time){
+    public void writeTime(long time){
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 timer.setText(timeToString(time));
             }
         });
-
-    }
-
-    /**
-     * Method called when the ui should write the points
-     *
-     * @param value the points to write
-     *
-     * @author Linus Kurze
-     */
-    public void setPoints(int value){
-        points.setText(""+value);
     }
 
     /**
@@ -193,45 +205,8 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void setCardsLeft(int value){
+    public void writeCardsLeft(int value){
         cardsLeft.setText(""+value);
-    }
-
-
-    public void openPause(boolean shortGame, int points, int cardsLeft, long duration, long startTime, boolean deduction) {
-        Intent intentBreakeScreen = new Intent();
-        intentBreakeScreen.setClass(this, PauseScreen.class);
-        intentBreakeScreen.putExtra("gameType", gameTypeToString(shortGame));
-        intentBreakeScreen.putExtra("points", points);
-        intentBreakeScreen.putExtra("cardsLeft", cardsLeft);
-        intentBreakeScreen.putExtra("duration", timeToString(duration));
-        intentBreakeScreen.putExtra("startTime", timestampToString(startTime));
-        intentBreakeScreen.putExtra("rules", rulesToString(deduction));
-        startActivity(intentBreakeScreen);
-    }
-
-    /**
-     * Method called when the game is over
-     *
-     * @param shortGame if the game is a short game
-     * @param points the points the player received
-     * @param duration the time the game took
-     * @param startTime the time the game started
-     * @param deduction if the deduction rule was enabled
-     *
-     * @author Linus Kurze
-     */
-    public void gameOver(boolean shortGame, int points, long duration, long startTime, boolean deduction) {
-        Intent intentES = new Intent();
-        intentES.setClass(this, GameEndScreen.class);
-        intentES.putExtra("gameType", gameTypeToString(shortGame));
-        intentES.putExtra("points", points);
-        intentES.putExtra("duration", timeToString(duration));
-        intentES.putExtra("startTime", timestampToString(startTime));
-        intentES.putExtra("rules", rulesToString(deduction));
-        intentES.putExtra("shortGame", shortGame);
-        startActivity(intentES);
-        finish();
     }
 
     /**
@@ -242,7 +217,7 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    private String timeToString(long time) {
+    protected String timeToString(long time) {
         long hrs = time / 3600;
         long min = time % 3600 / 60;
         long sec = time % 3600 % 60;
@@ -256,24 +231,6 @@ public abstract class GameScreen extends AppCompatActivity {
     }
 
     /**
-     * Converts rules in seconds as long to a string.
-     *
-     * @param deduction if the deduction is active
-     * @return the rules as readable String
-     *
-     * @author Linus Kurze
-     */
-    private String rulesToString(boolean deduction) {
-        String rules = getResources().getString(R.string.deduction) + ": ";
-        if (deduction) {
-            rules += getResources().getString(R.string.switchOn);
-        } else {
-            rules += getResources().getString(R.string.switchOff);
-        }
-        return rules;
-    }
-
-    /**
      * Converts the game type to a string.
      *
      * @param shortGame if the game is a short game
@@ -281,14 +238,11 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public String gameTypeToString(boolean shortGame) {
-        String type = getResources().getString(R.string.single_player) + " ";
+    protected String gameTypeToString(boolean shortGame) {
         if (shortGame) {
-            type += getResources().getString(R.string.short_game);
-        } else {
-            type += getResources().getString(R.string.normal_game);
+            return getResources().getString(R.string.short_game);
         }
-        return type;
+        return getResources().getString(R.string.normal_game);
     }
 
     /**
@@ -299,7 +253,7 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    private String fillToTwoDigits(long number) {
+    protected String fillToTwoDigits(long number) {
         String string = "";
         if(number > 9) {
             string += number;
@@ -310,14 +264,14 @@ public abstract class GameScreen extends AppCompatActivity {
     }
 
     /**
-     * Convertes a time stamp to a string
+     * Converts a time stamp to a string
      *
      * @param timeStamp the time stamp to convert
      * @return the time stamp as string
      *
      * @author Linus Kurze
      */
-    public String timestampToString(long timeStamp){
+    protected String timestampToString(long timeStamp){
         Date date = new Date(timeStamp);
         return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
     }
@@ -327,9 +281,11 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param tableCards arraylist with the cards to place on the table
      * @return '2D' array with the cards customised for the ViewHolder of the RecyclerViewAdapter to fit to the column layout
+     *
+     * @author Maximilian Knodt
      */
     private Card[][] alignTableCards(ArrayList<Card> tableCards){
-        Card[][] result = new Card[tableCards.size()/ ROW_COUNT][ROW_COUNT];
+        Card[][] result = new Card[tableCards.size() / ROW_COUNT][ROW_COUNT];
 
         int counterColumn = -1;
         int counterRow = -1;
@@ -360,8 +316,8 @@ public abstract class GameScreen extends AppCompatActivity {
 }
 
 /**
- * The card position class
- * An inner class holding the position of a card.
+ * The card data class
+ * An inner class holding the position of a card and the reference to the view of the card.
  * <p>
  * The author is responsible for this class.
  *

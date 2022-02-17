@@ -35,45 +35,34 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_player_game_selection_screen);
 
-        // Change Text for Multiplayer (reusing the single_player_game_selection_screen)
         TextView headline = this.findViewById(R.id.textview_Singleplayer_Headline);
         headline.setText(R.string.multi_player);
 
-        // Searching in Resources for the IDs
         Button btnNormalG = this.findViewById(R.id.button_Start_NG);
         Button btnShortG = this.findViewById(R.id.button_Start_SG);
         Button btnResumeG = this.findViewById(R.id.button_Resume);
 
-        // -------- NORMAL GAME --------
         btnNormalG.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Multi Player Normal Game starts");
-
             Intent intentMP = new Intent();
-            intentMP.setClass(this, SinglePlayerGameScreen.class);
+            intentMP.setClass(this, MultiPlayerGameScreen.class);
             intentMP.putExtra("newGame", true);
             intentMP.putExtra("shortGame", false);
             startActivity(intentMP);
         });
 
 
-        // -------- SHORT GAME --------
         btnShortG.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Multi Player Short Game starts");
-
             Intent intentMP = new Intent();
-            intentMP.setClass(this, SinglePlayerGameScreen.class);
+            intentMP.setClass(this, MultiPlayerGameScreen.class);
             intentMP.putExtra("newGame", true);
             intentMP.putExtra("shortGame", true);
             startActivity(intentMP);
         });
 
-        // -------- RESUME GAME --------
         btnResumeG.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Multi Player Game Resumes");
-
             if(AppControllerHolder.getAppController().multiPlayerGameExists()) {
                 Intent intentMP = new Intent();
-                intentMP.setClass(this, SinglePlayerGameScreen.class);
+                intentMP.setClass(this, MultiPlayerGameScreen.class);
                 intentMP.putExtra("newGame", false);
                 startActivity(intentMP);
             } else {

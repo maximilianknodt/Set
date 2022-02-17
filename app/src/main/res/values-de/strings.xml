@@ -15,13 +15,12 @@
     <string name="dark_mode">Nachtmodus</string>
     <string name="timer">Zeit</string>
     <string name="deduction">Punktabzug</string>
-    <string name="suspended">Aussetzten</string>
+    <string name="suspension">Aussetzten</string>
     <string name="switchOn">an</string>
     <string name="deductionText">Ein Punkt Abzug bei falschem Set</string>
     <string name="suspendedText">Aussetzten bis zum nächsten globalen Set</string>
     <string name="timerText">Zeit zum Wählen des Sets</string>
     <string name="switchOff">aus</string>
-    <string name="game_type">Spielart:</string>
     <string name="game_start">Spielbeginn:</string>
     <string name="rules">Regeln:</string>
     <string name="congrats">Herzlichen Glückwunsch! \nSie haben das Spiel erfolgreich beendet!</string>
@@ -29,9 +28,15 @@
     <string name="new_game">Neues Spiel</string>
     <string name="winner">Sieger:</string>
     <!-- @author Linus Kurze-->
+    <string name="game_type">Spielart:</string>
+    <string name="game_mode">Spielmodus:</string>
     <string name="duration">Zeit:</string>
     <string name="points">Punkte:</string>
     <string name="cards_left">Karten übrig:</string>
+    <string name="selection_time">Zeit übrig:</string>
+    <string name="selected_player">Spieler:</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="and">und</string>
     <string name="resume_game">Spiel fortsetzen</string>
     <string name="short_game">Schnellspiel</string>
     <string name="normal_game">Normalspiel</string>
@@ -40,7 +45,15 @@
     <string name="message_select_3_cards">Bitte drei Karten für ein Set auswählen.</string>
     <string name="message_take_set_successful">Das Set wurde erfolgreich genommen.</string>
     <string name="message_take_set_incorrect">Das Set war falsch.</string>
+    <string name="message_set_selection_ended">Die Auswahl des Sets ist beendet.</string>
     <string name="press_back_again">Zurück erneut dürcken zum verlassen.</string>
     <string name="no_game_to_resume">Es gibt kein Spiel zum fortsetzen.</string>
     <string name="take_set">Set nehmen</string>
+    <string name="add_cards">Dazulegen</string>
+    <string name="message_add_cards_successful">Drei Karten erfolgreich dazugelegt.</string>
+    <string name="message_add_cards_not_possible">Dazulegen ist nicht möglich.</string>
+    <string name="message_player_is_exposed">Der ausgewählte Spieler muss aussetzen.</string>
+    <string name="message_player_is_selected">Der Spieler wurde erfolgreich asugewählt.</string>
+    <string name="congrats_multiplayer_singular">Herzlichen Glückwunsch! \nDer Gewinner ist:</string>
+    <string name="congrats_multiplayer_plural">Herzlichen Glückwunsch! \nDie Gewinner sind:</string>
 </resources>

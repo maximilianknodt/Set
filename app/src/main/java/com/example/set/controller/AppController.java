@@ -1,5 +1,6 @@
 package com.example.set.controller;
 
+import com.example.set.ui.MultiPlayerGameScreen;
 import com.example.set.ui.SinglePlayerGameScreen;
 
 /**
@@ -41,8 +42,8 @@ public class AppController {
     /**
      * Creates a new multi player game.
      */
-    public void createNewMultiPlayerGame(SinglePlayerGameScreen singlePlayerGameScreen, String[] players, boolean shortGame) {
-        this.multiPlayerGameController = new MultiPlayerGameController(singlePlayerGameScreen, players, shortGame);
+    public void createNewMultiPlayerGame(MultiPlayerGameScreen multiPlayerGameScreen, String[] players, boolean shortGame) {
+        this.multiPlayerGameController = new MultiPlayerGameController(multiPlayerGameScreen, players, shortGame);
     }
 
     /**

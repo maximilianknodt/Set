@@ -2,7 +2,7 @@ package com.example.set.controller;
 
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.Player;
-import com.example.set.ui.SinglePlayerGameScreen;
+import com.example.set.ui.MultiPlayerGameScreen;
 
 /**
  * The multi player game controller class
@@ -32,7 +32,7 @@ public class MultiPlayerGameController extends GameController {
      * @param names names of the players
      * @param shortGame if the game should be a short game
      */
-    MultiPlayerGameController(SinglePlayerGameScreen gameScreen, String[] names, boolean shortGame) {
+    MultiPlayerGameController(MultiPlayerGameScreen gameScreen, String[] names, boolean shortGame) {
         super(gameScreen);
         currentPlayerIndex = -1;
 
@@ -48,11 +48,8 @@ public class MultiPlayerGameController extends GameController {
      * Writes the score to the UI.
      */
     @Override
-    protected void writeScore() {
-        for(Player player : players) {
-            int score = player.getSetAmount();
-            //TODO: write to UI
-        }
+    public void writeScore() {
+        ((MultiPlayerGameScreen)gameScreen).writePoints(getPlayerPoints());
     }
 
     /**
@@ -60,32 +57,8 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        //TODO: write to UI game over
-        Player winner = players[0];
-        for(int i = 1; i < players.length; i++) {
-            if(players[i].getSetAmount() > winner.getSetAmount()) {
-                winner = players[i];
-            }
-        }
-        //TODO: write winner to UI
-        writeGameInfo();
+        ((MultiPlayerGameScreen)gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension(), getLeaders());
         super.gameOver();
-    }
-
-    /**
-     * Writes the game info to the UI.
-     */
-    @Override
-    protected void writeGameInfo() {
-        for(Player player : players) {
-            int score = player.getSetAmount();
-            //TODO: write to UI
-        }
-        long start = game.getStartTime();
-        long duration = game.getDuration();
-        boolean deduction = game.getRules().isMultiPlayerDeduction();
-        boolean exposure = game.getRules().isMultiPlayerExposure();
-        //TODO: write to UI
     }
 
     /**
@@ -94,14 +67,20 @@ public class MultiPlayerGameController extends GameController {
     @Override
     protected void periodicallyUpdate() {
         writeDuration();
-        if (currentPlayerIndex != -1) {
-            long selectSetTimeLeft = ((MultiPlayerGame)game).getTakeSetTimeLeft();
+        if (isSetSelectionActive()) {
             if (((MultiPlayerGame)game).isTakeSetTimeOver()) {
-                ((MultiPlayerGame)game).punishPlayer(players[currentPlayerIndex]);
-                //TODO: message via UI
+                cancelSetSelection();
             }
-            //TODO: write to UI
+            ((MultiPlayerGameScreen)gameScreen).writeSetSelectionTime(((MultiPlayerGame)game).getTakeSetTimeLeft());
+        } else {
+            ((MultiPlayerGameScreen)gameScreen).writeSetSelectionTime(-1);
         }
+    }
+
+    public void cancelSetSelection() {
+        ((MultiPlayerGame)game).punishPlayer(players[currentPlayerIndex]);
+        ((MultiPlayerGameScreen)gameScreen).writeSetSelectionOver();
+        currentPlayerIndex = -1;
     }
 
     /**
@@ -109,9 +88,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        //TODO: write pause screen
-        //TODO: abstract und in die jeweiligen klassen wegen write Game Info
-        writeGameInfo();
+        ((MultiPlayerGameScreen)gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension());
     }
 
     /**
@@ -119,35 +96,28 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     protected void resumeGameSpecific() {
-        if (currentPlayerIndex != -1) {
-            writeSetSelection();
-        } else {
-            writeCards();
-            writeScore();
-            writeCardsLeft();
+        if (isSetSelectionActive()) {
+            ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
         }
-    }
-
-    /**
-     * Function called when button set is pressed.
-     */
-    void setPressed() {
-        writePlayerSelection();
+        writeCards();
+        writeScore();
+        writeCardsLeft();
     }
 
     /**
      * Function called when player is selected.
      *
-     * @param playerIndex the index of the player beeing selected
+     * @param playerIndex the index of the player being selected
+     * @return
      */
-    void selectPlayer(int playerIndex) {
+    public boolean selectPlayer(int playerIndex) {
         currentPlayerIndex = playerIndex;
         if (((MultiPlayerGame)game).set(players[currentPlayerIndex])) {
-            writeSetSelection();
-        } else {
-            // TODO: notify via UI that player is exposed
-            closeSetSelection();
+            ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
+            return true;
         }
+        ((MultiPlayerGameScreen)gameScreen).writeDefaultView();
+        return false;
     }
 
     /**
@@ -161,7 +131,7 @@ public class MultiPlayerGameController extends GameController {
     @Override
     public boolean takeSetPressed(int position1, int position2, int position3) {
         boolean result = false;
-        if(currentPlayerIndex > -1) {
+        if(isSetSelectionActive()) {
             result = ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
             writeCards();
             writeScore();
@@ -171,32 +141,36 @@ public class MultiPlayerGameController extends GameController {
                 gameOver();
             }
         }
+        ((MultiPlayerGameScreen)gameScreen).writeDefaultView();
         return result;
     }
 
     /**
-     * Writes the players to select to the UI.
+     * Adds cards to the table cards.
+     *
+     * @return if adding the cards was possible
      */
-    private void writePlayerSelection() {
-        String[] names = getPlayerNames();
-        boolean[] exposures = getPlayersExposed();
-        //TODO: Write to UI
+    public boolean addCards() {
+        boolean result = ((MultiPlayerGame)game).addCards();
+        writeCards();
+        writeCardsLeft();
+        return result;
     }
 
     /**
-     * Writes the set selection to select to the UI.
+     * Function called when the button set is pressed.
      */
-    private void writeSetSelection() {
-        String name = players[currentPlayerIndex].getName();
-        //TODO: Write to UI
+    public void setPressed() {
+        ((MultiPlayerGameScreen)gameScreen).writePlayerSelection();
     }
 
     /**
-     * Closes the set selection to select on the UI.
+     * Function called when the player selection is canceled.
      */
-    private void closeSetSelection() {
-        //TODO: Close in UI
+    public void playerSelectionCanceled() {
+        ((MultiPlayerGameScreen)gameScreen).writeDefaultView();
     }
+
 
     /**
      * Getter
@@ -204,7 +178,7 @@ public class MultiPlayerGameController extends GameController {
      *
      * @return all players names
      */
-    private String[] getPlayerNames() {
+    public String[] getPlayerNames() {
         String[] names = new String[players.length];
         for(int i = 0; i < players.length; i++) {
             names[i] = players[i].getName();
@@ -214,15 +188,52 @@ public class MultiPlayerGameController extends GameController {
 
     /**
      * Getter
-     * Returns for each player if he is exposed.
+     * Returns all players points.
      *
-     * @return exposure for each player
+     * @return all players points
      */
-    private boolean[] getPlayersExposed() {
-        boolean[] exposures = new boolean[players.length];
+    public int[] getPlayerPoints() {
+        int[] points = new int[players.length];
         for(int i = 0; i < players.length; i++) {
-            exposures[i] = players[i].isExposed();
+            points[i] = players[i].getSetAmount();
         }
-        return exposures;
+        return points;
+    }
+
+    /**
+     * Getter
+     * Returns if the set selection is active.
+     *
+     * @return if the set selection is active
+     */
+    public boolean isSetSelectionActive() {
+        return currentPlayerIndex > -1;
+    }
+
+    /**
+     * Getter
+     * Returns an array of the names of the current leaders.
+     *
+     * @return array of names of the leaders
+     */
+    private String[] getLeaders() {
+        Player playerWithMaxSets = players[0];
+        for(int i = 1; i < players.length; i++) {
+            if(players[i].getSetAmount() > playerWithMaxSets.getSetAmount()) {
+                playerWithMaxSets = players[i];
+            }
+        }
+        String[] leaders = {playerWithMaxSets.getName()};
+        for(int i = 1; i < players.length; i++) {
+            if(players[i].getSetAmount() == playerWithMaxSets.getSetAmount() && players[i] != playerWithMaxSets) {
+                String[] temp = leaders.clone();
+                leaders = new String[temp.length + 1];
+                for(int j = 0; j < temp.length; j++) {
+                    leaders[j] = temp[j];
+                }
+                leaders[temp.length] = players[i].getName();
+            }
+        }
+        return leaders;
     }
 }

@@ -103,43 +103,6 @@ public class Table {
      * @param position3 position of the third card
      */
     void takeCardsFromTableCards(int position1, int position2, int position3) {
-        /*if (tableCards.size() <= DEFAULT_CARD_COUNT) {
-            replaceCardFromStack(position1);
-            if(position2 >= getTableCardsCount()) {
-                position2--;
-            }
-            replaceCardFromStack(position2);
-            while(position3 >= getTableCardsCount()) {
-                position3--;
-            }
-            replaceCardFromStack(position3);
-        } else {
-            if(position1 < getTableCardsCount() -3) {
-                replaceCard(position1, getTableCardsCount() - 1);
-            } else {
-                tableCards.remove(position1);
-                if(position2 > position1) {
-                    position2--;
-                }
-                if(position3 > position1) {
-                    position3--;
-                }
-            }
-            if(position2 < getTableCardsCount() -2) {
-                replaceCard(position2, getTableCardsCount() - 1);
-            } else {
-                tableCards.remove(position2);
-                if(position3 > position2) {
-                    position3--;
-                }
-            }
-            if(position3 < getTableCardsCount() -1) {
-                replaceCard(position3, getTableCardsCount() - 1);
-            } else {
-                tableCards.remove(position3);
-            }
-        }*/
-
         Card card1 = tableCards.get(position1);
         Card card2 = tableCards.get(position2);
         Card card3 = tableCards.get(position3);
@@ -176,7 +139,7 @@ public class Table {
      * @return revealing was possible
      */
     private boolean revealCard() {
-        if (tableCards.size() + 1 < MAX_CARD_COUNT) {
+        if (tableCards.size() + 1 <= MAX_CARD_COUNT) {
             Card card = takeCardFromStack();
             if (card != null) {
                 tableCards.add(card);

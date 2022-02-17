@@ -49,11 +49,15 @@ public class MultiPlayerGame extends Game {
 
     /**
      * Simulates the dealer adding three cards if possible.
+     *
+     * @return if the addition of cards was possible
      */
-    void addCards() {
-        if (table.getTableCardsCount() < table.MAX_CARD_COUNT) {
+    public boolean addCards() {
+        if (table.getTableCardsCount() < table.MAX_CARD_COUNT && table.getStackSize() > 0) {
             table.revealThreeCards();
+            return true;
         }
+        return false;
     }
 
     /**
@@ -91,12 +95,12 @@ public class MultiPlayerGame extends Game {
 
     /**
      * Getter
-     * Returns the time a player has left to select a set.
+     * Returns the time a player has left to select a set in seconds.
      *
-     * @return the time a player has left to select a set
+     * @return the time a player has left to select a set in seconds
      */
     public long getTakeSetTimeLeft() {
-        return rules.getMultiPlayerSetTime() - getTakeSetDuration();
+        return rules.getMultiPlayerSetTime() - getTakeSetDuration()/1000;
     }
 
     /**
@@ -130,16 +134,19 @@ public class MultiPlayerGame extends Game {
      */
     public boolean takeCards(Player player, int position1, int position2, int position3) {
         boolean result = false;
-        if (takeSetChecked(position1, position2, position3)) {
-            player.increaseSetAmount();
-            result = true;
-        } else {
-            punishPlayer(player);
-        }
 
         for (Player p : players) {
             if (p.isExposed()) {
                 p.endExposure();
+            }
+        }
+
+        if(!isTakeSetTimeOver()) {
+            if (takeSetChecked(position1, position2, position3)) {
+                player.increaseSetAmount();
+                result = true;
+            } else {
+                punishPlayer(player);
             }
         }
         return result;
@@ -153,7 +160,8 @@ public class MultiPlayerGame extends Game {
     public void punishPlayer(Player player) {
         if (rules.isMultiPlayerDeduction()) {
             player.decreaseSetAmount();
-        } else if (rules.isMultiPlayerExposure()) {
+        }
+        if (rules.isMultiPlayerSuspension()) {
             player.startExposure();
         }
     }
