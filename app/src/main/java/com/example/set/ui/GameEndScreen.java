@@ -27,16 +27,16 @@ public class GameEndScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_end_screen);
 
-        Button btnNewGame = findViewById(R.id.button_New_Game);
-        Button btnMenu = findViewById(R.id.button_Menu);
-        TextView tvType = findViewById(R.id.textView_End_Screen_Game_Type_Body);
-        TextView tvMode = findViewById(R.id.textView_End_Screen_Game_Mode_Body);
-        TextView tvPoints = findViewById(R.id.textView_End_Screen_Points_Body);
-        TextView tvPointsList = findViewById(R.id.textView_End_Screen_Points_List_Body);
+        Button btnNewGame = findViewById(R.id.button_Game_End_Screen_New_Game);
+        Button btnMenu = findViewById(R.id.button_Game_End_Screen_Menu);
+        TextView tvType = findViewById(R.id.textView_Game_End_Screen_Mode_Body);
+        TextView tvMode = findViewById(R.id.textView_Game_End_Screen_Type_Body);
+        TextView tvPoints = findViewById(R.id.textView_Game_End_Screen_Points_Body);
+        TextView tvPointsList = findViewById(R.id.textView_Game_End_Screen_Points_List);
         TextView tvPlayersList = findViewById(R.id.textView_End_Screen_Points_List_Header);
-        TextView tvTime = findViewById(R.id.textView_End_Screen_Time_Body);
-        TextView tvStart = findViewById(R.id.textView_End_Screen_Start_Body);
-        TextView tvRules = findViewById(R.id.textView_End_Screen_Rules_Body);
+        TextView tvTime = findViewById(R.id.textView_Game_End_Screen_Time_Body);
+        TextView tvStart = findViewById(R.id.textView_Game_End_Screen_Start_Body);
+        TextView tvRules = findViewById(R.id.textView_Game_End_Screen_Rules_Body);
         TextView tvCongrats = findViewById(R.id.textView_Game_End_Congratulation);
 
         Bundle bundle = getIntent().getExtras();

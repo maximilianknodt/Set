@@ -14,15 +14,17 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="timer">Time to choose set</string>
     <string name="deduction">Point Deduction</string>
-    <string name="suspension">Suspension</string>
+    <string name="suspended">Suspended</string>
     <string name="switchOn">on</string>
     <string name="deduction_on">One point deduction for wrong set</string>
     <string name="suspended_on">Suspended until next global Set</string>
     <string name="timerText">Time for choosing a Set</string>
     <string name="switchOff">off</string>
+    <string name="game_type">Game type:</string>
     <string name="game_start">Game start:</string>
     <string name="rules">Rules:</string>
-    <string name="congrats">Congratulations! \nYou have successfully completed the game!</string>
+    <string name="congrats">Congratulations</string>
+    <string name="congrats_text">You have successfully completed the game!</string>
     <string name="main_menu">Main Menu</string>
     <string name="new_game">New Game</string>
     <string name="winner">Winner:</string>
@@ -35,11 +37,10 @@
     <string name="zero" translatable="false">0</string>
     <string name="zero_timer" translatable="false">00:00:00</string>
     <!-- @author Linus Kurze-->
-    <string name="game_type">Game type:</string>
     <string name="game_mode">Game mode:</string>
     <string name="duration">Time:</string>
     <string name="points">Points:</string>
-    <string name="cards_left">Cards left:</string>
+    <string name="cards_left">Stack:</string>
     <string name="selection_time">Time left:</string>
     <string name="selected_player">Player:</string>
     <string name="cancel">Cancel</string>

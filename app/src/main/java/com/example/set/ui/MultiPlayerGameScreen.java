@@ -115,7 +115,7 @@ public class MultiPlayerGameScreen extends GameScreen {
 
         pointsNameList = findViewById(R.id.points_list_text);
         pointsList = findViewById(R.id.points_list_content);
-        pointsTitle = findViewById(R.id.points_text);
+        pointsTitle = findViewById(R.id.points_content);
 
         buttonsLayout = findViewById(R.id.game_buttons_layout);
         mainLayout = findViewById(R.id.main_game_screen);

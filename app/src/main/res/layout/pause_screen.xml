@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/pause_screen"
+    android:id="@+id/game_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- @author Maximilian Knodt-->
-    <!-- @author Linus Kurze-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Break_Screen_Right"
@@ -37,40 +36,43 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="24dp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Break_Screen_Textdivider_Left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="72dp" />
+
     <TextView
         android:id="@+id/textview_Break_Screen_Headline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/TextView_Base.Headline"
         android:text="@string/pause"
-        android:textSize="28sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
         app:layout_constraintTop_toTopOf="@+id/guideline_Break_Screen_Top" />
 
     <View
-        android:id="@+id/view_Start_Underline"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/cardview_dark_background"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton_Break_Screen_Play"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:id="@+id/view_Breake_Screen_Underline"
+        style="@style/View_Base.Underline_Constraint"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout_Breake_Screen_DefaultGameInfo"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
+        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
         app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_Break_Screen_Textdivider_Right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Break_Screen_Buttondivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_VerticalHalf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
+        app:layout_constraintGuide_percent="0.78" />
 
     <ImageButton
         android:id="@+id/imageButton_Break_Screen_Play"
@@ -79,13 +81,12 @@
         android:background="@null"
         android:contentDescription="@string/resume_game"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintTop_toTopOf="@+id/guideline_Break_Screen_Top"
+        app:layout_constraintTop_toBottomOf="@+id/view_Breake_Screen_Underline"
         app:srcCompat="@drawable/ic_play" />
 
     <Button
         android:id="@+id/button_Break_Screen_Settings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button_Base"
         android:text="@string/settings"
         app:layout_constraintBottom_toTopOf="@+id/button_Break_Screen_Menu"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
@@ -93,243 +94,126 @@
 
     <Button
         android:id="@+id/button_Break_Screen_Menu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button_Base"
         android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_End_Screen_Content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
-        app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline">
+    <TableLayout
+        android:id="@+id/tableLayout_Breake_Screen_DefaultGameInfo"
+        style="@style/Table"
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_End_Screen_Content_left"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toStartOf="@+id/layout_End_Screen_Content_right"
-            app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Textdivider_Right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider_Left"
+        app:layout_constraintTop_toBottomOf="@+id/view_Breake_Screen_Underline">
 
-            <TextView
-                android:id="@+id/textView_Break_Screen_Game_Mode_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="Game Mode"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Game_Mode_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Game_Mode_Header"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Game_Mode_Header"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_mode"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/game_mode" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Game_Type_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:gravity="right|center_vertical"
-                android:text="Game Type"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Game_Type_Header"
-                app:layout_constraintEnd_toEndOf="@+id/textView_Break_Screen_Game_Mode_Body"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Game_Type_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Mode_Body" />
+                android:id="@+id/textView_Break_Screen_Game_Mode_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/game_mode" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Game_Type_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_type"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Mode_Header" />
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/game_type" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Start_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="00.00.2022"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Start_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Start_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Type_Body" />
+                android:id="@+id/textView_Break_Screen_Game_Type_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="Game Type" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Start_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_start"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Game_Type_Header" />
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/game_start" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Start_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="00.00.2022" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Rules_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/rules"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Start_Header" />
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/rules" />
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Rules_Body"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="TextView"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Rules_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Start_Body" />
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="TextView" />
+        </TableRow>
+    </TableLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <TableLayout
+        android:id="@+id/tableLayout_Breake_Screen_SpecificMatchInfo"
+        style="@style/Table"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider_Right"
+        app:layout_constraintTop_toBottomOf="@+id/view_Breake_Screen_Underline">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_End_Screen_Content_right"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/layout_End_Screen_Content_left"
-            tools:layout_editor_absoluteY="62dp">
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Time_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/duration"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/duration" />
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Time_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="00:00:00"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Time_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Time_Header"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/zero_timer" />
+        </TableRow>
 
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/points"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Cards_Left_Header" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_List_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Points_Header" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Points_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Points_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Cards_Left_Body" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Points_List_Body"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Points_List_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Points_Body" />
-
-            <TextView
-                android:id="@+id/textView_Break_Screen_Cards_Left_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="0"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_Break_Screen_Cards_Left_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_Break_Screen_Cards_Left_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Time_Body" />
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_Break_Screen_Cards_Left_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/cards_left"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Break_Screen_Time_Header" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/cards_left" />
 
+            <TextView
+                android:id="@+id/textView_Break_Screen_Cards_Left_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/zero" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_Header"
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/points" />
+
+            <TextView
+                android:id="@+id/textView_Break_Screen_Points_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/zero" />
+        </TableRow>
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_Breake_Screen_PlayerPoints"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider_Right"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout_Breake_Screen_SpecificMatchInfo"></androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

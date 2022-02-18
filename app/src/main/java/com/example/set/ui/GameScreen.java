@@ -58,13 +58,13 @@ public abstract class GameScreen extends AppCompatActivity {
         setContentView(R.layout.game_screen);
 
         ImageButton btnSettings = this.findViewById(R.id.imageButton_Game_Pause);
-        takeSet = this.findViewById(R.id.button_game_take_set);
+        takeSet = this.findViewById(R.id.button_Game_Set);
 
         // -------- set Elements --------
         rvList = findViewById(R.id.recyclerView_Game_Field);
         timer = findViewById(R.id.duration_content);
-        cardsLeft = findViewById(R.id.cards_left_content);
-        points = findViewById(R.id.points_content);
+        cardsLeft = findViewById(R.id.points_content);
+        points = findViewById(R.id.cards_left_content);
 
         selectedCards = new LinkedList<>();
 

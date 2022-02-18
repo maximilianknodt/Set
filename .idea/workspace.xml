@@ -14,25 +14,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Gradle angepasst&#10;SettingsFragment Java erzeugt&#10;SettingsFragment XML erzeugt&#10;Settingsscreen Java ueberabeitet -&gt; minimiert&#10;Settingsscreen XML ueberarbeitet -&gt; minimiert&#10;array XML erzeugt">
+    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Style xml Datei">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameEndScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameEndScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/HomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/MultiPlayerGameSelectionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/MultiPlayerGameSelectionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/SinglePlayerGameSelectionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/SinglePlayerGameSelectionScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/MultiPlayerGameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/MultiPlayerGameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/PauseScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/set/ui/PauseScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_screen_card_column.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_screen_card_column.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen_playerpoints.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen_playerpoints.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/settings_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/settings_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/single_player_game_selection_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/single_player_game_selection_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/start_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/start_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/spinner_string.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/style.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/style.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,7 +301,21 @@
       <option name="project" value="LOCAL" />
       <updated>1645027211060</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Style angefangen und den Grossteil der Screens ueberabeitet, sodass weitere Aenderungen einfach und schnell angepasst werden koennen">
+      <created>1645101840967</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1645101840967</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Style xml Datei">
+      <created>1645101877098</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1645101877098</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,7 +375,9 @@
     <MESSAGE value="Pause_Screen erzeugt, die RecyclerView dazu geschrieben, kleine Aenderungen an anderen Dateien" />
     <MESSAGE value="LocalManager als Helferklasse fuer die Sprachaenderung" />
     <MESSAGE value="Gradle angepasst&#10;SettingsFragment Java erzeugt&#10;SettingsFragment XML erzeugt&#10;Settingsscreen Java ueberabeitet -&gt; minimiert&#10;Settingsscreen XML ueberarbeitet -&gt; minimiert&#10;array XML erzeugt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gradle angepasst&#10;SettingsFragment Java erzeugt&#10;SettingsFragment XML erzeugt&#10;Settingsscreen Java ueberabeitet -&gt; minimiert&#10;Settingsscreen XML ueberarbeitet -&gt; minimiert&#10;array XML erzeugt" />
+    <MESSAGE value="Style angefangen und den Grossteil der Screens ueberabeitet, sodass weitere Aenderungen einfach und schnell angepasst werden koennen" />
+    <MESSAGE value="Style xml Datei" />
+    <option name="LAST_COMMIT_MESSAGE" value="Style xml Datei" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

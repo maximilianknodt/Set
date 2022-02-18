@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/game_end_screen"
+    android:id="@+id/game_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- @author Maximilian Knodt-->
-    <!-- @author Linus Kurze-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Right"
@@ -21,14 +20,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="72dp" />
+        app:layout_constraintGuide_begin="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="48dp" />
+        app:layout_constraintGuide_begin="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Bottom"
@@ -52,257 +51,156 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Game_End_VerticalHalf"
+        android:id="@+id/guideline_Game_End_Textdivider_Left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Game_End_Headerdivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="72dp" />
 
     <TextView
-        android:id="@+id/textView_Game_End_Congratulation"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_vertical"
+        android:id="@+id/textview_Game_End_Screen_Headline"
+        style="@style/TextView_Base.Headline"
         android:text="@string/congrats"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_End_Headerdivider"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Buttondivider"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Left"
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Top" />
 
-    <Button
-        android:id="@+id/button_New_Game"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/new_game"
-        app:layout_constraintBottom_toTopOf="@+id/button_Menu"
+    <View
+        android:id="@+id/view_Start_Underline"
+        style="@style/View_Base.Underline_Constraint"
+        app:layout_constraintBottom_toTopOf="@+id/textView_Game_End_Screen_Headline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Left"
+        app:layout_constraintTop_toBottomOf="@+id/textview_Game_End_Screen_Headline" />
+
+    <TextView
+        android:id="@+id/textView_Game_End_Screen_Headline2"
+        android:text="@string/congrats_text"
+        style="@style/TextView_Base.Headline.Headline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider_Left"
+        app:layout_constraintTop_toBottomOf="@+id/view_Start_Underline" />
+
+    <Button
+        android:id="@+id/button_Game_End_Screen_New_Game"
+        android:text="@string/new_game"
+        style="@style/Button_Base"
+        app:layout_constraintBottom_toTopOf="@+id/button_Game_End_Screen_Menu"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Buttondivider" />
 
     <Button
-        android:id="@+id/button_Menu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/button_Game_End_Screen_Menu"
+        style="@style/Button_Base"
         android:text="@string/main_menu"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Game_End_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Buttondivider" />
 
+    <TableLayout
+        android:id="@+id/tableLayout_Game_End_DefaultGameInfo"
+        style="@style/Table"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Textdivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider_Left"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Game_End_Screen_Headline2">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_End_Screen_Content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_End_Bottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Buttondivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Headerdivider">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_End_Screen_Content_left"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toStartOf="@+id/layout_End_Screen_Content_right"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/textView_End_Screen_Game_Mode_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="Game Mode"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_End_Screen_Game_Mode_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Game_Mode_Header"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TableRow style="@style/Table_Row">
 
             <TextView
                 android:id="@+id/textView_End_Screen_Game_Mode_Header"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_mode"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/game_mode" />
 
             <TextView
-                android:id="@+id/textView_End_Screen_Game_Type_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:gravity="right|center_vertical"
-                android:text="Game Type"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_End_Screen_Game_Type_Header"
-                app:layout_constraintEnd_toEndOf="@+id/textView_End_Screen_Game_Mode_Body"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Game_Type_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Game_Mode_Body" />
+                android:id="@+id/textView_Game_End_Screen_Mode_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/game_mode" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_End_Screen_Game_Type_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_type"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Game_Mode_Header" />
+                android:id="@+id/textView_Game_End_Screen_Type_Header"
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/game_type" />
 
             <TextView
-                android:id="@+id/textView_End_Screen_Start_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="00.00.2022"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_End_Screen_Start_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Start_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Game_Type_Body" />
+                android:id="@+id/textView_Game_End_Screen_Type_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="Game Type" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_End_Screen_Start_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/game_start"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Game_Type_Header" />
+                android:id="@+id/textView_Game_End_Screen_Start_Header"
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/game_start" />
 
             <TextView
-                android:id="@+id/textView_End_Screen_Rules_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/rules"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Start_Header" />
+                android:id="@+id/textView_Game_End_Screen_Start_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="00.00.2022" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_End_Screen_Rules_Body"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="TextView"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Rules_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Start_Body" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_End_Screen_Content_right"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/layout_End_Screen_Content_left"
-            tools:layout_editor_absoluteY="62dp">
+                android:id="@+id/textView_Game_End_Screen_Rules_Header"
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/rules" />
 
             <TextView
-                android:id="@+id/textView_End_Screen_Time_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/duration"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/textView_Game_End_Screen_Rules_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="TextView" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout_Breake_Screen_SpecificMatchInfo"
+        style="@style/Table"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Buttondivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Game_End_Screen_Headline2">
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_End_Screen_Time_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:text="00:00:00"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_End_Screen_Time_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Time_Header"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/textView_Game_End_Screen_Time_Header"
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/duration" />
 
             <TextView
-                android:id="@+id/textView_End_Screen_Points_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:text="@string/points"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Time_Header" />
+                android:id="@+id/textView_Game_End_Screen_Time_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/zero_timer" />
+        </TableRow>
+
+        <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_End_Screen_Points_List_Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:gravity="center_vertical"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Points_Header" />
+                android:id="@+id/textView_Game_End_Screen_Points_Header"
+                style="@style/TextView_Base.TableRow"
+                android:text="@string/points" />
 
             <TextView
-                android:id="@+id/textView_End_Screen_Points_Body"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_End_Screen_Points_Header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Points_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Time_Body" />
+                android:id="@+id/textView_Game_End_Screen_Points_Body"
+                style="@style/TextView_Base.TableRow.Normal"
+                android:text="@string/zero" />
+        </TableRow>
+    </TableLayout>
 
-            <TextView
-                android:id="@+id/textView_End_Screen_Points_List_Body"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
-                android:gravity="right|center_vertical"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView_End_Screen_Points_List_Header"
-                app:layout_constraintTop_toBottomOf="@+id/textView_End_Screen_Points_Body" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView_Game_End_Screen_Points_List"
+        style="@style/TextView_Base.Constraint.Normal"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_End_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Buttondivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout_Breake_Screen_SpecificMatchInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

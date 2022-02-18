@@ -41,7 +41,7 @@ public class PauseScreen extends AppCompatActivity {
         TextView time = findViewById(R.id.textView_Break_Screen_Time_Body);
         TextView startTime = findViewById(R.id.textView_Break_Screen_Start_Body);
         TextView points = findViewById(R.id.textView_Break_Screen_Points_Body);
-        TextView pointsList = findViewById(R.id.textView_Break_Screen_Points_List_Body);
+        TextView pointsList = findViewById(R.id.textView_Break_Screen_Points_Body);
         TextView namesList = findViewById(R.id.textView_Break_Screen_Points_List_Header);
         TextView cardsLeft = findViewById(R.id.textView_Break_Screen_Cards_Left_Body);
         TextView rules = findViewById(R.id.textView_Break_Screen_Rules_Body);
