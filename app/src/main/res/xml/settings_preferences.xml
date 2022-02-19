@@ -32,9 +32,9 @@
 
         <SwitchPreferenceCompat
             app:key="Settings_Preferences_Suspended"
-            app:title="@string/suspended"
-            app:summaryOff="@string/suspended_off"
-            app:summaryOn="@string/suspended_on" />
+            app:title="@string/Suspension"
+            app:summaryOff="@string/suspension_off"
+            app:summaryOn="@string/suspension_on" />
 
         <ListPreference
             app:key="Settings_Preferences_Timer"
