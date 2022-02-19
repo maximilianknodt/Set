@@ -46,9 +46,11 @@ public class Table {
      */
     private ArrayList<Card> tableCards;
 
-    public Table() {
-        this(false);
-    }
+    /**
+     * Constructor
+     * The default constructor doing nothing.
+     */
+    public Table() {}
 
     /**
      * Constructor
