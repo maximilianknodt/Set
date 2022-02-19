@@ -1,15 +1,13 @@
 package com.example.set.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.set.R;
-import com.example.set.controller.AppControllerHolder;
 
 /**
  * Home screen class
@@ -42,8 +40,6 @@ public class HomeScreen extends AppCompatActivity {
 
         // -------- SINGLEPLAYER --------
         btnSP.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From HomeScreen to SinglePlayerGameSelectionScreen");
-
             Intent intentSP = new Intent();
             intentSP.setClass(this, SinglePlayerGameSelectionScreen.class);
             startActivity(intentSP);
@@ -52,8 +48,6 @@ public class HomeScreen extends AppCompatActivity {
 
         // -------- MULTIPLAYER --------
         btnMP.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Multiplayer Match startet");
-
             Intent intentMP = new Intent();
             intentMP.setClass(this, MultiPlayerGameSelectionScreen.class);
             startActivity(intentMP);
@@ -61,8 +55,6 @@ public class HomeScreen extends AppCompatActivity {
 
         // -------- SETTINGS --------
         btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From Startscreen to Settingsscreen");
-
             Intent intentSettings = new Intent();
             intentSettings.setClass(this, SettingsScreen.class);
             startActivity(intentSettings);
@@ -70,8 +62,6 @@ public class HomeScreen extends AppCompatActivity {
 
         // -------- HIGHSCORE --------
         btnScore.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Highscore");
-
             Intent intentScore = new Intent();
             intentScore.setClass(this, SettingsScreen.class);       //TODO: Klasse Highscore + die entsprechende .xml Datei erzeugen
             startActivity(intentScore);
