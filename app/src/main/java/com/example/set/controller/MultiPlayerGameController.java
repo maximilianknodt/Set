@@ -25,15 +25,15 @@ public class MultiPlayerGameController extends GameController {
      * Calls super constructor. Initializes the players, the currentPlayerIndex and the game with a new instance.
      *
      * @param gameScreen the gameScreen object for the game
-     * @param names names of the players
-     * @param shortGame if the game should be a short game
+     * @param names      names of the players
+     * @param shortGame  if the game should be a short game
      */
     MultiPlayerGameController(MultiPlayerGameScreen gameScreen, String[] names, boolean shortGame) {
         super(gameScreen);
         currentPlayerIndex = -1;
 
         Player[] players = new Player[names.length];
-        for(int i = 0; i < names.length; i++) {
+        for (int i = 0; i < names.length; i++) {
             players[i] = new Player(names[i]);
         }
 
@@ -44,7 +44,7 @@ public class MultiPlayerGameController extends GameController {
      * Constructor
      * Calls super constructor. Initializes the players, the currentPlayerIndex and the game with a new instance.
      *
-     * @param multiPlayerGame the game to load
+     * @param multiPlayerGame       the game to load
      * @param multiPlayerGameScreen the gameScreen object for the game
      */
     MultiPlayerGameController(MultiPlayerGame multiPlayerGame, MultiPlayerGameScreen multiPlayerGameScreen) {
@@ -58,7 +58,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     public void writeScore() {
-        ((MultiPlayerGameScreen)gameScreen).writePoints(getPlayerPoints());
+        ((MultiPlayerGameScreen) gameScreen).writePoints(getPlayerPoints());
     }
 
     /**
@@ -66,7 +66,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        ((MultiPlayerGameScreen)gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension(), getLeaders());
+        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension(), getLeaders());
         super.gameOver();
     }
 
@@ -77,12 +77,12 @@ public class MultiPlayerGameController extends GameController {
     protected void periodicallyUpdate() {
         writeDuration();
         if (isSetSelectionActive()) {
-            if (((MultiPlayerGame)game).isTakeSetTimeOver()) {
+            if (((MultiPlayerGame) game).isTakeSetTimeOver()) {
                 cancelSetSelection();
             }
-            ((MultiPlayerGameScreen)gameScreen).writeSetSelectionTime(((MultiPlayerGame)game).getTakeSetTimeLeft());
+            ((MultiPlayerGameScreen) gameScreen).writeSetSelectionTime(((MultiPlayerGame) game).getTakeSetTimeLeft());
         } else {
-            ((MultiPlayerGameScreen)gameScreen).writeSetSelectionTime(-1);
+            ((MultiPlayerGameScreen) gameScreen).writeSetSelectionTime(-1);
         }
     }
 
@@ -90,9 +90,9 @@ public class MultiPlayerGameController extends GameController {
      * Cancels the set selection.
      */
     public void cancelSetSelection() {
-        Player[] players = ((MultiPlayerGame)game).getPlayers();
-        ((MultiPlayerGame)game).punishPlayer(players[currentPlayerIndex]);
-        ((MultiPlayerGameScreen)gameScreen).writeSetSelectionOver();
+        Player[] players = ((MultiPlayerGame) game).getPlayers();
+        ((MultiPlayerGame) game).punishPlayer(players[currentPlayerIndex]);
+        ((MultiPlayerGameScreen) gameScreen).writeSetSelectionOver();
         currentPlayerIndex = -1;
     }
 
@@ -101,7 +101,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        ((MultiPlayerGameScreen)gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension());
+        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension());
     }
 
     /**
@@ -110,8 +110,8 @@ public class MultiPlayerGameController extends GameController {
     @Override
     protected void resumeGameSpecific() {
         if (isSetSelectionActive()) {
-            Player[] players = ((MultiPlayerGame)game).getPlayers();
-            ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
+            Player[] players = ((MultiPlayerGame) game).getPlayers();
+            ((MultiPlayerGameScreen) gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
         }
         writeCards();
         writeScore();
@@ -125,13 +125,13 @@ public class MultiPlayerGameController extends GameController {
      * @return
      */
     public boolean selectPlayer(int playerIndex) {
-        Player[] players = ((MultiPlayerGame)game).getPlayers();
-        if (((MultiPlayerGame)game).set(players[playerIndex])) {
+        Player[] players = ((MultiPlayerGame) game).getPlayers();
+        if (((MultiPlayerGame) game).set(players[playerIndex])) {
             currentPlayerIndex = playerIndex;
-            ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
+            ((MultiPlayerGameScreen) gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
             return true;
         }
-        ((MultiPlayerGameScreen)gameScreen).writeDefaultView();
+        ((MultiPlayerGameScreen) gameScreen).writeDefaultView();
         return false;
     }
 
@@ -146,8 +146,8 @@ public class MultiPlayerGameController extends GameController {
     @Override
     public boolean takeSetPressed(int position1, int position2, int position3) {
         boolean result = false;
-        if(isSetSelectionActive()) {
-            Player[] players = ((MultiPlayerGame)game).getPlayers();
+        if (isSetSelectionActive()) {
+            Player[] players = ((MultiPlayerGame) game).getPlayers();
             result = ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
             writeCards();
             writeScore();
@@ -157,7 +157,7 @@ public class MultiPlayerGameController extends GameController {
                 gameOver();
             }
         }
-        if(game != null) {
+        if (game != null) {
             ((MultiPlayerGameScreen) gameScreen).writeDefaultView();
         }
         return result;
@@ -169,7 +169,7 @@ public class MultiPlayerGameController extends GameController {
      * @return if adding the cards was possible
      */
     public boolean addCards() {
-        boolean result = ((MultiPlayerGame)game).addCards();
+        boolean result = ((MultiPlayerGame) game).addCards();
         writeCards();
         writeCardsLeft();
         return result;
@@ -179,14 +179,14 @@ public class MultiPlayerGameController extends GameController {
      * Function called when the button set is pressed.
      */
     public void setPressed() {
-        ((MultiPlayerGameScreen)gameScreen).writePlayerSelection();
+        ((MultiPlayerGameScreen) gameScreen).writePlayerSelection();
     }
 
     /**
      * Function called when the player selection is canceled.
      */
     public void playerSelectionCanceled() {
-        ((MultiPlayerGameScreen)gameScreen).writeDefaultView();
+        ((MultiPlayerGameScreen) gameScreen).writeDefaultView();
     }
 
 
@@ -197,9 +197,9 @@ public class MultiPlayerGameController extends GameController {
      * @return all players names
      */
     public String[] getPlayerNames() {
-        Player[] players = ((MultiPlayerGame)game).getPlayers();
+        Player[] players = ((MultiPlayerGame) game).getPlayers();
         String[] names = new String[players.length];
-        for(int i = 0; i < players.length; i++) {
+        for (int i = 0; i < players.length; i++) {
             names[i] = players[i].getName();
         }
         return names;
@@ -212,9 +212,9 @@ public class MultiPlayerGameController extends GameController {
      * @return all players points
      */
     public int[] getPlayerPoints() {
-        Player[] players = ((MultiPlayerGame)game).getPlayers();
+        Player[] players = ((MultiPlayerGame) game).getPlayers();
         int[] points = new int[players.length];
-        for(int i = 0; i < players.length; i++) {
+        for (int i = 0; i < players.length; i++) {
             points[i] = players[i].getSetAmount();
         }
         return points;
@@ -237,19 +237,19 @@ public class MultiPlayerGameController extends GameController {
      * @return array of names of the leaders
      */
     private String[] getLeaders() {
-        Player[] players = ((MultiPlayerGame)game).getPlayers();
+        Player[] players = ((MultiPlayerGame) game).getPlayers();
         Player playerWithMaxSets = players[0];
-        for(int i = 1; i < players.length; i++) {
-            if(players[i].getSetAmount() > playerWithMaxSets.getSetAmount()) {
+        for (int i = 1; i < players.length; i++) {
+            if (players[i].getSetAmount() > playerWithMaxSets.getSetAmount()) {
                 playerWithMaxSets = players[i];
             }
         }
         String[] leaders = {playerWithMaxSets.getName()};
-        for(int i = 1; i < players.length; i++) {
-            if(players[i].getSetAmount() == playerWithMaxSets.getSetAmount() && players[i] != playerWithMaxSets) {
+        for (int i = 1; i < players.length; i++) {
+            if (players[i].getSetAmount() == playerWithMaxSets.getSetAmount() && players[i] != playerWithMaxSets) {
                 String[] temp = leaders.clone();
                 leaders = new String[temp.length + 1];
-                for(int j = 0; j < temp.length; j++) {
+                for (int j = 0; j < temp.length; j++) {
                     leaders[j] = temp[j];
                 }
                 leaders[temp.length] = players[i].getName();

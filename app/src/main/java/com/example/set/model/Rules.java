@@ -36,7 +36,7 @@ public class Rules {
      *
      * @param singlePlayerDeduction Rule if wrong set in single player mode should deduct players count of sets
      * @param multiPlayerDeduction  Rule if wrong set in multi player mode should deduct players count of sets
-     * @param multiPlayerSuspension   Rule if wrong set in multi player mode should lead to exposure
+     * @param multiPlayerSuspension Rule if wrong set in multi player mode should lead to exposure
      * @param multiPlayerSetTime    The time a player has in a multiplayer game to select a set after pressing set button
      */
     public Rules(boolean singlePlayerDeduction, boolean multiPlayerDeduction, boolean multiPlayerSuspension, int multiPlayerSetTime) {

@@ -92,7 +92,6 @@ public class MultiPlayerGameScreen extends GameScreen {
      * Is called when a game starts. Initializes variables and sets onClickListeners.
      *
      * @param savedInstanceState
-     *
      * @author Linus Kurze
      */
     @Override
@@ -107,7 +106,7 @@ public class MultiPlayerGameScreen extends GameScreen {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             newGame = bundle.getBoolean("newGame");
-            if(newGame) {
+            if (newGame) {
                 shortGame = bundle.getBoolean("shortGame");
                 players = bundle.getStringArray("namesList");
             }
@@ -125,13 +124,13 @@ public class MultiPlayerGameScreen extends GameScreen {
         set = new Button(this);
         set.setText(R.string.set);
         set.setOnClickListener(view -> {
-            ((MultiPlayerGameController)gameController).setPressed();
+            ((MultiPlayerGameController) gameController).setPressed();
         });
 
         addCards = new Button(this);
         addCards.setText(R.string.add_cards);
         addCards.setOnClickListener(view -> {
-            if(((MultiPlayerGameController)gameController).addCards()) {
+            if (((MultiPlayerGameController) gameController).addCards()) {
                 Toast.makeText(this.getBaseContext(), R.string.message_add_cards_successful, Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this.getBaseContext(), R.string.message_add_cards_not_possible, Toast.LENGTH_SHORT).show();
@@ -141,13 +140,13 @@ public class MultiPlayerGameScreen extends GameScreen {
         cancelPlayerSelection = new Button(this);
         cancelPlayerSelection.setText(R.string.cancel);
         cancelPlayerSelection.setOnClickListener(view -> {
-            ((MultiPlayerGameController)gameController).playerSelectionCanceled();
+            ((MultiPlayerGameController) gameController).playerSelectionCanceled();
         });
 
         cancelSetSelection = new Button(this);
         cancelSetSelection.setText(R.string.cancel);
         cancelSetSelection.setOnClickListener(view -> {
-            ((MultiPlayerGameController)gameController).cancelSetSelection();
+            ((MultiPlayerGameController) gameController).cancelSetSelection();
         });
 
         playersLayout = new LinearLayout(this);
@@ -157,24 +156,24 @@ public class MultiPlayerGameScreen extends GameScreen {
         playersScrollView.setLayoutParams(new LinearLayout.LayoutParams(ScrollView.LayoutParams.FILL_PARENT, ScrollView.LayoutParams.FILL_PARENT));
         playersScrollView.addView(playersLayout);
 
-        if(newGame) {
+        if (newGame) {
             appController.createNewMultiPlayerGame(this, players, shortGame);
         }
         gameController = appController.getMultiPlayerGameController();
-        if(newGame) {
+        if (newGame) {
             gameController.startGame();
         } else {
             gameController.resume(this);
         }
 
-        String[] names = ((MultiPlayerGameController)gameController).getPlayerNames();
-        for(int i = 0; i < names.length; i++) {
+        String[] names = ((MultiPlayerGameController) gameController).getPlayerNames();
+        for (int i = 0; i < names.length; i++) {
             Button button = new Button(this);
             button.setText(names[i]);
             playersLayout.addView(button, buttonLayoutParams);
             final int finalI = i;
             button.setOnClickListener(view -> {
-                if(((MultiPlayerGameController)gameController).selectPlayer(finalI)) {
+                if (((MultiPlayerGameController) gameController).selectPlayer(finalI)) {
                     Toast.makeText(this.getBaseContext(), R.string.message_player_is_selected, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this.getBaseContext(), R.string.message_player_is_suspended, Toast.LENGTH_SHORT).show();
@@ -188,15 +187,14 @@ public class MultiPlayerGameScreen extends GameScreen {
     /**
      * Is called when a card is clicked. Selects a card if card selection is active.
      *
-     * @param x x position of the card
-     * @param y y position of the card
+     * @param x    x position of the card
+     * @param y    y position of the card
      * @param view view of the card
-     *
      * @author Linus Kurze
      */
     @Override
     public void onCardClicked(int x, int y, View view) {
-        if(((MultiPlayerGameController)gameController).isSetSelectionActive()) {
+        if (((MultiPlayerGameController) gameController).isSetSelectionActive()) {
             cardSelected(x, y, view);
         }
     }
@@ -224,7 +222,7 @@ public class MultiPlayerGameScreen extends GameScreen {
         buttonsLayout.addView(addCards, buttonLayoutParams);
         buttonsLayout.addView(set, buttonLayoutParams);
         writePointsListNames();
-        ((MultiPlayerGameController)gameController).writeScore();
+        ((MultiPlayerGameController) gameController).writeScore();
     }
 
     /**
@@ -265,11 +263,11 @@ public class MultiPlayerGameScreen extends GameScreen {
      *
      * @author Linus Kurze
      */
-    public void writeSetSelectionTime(long time){
+    public void writeSetSelectionTime(long time) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(time < 0) {
+                if (time < 0) {
                     points.setText("");
                 } else {
                     points.setText("" + time);
@@ -283,12 +281,11 @@ public class MultiPlayerGameScreen extends GameScreen {
      * Method called when the pause screen should be opened
      *
      * @param shortGame if the game is a short game
-     * @param points the points the player received
+     * @param points    the points the player received
      * @param cardsLeft the cards left on the stack
-     * @param duration the time the game took
+     * @param duration  the time the game took
      * @param startTime the time the game started
      * @param deduction if the deduction rule was enabled
-     *
      * @author Linus Kurze
      */
     public void openPause(boolean shortGame, int[] points, int cardsLeft, long duration, long startTime, boolean deduction, boolean suspension) {
@@ -297,7 +294,7 @@ public class MultiPlayerGameScreen extends GameScreen {
         intentPS.putExtra("gameMode", getResources().getString(R.string.multi_player));
         intentPS.putExtra("gameType", gameTypeToString(shortGame));
         intentPS.putExtra("pointsList", pointsToString(points));
-        intentPS.putExtra("namesList", namesToString(((MultiPlayerGameController)gameController).getPlayerNames()));
+        intentPS.putExtra("namesList", namesToString(((MultiPlayerGameController) gameController).getPlayerNames()));
         intentPS.putExtra("cardsLeft", cardsLeft);
         intentPS.putExtra("duration", timeToString(duration));
         intentPS.putExtra("startTime", timestampToString(startTime));
@@ -308,14 +305,13 @@ public class MultiPlayerGameScreen extends GameScreen {
     /**
      * Method called when the game is over
      *
-     * @param shortGame if the game is a short game
-     * @param points the points of the players
-     * @param duration the time the game took
-     * @param startTime the time the game started
-     * @param deduction if the deduction rule was enabled
+     * @param shortGame  if the game is a short game
+     * @param points     the points of the players
+     * @param duration   the time the game took
+     * @param startTime  the time the game started
+     * @param deduction  if the deduction rule was enabled
      * @param suspension if the suspension rule was enabled
-     * @param winners the names of the winners
-     *
+     * @param winners    the names of the winners
      * @author Linus Kurze
      */
     public void gameOver(boolean shortGame, int[] points, long duration, long startTime, boolean deduction, boolean suspension, String[] winners) {
@@ -324,7 +320,7 @@ public class MultiPlayerGameScreen extends GameScreen {
         intentES.putExtra("gameMode", getResources().getString(R.string.multi_player));
         intentES.putExtra("gameType", gameTypeToString(shortGame));
         intentES.putExtra("pointsList", pointsToString(points));
-        intentES.putExtra("namesList", namesToString(((MultiPlayerGameController)gameController).getPlayerNames()));
+        intentES.putExtra("namesList", namesToString(((MultiPlayerGameController) gameController).getPlayerNames()));
         intentES.putExtra("duration", timeToString(duration));
         intentES.putExtra("startTime", timestampToString(startTime));
         intentES.putExtra("rules", rulesToString(deduction, suspension));
@@ -338,10 +334,9 @@ public class MultiPlayerGameScreen extends GameScreen {
      * Method called when the ui should write the points.
      *
      * @param points the points of the players
-     *
      * @author Linus Kurze
      */
-    public void writePoints(int[] points){
+    public void writePoints(int[] points) {
         pointsList.setText(pointsToString(points));
     }
 
@@ -351,7 +346,7 @@ public class MultiPlayerGameScreen extends GameScreen {
      * @author Linus Kurze
      */
     private void writePointsListNames() {
-        String[] names = ((MultiPlayerGameController)gameController).getPlayerNames();
+        String[] names = ((MultiPlayerGameController) gameController).getPlayerNames();
         pointsNameList.setText(namesToString(names));
     }
 
@@ -360,12 +355,11 @@ public class MultiPlayerGameScreen extends GameScreen {
      *
      * @param names the names to convert
      * @return the names as string with paragraphs
-     *
      * @author Linus Kurze
      */
     private String namesToString(String[] names) {
         StringBuilder list = new StringBuilder();
-        for(int i = 0; i < names.length; i++) {
+        for (int i = 0; i < names.length; i++) {
             list.append(names[i]).append(": ");
             if (i < names.length - 1) {
                 list.append("\n");
@@ -379,12 +373,11 @@ public class MultiPlayerGameScreen extends GameScreen {
      *
      * @param points the points to convert
      * @return the points as string with paragraphs
-     *
      * @author Linus Kurze
      */
     private String pointsToString(int[] points) {
         StringBuilder list = new StringBuilder();
-        for(int i = 0;i < points.length; i++) {
+        for (int i = 0; i < points.length; i++) {
             list.append(points[i]);
             if (i < points.length - 1) {
                 list.append("\n");
@@ -398,12 +391,11 @@ public class MultiPlayerGameScreen extends GameScreen {
      *
      * @param winners list of winners
      * @return list of winners as a string
-     *
      * @author Linus Kurze
      */
     private String winnersToString(String[] winners) {
         StringBuilder list = new StringBuilder();
-        for(int i = 0;i < winners.length; i++) {
+        for (int i = 0; i < winners.length; i++) {
             list.append(winners[i]);
             if (i < winners.length - 2) {
                 list.append(", ");
@@ -429,7 +421,6 @@ public class MultiPlayerGameScreen extends GameScreen {
      *
      * @param deduction if the deduction is active
      * @return the rules as readable String
-     *
      * @author Linus Kurze
      */
     private String rulesToString(boolean deduction, boolean exposure) {

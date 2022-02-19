@@ -1,5 +1,9 @@
 package com.example.set.ui;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,19 +11,15 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-
 import com.example.set.R;
 import com.example.set.controller.AppControllerHolder;
 
 /**
  * Splash screen class
  * Implements the loading from the database.
- *
+ * <p>
  * Source: https://www.codexpedia.com/android/a-simple-android-loader-example/
- *
+ * <p>
  * the author is responsible for this class
  *
  * @author Linus Kurze
@@ -34,13 +34,13 @@ public class SplashScreen extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
-        LoaderManager.getInstance(this).initLoader(0, null, (LoaderManager.LoaderCallbacks<Void>)this).forceLoad();
+        LoaderManager.getInstance(this).initLoader(0, null, this).forceLoad();
     }
 
     /**
      * the method called when the loader is created
      *
-     * @param id the id of the loader
+     * @param id   the id of the loader
      * @param args arguments
      * @return the AsyncTaskLoader
      */
@@ -54,7 +54,7 @@ public class SplashScreen extends AppCompatActivity implements LoaderManager.Loa
      * the method called when the load finished
      *
      * @param loader the loader finished
-     * @param data the loaded data
+     * @param data   the loaded data
      */
     @Override
     public void onLoadFinished(@NonNull Loader<Void> loader, Void data) {
@@ -76,7 +76,7 @@ public class SplashScreen extends AppCompatActivity implements LoaderManager.Loa
     /**
      * Fetch data class
      * Fetches the data from the database.
-     *
+     * <p>
      * the author is responsible for this class
      *
      * @author Linus Kurze

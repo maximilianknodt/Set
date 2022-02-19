@@ -2,7 +2,6 @@ package com.example.set.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -26,7 +25,6 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
      * Method called when screen is created. Handles clicks on the different buttons.
      *
      * @param savedInstanceState Bundle with saved data
-     *
      * @author Linus Kurze
      */
     @Override
@@ -41,8 +39,6 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
 
         // -------- NORMAL GAME --------
         btnNormalG.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Single Player Normal Game starts");
-
             Intent intentSP = new Intent();
             intentSP.setClass(this, SinglePlayerGameScreen.class);
             intentSP.putExtra("newGame", true);
@@ -53,8 +49,6 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
 
         // -------- SHORT GAME --------
         btnShortG.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Single Player Short Game starts");
-
             Intent intentSP = new Intent();
             intentSP.setClass(this, SinglePlayerGameScreen.class);
             intentSP.putExtra("newGame", true);
@@ -64,9 +58,7 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
 
         // -------- RESUME GAME --------
         btnResumeG.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - Single Player Game Resumes");
-
-            if(AppControllerHolder.getAppController().singlePlayerGameExists()) {
+            if (AppControllerHolder.getAppController().singlePlayerGameExists()) {
                 Intent intentSP = new Intent();
                 intentSP.setClass(this, SinglePlayerGameScreen.class);
                 intentSP.putExtra("newGame", false);

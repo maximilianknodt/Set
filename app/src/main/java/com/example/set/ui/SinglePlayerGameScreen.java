@@ -3,8 +3,6 @@ package com.example.set.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.set.R;
 import com.example.set.controller.AppController;
@@ -25,7 +23,6 @@ public class SinglePlayerGameScreen extends GameScreen {
      * onCreate method of the gameScreen, called when a game starts
      *
      * @param savedInstanceState
-     *
      * @author Linus Kurze
      */
     @Override
@@ -38,15 +35,15 @@ public class SinglePlayerGameScreen extends GameScreen {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             newGame = bundle.getBoolean("newGame");
-            if(newGame) {
+            if (newGame) {
                 shortGame = bundle.getBoolean("shortGame");
             }
         }
-        if(newGame) {
+        if (newGame) {
             appController.createNewSinglePlayerGame(this, shortGame);
         }
         gameController = appController.getSinglePlayerGameController();
-        if(newGame) {
+        if (newGame) {
             gameController.startGame();
         } else {
             gameController.resume(this);
@@ -57,11 +54,10 @@ public class SinglePlayerGameScreen extends GameScreen {
      * Method called when the game is over
      *
      * @param shortGame if the game is a short game
-     * @param points the points the player received
-     * @param duration the time the game took
+     * @param points    the points the player received
+     * @param duration  the time the game took
      * @param startTime the time the game started
      * @param deduction if the deduction rule was enabled
-     *
      * @author Linus Kurze
      */
     public void gameOver(boolean shortGame, int points, long duration, long startTime, boolean deduction) {
@@ -82,12 +78,11 @@ public class SinglePlayerGameScreen extends GameScreen {
      * Method called when the pause screen should be opened
      *
      * @param shortGame if the game is a short game
-     * @param points the points the player received
+     * @param points    the points the player received
      * @param cardsLeft the cards left on the stack
-     * @param duration the time the game took
+     * @param duration  the time the game took
      * @param startTime the time the game started
      * @param deduction if the deduction rule was enabled
-     *
      * @author Linus Kurze
      */
     public void openPause(boolean shortGame, int points, int cardsLeft, long duration, long startTime, boolean deduction) {
@@ -107,20 +102,18 @@ public class SinglePlayerGameScreen extends GameScreen {
      * Method called when the ui should write the points.
      *
      * @param value the points to write
-     *
      * @author Linus Kurze
      */
-    public void writePoints(int value){
-        points.setText(""+value);
+    public void writePoints(int value) {
+        points.setText("" + value);
     }
 
     /**
      * Method called when a card is clicked.
      *
-     * @param x the x position of the card
-     * @param y the y position of the card
+     * @param x    the x position of the card
+     * @param y    the y position of the card
      * @param view the view of the card
-     *
      * @author Linus Kurze
      */
     public void onCardClicked(int x, int y, View view) {
@@ -132,7 +125,6 @@ public class SinglePlayerGameScreen extends GameScreen {
      *
      * @param deduction if the deduction is active
      * @return the rules as readable String
-     *
      * @author Linus Kurze
      */
     private String rulesToString(boolean deduction) {

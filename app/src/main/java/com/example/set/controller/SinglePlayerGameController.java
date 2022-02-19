@@ -19,7 +19,7 @@ public class SinglePlayerGameController extends GameController {
      * Calls super constructor. Initializes the game with a new instance.
      *
      * @param singlePlayerGameScreen the singlePlayerGameScreen object for the game
-     * @param shortGame if the game should be a short game
+     * @param shortGame              if the game should be a short game
      */
     SinglePlayerGameController(SinglePlayerGameScreen singlePlayerGameScreen, boolean shortGame) {
         super(singlePlayerGameScreen);
@@ -30,7 +30,7 @@ public class SinglePlayerGameController extends GameController {
      * Constructor
      * Calls super constructor. Initializes the game with a given instance.
      *
-     * @param singlePlayerGame the game to load
+     * @param singlePlayerGame       the game to load
      * @param singlePlayerGameScreen the singlePlayerGameScreen object for the game
      */
     SinglePlayerGameController(SinglePlayerGame singlePlayerGame, SinglePlayerGameScreen singlePlayerGameScreen) {
@@ -43,8 +43,8 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     protected void writeScore() {
-        int score = ((SinglePlayerGame)game).getSetAmount();
-        ((SinglePlayerGameScreen)gameScreen).writePoints(score);
+        int score = ((SinglePlayerGame) game).getSetAmount();
+        ((SinglePlayerGameScreen) gameScreen).writePoints(score);
     }
 
     /**
@@ -52,7 +52,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        ((SinglePlayerGameScreen)gameScreen).gameOver(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        ((SinglePlayerGameScreen) gameScreen).gameOver(game.isShortGame(), ((SinglePlayerGame) game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
         super.gameOver();
     }
 
@@ -69,7 +69,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        ((SinglePlayerGameScreen)gameScreen).openPause(game.isShortGame(), ((SinglePlayerGame)game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        ((SinglePlayerGameScreen) gameScreen).openPause(game.isShortGame(), ((SinglePlayerGame) game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
     }
 
     /**
@@ -92,11 +92,11 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     public boolean takeSetPressed(int position1, int position2, int position3) {
-        boolean result = ((SinglePlayerGame)game).takeCards(position1, position2, position3);
+        boolean result = ((SinglePlayerGame) game).takeCards(position1, position2, position3);
         writeCards();
         writeScore();
         writeCardsLeft();
-        if(game.isOver()) {
+        if (game.isOver()) {
             gameOver();
         }
         return result;

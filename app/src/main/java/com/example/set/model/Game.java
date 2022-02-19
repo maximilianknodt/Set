@@ -1,8 +1,5 @@
 package com.example.set.model;
 
-import android.util.Log;
-
-import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -22,17 +19,27 @@ import java.util.concurrent.TimeUnit;
 @Entity
 public abstract class Game {
     /**
-     * the table for the game
-     */
-    @Embedded
-    protected Table table;
-
-    /**
      * the rules for the game
      */
     @Embedded
     protected final Rules rules;
-
+    /**
+     * the table for the game
+     */
+    @Embedded
+    protected Table table;
+    /**
+     * the time the game resumed
+     */
+    protected long resumeTime;
+    /**
+     * the time the game took before paused
+     */
+    protected long timeBeforePaused;
+    /**
+     * if the game is a short game
+     */
+    protected boolean shortGame;
     /**
      * the time the game started
      */
@@ -40,25 +47,10 @@ public abstract class Game {
     private long startTime;
 
     /**
-     * the time the game resumed
-     */
-    protected long resumeTime;
-
-    /**
-     * the time the game took before paused
-     */
-    protected long timeBeforePaused;
-
-    /**
-     * if the game is a short game
-     */
-    protected boolean shortGame;
-
-    /**
      * Constructor
      * Creates a game with as parameter given rules. Creates a table for the game.
      *
-     * @param rules the rules for the game
+     * @param rules     the rules for the game
      * @param shortGame if the game is a short game
      */
     Game(Rules rules, boolean shortGame) {
@@ -71,7 +63,6 @@ public abstract class Game {
      * Starts a game by revealing the first cards and setting the time the game started.
      */
     public void startGame() {
-        Log.wtf("Log","startGameCalled");
         timeBeforePaused = 0;
         startTime = System.currentTimeMillis();
         resumeTime = startTime;
@@ -99,36 +90,6 @@ public abstract class Game {
     }
 
     /**
-     * Getter
-     * Returns the time the game resumed.
-     *
-     * @return the time the game resumed
-     */
-    public long getResumeTime() {
-        return resumeTime;
-    }
-
-    /**
-     * Getter
-     * Returns the time the game took before paused.
-     *
-     * @return the time the game took before paused
-     */
-    public long getTimeBeforePaused() {
-        return timeBeforePaused;
-    }
-
-    /**
-     * Getter
-     * Returns the table object.
-     *
-     * @return the table object
-     */
-    public Table getTable() {
-        return this.table;
-    }
-
-    /**
      * Setter
      * Sets the timestamp the game started.
      *
@@ -136,6 +97,16 @@ public abstract class Game {
      */
     public void setStartTime(long startTime) {
         this.startTime = startTime;
+    }
+
+    /**
+     * Getter
+     * Returns the time the game resumed.
+     *
+     * @return the time the game resumed
+     */
+    public long getResumeTime() {
+        return resumeTime;
     }
 
     /**
@@ -149,6 +120,16 @@ public abstract class Game {
     }
 
     /**
+     * Getter
+     * Returns the time the game took before paused.
+     *
+     * @return the time the game took before paused
+     */
+    public long getTimeBeforePaused() {
+        return timeBeforePaused;
+    }
+
+    /**
      * Setter
      * Sets the time the game took before paused.
      *
@@ -159,13 +140,13 @@ public abstract class Game {
     }
 
     /**
-     * Setter
-     * Sets if the game is a short game.
+     * Getter
+     * Returns the table object.
      *
-     * @param shortGame if the game is a short game
+     * @return the table object
      */
-    public void setShortGame(boolean shortGame) {
-        this.shortGame = shortGame;
+    public Table getTable() {
+        return this.table;
     }
 
     /**
@@ -296,6 +277,16 @@ public abstract class Game {
      */
     public boolean isShortGame() {
         return shortGame;
+    }
+
+    /**
+     * Setter
+     * Sets if the game is a short game.
+     *
+     * @param shortGame if the game is a short game
+     */
+    public void setShortGame(boolean shortGame) {
+        this.shortGame = shortGame;
     }
 
     /**

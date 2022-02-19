@@ -12,14 +12,13 @@ public class AppControllerHolder {
     /**
      * the controller for the app
      */
-    private static AppController appController = new AppController();
+    private static final AppController appController = new AppController();
 
     /**
      * Getter
      * Returns the app controller.
      *
      * @return the app controller
-     *
      * @author Linus Kurze
      */
     public static AppController getAppController() {

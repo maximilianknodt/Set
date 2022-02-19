@@ -48,7 +48,7 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multi_player_players_screen);
 
@@ -68,7 +68,7 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
             shortGame = bundle.getBoolean("shortGame");
         }
 
-        for(int i = 0; i < MIN_PLAYER_COUNT; i++) {
+        for (int i = 0; i < MIN_PLAYER_COUNT; i++) {
             addButton();
         }
 
@@ -76,21 +76,23 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
 
 
         playerNameInput.addTextChangedListener(new TextWatcher() {
-               @Override
-               public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+                                                   @Override
+                                                   public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                                   }
 
-               @Override
-               public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                   selected.setText(charSequence);
-               }
+                                                   @Override
+                                                   public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                                       selected.setText(charSequence);
+                                                   }
 
-               @Override
-               public void afterTextChanged(Editable editable) {}
-           }
+                                                   @Override
+                                                   public void afterTextChanged(Editable editable) {
+                                                   }
+                                               }
         );
 
         removePlayer.setOnClickListener(view -> {
-            if(playersLayout.getChildCount() > MIN_PLAYER_COUNT) {
+            if (playersLayout.getChildCount() > MIN_PLAYER_COUNT) {
                 removeButton();
                 selectLast();
                 Toast.makeText(this.getBaseContext(), R.string.message_deleted_player, Toast.LENGTH_SHORT).show();
@@ -100,7 +102,7 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
         });
 
         addPlayer.setOnClickListener(view -> {
-            if(playersLayout.getChildCount() < MAX_PLAYER_COUNT) {
+            if (playersLayout.getChildCount() < MAX_PLAYER_COUNT) {
                 addButton();
                 selectLast();
                 Toast.makeText(this.getBaseContext(), R.string.message_added_player, Toast.LENGTH_SHORT).show();
@@ -112,8 +114,8 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
         boolean finalShortGame = shortGame;
         startGame.setOnClickListener(view -> {
             String[] names = new String[playersLayout.getChildCount()];
-            for(int i = 0; i < playersLayout.getChildCount(); i++) {
-                names[i] = String.valueOf(((Button)(playersLayout.getChildAt(i))).getText());
+            for (int i = 0; i < playersLayout.getChildCount(); i++) {
+                names[i] = String.valueOf(((Button) (playersLayout.getChildAt(i))).getText());
             }
             Intent intentMP = new Intent();
             intentMP.setClass(this, MultiPlayerGameScreen.class);
@@ -130,10 +132,10 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
      * @param view the button to set as selected
      */
     private void setSelectedButton(View view) {
-        if(selected != null) {
+        if (selected != null) {
             selected.getBackground().clearColorFilter();
         }
-        selected = (Button)view;
+        selected = (Button) view;
         selected.getBackground().setColorFilter(getColor(R.color.button_selected), PorterDuff.Mode.MULTIPLY);
         updateTextInput();
     }
@@ -149,7 +151,7 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
      * selects the last button and scrolls to it
      */
     private void selectLast() {
-        setSelectedButton(playersLayout.getChildAt(playersLayout.getChildCount() -1));
+        setSelectedButton(playersLayout.getChildAt(playersLayout.getChildCount() - 1));
         updateTextInput();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             scrollView.scrollToDescendant(selected);

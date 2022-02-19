@@ -2,7 +2,6 @@ package com.example.set.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class PauseScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pause_screen);
 
@@ -48,16 +47,12 @@ public class PauseScreen extends AppCompatActivity {
 
 
         btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen to SettingsScreen");
-
             Intent intentSettings = new Intent();
             intentSettings.setClass(this, SettingsScreen.class);
             startActivity(intentSettings);
         });
 
         btnMenu.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen to StartScreen");
-
             Intent intentStart = new Intent();
             intentStart.setClass(this, HomeScreen.class);
             intentStart.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -66,8 +61,6 @@ public class PauseScreen extends AppCompatActivity {
         });
 
         ibtnPlay.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From PauseScreen back to SinglePlayerGameScreen");
-
             onBackPressed();
         });
 
@@ -78,13 +71,13 @@ public class PauseScreen extends AppCompatActivity {
             gameType.setText(bundle.getString("gameType"));
             time.setText(bundle.getString("duration"));
             startTime.setText(bundle.getString("startTime"));
-            cardsLeft.setText(""+bundle.getInt("cardsLeft"));
+            cardsLeft.setText("" + bundle.getInt("cardsLeft"));
             rules.setText(bundle.getString("rules"));
-            if(gameModeText.equals(getString(R.string.multi_player))) {
+            if (gameModeText.equals(getString(R.string.multi_player))) {
                 pointsList.setText(bundle.getString("pointsList"));
                 namesList.setText(bundle.getString("namesList"));
             } else {
-                points.setText(""+bundle.getInt("points"));
+                points.setText("" + bundle.getInt("points"));
             }
         }
     }

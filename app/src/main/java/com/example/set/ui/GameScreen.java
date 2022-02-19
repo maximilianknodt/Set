@@ -1,11 +1,7 @@
 package com.example.set.ui;
 
-import com.example.set.controller.AppControllerHolder;
-import com.example.set.controller.GameController;
-
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.set.R;
+import com.example.set.controller.AppControllerHolder;
+import com.example.set.controller.GameController;
 import com.example.set.model.Card;
 
 import java.text.SimpleDateFormat;
@@ -37,20 +35,17 @@ public abstract class GameScreen extends AppCompatActivity {
     private static final int ROW_COUNT = 3;
 
     protected RecyclerView rvList;
-    private TextView timer;
-    private TextView cardsLeft;
     protected Button takeSet;
     protected TextView points;
-
     protected GameController gameController;
-
     protected LinkedList<CardData> selectedCards;
+    private TextView timer;
+    private TextView cardsLeft;
 
     /**
      * onCreate method of the gameScreen, called when a game starts
      *
      * @param savedInstanceState
-     *
      * @author Maximilian Knodt
      * @author Linus Kurze
      */
@@ -72,22 +67,20 @@ public abstract class GameScreen extends AppCompatActivity {
 
         // --------- PAUSE ---------
         btnSettings.setOnClickListener(v -> {
-            Log.d("Debug", "On Click - From SinglePlayerGameScreen to PauseScreen");
-
             gameController.pauseScreen();
         });
 
         // -------- takeSet onClick Listener --------
         takeSet.setOnClickListener(view -> {
-            if(selectedCards.size() == 3) {
+            if (selectedCards.size() == 3) {
                 CardData cardData = selectedCards.removeLast();
-                int card1 = cardData.getX()*3 + cardData.getY();
+                int card1 = cardData.getX() * 3 + cardData.getY();
                 cardData = selectedCards.removeLast();
-                int card2 = cardData.getX()*3 + cardData.getY();
+                int card2 = cardData.getX() * 3 + cardData.getY();
                 cardData = selectedCards.removeLast();
-                int card3 = cardData.getX()*3 + cardData.getY();
+                int card3 = cardData.getX() * 3 + cardData.getY();
 
-                if(gameController.takeSetPressed(card1, card2, card3)) {
+                if (gameController.takeSetPressed(card1, card2, card3)) {
                     Toast.makeText(this.getBaseContext(), R.string.message_take_set_successful, Toast.LENGTH_SHORT).show();
 
                 } else {
@@ -132,10 +125,9 @@ public abstract class GameScreen extends AppCompatActivity {
     /**
      * Method called when a card is clicked.
      *
-     * @param x the x position of the card
-     * @param y the y position of the card
+     * @param x    the x position of the card
+     * @param y    the y position of the card
      * @param view the view of the card
-     *
      * @author Linus Kurze
      */
     public abstract void onCardClicked(int x, int y, View view);
@@ -143,10 +135,9 @@ public abstract class GameScreen extends AppCompatActivity {
     /**
      * Method changing the card selection with the selected card.
      *
-     * @param x the x position of the card
-     * @param y the y position of the card
+     * @param x    the x position of the card
+     * @param y    the y position of the card
      * @param view the view of the card
-     *
      * @author Linus Kurze
      */
     protected void cardSelected(int x, int y, View view) {
@@ -168,7 +159,7 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void selectCard(View view){
+    public void selectCard(View view) {
         view.setBackgroundColor(ContextCompat.getColor(this, R.color.card_selected));
     }
 
@@ -177,7 +168,7 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @author Linus Kurze
      */
-    public void unselectCard(View view){
+    public void unselectCard(View view) {
         view.setBackgroundColor(ContextCompat.getColor(this, R.color.card_background));
     }
 
@@ -185,10 +176,9 @@ public abstract class GameScreen extends AppCompatActivity {
      * Method called when the ui should write the cards
      *
      * @param cards the cards to write
-     *
      * @author Linus Kurze
      */
-    public void writeCards(ArrayList<Card> cards){
+    public void writeCards(ArrayList<Card> cards) {
         this.envokeRecyclerView(cards);
     }
 
@@ -196,10 +186,9 @@ public abstract class GameScreen extends AppCompatActivity {
      * Method called when the ui should write the time
      *
      * @param time the time to write
-     *
      * @author Linus Kurze
      */
-    public void writeTime(long time){
+    public void writeTime(long time) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -212,11 +201,10 @@ public abstract class GameScreen extends AppCompatActivity {
      * Method called when the ui should write the cards left
      *
      * @param value the cards left
-     *
      * @author Linus Kurze
      */
-    public void writeCardsLeft(int value){
-        cardsLeft.setText(""+value);
+    public void writeCardsLeft(int value) {
+        cardsLeft.setText("" + value);
     }
 
     /**
@@ -224,7 +212,6 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param time the time to convert
      * @return the time as readable String
-     *
      * @author Linus Kurze
      */
     protected String timeToString(long time) {
@@ -232,7 +219,7 @@ public abstract class GameScreen extends AppCompatActivity {
         long min = time % 3600 / 60;
         long sec = time % 3600 % 60;
         String text = "";
-        if(hrs > 99) {
+        if (hrs > 99) {
             text = "too long";
         } else {
             text = fillToTwoDigits(hrs) + ":" + fillToTwoDigits(min) + ":" + fillToTwoDigits(sec);
@@ -245,7 +232,6 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param shortGame if the game is a short game
      * @return the game type as readable String
-     *
      * @author Linus Kurze
      */
     protected String gameTypeToString(boolean shortGame) {
@@ -260,15 +246,14 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param number the number to edit
      * @return the edited number as String
-     *
      * @author Linus Kurze
      */
     protected String fillToTwoDigits(long number) {
         String string = "";
-        if(number > 9) {
+        if (number > 9) {
             string += number;
         } else {
-            string+= "0" + number;
+            string += "0" + number;
         }
         return string;
     }
@@ -278,10 +263,9 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param timeStamp the time stamp to convert
      * @return the time stamp as string
-     *
      * @author Linus Kurze
      */
-    protected String timestampToString(long timeStamp){
+    protected String timestampToString(long timeStamp) {
         Date date = new Date(timeStamp);
         return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(date);
     }
@@ -291,17 +275,16 @@ public abstract class GameScreen extends AppCompatActivity {
      *
      * @param tableCards arraylist with the cards to place on the table
      * @return '2D' array with the cards customised for the ViewHolder of the RecyclerViewAdapter to fit to the column layout
-     *
      * @author Maximilian Knodt
      */
-    private Card[][] alignTableCards(ArrayList<Card> tableCards){
+    private Card[][] alignTableCards(ArrayList<Card> tableCards) {
         Card[][] result = new Card[tableCards.size() / ROW_COUNT][ROW_COUNT];
 
         int counterColumn = -1;
         int counterRow = -1;
 
-        for(int i = 0; i < tableCards.size(); i++){
-            if(i % 3 == 0){
+        for (int i = 0; i < tableCards.size(); i++) {
+            if (i % 3 == 0) {
                 counterColumn++;
                 counterRow = 0;
             } else {
@@ -316,10 +299,9 @@ public abstract class GameScreen extends AppCompatActivity {
      * Class to handle onClickListener and to commit necessary information to the CardColumnRecyclerViewAdapter
      *
      * @param cards the cards to write on the screen
-     *
      * @author Maximilian Knodt
      */
-    private void envokeRecyclerView(ArrayList<Card> cards){
+    private void envokeRecyclerView(ArrayList<Card> cards) {
         rvList.setLayoutManager(new LinearLayoutManager(this.getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
         rvList.setAdapter(new CardColumnRecyclerViewAdapter(this.getBaseContext(), this, this.alignTableCards(cards)));
     }
@@ -338,17 +320,17 @@ class CardData {
     /**
      * the x position of the card
      */
-    private int x;
+    private final int x;
 
     /**
      * the y position of the card
      */
-    private int y;
+    private final int y;
 
     /**
      * the id of the card
      */
-    private View view;
+    private final View view;
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ public class MultiPlayerGame extends Game {
      * Calls super constructor with as parameter given rules. Initializes the players with the as parameter given ones.
      *
      * @param players players playing in the game
-     * @param rules the rules for the game
+     * @param rules   the rules for the game
      */
     public MultiPlayerGame(Player[] players, Rules rules, boolean shortGame) {
         super(rules, shortGame);
@@ -109,7 +109,7 @@ public class MultiPlayerGame extends Game {
      * @return the time a player has left to select a set in seconds
      */
     public long getTakeSetTimeLeft() {
-        return rules.getMultiPlayerSetTime() - getTakeSetDuration()/1000;
+        return rules.getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
     }
 
     /**
@@ -153,16 +153,6 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
-     * Getter
-     * Returns the time passed a player has pressed set before paused.
-     *
-     * @return the time passed a player has pressed set before paused
-     */
-    public long getTakeSetTimeBeforePaused() {
-        return takeSetTimeBeforePaused;
-    }
-
-    /**
      * Setter
      * Sets the time a player has pressed set or the time resumed.
      *
@@ -170,6 +160,16 @@ public class MultiPlayerGame extends Game {
      */
     public void setTakeSetTimeStart(long takeSetTimeStart) {
         this.takeSetTimeStart = takeSetTimeStart;
+    }
+
+    /**
+     * Getter
+     * Returns the time passed a player has pressed set before paused.
+     *
+     * @return the time passed a player has pressed set before paused
+     */
+    public long getTakeSetTimeBeforePaused() {
+        return takeSetTimeBeforePaused;
     }
 
     /**
@@ -194,7 +194,7 @@ public class MultiPlayerGame extends Game {
     public boolean takeCards(Player player, int position1, int position2, int position3) {
         boolean result = false;
 
-        if(!isTakeSetTimeOver()) {
+        if (!isTakeSetTimeOver()) {
             if (takeSetChecked(position1, position2, position3)) {
                 player.increaseSetAmount();
                 result = true;

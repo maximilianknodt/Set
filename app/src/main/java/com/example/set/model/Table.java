@@ -2,7 +2,6 @@ package com.example.set.model;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,6 +49,7 @@ public class Table {
     public Table() {
         this(false);
     }
+
     /**
      * Constructor
      * Creates a table with a shuffled stack of cards.
@@ -84,6 +84,16 @@ public class Table {
      */
     public ArrayList<Card> getTableCards() {
         return tableCards;
+    }
+
+    /**
+     * Setter
+     * Sets the table cards.
+     *
+     * @param tableCards the table cards
+     */
+    public void setTableCards(ArrayList<Card> tableCards) {
+        this.tableCards = tableCards;
     }
 
     /**
@@ -124,16 +134,6 @@ public class Table {
      */
     public void setStack(Stack<Card> stack) {
         this.stack = stack;
-    }
-
-    /**
-     * Setter
-     * Sets the table cards.
-     *
-     * @param tableCards the table cards
-     */
-    public void setTableCards(ArrayList<Card> tableCards) {
-        this.tableCards = tableCards;
     }
 
     /**

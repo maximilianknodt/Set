@@ -2,7 +2,6 @@ package com.example.set.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +26,6 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
      * Method called when screen is created. Handles clicks on the different buttons.
      *
      * @param savedInstanceState Bundle with saved data
-     *
      * @author Linus Kurze
      */
     @Override
@@ -58,7 +56,7 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
         });
 
         btnResumeG.setOnClickListener(v -> {
-            if(AppControllerHolder.getAppController().multiPlayerGameExists()) {
+            if (AppControllerHolder.getAppController().multiPlayerGameExists()) {
                 Intent intentMP = new Intent();
                 intentMP.setClass(this, MultiPlayerGameScreen.class);
                 intentMP.putExtra("newGame", false);

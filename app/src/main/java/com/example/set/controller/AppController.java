@@ -1,29 +1,18 @@
 package com.example.set.controller;
 
+import android.content.Context;
+
+import androidx.room.Room;
+
 import com.example.set.database.Database;
 import com.example.set.database.MultiPlayerGameDao;
 import com.example.set.database.SinglePlayerGameDao;
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.SinglePlayerGame;
 import com.example.set.ui.MultiPlayerGameScreen;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.util.Log;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
-import com.example.set.SettingsFragment;
-import com.example.set.ui.LocalManager;
-import com.example.set.ui.SettingsScreen;
 import com.example.set.ui.SinglePlayerGameScreen;
 
 import java.util.List;
-
-import kotlin.Result;
 
 /**
  * The controller class for the whole logic

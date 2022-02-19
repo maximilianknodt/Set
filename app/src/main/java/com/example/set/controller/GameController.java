@@ -18,24 +18,21 @@ import java.util.TimerTask;
  */
 public abstract class GameController {
     /**
+     * the time for periodical updates in Hz (1/s)
+     */
+    private final static int UPDATES_PER_SECOND = 60;
+    /**
      * the model of the game
      */
     protected Game game;
-
-    /**
-     * the timer for periodical updates
-     */
-    private Timer timer;
-
     /**
      * the ui element for writing the game
      */
     protected GameScreen gameScreen;
-
     /**
-     * the time for periodical updates in Hz (1/s)
+     * the timer for periodical updates
      */
-    private final static int UPDATES_PER_SECOND = 60;
+    private Timer timer;
 
     /**
      * Constructor
@@ -63,7 +60,7 @@ public abstract class GameController {
      */
     protected Rules getCurrentRules() {
         //TODO: read current rules and return them
-        return new Rules(true,true,true,20);
+        return new Rules(true, true, true, 20);
     }
 
     /**
@@ -98,7 +95,7 @@ public abstract class GameController {
     protected void gameOver() {
         timer.cancel();
         this.game = null;
-    };
+    }
 
     /**
      * Contains the things to be periodically updated.
@@ -129,7 +126,7 @@ public abstract class GameController {
      * Pauses the game.
      */
     public void pause() {
-        if(game != null) {
+        if (game != null) {
             game.pause();
         }
         timer.cancel();
@@ -170,7 +167,7 @@ public abstract class GameController {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if(game != null) {
+                if (game != null) {
                     periodicallyUpdate();
                 }
             }

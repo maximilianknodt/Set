@@ -53,7 +53,7 @@ public class SinglePlayerGame extends Game {
             revealCards();
             return true;
         } else if (rules.isSinglePlayerDeduction()) {
-            if(setAmount > 0) {
+            if (setAmount > 0) {
                 setAmount--;
             }
         }
