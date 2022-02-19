@@ -23,7 +23,7 @@ public class SinglePlayerGameController extends GameController {
      */
     SinglePlayerGameController(SinglePlayerGameScreen singlePlayerGameScreen, boolean shortGame) {
         super(singlePlayerGameScreen);
-        game = new SinglePlayerGame(getCurrentRules(), shortGame);
+        game = new SinglePlayerGame(getCurrentRules(gameScreen), shortGame);
     }
 
     /**

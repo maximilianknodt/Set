@@ -1,5 +1,10 @@
 package com.example.set.controller;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
+
 import com.example.set.model.Game;
 import com.example.set.model.Rules;
 import com.example.set.ui.GameScreen;
@@ -55,12 +60,12 @@ public abstract class GameController {
 
     /**
      * Reads in the current rules and returns them.
-     *
+     * @param context the context for getting the rules
      * @return the current rules
      */
-    protected Rules getCurrentRules() {
-        //TODO: read current rules and return them
-        return new Rules(true, true, true, 20);
+    protected Rules getCurrentRules(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return new Rules(sharedPreferences.getBoolean("Settings_Preferences_SP_Deduction", false), sharedPreferences.getBoolean("Settings_Preferences_MP_Deduction", false), sharedPreferences.getBoolean("Settings_Preferences_Suspension", false), Integer.parseInt(sharedPreferences.getString("Settings_Preferences_Timer", "20")));
     }
 
     /**

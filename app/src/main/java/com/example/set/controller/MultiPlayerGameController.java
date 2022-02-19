@@ -37,7 +37,7 @@ public class MultiPlayerGameController extends GameController {
             players[i] = new Player(names[i]);
         }
 
-        game = new MultiPlayerGame(players, getCurrentRules(), shortGame);
+        game = new MultiPlayerGame(players, getCurrentRules(gameScreen), shortGame);
     }
 
     /**
