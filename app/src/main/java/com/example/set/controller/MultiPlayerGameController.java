@@ -14,10 +14,6 @@ import com.example.set.ui.MultiPlayerGameScreen;
  * @version 1.0
  */
 public class MultiPlayerGameController extends GameController {
-    /**
-     * the players for the game
-     */
-    private Player[] players;
 
     /**
      * the player index who is selected for selecting a set (if there is no selected player: -1)
@@ -36,12 +32,25 @@ public class MultiPlayerGameController extends GameController {
         super(gameScreen);
         currentPlayerIndex = -1;
 
-        players = new Player[names.length];
+        Player[] players = new Player[names.length];
         for(int i = 0; i < names.length; i++) {
             players[i] = new Player(names[i]);
         }
 
         game = new MultiPlayerGame(players, getCurrentRules(), shortGame);
+    }
+
+    /**
+     * Constructor
+     * Calls super constructor. Initializes the players, the currentPlayerIndex and the game with a new instance.
+     *
+     * @param multiPlayerGame the game to load
+     * @param multiPlayerGameScreen the gameScreen object for the game
+     */
+    MultiPlayerGameController(MultiPlayerGame multiPlayerGame, MultiPlayerGameScreen multiPlayerGameScreen) {
+        super(multiPlayerGameScreen);
+        currentPlayerIndex = -1;
+        game = multiPlayerGame;
     }
 
     /**
@@ -77,7 +86,11 @@ public class MultiPlayerGameController extends GameController {
         }
     }
 
+    /**
+     * Cancels the set selection.
+     */
     public void cancelSetSelection() {
+        Player[] players = ((MultiPlayerGame)game).getPlayers();
         ((MultiPlayerGame)game).punishPlayer(players[currentPlayerIndex]);
         ((MultiPlayerGameScreen)gameScreen).writeSetSelectionOver();
         currentPlayerIndex = -1;
@@ -97,6 +110,7 @@ public class MultiPlayerGameController extends GameController {
     @Override
     protected void resumeGameSpecific() {
         if (isSetSelectionActive()) {
+            Player[] players = ((MultiPlayerGame)game).getPlayers();
             ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
         }
         writeCards();
@@ -111,6 +125,7 @@ public class MultiPlayerGameController extends GameController {
      * @return
      */
     public boolean selectPlayer(int playerIndex) {
+        Player[] players = ((MultiPlayerGame)game).getPlayers();
         if (((MultiPlayerGame)game).set(players[playerIndex])) {
             currentPlayerIndex = playerIndex;
             ((MultiPlayerGameScreen)gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
@@ -132,6 +147,7 @@ public class MultiPlayerGameController extends GameController {
     public boolean takeSetPressed(int position1, int position2, int position3) {
         boolean result = false;
         if(isSetSelectionActive()) {
+            Player[] players = ((MultiPlayerGame)game).getPlayers();
             result = ((MultiPlayerGame) game).takeCards(players[currentPlayerIndex], position1, position2, position3);
             writeCards();
             writeScore();
@@ -141,7 +157,9 @@ public class MultiPlayerGameController extends GameController {
                 gameOver();
             }
         }
-        ((MultiPlayerGameScreen)gameScreen).writeDefaultView();
+        if(game != null) {
+            ((MultiPlayerGameScreen) gameScreen).writeDefaultView();
+        }
         return result;
     }
 
@@ -179,6 +197,7 @@ public class MultiPlayerGameController extends GameController {
      * @return all players names
      */
     public String[] getPlayerNames() {
+        Player[] players = ((MultiPlayerGame)game).getPlayers();
         String[] names = new String[players.length];
         for(int i = 0; i < players.length; i++) {
             names[i] = players[i].getName();
@@ -193,6 +212,7 @@ public class MultiPlayerGameController extends GameController {
      * @return all players points
      */
     public int[] getPlayerPoints() {
+        Player[] players = ((MultiPlayerGame)game).getPlayers();
         int[] points = new int[players.length];
         for(int i = 0; i < players.length; i++) {
             points[i] = players[i].getSetAmount();
@@ -217,6 +237,7 @@ public class MultiPlayerGameController extends GameController {
      * @return array of names of the leaders
      */
     private String[] getLeaders() {
+        Player[] players = ((MultiPlayerGame)game).getPlayers();
         Player playerWithMaxSets = players[0];
         for(int i = 1; i < players.length; i++) {
             if(players[i].getSetAmount() > playerWithMaxSets.getSetAmount()) {

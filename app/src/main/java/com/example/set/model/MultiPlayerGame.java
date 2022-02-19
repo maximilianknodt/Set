@@ -1,5 +1,7 @@
 package com.example.set.model;
 
+import androidx.room.Entity;
+
 /**
  * The multi player game class
  * A class holding the logic of multi player games.
@@ -9,6 +11,7 @@ package com.example.set.model;
  * @author Linus Kurze
  * @version 1.0
  */
+@Entity
 public class MultiPlayerGame extends Game {
     /**
      * players playing in the game
@@ -30,7 +33,7 @@ public class MultiPlayerGame extends Game {
      * Calls super constructor with as parameter given rules. Initializes the players with the as parameter given ones.
      *
      * @param players players playing in the game
-     * @param rules   the rules for the game
+     * @param rules the rules for the game
      */
     public MultiPlayerGame(Player[] players, Rules rules, boolean shortGame) {
         super(rules, shortGame);
@@ -127,6 +130,56 @@ public class MultiPlayerGame extends Game {
      */
     public boolean isTakeSetTimeOver() {
         return getTakeSetTimeLeft() <= 0;
+    }
+
+    /**
+     * Getter
+     * Returns the players.
+     *
+     * @return the players
+     */
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    /**
+     * Getter
+     * Returns the time a player has pressed set or the time resumed.
+     *
+     * @return the time a player has pressed set or the time resumed
+     */
+    public long getTakeSetTimeStart() {
+        return takeSetTimeStart;
+    }
+
+    /**
+     * Getter
+     * Returns the time passed a player has pressed set before paused.
+     *
+     * @return the time passed a player has pressed set before paused
+     */
+    public long getTakeSetTimeBeforePaused() {
+        return takeSetTimeBeforePaused;
+    }
+
+    /**
+     * Setter
+     * Sets the time a player has pressed set or the time resumed.
+     *
+     * @param takeSetTimeStart the time a player has pressed set or the time resumed
+     */
+    public void setTakeSetTimeStart(long takeSetTimeStart) {
+        this.takeSetTimeStart = takeSetTimeStart;
+    }
+
+    /**
+     * Setter
+     * Sets the time passed a player has pressed set before paused.
+     *
+     * @param takeSetTimeBeforePaused the time passed a player has pressed set before paused
+     */
+    public void setTakeSetTimeBeforePaused(long takeSetTimeBeforePaused) {
+        this.takeSetTimeBeforePaused = takeSetTimeBeforePaused;
     }
 
     /**

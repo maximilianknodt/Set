@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.set.R;
+import com.example.set.controller.AppControllerHolder;
 
 /**
  * Home screen class

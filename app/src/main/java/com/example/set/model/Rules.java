@@ -46,6 +46,11 @@ public class Rules {
         this.multiPlayerSetTime = multiPlayerSetTime;
     }
 
+    /**
+     * Clones the current object.
+     *
+     * @return the cloned rule object
+     */
     public Rules clone() {
         return new Rules(this.singlePlayerDeduction, this.multiPlayerDeduction, this.multiPlayerSuspension, this.multiPlayerSetTime);
     }

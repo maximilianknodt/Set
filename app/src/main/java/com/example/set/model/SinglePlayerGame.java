@@ -1,6 +1,6 @@
 package com.example.set.model;
 
-import android.util.Log;
+import androidx.room.Entity;
 
 /**
  * The single player game class
@@ -11,6 +11,7 @@ import android.util.Log;
  * @author Linus Kurze
  * @version 1.0
  */
+@Entity
 public class SinglePlayerGame extends Game {
     /**
      * amount of found sets the player found
@@ -81,5 +82,15 @@ public class SinglePlayerGame extends Game {
      */
     public int getSetAmount() {
         return setAmount;
+    }
+
+    /**
+     * Setter
+     * Sets the set amount.
+     *
+     * @param setAmount the set amount
+     */
+    public void setSetAmount(int setAmount) {
+        this.setAmount = setAmount;
     }
 }

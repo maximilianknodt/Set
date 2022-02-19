@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- @author Maximilian Knodt-->
+    <!-- @author Linus Kurze-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Right"
@@ -117,7 +118,7 @@
             <TextView
                 android:id="@+id/textView_Game_End_Screen_Mode_Body"
                 style="@style/TextView_Base.TableRow.Normal"
-                android:text="@string/game_mode" />
+                android:text="Game mode" />
         </TableRow>
 
         <TableRow style="@style/Table_Row">
@@ -161,7 +162,7 @@
     </TableLayout>
 
     <TableLayout
-        android:id="@+id/tableLayout_Breake_Screen_SpecificMatchInfo"
+        android:id="@+id/tableLayout_End_Screen_SpecificMatchInfo"
         style="@style/Table"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Buttondivider"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider"
@@ -189,18 +190,21 @@
 
             <TextView
                 android:id="@+id/textView_Game_End_Screen_Points_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="@string/zero" />
+                style="@style/TextView_Base.TableRow.Normal" />
+        </TableRow>
+        <TableRow
+            style="@style/Table_Row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView_Game_End_Screen_Points_List_Header"
+                style="@style/TextView_Base.TableRow" />
+
+            <TextView
+                android:id="@+id/textView_Game_End_Screen_Points_List_Body"
+                style="@style/TextView_Base.TableRow.Normal" />
         </TableRow>
     </TableLayout>
-
-    <TextView
-        android:id="@+id/textView_Game_End_Screen_Points_List"
-        style="@style/TextView_Base.Constraint.Normal"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Game_End_Bottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Buttondivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout_Breake_Screen_SpecificMatchInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

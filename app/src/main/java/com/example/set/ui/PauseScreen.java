@@ -32,19 +32,19 @@ public class PauseScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pause_screen);
 
-        Button btnSettings = findViewById(R.id.button_Break_Screen_Settings);
-        Button btnMenu = findViewById(R.id.button_Break_Screen_Menu);
-        ImageButton ibtnPlay = findViewById(R.id.imageButton_Break_Screen_Play);
+        Button btnSettings = findViewById(R.id.button_Pause_Screen_Settings);
+        Button btnMenu = findViewById(R.id.button_Pause_Screen_Menu);
+        ImageButton ibtnPlay = findViewById(R.id.imageButton_Pause_Screen_Play);
 
-        TextView gameMode = findViewById(R.id.textView_Break_Screen_Game_Mode_Body);
-        TextView gameType = findViewById(R.id.textView_Break_Screen_Game_Type_Body);
-        TextView time = findViewById(R.id.textView_Break_Screen_Time_Body);
-        TextView startTime = findViewById(R.id.textView_Break_Screen_Start_Body);
-        TextView points = findViewById(R.id.textView_Break_Screen_Points_Body);
-        TextView pointsList = findViewById(R.id.textView_Break_Screen_Points_Body);
-        TextView namesList = findViewById(R.id.textView_Break_Screen_Points_List_Header);
-        TextView cardsLeft = findViewById(R.id.textView_Break_Screen_Cards_Left_Body);
-        TextView rules = findViewById(R.id.textView_Break_Screen_Rules_Body);
+        TextView gameMode = findViewById(R.id.textView_Pause_Screen_Game_Mode_Body);
+        TextView gameType = findViewById(R.id.textView_Pause_Screen_Game_Type_Body);
+        TextView time = findViewById(R.id.textView_Pause_Screen_Time_Body);
+        TextView startTime = findViewById(R.id.textView_Pause_Screen_Start_Body);
+        TextView points = findViewById(R.id.textView_Pause_Screen_Points_Body);
+        TextView pointsList = findViewById(R.id.textView_Pause_Screen_Points_List_Body);
+        TextView namesList = findViewById(R.id.textView_Pause_Screen_Points_List_Header);
+        TextView cardsLeft = findViewById(R.id.textView_Pause_Screen_Cards_Left_Body);
+        TextView rules = findViewById(R.id.textView_Pause_Screen_Rules_Body);
 
 
         btnSettings.setOnClickListener(v -> {
@@ -58,9 +58,10 @@ public class PauseScreen extends AppCompatActivity {
         btnMenu.setOnClickListener(v -> {
             Log.d("Debug", "On Click - From PauseScreen to StartScreen");
 
-            Intent intentSettings = new Intent();
-            intentSettings.setClass(this, HomeScreen.class);
-            startActivity(intentSettings);
+            Intent intentStart = new Intent();
+            intentStart.setClass(this, HomeScreen.class);
+            intentStart.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intentStart);
             finish();
         });
 

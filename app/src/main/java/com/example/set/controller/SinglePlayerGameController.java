@@ -27,6 +27,18 @@ public class SinglePlayerGameController extends GameController {
     }
 
     /**
+     * Constructor
+     * Calls super constructor. Initializes the game with a given instance.
+     *
+     * @param singlePlayerGame the game to load
+     * @param singlePlayerGameScreen the singlePlayerGameScreen object for the game
+     */
+    SinglePlayerGameController(SinglePlayerGame singlePlayerGame, SinglePlayerGameScreen singlePlayerGameScreen) {
+        super(singlePlayerGameScreen);
+        this.game = singlePlayerGame;
+    }
+
+    /**
      * Writes the score to the UI.
      */
     @Override

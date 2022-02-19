@@ -32,12 +32,12 @@ public class GameEndScreen extends AppCompatActivity {
         TextView tvType = findViewById(R.id.textView_Game_End_Screen_Mode_Body);
         TextView tvMode = findViewById(R.id.textView_Game_End_Screen_Type_Body);
         TextView tvPoints = findViewById(R.id.textView_Game_End_Screen_Points_Body);
-        TextView tvPointsList = findViewById(R.id.textView_Game_End_Screen_Points_List);
-        TextView tvPlayersList = findViewById(R.id.textView_End_Screen_Points_List_Header);
+        TextView tvPointsList = findViewById(R.id.textView_Game_End_Screen_Points_List_Body);
+        TextView tvPlayersList = findViewById(R.id.textView_Game_End_Screen_Points_List_Header);
         TextView tvTime = findViewById(R.id.textView_Game_End_Screen_Time_Body);
         TextView tvStart = findViewById(R.id.textView_Game_End_Screen_Start_Body);
         TextView tvRules = findViewById(R.id.textView_Game_End_Screen_Rules_Body);
-        TextView tvCongrats = findViewById(R.id.textView_Game_End_Congratulation);
+        TextView tvCongrats = findViewById(R.id.textView_Game_End_Screen_Headline2);
 
         Bundle bundle = getIntent().getExtras();
         boolean shortGame = false;

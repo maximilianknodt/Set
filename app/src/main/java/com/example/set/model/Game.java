@@ -2,6 +2,11 @@ package com.example.set.model;
 
 import android.util.Log;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -14,20 +19,24 @@ import java.util.concurrent.TimeUnit;
  * @author Linus Kurze
  * @version 1.0
  */
+@Entity
 public abstract class Game {
     /**
      * the table for the game
      */
-    protected final Table table;
+    @Embedded
+    protected Table table;
 
     /**
      * the rules for the game
      */
+    @Embedded
     protected final Rules rules;
 
     /**
      * the time the game started
      */
+    @PrimaryKey
     private long startTime;
 
     /**
@@ -81,12 +90,92 @@ public abstract class Game {
 
     /**
      * Getter
-     * Returns the time the game started in seconds.
+     * Returns the timestamp the game started.
      *
-     * @return the time the game started in seconds
+     * @return the timestamp the game started
      */
     public long getStartTime() {
         return startTime;
+    }
+
+    /**
+     * Getter
+     * Returns the time the game resumed.
+     *
+     * @return the time the game resumed
+     */
+    public long getResumeTime() {
+        return resumeTime;
+    }
+
+    /**
+     * Getter
+     * Returns the time the game took before paused.
+     *
+     * @return the time the game took before paused
+     */
+    public long getTimeBeforePaused() {
+        return timeBeforePaused;
+    }
+
+    /**
+     * Getter
+     * Returns the table object.
+     *
+     * @return the table object
+     */
+    public Table getTable() {
+        return this.table;
+    }
+
+    /**
+     * Setter
+     * Sets the timestamp the game started.
+     *
+     * @param startTime the timestamp the game started
+     */
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    /**
+     * Setter
+     * Sets the time the game resumed.
+     *
+     * @param resumeTime the the time the game resumed
+     */
+    public void setResumeTime(long resumeTime) {
+        this.resumeTime = resumeTime;
+    }
+
+    /**
+     * Setter
+     * Sets the time the game took before paused.
+     *
+     * @param timeBeforePaused the time the game took before paused
+     */
+    public void setTimeBeforePaused(long timeBeforePaused) {
+        this.timeBeforePaused = timeBeforePaused;
+    }
+
+    /**
+     * Setter
+     * Sets if the game is a short game.
+     *
+     * @param shortGame if the game is a short game
+     */
+    public void setShortGame(boolean shortGame) {
+        this.shortGame = shortGame;
+    }
+
+    /**
+     * Setter
+     * Sets the table object.
+     *
+     * @param table the table object
+     */
+    public void setTable(Table table) {
+        this.table = table;
     }
 
     /**

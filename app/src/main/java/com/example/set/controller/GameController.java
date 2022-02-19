@@ -155,6 +155,14 @@ public abstract class GameController {
     }
 
     /**
+     * Getter
+     * Returns the game
+     */
+    Game getGame() {
+        return game;
+    }
+
+    /**
      * creates the timer.
      */
     private void createTimer() {

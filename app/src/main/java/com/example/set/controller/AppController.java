@@ -1,14 +1,29 @@
 package com.example.set.controller;
 
+import com.example.set.database.Database;
+import com.example.set.database.MultiPlayerGameDao;
+import com.example.set.database.SinglePlayerGameDao;
+import com.example.set.model.MultiPlayerGame;
+import com.example.set.model.SinglePlayerGame;
 import com.example.set.ui.MultiPlayerGameScreen;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.example.set.SettingsFragment;
 import com.example.set.ui.LocalManager;
 import com.example.set.ui.SettingsScreen;
 import com.example.set.ui.SinglePlayerGameScreen;
+
+import java.util.List;
+
+import kotlin.Result;
 
 /**
  * The controller class for the whole logic
@@ -23,21 +38,12 @@ public class AppController {
     /**
      * the controller of the current single player game
      */
-    SinglePlayerGameController singlePlayerGameController;
+    private SinglePlayerGameController singlePlayerGameController;
 
     /**
      * the controller of the current multi player game
      */
-    MultiPlayerGameController multiPlayerGameController;
-
-    /**
-     * Constructor
-     * Initializes the single and multi player games. TODO: Read from saved data
-     */
-    public AppController() {
-        singlePlayerGameController = null;
-        multiPlayerGameController = null;
-    }
+    private MultiPlayerGameController multiPlayerGameController;
 
     /**
      * Creates a new single player game.
@@ -80,7 +86,7 @@ public class AppController {
      * @return controller of the current single player game
      */
     public boolean singlePlayerGameExists() {
-        return singlePlayerGameController != null;
+        return singlePlayerGameController != null && singlePlayerGameController.getGame() != null;
     }
 
     /**
@@ -90,6 +96,54 @@ public class AppController {
      * @return controller of the current multi player game
      */
     public boolean multiPlayerGameExists() {
-        return multiPlayerGameController != null;
+        return multiPlayerGameController != null && multiPlayerGameController.getGame() != null;
+    }
+
+    /**
+     * loads the games saved in the database.
+     *
+     * @param context the context
+     */
+    public void loadGamesFromDatabase(Context context) {
+        Database db = Room.databaseBuilder(context, Database.class, "set_database").build();
+
+        SinglePlayerGameDao singlePlayerGameDao = db.SinglePlayerGameDao();
+        List<SinglePlayerGame> singlePlayerGameList = singlePlayerGameDao.getAll();
+        if (singlePlayerGameList.size() > 0) {
+            singlePlayerGameController = new SinglePlayerGameController(singlePlayerGameList.get(0), null);
+        }
+
+        MultiPlayerGameDao multiPlayerGameDao = db.MultiPlayerGameDao();
+        List<MultiPlayerGame> multiPlayerGameList = multiPlayerGameDao.getAll();
+        if (multiPlayerGameList.size() > 0) {
+            multiPlayerGameController = new MultiPlayerGameController(multiPlayerGameList.get(0), null);
+        }
+    }
+
+    /**
+     * saves the games saved in the database.
+     *
+     * @param context the context
+     */
+    public void saveGamesInDatabase(Context context) {
+        Database db = Room.databaseBuilder(context, Database.class, "set_database").build();
+
+        SinglePlayerGameDao singlePlayerGameDao = db.SinglePlayerGameDao();
+        List<SinglePlayerGame> singlePlayerGameList = singlePlayerGameDao.getAll();
+        for (SinglePlayerGame singlePlayerGame : singlePlayerGameList) {
+            singlePlayerGameDao.delete(singlePlayerGame);
+        }
+        if (singlePlayerGameExists()) {
+            singlePlayerGameDao.insertAll((SinglePlayerGame) singlePlayerGameController.getGame());
+        }
+
+        MultiPlayerGameDao multiPlayerGameDao = db.MultiPlayerGameDao();
+        List<MultiPlayerGame> multiPlayerGameList = multiPlayerGameDao.getAll();
+        for (MultiPlayerGame multiPlayerGame : multiPlayerGameList) {
+            multiPlayerGameDao.delete(multiPlayerGame);
+        }
+        if (multiPlayerGameExists()) {
+            multiPlayerGameDao.insertAll((MultiPlayerGame) multiPlayerGameController.getGame());
+        }
     }
 }

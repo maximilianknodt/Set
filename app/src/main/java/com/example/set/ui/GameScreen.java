@@ -1,7 +1,9 @@
 package com.example.set.ui;
 
+import com.example.set.controller.AppControllerHolder;
 import com.example.set.controller.GameController;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -63,8 +65,8 @@ public abstract class GameScreen extends AppCompatActivity {
         // -------- set Elements --------
         rvList = findViewById(R.id.recyclerView_Game_Field);
         timer = findViewById(R.id.duration_content);
-        cardsLeft = findViewById(R.id.points_content);
-        points = findViewById(R.id.cards_left_content);
+        cardsLeft = findViewById(R.id.cards_left_content);
+        points = findViewById(R.id.points_content);
 
         selectedCards = new LinkedList<>();
 
@@ -106,6 +108,14 @@ public abstract class GameScreen extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         gameController.pause();
+        Context context = this;
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                AppControllerHolder.getAppController().saveGamesInDatabase(context);
+            }
+        };
+        thread.start();
     }
 
     /**

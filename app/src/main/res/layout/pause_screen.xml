@@ -7,116 +7,120 @@
     android:layout_height="match_parent">
 
     <!-- @author Maximilian Knodt-->
+    <!-- @author Linus Kurze-->
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Right"
+        android:id="@+id/guideline_Pause_Screen_Right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Left"
+        android:id="@+id/guideline_Pause_Screen_Left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Top"
+        android:id="@+id/guideline_Pause_Screen_Top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Bottom"
+        android:id="@+id/guideline_Pause_Screen_Bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="24dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Textdivider_Left"
+        android:id="@+id/guideline_Pause_Screen_Textdivider_Left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="72dp" />
 
     <TextView
-        android:id="@+id/textview_Break_Screen_Headline"
+        android:id="@+id/textview_Pause_Screen_Headline"
         style="@style/TextView_Base.Headline"
         android:text="@string/pause"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_Break_Screen_Top" />
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_Pause_Screen_Play"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Pause_Screen_Top" />
 
     <View
-        android:id="@+id/view_Breake_Screen_Underline"
+        android:id="@+id/view_Pausee_Screen_Underline"
         style="@style/View_Base.Underline_Constraint"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout_Breake_Screen_DefaultGameInfo"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Left"
-        app:layout_constraintTop_toBottomOf="@+id/textview_Break_Screen_Headline" />
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout_Pausee_Screen_DefaultGameInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_Pause_Screen_Play"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Left"
+        app:layout_constraintTop_toBottomOf="@+id/textview_Pause_Screen_Headline" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Textdivider_Right"
+        android:id="@+id/guideline_Pause_Screen_Textdivider_Right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_Break_Screen_Buttondivider"
+        android:id="@+id/guideline_Pause_Screen_Buttondivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.78" />
 
     <ImageButton
-        android:id="@+id/imageButton_Break_Screen_Play"
+        android:id="@+id/imageButton_Pause_Screen_Play"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@null"
         android:contentDescription="@string/resume_game"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintTop_toBottomOf="@+id/view_Breake_Screen_Underline"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Right"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Pause_Screen_Top"
         app:srcCompat="@drawable/ic_play" />
 
     <Button
-        android:id="@+id/button_Break_Screen_Settings"
+        android:id="@+id/button_Pause_Screen_Settings"
         style="@style/Button_Base"
         android:text="@string/settings"
-        app:layout_constraintBottom_toTopOf="@+id/button_Break_Screen_Menu"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider" />
+        app:layout_constraintBottom_toTopOf="@+id/button_Pause_Screen_Menu"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Buttondivider" />
 
     <Button
-        android:id="@+id/button_Break_Screen_Menu"
+        android:id="@+id/button_Pause_Screen_Menu"
         style="@style/Button_Base"
         android:text="@string/main_menu"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_Break_Screen_Bottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Buttondivider" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Pause_Screen_Bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Buttondivider" />
 
     <TableLayout
-        android:id="@+id/tableLayout_Breake_Screen_DefaultGameInfo"
+        android:id="@+id/tableLayout_Pausee_Screen_DefaultGameInfo"
         style="@style/Table"
 
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Textdivider_Right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider_Left"
-        app:layout_constraintTop_toBottomOf="@+id/view_Breake_Screen_Underline">
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Left"
+        app:layout_constraintTop_toBottomOf="@+id/view_Pausee_Screen_Underline">
 
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Game_Mode_Header"
+                android:id="@+id/textView_Pause_Screen_Game_Mode_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/game_mode" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Game_Mode_Body"
+                android:id="@+id/textView_Pause_Screen_Game_Mode_Body"
                 style="@style/TextView_Base.TableRow.Normal"
                 android:text="@string/game_mode" />
         </TableRow>
@@ -124,12 +128,12 @@
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Game_Type_Header"
+                android:id="@+id/textView_Pause_Screen_Game_Type_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/game_type" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Game_Type_Body"
+                android:id="@+id/textView_Pause_Screen_Game_Type_Body"
                 style="@style/TextView_Base.TableRow.Normal"
                 android:text="Game Type" />
         </TableRow>
@@ -137,12 +141,12 @@
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Start_Header"
+                android:id="@+id/textView_Pause_Screen_Start_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/game_start" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Start_Body"
+                android:id="@+id/textView_Pause_Screen_Start_Body"
                 style="@style/TextView_Base.TableRow.Normal"
                 android:text="00.00.2022" />
         </TableRow>
@@ -150,33 +154,33 @@
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Rules_Header"
+                android:id="@+id/textView_Pause_Screen_Rules_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/rules" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Rules_Body"
+                android:id="@+id/textView_Pause_Screen_Rules_Body"
                 style="@style/TextView_Base.TableRow.Normal"
                 android:text="TextView" />
         </TableRow>
     </TableLayout>
 
     <TableLayout
-        android:id="@+id/tableLayout_Breake_Screen_SpecificMatchInfo"
+        android:id="@+id/tableLayout_End_Screen_SpecificMatchInfo"
         style="@style/Table"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider_Right"
-        app:layout_constraintTop_toBottomOf="@+id/view_Breake_Screen_Underline">
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Buttondivider"
+        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Right"
+        app:layout_constraintTop_toBottomOf="@+id/view_Pausee_Screen_Underline">
 
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Time_Header"
+                android:id="@+id/textView_Pause_Screen_Time_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/duration" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Time_Body"
+                android:id="@+id/textView_Pause_Screen_Time_Body"
                 style="@style/TextView_Base.TableRow.Normal"
                 android:text="@string/zero_timer" />
         </TableRow>
@@ -184,12 +188,12 @@
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Cards_Left_Header"
+                android:id="@+id/textView_Pause_Screen_Cards_Left_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/cards_left" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Cards_Left_Body"
+                android:id="@+id/textView_Pause_Screen_Cards_Left_Body"
                 style="@style/TextView_Base.TableRow.Normal"
                 android:text="@string/zero" />
         </TableRow>
@@ -197,23 +201,28 @@
         <TableRow style="@style/Table_Row">
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Points_Header"
+                android:id="@+id/textView_Pause_Screen_Points_Header"
                 style="@style/TextView_Base.TableRow"
                 android:text="@string/points" />
 
             <TextView
-                android:id="@+id/textView_Break_Screen_Points_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="@string/zero" />
+                android:id="@+id/textView_Pause_Screen_Points_Body"
+                style="@style/TextView_Base.TableRow.Normal" />
+        </TableRow>
+
+        <TableRow
+            style="@style/Table_Row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView_Pause_Screen_Points_List_Header"
+                style="@style/TextView_Base.TableRow" />
+
+            <TextView
+                android:id="@+id/textView_Pause_Screen_Points_List_Body"
+                style="@style/TextView_Base.TableRow.Normal" />
         </TableRow>
     </TableLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_Breake_Screen_PlayerPoints"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Break_Screen_Buttondivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Break_Screen_Textdivider_Right"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout_Breake_Screen_SpecificMatchInfo"></androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

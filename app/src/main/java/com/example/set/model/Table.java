@@ -1,5 +1,9 @@
 package com.example.set.model;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
@@ -13,20 +17,24 @@ import java.util.Stack;
  * @author Linus Kurze
  * @version 1.0
  */
+@Entity(tableName = "GameTable")
 public class Table {
     /**
      * The default count of table cards on the table
      */
+    @Ignore
     final int DEFAULT_CARD_COUNT = 12;
 
     /**
      * The maximum count of table cards on the table
      */
+    @Ignore
     final int MAX_CARD_COUNT = 21;
 
     /**
      * The maximum count of table cards on the table
      */
+    @Ignore
     final int SHORT_GAME_CARD_COUNT = 39;
 
     /**
@@ -39,6 +47,9 @@ public class Table {
      */
     private ArrayList<Card> tableCards;
 
+    public Table() {
+        this(false);
+    }
     /**
      * Constructor
      * Creates a table with a shuffled stack of cards.
@@ -71,7 +82,7 @@ public class Table {
      *
      * @return table cards
      */
-    ArrayList<Card> getTableCards() {
+    public ArrayList<Card> getTableCards() {
         return tableCards;
     }
 
@@ -93,6 +104,36 @@ public class Table {
      */
     int getStackSize() {
         return stack.size();
+    }
+
+    /**
+     * Getter
+     * Returns the stack.
+     *
+     * @return the stack
+     */
+    public Stack<Card> getStack() {
+        return stack;
+    }
+
+    /**
+     * Setter
+     * Sets the stack.
+     *
+     * @param stack the stack
+     */
+    public void setStack(Stack<Card> stack) {
+        this.stack = stack;
+    }
+
+    /**
+     * Setter
+     * Sets the table cards.
+     *
+     * @param tableCards the table cards
+     */
+    public void setTableCards(ArrayList<Card> tableCards) {
+        this.tableCards = tableCards;
     }
 
     /**
@@ -163,19 +204,6 @@ public class Table {
     /**
      * Removes the card from the position given as parameter. Replaces it with a card from the stack if the stack is not empty.
      *
-     * @param position position of the card to replace
-     */
-    private void replaceCardFromStack(int position) {
-        tableCards.remove(position);
-        Card card = takeCardFromStack();
-        if (card != null) {
-            tableCards.add(position, card);
-        }
-    }
-
-    /**
-     * Removes the card from the position given as parameter. Replaces it with a card from the stack if the stack is not empty.
-     *
      * @param card card to replace
      */
     private void replaceCardFromStack(Card card) {
@@ -193,23 +221,6 @@ public class Table {
         tableCards.remove(card1);
         if (card2 != null) {
             tableCards.add(index, card2);
-        }
-    }
-
-    /**
-     * Removes the card from the position given as parameter. Replaces it with the card from the position given as other parameter.
-     *
-     * @param positionToReplace position of the card to replace
-     * @param positionToTake    position of the card to take for replacement
-     */
-    private void replaceCard(int positionToReplace, int positionToTake) {
-        tableCards.remove(positionToReplace);
-        if (positionToReplace < positionToTake) {
-            positionToTake -= 1;
-        }
-        Card card = tableCards.remove(positionToTake);
-        if (card != null) {
-            tableCards.add(positionToReplace, card);
         }
     }
 

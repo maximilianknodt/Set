@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".ui.HomeScreen"
+            android:name=".ui.SplashScreen"
             android:screenOrientation="landscape"
+            android:noHistory="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.HomeScreen"
+            android:screenOrientation="landscape" />
 
     <activity android:name=".ui.SinglePlayerGameScreen"
         android:screenOrientation="landscape" />

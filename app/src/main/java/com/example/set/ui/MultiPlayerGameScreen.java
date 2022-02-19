@@ -115,10 +115,10 @@ public class MultiPlayerGameScreen extends GameScreen {
 
         pointsNameList = findViewById(R.id.points_list_text);
         pointsList = findViewById(R.id.points_list_content);
-        pointsTitle = findViewById(R.id.points_content);
+        pointsTitle = findViewById(R.id.points_text);
 
-        buttonsLayout = findViewById(R.id.game_buttons_layout);
-        mainLayout = findViewById(R.id.main_game_screen);
+        buttonsLayout = findViewById(R.id.linear_layout_game_screen_buttons);
+        mainLayout = findViewById(R.id.linear_layout_game_screen_main);
 
         buttonLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
@@ -439,7 +439,7 @@ public class MultiPlayerGameScreen extends GameScreen {
         } else {
             rules += getResources().getString(R.string.switchOff);
         }
-        rules += "\n" + getResources().getString(R.string.suspension) + ": ";
+        rules += "\n" + getResources().getString(R.string.Suspension) + ": ";
         if (exposure) {
             rules += getResources().getString(R.string.switchOn);
         } else {
