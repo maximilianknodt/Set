@@ -14,7 +14,7 @@ import com.example.set.model.SinglePlayerGame;
  * @author Linus Kurze
  * @version 1.0
  */
-@androidx.room.Database(entities = {MultiPlayerGame.class, SinglePlayerGame.class}, version = 1)
+@androidx.room.Database(entities = {MultiPlayerGame.class, SinglePlayerGame.class}, version = 1, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class Database extends RoomDatabase {
     /**
