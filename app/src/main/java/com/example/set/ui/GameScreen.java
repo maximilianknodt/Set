@@ -1,6 +1,5 @@
 package com.example.set.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.set.R;
-import com.example.set.controller.AppControllerHolder;
 import com.example.set.controller.GameController;
 import com.example.set.model.Card;
 
@@ -100,15 +98,7 @@ public abstract class GameScreen extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        gameController.pause();
-        Context context = this;
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                AppControllerHolder.getAppController().saveGamesInDatabase(context);
-            }
-        };
-        thread.start();
+        gameController.pause(this);
     }
 
     /**

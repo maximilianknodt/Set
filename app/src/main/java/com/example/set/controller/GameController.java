@@ -129,10 +129,18 @@ public abstract class GameController {
 
     /**
      * Pauses the game.
+     * @param context the context for saving the game in database
      */
-    public void pause() {
+    public void pause(Context context) {
         if (game != null) {
             game.pause();
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    AppControllerHolder.getAppController().saveGamesInDatabase(context);
+                }
+            };
+            thread.start();
         }
         timer.cancel();
     }
@@ -168,6 +176,9 @@ public abstract class GameController {
      * creates the timer.
      */
     private void createTimer() {
+        if(timer != null) {
+            timer.cancel();
+        }
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
