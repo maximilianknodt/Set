@@ -3,6 +3,7 @@ package com.example.set.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +12,64 @@ import com.example.set.R;
 
 /**
  * @author Maximilian Knodt
+ * @author Linus Kurze
  */
 public class GameEndScreen extends AppCompatActivity {
+    /**
+     * the game mode text
+     */
+    private String gameModeText;
+
+    /**
+     * the game type text
+     */
+    private String gameTypeText;
+
+    /**
+     * the game duration text
+     */
+    private String durationText;
+
+    /**
+     * the game start time text
+     */
+    private String startTimeText;
+
+    /**
+     * the rules text
+     */
+    private String rulesText;
+
+    /**
+     * the multi player game points list text
+     */
+    private String pointsListText;
+
+    /**
+     * the multi player game names list text
+     */
+    private String namesListText;
+
+    /**
+     * the multi player game winenr text
+     */
+    private String multiPlayerWinnerText;
+
+    /**
+     * the single player game points text
+     */
+    private String singlePlayerPoints;
+
+    /**
+     * if the game was a short game
+     */
+    private boolean shortGame;
+
+    /**
+     * if the game was a multi player game
+     */
+    private boolean multiPlayer;
+
     /**
      * onCreate method of the gameEndScreen, called when the game is finished
      *
@@ -27,6 +84,7 @@ public class GameEndScreen extends AppCompatActivity {
 
         Button btnNewGame = findViewById(R.id.button_Game_End_Screen_New_Game);
         Button btnMenu = findViewById(R.id.button_Game_End_Screen_Menu);
+        ImageButton btnShare = findViewById(R.id.imageButton_End_Screen_Share);
         TextView tvType = findViewById(R.id.textView_Game_End_Screen_Mode_Body);
         TextView tvMode = findViewById(R.id.textView_Game_End_Screen_Type_Body);
         TextView tvPoints = findViewById(R.id.textView_Game_End_Screen_Points_Body);
@@ -38,36 +96,47 @@ public class GameEndScreen extends AppCompatActivity {
         TextView tvCongrats = findViewById(R.id.textView_Game_End_Screen_Headline2);
 
         Bundle bundle = getIntent().getExtras();
-        boolean shortGame = false;
-        boolean multiPlayer = false;
 
         if (bundle != null) {
-            String gameModeText = bundle.getString("gameMode");
-            String gameTypeText = bundle.getString("gameType");
+            gameModeText = bundle.getString("gameMode");
+            gameTypeText = bundle.getString("gameType");
+            durationText = bundle.getString("duration");
+            startTimeText = bundle.getString("startTime");
+            rulesText = bundle.getString("rules");
+
             if (gameModeText.equals(getString(R.string.multi_player))) {
                 multiPlayer = true;
             }
             if (gameTypeText.equals(getString(R.string.short_game))) {
                 shortGame = true;
             }
-            tvMode.setText(gameModeText);
-            tvType.setText(bundle.getString("gameType"));
-            tvTime.setText(bundle.getString("duration"));
-            tvStart.setText(bundle.getString("startTime"));
-            tvRules.setText(bundle.getString("rules"));
-            if (gameModeText.equals(getString(R.string.multi_player))) {
-                tvPointsList.setText(bundle.getString("pointsList"));
-                tvPlayersList.setText(bundle.getString("namesList"));
-                String congrats;
+
+            if (multiPlayer) {
+                pointsListText = bundle.getString("pointsList");
+                namesListText = bundle.getString("namesList");
                 if (bundle.getBoolean("winnersPlural")) {
-                    congrats = getString(R.string.congrats_multiplayer_plural);
+                    multiPlayerWinnerText = getString(R.string.congrats_multiplayer_plural);
                 } else {
-                    congrats = getString(R.string.congrats_multiplayer_singular);
+                    multiPlayerWinnerText = getString(R.string.congrats_multiplayer_singular);
                 }
-                tvCongrats.setText(congrats + " " + bundle.getString("winners"));
+                multiPlayerWinnerText += " " + bundle.getString("winners");
             } else {
-                tvPoints.setText("" + bundle.getInt("points"));
+                singlePlayerPoints = "" + bundle.getInt("points");
             }
+        }
+
+
+        tvMode.setText(gameModeText);
+        tvType.setText(gameTypeText);
+        tvTime.setText(durationText);
+        tvStart.setText(startTimeText);
+        tvRules.setText(rulesText);
+        if(multiPlayer) {
+            tvPointsList.setText(pointsListText);
+            tvPlayersList.setText(namesListText);
+            tvCongrats.setText(multiPlayerWinnerText);
+        } else {
+            tvPoints.setText(singlePlayerPoints);
         }
 
         if (shortGame) {
@@ -96,5 +165,57 @@ public class GameEndScreen extends AppCompatActivity {
             intentStart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intentStart);
         });
+
+        btnShare.setOnClickListener(v -> {
+            // Source: https://developer.android.com/training/sharing/send
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, getShareText());
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
+        });
+    }
+
+    /**
+     * Generates the text for sharing
+     * @return the text for sharing
+     * @author Linus Kurze
+     */
+    private String getShareText() {
+        String shareText = getString(R.string.shared_start_sentence_begin) + " " + gameModeText + " " + gameTypeText + " " + getString(R.string.shared_start_sentence_end) + "\n";
+        shareText += getString(R.string.duration) + " " + durationText + "\n";
+        if(multiPlayer) {
+            shareText += multiPlayerWinnerText +"\n";
+            shareText += getString(R.string.points) + "\n" + mergeStringLists(namesListText, pointsListText);
+        } else {
+            shareText += getString(R.string.points) + " " + singlePlayerPoints + "\n";
+        }
+        shareText += getString(R.string.game_start) + " " + startTimeText + "\n";
+        shareText += getString(R.string.rules) + "\n" + rulesText;
+        return shareText;
+    }
+
+    /**
+     * Combines 2 lists as string to one string
+     * @param list1 list 1 as string
+     * @param list2 list 2 as string
+     * @return lists combined
+     * @author Linus Kurze
+     */
+    private String mergeStringLists(String list1, String list2) {
+        String result = "";
+        String list1Array[] = list1.split("\\n");
+        String list2Array[] = list2.split("\\n");
+        if(list1Array.length != list2Array.length) {
+            return result;
+        }
+
+        for(int i = 0; i < list1Array.length; i++) {
+            result += list1Array[i] + " " + list2Array[i] + "\n";
+        }
+
+        return result;
     }
 }

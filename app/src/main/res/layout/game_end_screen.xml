@@ -9,6 +9,16 @@
     <!-- @author Maximilian Knodt-->
     <!-- @author Linus Kurze-->
 
+    <ImageButton
+        android:id="@+id/imageButton_End_Screen_Share"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:contentDescription="@string/resume_game"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
+        app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Top"
+        app:srcCompat="@drawable/ic_share" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Right"
         android:layout_width="wrap_content"
@@ -62,24 +72,25 @@
         android:id="@+id/textview_Game_End_Screen_Headline"
         style="@style/TextView_Base.Headline"
         android:text="@string/congrats"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_End_Screen_Share"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Left"
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Top" />
 
     <View
         android:id="@+id/view_Start_Underline"
         style="@style/View_Base.Underline_Constraint"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView_Game_End_Screen_Headline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_End_Screen_Share"
         app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Left"
         app:layout_constraintTop_toBottomOf="@+id/textview_Game_End_Screen_Headline" />
 
     <TextView
         android:id="@+id/textView_Game_End_Screen_Headline2"
-        android:text="@string/congrats_text"
         style="@style/TextView_Base.Headline.Headline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
+        android:text="@string/congrats_text"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_End_Screen_Share"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="@+id/guideline_Game_End_Textdivider_Left"
         app:layout_constraintTop_toBottomOf="@+id/view_Start_Underline" />
