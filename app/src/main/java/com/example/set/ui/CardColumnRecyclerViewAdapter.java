@@ -229,8 +229,8 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
                 ImageView symbol = new ImageView(context);
 
                 Drawable drawable = AppCompatResources.getDrawable(context, image);
-                drawable.setTint(ContextCompat.getColor(context, color));
                 symbol.setImageDrawable(drawable);
+                symbol.setColorFilter(ContextCompat.getColor(context, color)); // replaced drawable.setTint(ContextCompat.getColor(context, color)); because it does not work on nexus 4 api 28
 
                 int height = (int)((75-2*7) / 3 * context.getResources().getDisplayMetrics().density);
                 int width = (int)((55-2*7) * context.getResources().getDisplayMetrics().density);

@@ -61,6 +61,7 @@ public class SplashScreen extends AppCompatActivity implements LoaderManager.Loa
         Intent intentHome = new Intent();
         intentHome.setClass(this, HomeScreen.class);
         startActivity(intentHome);
+        finish();
     }
 
     /**

@@ -12,7 +12,6 @@
         <activity
             android:name=".ui.SplashScreen"
             android:screenOrientation="landscape"
-            android:noHistory="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +36,6 @@
             android:screenOrientation="landscape" />
 
         <activity android:name=".ui.MultiPlayerPlayersScreen"
-            android:noHistory="true"
             android:screenOrientation="landscape" />
 
     <activity android:name=".ui.SettingsScreen"
@@ -47,7 +45,6 @@
             android:screenOrientation="landscape" />
 
         <activity android:name=".ui.GameEndScreen"
-            android:noHistory="true"
         android:screenOrientation="landscape" />
     </application>
 

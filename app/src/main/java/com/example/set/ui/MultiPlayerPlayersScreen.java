@@ -123,6 +123,7 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
             intentMP.putExtra("shortGame", finalShortGame);
             intentMP.putExtra("namesList", names);
             startActivity(intentMP);
+            finish();
         });
     }
 

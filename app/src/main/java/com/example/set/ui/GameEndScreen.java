@@ -157,6 +157,7 @@ public class GameEndScreen extends AppCompatActivity {
             intentSP.putExtra("newGame", true);
             intentSP.putExtra("shortGame", finalShortGame);
             startActivity(intentSP);
+            finish();
         });
 
         btnMenu.setOnClickListener(v -> {
@@ -164,6 +165,7 @@ public class GameEndScreen extends AppCompatActivity {
             intentStart.setClass(this, HomeScreen.class);
             intentStart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intentStart);
+            finish();
         });
 
         btnShare.setOnClickListener(v -> {
