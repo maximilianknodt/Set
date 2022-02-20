@@ -1,5 +1,7 @@
 package edu.hsos.set.model;
 
+import androidx.annotation.NonNull;
+
 /**
  * The rules class for of the logic
  * Holds and returns the defined rules of the game.
@@ -40,6 +42,7 @@ public class MultiPlayerRules extends Rules {
      *
      * @return the cloned rule object
      */
+    @NonNull
     public Rules clone() {
         return new MultiPlayerRules(this.isPlayerDeduction(), this.multiPlayerSuspension, this.multiPlayerSetTime);
     }
