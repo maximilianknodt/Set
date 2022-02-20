@@ -1,11 +1,9 @@
 package com.example.set.controller;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-
-import androidx.preference.PreferenceManager;
 
 import com.example.set.model.Game;
+import com.example.set.model.MultiPlayerRules;
 import com.example.set.model.Rules;
 import com.example.set.view.GameScreen;
 
@@ -59,13 +57,21 @@ public abstract class GameController {
     }
 
     /**
-     * Reads in the current rules and returns them.
-     * @param context the context for getting the rules
-     * @return the current rules
+     * Reads in the current single player rules and returns them.
+     * @return the current single player rules
      */
-    protected Rules getCurrentRules(Context context) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return new Rules(sharedPreferences.getBoolean("Settings_Preferences_SP_Deduction", false), sharedPreferences.getBoolean("Settings_Preferences_MP_Deduction", false), sharedPreferences.getBoolean("Settings_Preferences_Suspension", false), Integer.parseInt(sharedPreferences.getString("Settings_Preferences_Timer", "20")));
+    protected Rules getCurrentSinglePlayerRules() {
+        //return new Rules(getSPDeduction());
+        return new Rules(false);
+    }
+
+    /**
+     * Reads in the current multi player rules and returns them.
+     * @return the current multi player rules
+     */
+    protected Rules getCurrentMultiPlayerRules() {
+        //return new MultiPlayerRules(getMPDeduction(), getSuspended(), getTimer());
+        return new MultiPlayerRules(false, false, 20);
     }
 
     /**
@@ -137,7 +143,7 @@ public abstract class GameController {
             Thread thread = new Thread() {
                 @Override
                 public void run() {
-                    AppControllerHolder.getAppController().saveGamesInDatabase(context);
+                    AppController.getAppController().saveGamesInDatabase(context);
                 }
             };
             thread.start();

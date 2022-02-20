@@ -69,7 +69,7 @@ public class MultiPlayerGame extends Game {
      * @param player player called set
      * @return player can try to take it (is not exposed)
      */
-    public boolean set(Player player) {
+    public boolean callSet(Player player) {
         if (player.isSuspended()) {
             return false;
         }
@@ -108,7 +108,7 @@ public class MultiPlayerGame extends Game {
      * @return the time a player has left to select a set in seconds
      */
     public long getTakeSetTimeLeft() {
-        return rules.getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
+        return ((MultiPlayerRules)rules).getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
     }
 
     /**
@@ -210,10 +210,10 @@ public class MultiPlayerGame extends Game {
      * @param player the player getting punished
      */
     public void punishPlayer(Player player) {
-        if (rules.isMultiPlayerDeduction()) {
+        if (rules.isPlayerDeduction()) {
             player.decreaseSetAmount();
         }
-        if (rules.isMultiPlayerSuspension()) {
+        if (((MultiPlayerRules)rules).isPlayerSuspension()) {
             player.startSuspension();
         }
     }

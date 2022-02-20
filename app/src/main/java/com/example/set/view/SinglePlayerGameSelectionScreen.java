@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
-import com.example.set.controller.AppControllerHolder;
+import com.example.set.controller.AppController;
 
 /**
  * The single player screen class
@@ -58,7 +58,7 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
 
         // -------- RESUME GAME --------
         btnResumeG.setOnClickListener(v -> {
-            if (AppControllerHolder.getAppController().singlePlayerGameExists()) {
+            if (AppController.getAppController().singlePlayerGameExists()) {
                 Intent intentSP = new Intent();
                 intentSP.setClass(this, SinglePlayerGameScreen.class);
                 intentSP.putExtra("newGame", false);

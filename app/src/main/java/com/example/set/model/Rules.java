@@ -13,37 +13,16 @@ public class Rules {
     /**
      * Rule if wrong set in single player mode should deduct players count of sets
      */
-    private final boolean singlePlayerDeduction;
-
-    /**
-     * Rule if wrong set in multi player mode should deduct players count of sets
-     */
-    private final boolean multiPlayerDeduction;
-
-    /**
-     * Rule if wrong set in multi player mode should lead to suspension
-     */
-    private final boolean multiPlayerSuspension;
-
-    /**
-     * The time a player has in a multiplayer game to select a set after pressing set button
-     */
-    private final int multiPlayerSetTime;
+    private final boolean playerDeduction;
 
     /**
      * Constructor
      * Creates a rules object with rules given as parameters.
      *
-     * @param singlePlayerDeduction Rule if wrong set in single player mode should deduct players count of sets
-     * @param multiPlayerDeduction  Rule if wrong set in multi player mode should deduct players count of sets
-     * @param multiPlayerSuspension Rule if wrong set in multi player mode should lead to exposure
-     * @param multiPlayerSetTime    The time a player has in a multiplayer game to select a set after pressing set button
+     * @param playerDeduction Rule if wrong set should deduct players count of sets
      */
-    public Rules(boolean singlePlayerDeduction, boolean multiPlayerDeduction, boolean multiPlayerSuspension, int multiPlayerSetTime) {
-        this.singlePlayerDeduction = singlePlayerDeduction;
-        this.multiPlayerDeduction = multiPlayerDeduction;
-        this.multiPlayerSuspension = multiPlayerSuspension;
-        this.multiPlayerSetTime = multiPlayerSetTime;
+    public Rules(boolean playerDeduction) {
+        this.playerDeduction = playerDeduction;
     }
 
     /**
@@ -52,7 +31,7 @@ public class Rules {
      * @return the cloned rule object
      */
     public Rules clone() {
-        return new Rules(this.singlePlayerDeduction, this.multiPlayerDeduction, this.multiPlayerSuspension, this.multiPlayerSetTime);
+        return new Rules(this.playerDeduction);
     }
 
     /**
@@ -61,37 +40,7 @@ public class Rules {
      *
      * @return wrong set in single player mode should deduct players count of sets
      */
-    public boolean isSinglePlayerDeduction() {
-        return singlePlayerDeduction;
-    }
-
-    /**
-     * Getter
-     * Returns if wrong set in multi player mode should deduct players count of sets.
-     *
-     * @return wrong set in multi player mode should deduct players count of sets
-     */
-    public boolean isMultiPlayerDeduction() {
-        return multiPlayerDeduction;
-    }
-
-    /**
-     * Getter
-     * Returns if wrong set in multi player mode should lead to exposure.
-     *
-     * @return if wrong set in multi player mode should lead to exposure
-     */
-    public boolean isMultiPlayerSuspension() {
-        return multiPlayerSuspension;
-    }
-
-    /**
-     * Getter
-     * Returns the time a player has in a multiplayer game to select a set after pressing set button.
-     *
-     * @return the time a player has in a multiplayer game to select a set after pressing set button
-     */
-    public int getMultiPlayerSetTime() {
-        return multiPlayerSetTime;
+    public boolean isPlayerDeduction() {
+        return playerDeduction;
     }
 }

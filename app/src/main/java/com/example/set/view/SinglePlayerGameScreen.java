@@ -6,7 +6,6 @@ import android.view.View;
 
 import com.example.set.R;
 import com.example.set.controller.AppController;
-import com.example.set.controller.AppControllerHolder;
 
 /**
  * The single player game screen class
@@ -29,7 +28,7 @@ public class SinglePlayerGameScreen extends GameScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AppController appController = AppControllerHolder.getAppController();
+        AppController appController = AppController.getAppController();
         boolean newGame = true;
         boolean shortGame = false;
         Bundle bundle = getIntent().getExtras();

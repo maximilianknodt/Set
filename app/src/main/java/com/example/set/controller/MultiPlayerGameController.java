@@ -1,6 +1,7 @@
 package com.example.set.controller;
 
 import com.example.set.model.MultiPlayerGame;
+import com.example.set.model.MultiPlayerRules;
 import com.example.set.model.Player;
 import com.example.set.view.MultiPlayerGameScreen;
 
@@ -37,7 +38,7 @@ public class MultiPlayerGameController extends GameController {
             players[i] = new Player(names[i]);
         }
 
-        game = new MultiPlayerGame(players, getCurrentRules(gameScreen), shortGame);
+        game = new MultiPlayerGame(players, getCurrentMultiPlayerRules(), shortGame);
     }
 
     /**
@@ -66,7 +67,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension(), getLeaders());
+        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules)game.getRules()).isPlayerSuspension(), getLeaders());
         super.gameOver();
     }
 
@@ -101,7 +102,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isMultiPlayerDeduction(), game.getRules().isMultiPlayerSuspension());
+        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules)game.getRules()).isPlayerSuspension());
     }
 
     /**
@@ -122,11 +123,11 @@ public class MultiPlayerGameController extends GameController {
      * Function called when player is selected.
      *
      * @param playerIndex the index of the player being selected
-     * @return
+     * @return if the player was selected
      */
     public boolean selectPlayer(int playerIndex) {
         Player[] players = ((MultiPlayerGame) game).getPlayers();
-        if (((MultiPlayerGame) game).set(players[playerIndex])) {
+        if (((MultiPlayerGame) game).callSet(players[playerIndex])) {
             currentPlayerIndex = playerIndex;
             ((MultiPlayerGameScreen) gameScreen).writeSetSelection(players[currentPlayerIndex].getName());
             return true;
@@ -249,9 +250,7 @@ public class MultiPlayerGameController extends GameController {
             if (players[i].getSetAmount() == playerWithMaxSets.getSetAmount() && players[i] != playerWithMaxSets) {
                 String[] temp = leaders.clone();
                 leaders = new String[temp.length + 1];
-                for (int j = 0; j < temp.length; j++) {
-                    leaders[j] = temp[j];
-                }
+                System.arraycopy(temp, 0, leaders, 0, temp.length);
                 leaders[temp.length] = players[i].getName();
             }
         }

@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.set.R;
 import com.example.set.controller.AppController;
-import com.example.set.controller.AppControllerHolder;
 import com.example.set.controller.MultiPlayerGameController;
 
 /**
@@ -100,7 +99,7 @@ public class MultiPlayerGameScreen extends GameScreen {
 
         String[] players = {getString(R.string.player) + " 1", getString(R.string.player) + " 2"};
 
-        AppController appController = AppControllerHolder.getAppController();
+        AppController appController = AppController.getAppController();
         boolean newGame = true;
         boolean shortGame = false;
         Bundle bundle = getIntent().getExtras();

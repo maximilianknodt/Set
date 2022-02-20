@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * The controller class for the whole logic
- * Holds and returns other controllers.
+ * Holds and returns other controllers. Is a singleton.
  * <p>
  * The author is responsible for this class.
  *
@@ -24,6 +24,11 @@ import java.util.List;
  * @version 1.0
  */
 public class AppController {
+    /**
+     * the instance of the controller for the app
+     */
+    private static final AppController instance = new AppController();
+
     /**
      * the controller of the current single player game
      */
@@ -89,7 +94,7 @@ public class AppController {
     }
 
     /**
-     * loads the games saved in the database.
+     * Loads the games saved in the database.
      *
      * @param context the context
      */
@@ -110,7 +115,7 @@ public class AppController {
     }
 
     /**
-     * saves the games saved in the database.
+     * Saves the games saved in the database and deletes old games.
      *
      * @param context the context
      */
@@ -134,5 +139,16 @@ public class AppController {
         if (multiPlayerGameExists()) {
             multiPlayerGameDao.insertAll((MultiPlayerGame) multiPlayerGameController.getGame());
         }
+    }
+
+    /**
+     * Getter
+     * Returns the app controller.
+     *
+     * @return the app controller
+     * @author Linus Kurze
+     */
+    public static AppController getAppController() {
+        return instance;
     }
 }

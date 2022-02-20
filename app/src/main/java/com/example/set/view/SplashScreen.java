@@ -12,7 +12,7 @@ import androidx.loader.content.AsyncTaskLoader;
 import androidx.loader.content.Loader;
 
 import com.example.set.R;
-import com.example.set.controller.AppControllerHolder;
+import com.example.set.controller.AppController;
 
 /**
  * Splash screen class
@@ -106,7 +106,7 @@ public class SplashScreen extends AppCompatActivity implements LoaderManager.Loa
          */
         @Override
         public Void loadInBackground() {
-            AppControllerHolder.getAppController().loadGamesFromDatabase(context);
+            AppController.getAppController().loadGamesFromDatabase(context);
             return null;
         }
     }

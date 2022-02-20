@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
-import com.example.set.controller.AppControllerHolder;
+import com.example.set.controller.AppController;
 
 /**
  * The single player screen class
@@ -56,7 +56,7 @@ public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
         });
 
         btnResumeG.setOnClickListener(v -> {
-            if (AppControllerHolder.getAppController().multiPlayerGameExists()) {
+            if (AppController.getAppController().multiPlayerGameExists()) {
                 Intent intentMP = new Intent();
                 intentMP.setClass(this, MultiPlayerGameScreen.class);
                 intentMP.putExtra("newGame", false);

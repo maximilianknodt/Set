@@ -1,5 +1,6 @@
 package com.example.set.controller;
 
+
 import com.example.set.model.SinglePlayerGame;
 import com.example.set.view.SinglePlayerGameScreen;
 
@@ -23,7 +24,7 @@ public class SinglePlayerGameController extends GameController {
      */
     SinglePlayerGameController(SinglePlayerGameScreen singlePlayerGameScreen, boolean shortGame) {
         super(singlePlayerGameScreen);
-        game = new SinglePlayerGame(getCurrentRules(gameScreen), shortGame);
+        game = new SinglePlayerGame(getCurrentSinglePlayerRules(), shortGame);
     }
 
     /**
@@ -52,7 +53,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        ((SinglePlayerGameScreen) gameScreen).gameOver(game.isShortGame(), ((SinglePlayerGame) game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        ((SinglePlayerGameScreen) gameScreen).gameOver(game.isShortGame(), ((SinglePlayerGame) game).getSetAmount(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction());
         super.gameOver();
     }
 
@@ -69,7 +70,7 @@ public class SinglePlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        ((SinglePlayerGameScreen) gameScreen).openPause(game.isShortGame(), ((SinglePlayerGame) game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isSinglePlayerDeduction());
+        ((SinglePlayerGameScreen) gameScreen).openPause(game.isShortGame(), ((SinglePlayerGame) game).getSetAmount(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction());
     }
 
     /**
