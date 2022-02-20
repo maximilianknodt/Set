@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Set">
         <activity
-            android:name=".view.SplashScreen"
+            android:name="edu.hsos.set.view.SplashScreen"
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
@@ -22,31 +22,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.HomeScreen"
+        <activity android:name="edu.hsos.set.view.HomeScreen"
             android:screenOrientation="landscape" />
 
-    <activity android:name=".view.SinglePlayerGameScreen"
+    <activity android:name="edu.hsos.set.view.SinglePlayerGameScreen"
         android:screenOrientation="landscape" />
 
-        <activity android:name=".view.MultiPlayerGameScreen"
+        <activity android:name="edu.hsos.set.view.MultiPlayerGameScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".view.SinglePlayerGameSelectionScreen"
+        <activity android:name="edu.hsos.set.view.SinglePlayerGameSelectionScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".view.MultiPlayerGameSelectionScreen"
+        <activity android:name="edu.hsos.set.view.MultiPlayerGameSelectionScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".view.MultiPlayerPlayersScreen"
+        <activity android:name="edu.hsos.set.view.MultiPlayerPlayersScreen"
             android:screenOrientation="landscape" />
 
-    <activity android:name=".view.SettingsScreen"
+    <activity android:name="edu.hsos.set.view.SettingsScreen"
         android:screenOrientation="landscape" />
 
-        <activity android:name=".view.PauseScreen"
+        <activity android:name="edu.hsos.set.view.PauseScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".view.GameEndScreen"
+        <activity android:name="edu.hsos.set.view.GameEndScreen"
         android:screenOrientation="landscape" />
     </application>
 
