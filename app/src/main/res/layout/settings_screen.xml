@@ -20,7 +20,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView_Settings"
-        android:name="com.example.set.SettingsFragment"
+        android:name="com.example.set.controller.SettingsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

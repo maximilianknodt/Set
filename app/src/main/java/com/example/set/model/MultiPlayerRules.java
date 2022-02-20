@@ -25,7 +25,7 @@ public class MultiPlayerRules extends Rules {
      * Constructor
      * Creates a rules object with rules given as parameters.
      *
-     * @param playerDeduction Rule if wrong set should deduct players count of sets
+     * @param playerDeduction       Rule if wrong set should deduct players count of sets
      * @param multiPlayerSuspension Rule if wrong set in multi player mode should lead to exposure
      * @param multiPlayerSetTime    The time a player has in a multiplayer game to select a set after pressing set button
      */

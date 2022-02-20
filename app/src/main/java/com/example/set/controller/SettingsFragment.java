@@ -1,9 +1,11 @@
-package com.example.set;
+package com.example.set.controller;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.preference.PreferenceFragmentCompat;
+
+import com.example.set.R;
 
 /**
  * Fragmentclass for the settingFragment of the SettingScreen

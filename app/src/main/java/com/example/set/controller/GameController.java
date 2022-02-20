@@ -57,24 +57,6 @@ public abstract class GameController {
     }
 
     /**
-     * Reads in the current single player rules and returns them.
-     * @return the current single player rules
-     */
-    protected Rules getCurrentSinglePlayerRules() {
-        //return new Rules(getSPDeduction());
-        return new Rules(false);
-    }
-
-    /**
-     * Reads in the current multi player rules and returns them.
-     * @return the current multi player rules
-     */
-    protected Rules getCurrentMultiPlayerRules() {
-        //return new MultiPlayerRules(getMPDeduction(), getSuspended(), getTimer());
-        return new MultiPlayerRules(false, false, 20);
-    }
-
-    /**
      * Writes the cards to the UI.
      */
     public void writeCards() {
@@ -135,6 +117,7 @@ public abstract class GameController {
 
     /**
      * Pauses the game.
+     *
      * @param context the context for saving the game in database
      */
     public void pause(Context context) {
@@ -171,18 +154,10 @@ public abstract class GameController {
     }
 
     /**
-     * Getter
-     * Returns the game
-     */
-    Game getGame() {
-        return game;
-    }
-
-    /**
      * creates the timer.
      */
     private void createTimer() {
-        if(timer != null) {
+        if (timer != null) {
             timer.cancel();
         }
         timer = new Timer();
@@ -194,5 +169,33 @@ public abstract class GameController {
                 }
             }
         }, 0, 1000 / UPDATES_PER_SECOND);
+    }
+
+    /**
+     * Getter
+     * Reads in the current single player rules and returns them.
+     *
+     * @return the current single player rules
+     */
+    protected Rules getCurrentSinglePlayerRules() {
+        return new Rules(SettingsFragment.getSPDeduction());
+    }
+
+    /**
+     * Getter
+     * Reads in the current multi player rules and returns them.
+     *
+     * @return the current multi player rules
+     */
+    protected Rules getCurrentMultiPlayerRules() {
+        return new MultiPlayerRules(SettingsFragment.getMPDeduction(), SettingsFragment.getSuspended(), SettingsFragment.getTimer());
+    }
+
+    /**
+     * Getter
+     * Returns the game
+     */
+    Game getGame() {
+        return game;
     }
 }

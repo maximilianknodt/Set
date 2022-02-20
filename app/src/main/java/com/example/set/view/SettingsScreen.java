@@ -5,10 +5,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.preference.PreferenceManager;
 
 import com.example.set.R;
-import com.example.set.SettingsFragment;
+import com.example.set.controller.SettingsFragment;
 
 /**
  * Class for the Settings Screen to load the SettingsFragment

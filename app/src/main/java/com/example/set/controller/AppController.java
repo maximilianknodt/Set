@@ -40,6 +40,17 @@ public class AppController {
     private MultiPlayerGameController multiPlayerGameController;
 
     /**
+     * Getter
+     * Returns the app controller.
+     *
+     * @return the app controller
+     * @author Linus Kurze
+     */
+    public static AppController getAppController() {
+        return instance;
+    }
+
+    /**
      * Creates a new single player game.
      */
     public void createNewSinglePlayerGame(SinglePlayerGameScreen singlePlayerGameScreen, boolean shortGame) {
@@ -51,46 +62,6 @@ public class AppController {
      */
     public void createNewMultiPlayerGame(MultiPlayerGameScreen multiPlayerGameScreen, String[] players, boolean shortGame) {
         this.multiPlayerGameController = new MultiPlayerGameController(multiPlayerGameScreen, players, shortGame);
-    }
-
-    /**
-     * Getter
-     * Returns the controller of the current single player game.
-     *
-     * @return controller of the current single player game
-     */
-    public SinglePlayerGameController getSinglePlayerGameController() {
-        return singlePlayerGameController;
-    }
-
-    /**
-     * Getter
-     * Returns the controller of the current multi player game.
-     *
-     * @return controller of the current multi player game
-     */
-    public MultiPlayerGameController getMultiPlayerGameController() {
-        return multiPlayerGameController;
-    }
-
-    /**
-     * Getter
-     * Returns the controller of the current single player game.
-     *
-     * @return controller of the current single player game
-     */
-    public boolean singlePlayerGameExists() {
-        return singlePlayerGameController != null && singlePlayerGameController.getGame() != null;
-    }
-
-    /**
-     * Getter
-     * Returns the controller of the current multi player game.
-     *
-     * @return controller of the current multi player game
-     */
-    public boolean multiPlayerGameExists() {
-        return multiPlayerGameController != null && multiPlayerGameController.getGame() != null;
     }
 
     /**
@@ -143,12 +114,41 @@ public class AppController {
 
     /**
      * Getter
-     * Returns the app controller.
+     * Returns the controller of the current single player game.
      *
-     * @return the app controller
-     * @author Linus Kurze
+     * @return controller of the current single player game
      */
-    public static AppController getAppController() {
-        return instance;
+    public SinglePlayerGameController getSinglePlayerGameController() {
+        return singlePlayerGameController;
+    }
+
+    /**
+     * Getter
+     * Returns the controller of the current multi player game.
+     *
+     * @return controller of the current multi player game
+     */
+    public MultiPlayerGameController getMultiPlayerGameController() {
+        return multiPlayerGameController;
+    }
+
+    /**
+     * Getter
+     * Returns if a single player game exists.
+     *
+     * @return single player game exists
+     */
+    public boolean singlePlayerGameExists() {
+        return singlePlayerGameController != null && singlePlayerGameController.getGame() != null;
+    }
+
+    /**
+     * Getter
+     * Returns if a multi player game exists.
+     *
+     * @return multi player game exists
+     */
+    public boolean multiPlayerGameExists() {
+        return multiPlayerGameController != null && multiPlayerGameController.getGame() != null;
     }
 }

@@ -67,7 +67,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules)game.getRules()).isPlayerSuspension(), getLeaders());
+        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules) game.getRules()).isPlayerSuspension(), getLeaders());
         super.gameOver();
     }
 
@@ -102,7 +102,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules)game.getRules()).isPlayerSuspension());
+        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules) game.getRules()).isPlayerSuspension());
     }
 
     /**

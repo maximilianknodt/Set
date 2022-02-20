@@ -70,96 +70,6 @@ public abstract class Game {
     }
 
     /**
-     * Getter
-     * Returns the time the game lasted at the current moment in seconds.
-     *
-     * @return the time the game lasted at the current moment in seconds
-     */
-    public long getDuration() {
-        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - resumeTime) + timeBeforePaused;
-    }
-
-    /**
-     * Getter
-     * Returns the timestamp the game started.
-     *
-     * @return the timestamp the game started
-     */
-    public long getStartTime() {
-        return startTime;
-    }
-
-    /**
-     * Setter
-     * Sets the timestamp the game started.
-     *
-     * @param startTime the timestamp the game started
-     */
-    public void setStartTime(long startTime) {
-        this.startTime = startTime;
-    }
-
-    /**
-     * Getter
-     * Returns the time the game resumed.
-     *
-     * @return the time the game resumed
-     */
-    public long getResumeTime() {
-        return resumeTime;
-    }
-
-    /**
-     * Setter
-     * Sets the time the game resumed.
-     *
-     * @param resumeTime the the time the game resumed
-     */
-    public void setResumeTime(long resumeTime) {
-        this.resumeTime = resumeTime;
-    }
-
-    /**
-     * Getter
-     * Returns the time the game took before paused.
-     *
-     * @return the time the game took before paused
-     */
-    public long getTimeBeforePaused() {
-        return timeBeforePaused;
-    }
-
-    /**
-     * Setter
-     * Sets the time the game took before paused.
-     *
-     * @param timeBeforePaused the time the game took before paused
-     */
-    public void setTimeBeforePaused(long timeBeforePaused) {
-        this.timeBeforePaused = timeBeforePaused;
-    }
-
-    /**
-     * Getter
-     * Returns the table object.
-     *
-     * @return the table object
-     */
-    public Table getTable() {
-        return this.table;
-    }
-
-    /**
-     * Setter
-     * Sets the table object.
-     *
-     * @param table the table object
-     */
-    public void setTable(Table table) {
-        this.table = table;
-    }
-
-    /**
      * Abstract method
      * Reveals as much cards as necessary or possible.
      */
@@ -237,56 +147,6 @@ public abstract class Game {
             return ((sameColor(card1, card2, card3) || differentColor(card1, card2, card3)) && (sameShape(card1, card2, card3) || differentForm(card1, card2, card3)) && (sameFilling(card1, card2, card3) || differentFilling(card1, card2, card3)) && (sameCount(card1, card2, card3) || differentCount(card1, card2, card3)));
         }
         return false;
-    }
-
-    /**
-     * Getter
-     * Returns the table cards.
-     *
-     * @return table cards
-     */
-    public ArrayList<Card> getTableCards() {
-        return table.getTableCards();
-    }
-
-    /**
-     * Getter
-     * Returns the count of cards on the stack.
-     *
-     * @return count of cards on the stack
-     */
-    public int getCardsLeft() {
-        return table.getStackSize();
-    }
-
-    /**
-     * Getter
-     * Returns the rules of the game.
-     *
-     * @return the rules of the game
-     */
-    public Rules getRules() {
-        return rules;
-    }
-
-    /**
-     * Getter
-     * Returns if the game is a short game.
-     *
-     * @return if the game is a short game
-     */
-    public boolean isShortGame() {
-        return shortGame;
-    }
-
-    /**
-     * Setter
-     * Sets if the game is a short game.
-     *
-     * @param shortGame if the game is a short game
-     */
-    public void setShortGame(boolean shortGame) {
-        this.shortGame = shortGame;
     }
 
     /**
@@ -405,5 +265,145 @@ public abstract class Game {
      */
     private boolean differentCount(Card card1, Card card2, Card card3) {
         return card1.getCount() != card2.getCount() && card2.getCount() != card3.getCount() && card1.getCount() != card3.getCount();
+    }
+
+    /**
+     * Getter
+     * Returns the time the game lasted at the current moment in seconds.
+     *
+     * @return the time the game lasted at the current moment in seconds
+     */
+    public long getDuration() {
+        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - resumeTime) + timeBeforePaused;
+    }
+
+    /**
+     * Getter
+     * Returns the timestamp the game started.
+     *
+     * @return the timestamp the game started
+     */
+    public long getStartTime() {
+        return startTime;
+    }
+
+    /**
+     * Setter
+     * Sets the timestamp the game started.
+     *
+     * @param startTime the timestamp the game started
+     */
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    /**
+     * Getter
+     * Returns the time the game resumed.
+     *
+     * @return the time the game resumed
+     */
+    public long getResumeTime() {
+        return resumeTime;
+    }
+
+    /**
+     * Setter
+     * Sets the time the game resumed.
+     *
+     * @param resumeTime the the time the game resumed
+     */
+    public void setResumeTime(long resumeTime) {
+        this.resumeTime = resumeTime;
+    }
+
+    /**
+     * Getter
+     * Returns the time the game took before paused.
+     *
+     * @return the time the game took before paused
+     */
+    public long getTimeBeforePaused() {
+        return timeBeforePaused;
+    }
+
+    /**
+     * Setter
+     * Sets the time the game took before paused.
+     *
+     * @param timeBeforePaused the time the game took before paused
+     */
+    public void setTimeBeforePaused(long timeBeforePaused) {
+        this.timeBeforePaused = timeBeforePaused;
+    }
+
+    /**
+     * Getter
+     * Returns the table object.
+     *
+     * @return the table object
+     */
+    public Table getTable() {
+        return this.table;
+    }
+
+    /**
+     * Setter
+     * Sets the table object.
+     *
+     * @param table the table object
+     */
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    /**
+     * Getter
+     * Returns the table cards.
+     *
+     * @return table cards
+     */
+    public ArrayList<Card> getTableCards() {
+        return table.getTableCards();
+    }
+
+    /**
+     * Getter
+     * Returns the count of cards on the stack.
+     *
+     * @return count of cards on the stack
+     */
+    public int getCardsLeft() {
+        return table.getStackSize();
+    }
+
+    /**
+     * Getter
+     * Returns the rules of the game.
+     *
+     * @return the rules of the game
+     */
+    public Rules getRules() {
+        return rules;
+    }
+
+    /**
+     * Getter
+     * Returns if the game is a short game.
+     *
+     * @return if the game is a short game
+     */
+    public boolean isShortGame() {
+        return shortGame;
+    }
+
+    /**
+     * Setter
+     * Sets if the game is a short game.
+     *
+     * @param shortGame if the game is a short game
+     */
+    public void setShortGame(boolean shortGame) {
+        this.shortGame = shortGame;
     }
 }

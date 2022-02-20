@@ -51,7 +51,8 @@ public class Converters {
      */
     @TypeConverter
     public static Stack<Card> toCardsStack(String value) {
-        Type listType = new TypeToken<Stack<Card>>() {}.getType();
+        Type listType = new TypeToken<Stack<Card>>() {
+        }.getType();
         return new Gson().fromJson(value, listType);
     }
 
@@ -63,7 +64,8 @@ public class Converters {
      */
     @TypeConverter
     public static String fromCardsStack(Stack<Card> values) {
-        Type listType = new TypeToken<Stack<Card>>() {}.getType();
+        Type listType = new TypeToken<Stack<Card>>() {
+        }.getType();
         return new Gson().toJson(values, listType);
     }
 
@@ -75,7 +77,8 @@ public class Converters {
      */
     @TypeConverter
     public static ArrayList<Card> toCardsArrayList(String value) {
-        Type listType = new TypeToken<ArrayList<Card>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<Card>>() {
+        }.getType();
         return new Gson().fromJson(value, listType);
     }
 
@@ -87,7 +90,8 @@ public class Converters {
      */
     @TypeConverter
     public static String fromCardsArrayList(ArrayList<Card> values) {
-        Type listType = new TypeToken<ArrayList<Card>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<Card>>() {
+        }.getType();
         return new Gson().toJson(values, listType);
     }
 }

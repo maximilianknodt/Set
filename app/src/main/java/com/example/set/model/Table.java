@@ -50,7 +50,8 @@ public class Table {
      * Constructor
      * The default constructor doing nothing.
      */
-    public Table() {}
+    public Table() {
+    }
 
     /**
      * Constructor
@@ -76,66 +77,6 @@ public class Table {
         if (shortGame) {
             stack.setSize(SHORT_GAME_CARD_COUNT);
         }
-    }
-
-    /**
-     * Getter
-     * Returns the table cards.
-     *
-     * @return table cards
-     */
-    public ArrayList<Card> getTableCards() {
-        return tableCards;
-    }
-
-    /**
-     * Setter
-     * Sets the table cards.
-     *
-     * @param tableCards the table cards
-     */
-    public void setTableCards(ArrayList<Card> tableCards) {
-        this.tableCards = tableCards;
-    }
-
-    /**
-     * Getter
-     * Returns the amount of table cards.
-     *
-     * @return amount of table cards
-     */
-    int getTableCardsCount() {
-        return tableCards.size();
-    }
-
-    /**
-     * Getter
-     * Returns the amount of cards on the stack.
-     *
-     * @return amount of cards on the stack
-     */
-    int getStackSize() {
-        return stack.size();
-    }
-
-    /**
-     * Getter
-     * Returns the stack.
-     *
-     * @return the stack
-     */
-    public Stack<Card> getStack() {
-        return stack;
-    }
-
-    /**
-     * Setter
-     * Sets the stack.
-     *
-     * @param stack the stack
-     */
-    public void setStack(Stack<Card> stack) {
-        this.stack = stack;
     }
 
     /**
@@ -236,5 +177,65 @@ public class Table {
             return stack.pop();
         }
         return null;
+    }
+
+    /**
+     * Getter
+     * Returns the table cards.
+     *
+     * @return table cards
+     */
+    public ArrayList<Card> getTableCards() {
+        return tableCards;
+    }
+
+    /**
+     * Setter
+     * Sets the table cards.
+     *
+     * @param tableCards the table cards
+     */
+    public void setTableCards(ArrayList<Card> tableCards) {
+        this.tableCards = tableCards;
+    }
+
+    /**
+     * Getter
+     * Returns the amount of table cards.
+     *
+     * @return amount of table cards
+     */
+    int getTableCardsCount() {
+        return tableCards.size();
+    }
+
+    /**
+     * Getter
+     * Returns the amount of cards on the stack.
+     *
+     * @return amount of cards on the stack
+     */
+    int getStackSize() {
+        return stack.size();
+    }
+
+    /**
+     * Getter
+     * Returns the stack.
+     *
+     * @return the stack
+     */
+    public Stack<Card> getStack() {
+        return stack;
+    }
+
+    /**
+     * Setter
+     * Sets the stack.
+     *
+     * @param stack the stack
+     */
+    public void setStack(Stack<Card> stack) {
+        this.stack = stack;
     }
 }

@@ -5,6 +5,7 @@ import androidx.room.TypeConverters;
 
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.SinglePlayerGame;
+
 /**
  * Database class
  * A class representing the database.

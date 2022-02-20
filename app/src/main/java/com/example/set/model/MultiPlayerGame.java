@@ -102,13 +102,50 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
+     * Simulates the player taking a set. If the cards given as parameters are a set the amount of sets the player found is increased. Otherwise the player could be punished according to the rules. Checks if the game is over.
+     *
+     * @param player    player taking the set
+     * @param position1 position of the first card
+     * @param position2 position of the second card
+     * @param position3 position of the third card
+     * @return if the set was correct
+     */
+    public boolean takeCards(Player player, int position1, int position2, int position3) {
+        boolean result = false;
+
+        if (!isTakeSetTimeOver()) {
+            if (takeSetChecked(position1, position2, position3)) {
+                player.increaseSetAmount();
+                result = true;
+            } else {
+                punishPlayer(player);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Punishes the player according to the rules.
+     *
+     * @param player the player getting punished
+     */
+    public void punishPlayer(Player player) {
+        if (rules.isPlayerDeduction()) {
+            player.decreaseSetAmount();
+        }
+        if (((MultiPlayerRules) rules).isPlayerSuspension()) {
+            player.startSuspension();
+        }
+    }
+
+    /**
      * Getter
      * Returns the time a player has left to select a set in seconds.
      *
      * @return the time a player has left to select a set in seconds
      */
     public long getTakeSetTimeLeft() {
-        return ((MultiPlayerRules)rules).getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
+        return ((MultiPlayerRules) rules).getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
     }
 
     /**
@@ -179,42 +216,5 @@ public class MultiPlayerGame extends Game {
      */
     public void setTakeSetTimeBeforePaused(long takeSetTimeBeforePaused) {
         this.takeSetTimeBeforePaused = takeSetTimeBeforePaused;
-    }
-
-    /**
-     * Simulates the player taking a set. If the cards given as parameters are a set the amount of sets the player found is increased. Otherwise the player could be punished according to the rules. Checks if the game is over.
-     *
-     * @param player    player taking the set
-     * @param position1 position of the first card
-     * @param position2 position of the second card
-     * @param position3 position of the third card
-     * @return if the set was correct
-     */
-    public boolean takeCards(Player player, int position1, int position2, int position3) {
-        boolean result = false;
-
-        if (!isTakeSetTimeOver()) {
-            if (takeSetChecked(position1, position2, position3)) {
-                player.increaseSetAmount();
-                result = true;
-            } else {
-                punishPlayer(player);
-            }
-        }
-        return result;
-    }
-
-    /**
-     * Punishes the player according to the rules.
-     *
-     * @param player the player getting punished
-     */
-    public void punishPlayer(Player player) {
-        if (rules.isPlayerDeduction()) {
-            player.decreaseSetAmount();
-        }
-        if (((MultiPlayerRules)rules).isPlayerSuspension()) {
-            player.startSuspension();
-        }
     }
 }
