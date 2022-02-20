@@ -31,7 +31,7 @@ public abstract class GameController {
      */
     protected Game game;
     /**
-     * the ui element for writing the game
+     * the view element for writing the game
      */
     protected GameScreen gameScreen;
     /**
@@ -41,7 +41,7 @@ public abstract class GameController {
 
     /**
      * Constructor
-     * Initializes the ui element for the game.
+     * Initializes the view element for the game.
      */
     protected GameController(GameScreen gameScreen) {
         this.gameScreen = gameScreen;

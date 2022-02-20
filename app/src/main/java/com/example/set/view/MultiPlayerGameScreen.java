@@ -19,7 +19,7 @@ import com.example.set.controller.MultiPlayerGameController;
 
 /**
  * The multi player game screen class
- * A class implementing the ui for the multi player game screen.
+ * A class implementing the view for the multi player game screen.
  * <p>
  * The author is responsible for this class.
  *
@@ -331,7 +331,7 @@ public class MultiPlayerGameScreen extends GameScreen {
     }
 
     /**
-     * Method called when the ui should write the points.
+     * Method called when the view should write the points.
      *
      * @param points the points of the players
      * @author Linus Kurze
@@ -341,7 +341,7 @@ public class MultiPlayerGameScreen extends GameScreen {
     }
 
     /**
-     * Method called when the ui should write the players names.
+     * Method called when the view should write the players names.
      *
      * @author Linus Kurze
      */

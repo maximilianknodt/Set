@@ -64,11 +64,10 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
-     * Simulates as parameter given player calling set. Checks if he is exposed and starts the time he has to select a set.
+     * Simulates as parameter given player calling set. Checks if the player is exposed and starts the time the player has to select a set.
      *
      * @param player player called set
      * @return player can try to take it (is not exposed)
-     * <p>
      */
     public boolean set(Player player) {
         if (player.isSuspended()) {

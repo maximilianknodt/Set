@@ -10,7 +10,7 @@ import com.example.set.controller.AppControllerHolder;
 
 /**
  * The single player game screen class
- * A class implementing the ui for the single player game screen.
+ * A class implementing the view for the single player game screen.
  * <p>
  * The author is responsible for this class.
  *
@@ -99,7 +99,7 @@ public class SinglePlayerGameScreen extends GameScreen {
     }
 
     /**
-     * Method called when the ui should write the points.
+     * Method called when the view should write the points.
      *
      * @param value the points to write
      * @author Linus Kurze
