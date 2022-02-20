@@ -162,7 +162,7 @@ public class Table {
     }
 
     /**
-     * Replaces a card with the last Card on the Table
+     * Replaces a card with the last card (in order) on the table
      *
      * @param card card to be replaced
      */

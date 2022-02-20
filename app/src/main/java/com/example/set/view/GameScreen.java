@@ -24,7 +24,7 @@ import java.util.Objects;
 
 /**
  * Game screen class
- * Class which implements the ui and their function for the game
+ * Class which implements the view and their function for the game
  *
  * @author Maximilian Knodt
  * @author Linus Kurze
@@ -163,7 +163,7 @@ public abstract class GameScreen extends AppCompatActivity {
     }
 
     /**
-     * Method called when the ui should write the cards
+     * Method called when the view should write the cards
      *
      * @param cards the cards to write
      * @author Linus Kurze
@@ -173,7 +173,7 @@ public abstract class GameScreen extends AppCompatActivity {
     }
 
     /**
-     * Method called when the ui should write the time
+     * Method called when the view should write the time
      *
      * @param time the time to write
      * @author Linus Kurze
@@ -188,7 +188,7 @@ public abstract class GameScreen extends AppCompatActivity {
     }
 
     /**
-     * Method called when the ui should write the cards left
+     * Method called when the view should write the cards left
      *
      * @param value the cards left
      * @author Linus Kurze

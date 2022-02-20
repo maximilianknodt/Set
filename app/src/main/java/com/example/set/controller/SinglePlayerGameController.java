@@ -39,7 +39,7 @@ public class SinglePlayerGameController extends GameController {
     }
 
     /**
-     * Writes the score to the UI.
+     * Writes the score to the view.
      */
     @Override
     protected void writeScore() {
@@ -48,7 +48,7 @@ public class SinglePlayerGameController extends GameController {
     }
 
     /**
-     * Called when the game is over. Writes the screen at the end of a game to the UI.
+     * Called when the game is over. Writes the screen at the end of a game to the view.
      */
     @Override
     protected void gameOver() {
