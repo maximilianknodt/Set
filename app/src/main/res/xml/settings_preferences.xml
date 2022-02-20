@@ -31,7 +31,7 @@
             app:summaryOn="@string/deduction_on"/>
 
         <SwitchPreferenceCompat
-            app:key="Settings_Preferences_Suspended"
+            app:key="Settings_Preferences_Suspension"
             app:title="@string/Suspension"
             app:summaryOff="@string/suspension_off"
             app:summaryOn="@string/suspension_on" />
