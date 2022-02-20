@@ -58,12 +58,6 @@
             app:useSimpleSummaryProvider="true"
             />
 
-        <SwitchPreferenceCompat
-            app:key="Settings_Preferences_Dark_Mode"
-            app:title="@string/dark_mode"
-            app:summaryOff="@string/dark_mode_off"
-            app:summaryOn="@string/dark_mode_on" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
