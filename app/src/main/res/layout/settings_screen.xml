@@ -5,21 +5,18 @@
     android:id="@+id/settings_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/darkmode_Primary">
+    android:orientation="vertical">
 
     <!-- @author Maximilian Knodt-->
 
     <TextView
         android:id="@+id/textview_Singleplayer_Headline"
         android:text="@string/settings"
-        style="@style/TextView_Base.Headline.Linear"
-        android:textColor="@color/darkmode_Headline"/>
+        style="@style/TextView_Base.Headline.Linear" />
 
     <View
         android:id="@+id/view_Singleplayer_Underline"
-        style="@style/View_Base.Underline_Linear"
-        android:background="@color/darkmode_Headline"/>
+        style="@style/View_Base.Underline_Linear" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView_Settings"

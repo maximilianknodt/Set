@@ -8,14 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- @autor Maximilian Knodt-->
-    <color name="Button_Primary">#FF880066</color>
-    <color name="darkmode_Headline">#DEffffff</color>
-    <color name="darkmode_Text_Normal">#A3ffffff</color>
-    <color name="darkmode_Text_Description">#4Dffffff</color>
-    <color name="darkmode_Primary">#2b2b2b</color>
-    <color name="switchTrack">#ffebd2</color>
-    <color name="switchThumb">#e67e00</color>
+    <!-- @author Maximilian Knodt-->
+    <!-- Colors for the Bright Mode -->
+    <color name="primaryBrightBackground">#FFF8EC</color>
+    <color name="primary_bright_surface">#FF3C3C3C</color>
+    <!-- Colors for the Dark Mode -->
+    <color name="primaryDarkBackground">#FF2B2B2B</color>
+    <color name="primaryDarkSurface">#FF3C3C3C</color>
+    <color name="primaryColor">#FFE67E00</color>
+    <color name="primaryColorVariant">#FFF3B74F</color>
+    <color name="secondaryColor">#FF00E67E</color>
+    <color name="secondaryColorVariant">#FFE1FBE9</color>
 
     <!-- @author Linus Kurze-->
     <color name="card_background">#FFFFFF</color>

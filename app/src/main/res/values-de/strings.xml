@@ -35,6 +35,13 @@
     <string name="dark_mode_off">Dunkle Darstellung aus</string>
     <string name="dark_mode_on">Dunkle Darstellung an</string>
     <string name="language_selection">Sprachauswahl</string>
+    <string name="english">Englisch</string>
+    <string name="german">Deutsch</string>
+    <string name="five">5</string>
+    <string name="ten">10</string>
+    <string name="fifteen">15</string>
+    <string name="twenty">20</string>
+    <string name="dark_mode_default">System Einstellungen</string>
     <!-- @author Linus Kurze-->
     <string name="game_mode">Spielmodus:</string>
     <string name="duration">Zeit:</string>

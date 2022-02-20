@@ -16,7 +16,7 @@ import com.example.set.controller.AppController;
  * @author Maximilian Knodt
  */
 public class SettingsFragment extends PreferenceFragmentCompat {
-    private SharedPreferences sharedPreferences;
+    private static SharedPreferences sharedPreferences;
     /**
      * Method to set the preferred XML-FragmentPreference
      *
@@ -33,28 +33,32 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         this.sharedPreferences = getPreferenceManager().getSharedPreferences();
     }
 
-    public String getLanguage(){
-        return this.sharedPreferences.getString("Settings_Preferences_Language", "");
+    public static SharedPreferences getPreference(){
+        return sharedPreferences;
     }
 
-    public boolean getSPDeduction(){
-        return this.sharedPreferences.getBoolean("Settings_Preferences_SP_Deduction", false);
+    public static String getLanguage(){
+        return sharedPreferences.getString("Settings_Preferences_Language", "");
     }
 
-    public boolean getMPDeduction(){
-        return this.sharedPreferences.getBoolean("Settings_Preferences_MP_Deduction", false);
+    public static boolean getSPDeduction(){
+        return sharedPreferences.getBoolean("Settings_Preferences_SP_Deduction", false);
     }
 
-    public boolean getSuspended(){
-        return this.sharedPreferences.getBoolean("Settings_Preferences_Suspended", false);
+    public static boolean getMPDeduction(){
+        return sharedPreferences.getBoolean("Settings_Preferences_MP_Deduction", false);
     }
 
-    public int getTimer(){
-        String timeString = sharedPreferences.getString("Settings_Preferences_Timer", "");
+    public static boolean getSuspended(){
+        return sharedPreferences.getBoolean("Settings_Preferences_Suspended", false);
+    }
+
+    public static int getTimer(){
+        String timeString = sharedPreferences.getString("Settings_Preferences_Timer", "20");
         return Integer.valueOf(timeString);
     }
 
-    public boolean getDarkMode(){
-        return this.sharedPreferences.getBoolean("Settings_Preferences_Dark_Mode", false);
+    public static String getDarkMode(){
+        return sharedPreferences.getString("Settings_Preferences_Dark_Mode", "default");
     }
 }

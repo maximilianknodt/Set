@@ -49,6 +49,15 @@
 
     <PreferenceCategory app:title="@string/theme">
 
+        <ListPreference
+            app:key="Settings_Preferences_Dark_Mode"
+            app:title="@string/dark_mode"
+            app:defaultValue="@string/string_default"
+            app:entries="@array/mode_entries"
+            app:entryValues="@array/mode_values"
+            app:useSimpleSummaryProvider="true"
+            />
+
         <SwitchPreferenceCompat
             app:key="Settings_Preferences_Dark_Mode"
             app:title="@string/dark_mode"
