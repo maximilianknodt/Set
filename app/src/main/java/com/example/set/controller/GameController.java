@@ -7,7 +7,7 @@ import androidx.preference.PreferenceManager;
 
 import com.example.set.model.Game;
 import com.example.set.model.Rules;
-import com.example.set.ui.GameScreen;
+import com.example.set.view.GameScreen;
 
 import java.util.Timer;
 import java.util.TimerTask;

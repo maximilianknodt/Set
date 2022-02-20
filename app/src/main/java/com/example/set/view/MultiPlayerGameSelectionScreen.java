@@ -1,8 +1,9 @@
-package com.example.set.ui;
+package com.example.set.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import com.example.set.controller.AppControllerHolder;
  * @author Linus Kurze
  * @version 1.0
  */
-public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
+public class MultiPlayerGameSelectionScreen extends AppCompatActivity {
 
     /**
      * Method called when screen is created. Handles clicks on the different buttons.
@@ -32,37 +33,34 @@ public class SinglePlayerGameSelectionScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_player_game_selection_screen);
 
-        // Searching in Resources for the IDs
+        TextView headline = this.findViewById(R.id.textview_Singleplayer_Headline);
+        headline.setText(R.string.multi_player);
+
         Button btnNormalG = this.findViewById(R.id.button_Singleplayer_Screen_NG);
         Button btnShortG = this.findViewById(R.id.button_Singleplayer_Screen_SG);
         Button btnResumeG = this.findViewById(R.id.button_Singleplayer_Screen_Resume);
 
-        // -------- NORMAL GAME --------
         btnNormalG.setOnClickListener(v -> {
-            Intent intentSP = new Intent();
-            intentSP.setClass(this, SinglePlayerGameScreen.class);
-            intentSP.putExtra("newGame", true);
-            intentSP.putExtra("shortGame", false);
-            startActivity(intentSP);
+            Intent intentMP = new Intent();
+            intentMP.setClass(this, MultiPlayerPlayersScreen.class);
+            intentMP.putExtra("shortGame", false);
+            startActivity(intentMP);
         });
 
 
-        // -------- SHORT GAME --------
         btnShortG.setOnClickListener(v -> {
-            Intent intentSP = new Intent();
-            intentSP.setClass(this, SinglePlayerGameScreen.class);
-            intentSP.putExtra("newGame", true);
-            intentSP.putExtra("shortGame", true);
-            startActivity(intentSP);
+            Intent intentMP = new Intent();
+            intentMP.setClass(this, MultiPlayerPlayersScreen.class);
+            intentMP.putExtra("shortGame", true);
+            startActivity(intentMP);
         });
 
-        // -------- RESUME GAME --------
         btnResumeG.setOnClickListener(v -> {
-            if (AppControllerHolder.getAppController().singlePlayerGameExists()) {
-                Intent intentSP = new Intent();
-                intentSP.setClass(this, SinglePlayerGameScreen.class);
-                intentSP.putExtra("newGame", false);
-                startActivity(intentSP);
+            if (AppControllerHolder.getAppController().multiPlayerGameExists()) {
+                Intent intentMP = new Intent();
+                intentMP.setClass(this, MultiPlayerGameScreen.class);
+                intentMP.putExtra("newGame", false);
+                startActivity(intentMP);
             } else {
                 Toast.makeText(this.getBaseContext(), R.string.no_game_to_resume, Toast.LENGTH_SHORT).show();
             }

@@ -1,7 +1,7 @@
 package com.example.set.controller;
 
 import com.example.set.model.SinglePlayerGame;
-import com.example.set.ui.SinglePlayerGameScreen;
+import com.example.set.view.SinglePlayerGameScreen;
 
 /**
  * The single player game controller class

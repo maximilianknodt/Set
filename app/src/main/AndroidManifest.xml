@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".ui.SplashScreen"
+            android:name=".view.SplashScreen"
             android:screenOrientation="landscape"
             android:exported="true">
             <intent-filter>
@@ -22,31 +22,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.HomeScreen"
+        <activity android:name=".view.HomeScreen"
             android:screenOrientation="landscape" />
 
-    <activity android:name=".ui.SinglePlayerGameScreen"
+    <activity android:name=".view.SinglePlayerGameScreen"
         android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.MultiPlayerGameScreen"
+        <activity android:name=".view.MultiPlayerGameScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.SinglePlayerGameSelectionScreen"
+        <activity android:name=".view.SinglePlayerGameSelectionScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.MultiPlayerGameSelectionScreen"
+        <activity android:name=".view.MultiPlayerGameSelectionScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.MultiPlayerPlayersScreen"
+        <activity android:name=".view.MultiPlayerPlayersScreen"
             android:screenOrientation="landscape" />
 
-    <activity android:name=".ui.SettingsScreen"
+    <activity android:name=".view.SettingsScreen"
         android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.PauseScreen"
+        <activity android:name=".view.PauseScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".ui.GameEndScreen"
+        <activity android:name=".view.GameEndScreen"
         android:screenOrientation="landscape" />
     </application>
 

@@ -9,8 +9,8 @@ import com.example.set.database.MultiPlayerGameDao;
 import com.example.set.database.SinglePlayerGameDao;
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.SinglePlayerGame;
-import com.example.set.ui.MultiPlayerGameScreen;
-import com.example.set.ui.SinglePlayerGameScreen;
+import com.example.set.view.MultiPlayerGameScreen;
+import com.example.set.view.SinglePlayerGameScreen;
 
 import java.util.List;
 

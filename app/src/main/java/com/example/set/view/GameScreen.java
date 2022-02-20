@@ -1,4 +1,4 @@
-package com.example.set.ui;
+package com.example.set.view;
 
 import android.os.Bundle;
 import android.view.View;

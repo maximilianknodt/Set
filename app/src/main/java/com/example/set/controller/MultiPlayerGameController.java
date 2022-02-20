@@ -2,7 +2,7 @@ package com.example.set.controller;
 
 import com.example.set.model.MultiPlayerGame;
 import com.example.set.model.Player;
-import com.example.set.ui.MultiPlayerGameScreen;
+import com.example.set.view.MultiPlayerGameScreen;
 
 /**
  * The multi player game controller class
