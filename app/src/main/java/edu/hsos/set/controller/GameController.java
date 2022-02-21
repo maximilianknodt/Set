@@ -126,7 +126,7 @@ public abstract class GameController {
             Thread thread = new Thread() {
                 @Override
                 public void run() {
-                    AppController.getAppController().saveGamesInDatabase(context);
+                    AppController.getAppController().getDatabaseController().saveGamesInDatabase(context);
                 }
             };
             thread.start();

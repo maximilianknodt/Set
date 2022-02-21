@@ -40,6 +40,15 @@ public class AppController {
     private MultiPlayerGameController multiPlayerGameController;
 
     /**
+     * the controller of the database
+     */
+    private DatabaseController databaseController;
+
+    public AppController() {
+        databaseController = new DatabaseController();
+    }
+
+    /**
      * Getter
      * Returns the app controller.
      *
@@ -65,51 +74,13 @@ public class AppController {
     }
 
     /**
-     * Loads the games saved in the database.
+     * Getter
+     * Returns the database controller.
      *
-     * @param context the context
+     * @return database controller
      */
-    public void loadGamesFromDatabase(Context context) {
-        Database db = Room.databaseBuilder(context, Database.class, "set_database").build();
-
-        SinglePlayerGameDao singlePlayerGameDao = db.SinglePlayerGameDao();
-        List<SinglePlayerGame> singlePlayerGameList = singlePlayerGameDao.getAll();
-        if (singlePlayerGameList.size() > 0) {
-            singlePlayerGameController = new SinglePlayerGameController(singlePlayerGameList.get(0), null);
-        }
-
-        MultiPlayerGameDao multiPlayerGameDao = db.MultiPlayerGameDao();
-        List<MultiPlayerGame> multiPlayerGameList = multiPlayerGameDao.getAll();
-        if (multiPlayerGameList.size() > 0) {
-            multiPlayerGameController = new MultiPlayerGameController(multiPlayerGameList.get(0), null);
-        }
-    }
-
-    /**
-     * Saves the games saved in the database and deletes old games.
-     *
-     * @param context the context
-     */
-    public void saveGamesInDatabase(Context context) {
-        Database db = Room.databaseBuilder(context, Database.class, "set_database").build();
-
-        SinglePlayerGameDao singlePlayerGameDao = db.SinglePlayerGameDao();
-        List<SinglePlayerGame> singlePlayerGameList = singlePlayerGameDao.getAll();
-        for (SinglePlayerGame singlePlayerGame : singlePlayerGameList) {
-            singlePlayerGameDao.delete(singlePlayerGame);
-        }
-        if (singlePlayerGameExists()) {
-            singlePlayerGameDao.insertAll((SinglePlayerGame) singlePlayerGameController.getGame());
-        }
-
-        MultiPlayerGameDao multiPlayerGameDao = db.MultiPlayerGameDao();
-        List<MultiPlayerGame> multiPlayerGameList = multiPlayerGameDao.getAll();
-        for (MultiPlayerGame multiPlayerGame : multiPlayerGameList) {
-            multiPlayerGameDao.delete(multiPlayerGame);
-        }
-        if (multiPlayerGameExists()) {
-            multiPlayerGameDao.insertAll((MultiPlayerGame) multiPlayerGameController.getGame());
-        }
+    public DatabaseController getDatabaseController() {
+        return databaseController;
     }
 
     /**
@@ -150,5 +121,45 @@ public class AppController {
      */
     public boolean multiPlayerGameExists() {
         return multiPlayerGameController != null && multiPlayerGameController.getGame() != null;
+    }
+
+    /**
+     * Getter
+     * Returns the current single player game.
+     *
+     * @return the current single player game
+     */
+    public SinglePlayerGame getSinglePlayerGame() {
+        return (SinglePlayerGame) singlePlayerGameController.getGame();
+    }
+
+    /**
+     * Getter
+     * Returns the current multi player game.
+     *
+     * @return the current multi player game
+     */
+    public MultiPlayerGame getMultiPlayerGame() {
+        return (MultiPlayerGame) multiPlayerGameController.getGame();
+    }
+
+    /**
+     * Setter
+     * Sets the current single player game and creates the controller.
+     *
+     * @param singlePlayerGame the single player game
+     */
+    void setSinglePlayerGame(SinglePlayerGame singlePlayerGame) {
+        singlePlayerGameController = new SinglePlayerGameController(singlePlayerGame, null);
+    }
+
+    /**
+     * Setter
+     * Sets the current multi player game and creates the controller.
+     *
+     * @param multiPlayerGame the single player game
+     */
+    void setMultiPlayerGame(MultiPlayerGame multiPlayerGame) {
+        multiPlayerGameController = new MultiPlayerGameController(multiPlayerGame, null);
     }
 }

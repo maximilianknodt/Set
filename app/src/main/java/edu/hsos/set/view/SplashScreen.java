@@ -106,7 +106,7 @@ public class SplashScreen extends AppCompatActivity implements LoaderManager.Loa
          */
         @Override
         public Void loadInBackground() {
-            AppController.getAppController().loadGamesFromDatabase(context);
+            AppController.getAppController().getDatabaseController().loadGamesFromDatabase(context);
             return null;
         }
     }
