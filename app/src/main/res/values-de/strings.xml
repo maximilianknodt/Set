@@ -42,6 +42,7 @@
     <string name="fifteen">15</string>
     <string name="twenty">20</string>
     <string name="dark_mode_default">System Einstellungen</string>
+    <string name="language_changed">Neustart, um die Sprache anzupassen</string>
     <!-- @author Linus Kurze-->
     <string name="game_mode">Spielmodus:</string>
     <string name="duration">Zeit:</string>

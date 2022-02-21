@@ -1,5 +1,6 @@
 package edu.hsos.set.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.set.R;
 import edu.hsos.set.controller.AppController;
+import edu.hsos.set.controller.SettingsFragment;
 
 /**
  * The single player screen class

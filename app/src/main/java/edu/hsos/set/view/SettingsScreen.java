@@ -1,10 +1,13 @@
 package edu.hsos.set.view;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.preference.PreferenceManager;
 
 import com.example.set.R;
 import edu.hsos.set.controller.SettingsFragment;
@@ -35,10 +38,12 @@ public class SettingsScreen extends AppCompatActivity{
                 .replace(R.id.fragmentContainerView_Settings, new SettingsFragment())
                 .commit();
 
+        changeMode(SettingsFragment.getDarkMode());
 
         preferenceListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                changeMode();
+                if(key.equals("Settings_Preferences_Dark_Mode")) changeMode(SettingsFragment.getDarkMode());
+                if(key.equals("Settings_Preferences_Language")) Toast.makeText(SettingsScreen.this, R.string.language_changed, Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -47,11 +52,9 @@ public class SettingsScreen extends AppCompatActivity{
 
     /**
      * Method to change the Mode of the App
-     * It is called when the Dark Mode option in the settingsscreen is changed
+     * It is called when the Dark Mode option in the Settingsscreen is changed
      */
-    private void changeMode(){
-        String mode = SettingsFragment.getDarkMode();
-
+    protected void changeMode(String mode){
         switch(mode){
             case "default":
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);

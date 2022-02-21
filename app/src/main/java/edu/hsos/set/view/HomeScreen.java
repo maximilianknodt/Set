@@ -1,13 +1,17 @@
 package edu.hsos.set.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.set.R;
+
+import edu.hsos.set.controller.SettingsFragment;
 
 /**
  * Home screen class
@@ -31,6 +35,10 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
+
+        SettingsFragment.setSharedPreferences(PreferenceManager.getDefaultSharedPreferences(this));
+        SettingsScreen screen = new SettingsScreen();
+        screen.changeMode(SettingsFragment.getDarkMode());
 
         // Searching in Ressources for the IDs
         Button btnSP = this.findViewById(R.id.button_Start_Screen_SPG);
@@ -82,5 +90,19 @@ public class HomeScreen extends AppCompatActivity {
             Toast.makeText(getBaseContext(), R.string.press_back_again, Toast.LENGTH_SHORT).show();
         }
         lastPressedBackTime = System.currentTimeMillis();
+    }
+
+    /**
+     * Method to set a new context as Base
+     * With a new start of the application the language will be changed
+     *
+     * @author Maximilian Knodt
+     *
+     * @param newBase Context
+     */
+    @Override
+    protected void attachBaseContext(Context newBase){
+        SettingsFragment.setSharedPreferences(PreferenceManager.getDefaultSharedPreferences(newBase));
+        super.attachBaseContext(LocalManager.setLocale(newBase, SettingsFragment.getLanguage()));
     }
 }

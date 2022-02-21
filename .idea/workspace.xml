@@ -14,8 +14,39 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Darkmode Anpassungen">
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" afterDir="false" />
+    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Darkmode Anpassungen erneut">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.0.2/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_2_1_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_drawerlayout_drawerlayout_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_4_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/set.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/set.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/controller/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/controller/SettingsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/HomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerGameSelectionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerGameSelectionScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SettingsScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SinglePlayerGameSelectionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SinglePlayerGameSelectionScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645360812624</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Darkmode Anpassungen erneut">
+      <created>1645360941720</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1645360941720</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +412,8 @@
     <MESSAGE value="Style angefangen und den Grossteil der Screens ueberabeitet, sodass weitere Aenderungen einfach und schnell angepasst werden koennen" />
     <MESSAGE value="Style xml Datei" />
     <MESSAGE value="Darkmode Anpassungen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Darkmode Anpassungen" />
+    <MESSAGE value="Darkmode Anpassungen erneut" />
+    <option name="LAST_COMMIT_MESSAGE" value="Darkmode Anpassungen erneut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
