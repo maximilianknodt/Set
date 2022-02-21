@@ -44,6 +44,10 @@ public class AppController {
      */
     private DatabaseController databaseController;
 
+    /**
+     * Constructor
+     * Creates the instance of the database controller
+     */
     public AppController() {
         databaseController = new DatabaseController();
     }
