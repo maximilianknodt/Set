@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/drawable/ic_launcher_background.xml" value="0.325" />
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/drawable/imagebutton.xml" value="0.3255" />
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/drawable/playerselection.xml" value="0.108" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/activity_main.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/breake_screen.xml" value="0.45416666666666666" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/breake_screen_playerpoints.xml" value="0.5036344755970924" />
@@ -19,10 +22,10 @@
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen_alternate.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen_grid.xml" value="0.2998236331569665" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/settings_screen_spinner_item.xml" value="0.35833333333333334" />
-        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/single_player_game_selection_screen.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/single_player_game_selection_screen.xml" value="0.43854166666666666" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/singleplayer_screen.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/splash_screen.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/start_screen.xml" value="0.4484375" />
+        <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/layout/start_screen.xml" value="0.43854166666666666" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/xml/root_preferences.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/Maximilian/AndroidStudioProjects/set/app/src/main/res/xml/settings_preferences.xml" value="0.1" />
         <entry key="..\:/Users/diver/Desktop/prog3_set/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3734375" />

@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.set.R;
 import com.google.android.material.textfield.TextInputEditText;
 
+import edu.hsos.set.model.Color;
+
 /**
  * Players screen class
  * Implements the players screen where the user can adjust the players for the multiplayer
@@ -169,12 +171,17 @@ public class MultiPlayerPlayersScreen extends AppCompatActivity {
 
     /**
      * adds a button
+     *
+     * @author Linus Kurze
+     * @author Maximilian Knodt
      */
     private void addButton() {
         Button button = new Button(this);
         String text = getString(R.string.player) + " " + ++lastAddedNumber;
         button.setAllCaps(false);
         button.setText(text);
+        button.setBackgroundResource(R.drawable.playerselection);
+        button.setTextColor(getResources().getColor(R.color.white, getTheme()));
         button.setOnClickListener(this::setSelectedButton);
         playersLayout.addView(button, buttonLayoutParams);
     }

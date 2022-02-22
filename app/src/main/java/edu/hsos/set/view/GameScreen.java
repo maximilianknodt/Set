@@ -159,7 +159,7 @@ public abstract class GameScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     public void unselectCard(View view) {
-        view.setBackgroundColor(ContextCompat.getColor(this, R.color.card_background));
+        view.setBackgroundColor(ContextCompat.getColor(this, R.color.onPrimary));
     }
 
     /**

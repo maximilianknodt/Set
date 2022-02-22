@@ -6,7 +6,7 @@
 
     <!-- Specific Styles for Views -->
     <style name="View_Base">
-        <item name="android:background">@color/cardview_dark_background</item>item>
+        <item name="android:background">@color/Underline</item>item>
     </style>
 
     <style name="View_Base.Tablecorner">
@@ -16,12 +16,12 @@
 
     <style name="View_Base.Underline_Constraint">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">2dp</item>
     </style>
 
     <style name="View_Base.Underline_Linear">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">2dp</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
     </style>
@@ -68,6 +68,7 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+
     <!-- Styles for the Headlines -->
     <style name="TextView_Base.Headline">
         <item name="android:layout_height">wrap_content</item>
@@ -92,11 +93,19 @@
     </style>
 
 
+    <style name="TextInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/primaryColor</item>
+        <item name="android:foreground">@color/primaryColorVariant</item>
+        <item name="android:color">@color/onSecondary</item>
+    </style>
+
+
     <!-- Specific Styles for Buttons -->
     <style name="Button_Base">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <!-- <item name="android:background">@color/Button_Primary</item> -->
     </style>
 
     <style name="Button_Base.LinearLayout">
@@ -111,6 +120,12 @@
         <item name="android:layout_marginEnd">8dp</item>
     </style>
 
+    <style name="ImageButton">
+        <item name="tint">@color/white</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
 
     <!-- Style for Layouts -->
     <!-- Style for the LinearLayout / Cards -->
@@ -120,6 +135,7 @@
         <item name="android:gravity">center</item>
         <item name="android:orientation">vertical</item>
         <item name="android:padding">7dp</item>
+        <item name="android:background">@color/onPrimary</item>
     </style>
 
     <style name="Table">

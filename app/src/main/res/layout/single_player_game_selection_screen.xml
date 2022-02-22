@@ -10,43 +10,28 @@
 
     <TextView
         android:id="@+id/textview_Singleplayer_Headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginRight="40dp"
-        android:text="@string/single_player"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        style="@style/TextView_Base.Headline.Linear"
+        android:text="@string/single_player" />
 
     <View
         android:id="@+id/view_Singleplayer_Underline"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        style="@style/View_Base.Underline_Linear"
         android:layout_marginBottom="40dp"
         android:background="#777676"/>
 
     <Button
         android:id="@+id/button_Singleplayer_Screen_NG"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
+        style="@style/Button_Base.LinearLayout"
         android:text="@string/new_normal_game" />
 
     <Button
         android:id="@+id/button_Singleplayer_Screen_SG"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
+        style="@style/Button_Base.LinearLayout"
         android:text="@string/new_short_game" />
 
     <Button
         android:id="@+id/button_Singleplayer_Screen_Resume"
-        android:layout_width="210dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
+        style="@style/Button_Base.LinearLayout"
         android:text="@string/resume_game" />
 
 </LinearLayout>

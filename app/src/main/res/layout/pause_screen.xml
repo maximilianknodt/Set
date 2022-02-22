@@ -55,8 +55,6 @@
     <View
         android:id="@+id/view_Pausee_Screen_Underline"
         style="@style/View_Base.Underline_Constraint"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout_Pausee_Screen_DefaultGameInfo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,13 +74,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <ImageButton
         android:id="@+id/imageButton_Pause_Screen_Play"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
+        style="@style/ImageButton"
+        android:background="@drawable/imagebutton"
         android:contentDescription="@string/resume_game"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Right"
         app:layout_constraintTop_toTopOf="@+id/guideline_Pause_Screen_Top"

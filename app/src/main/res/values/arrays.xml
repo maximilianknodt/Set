@@ -1,6 +1,7 @@
 <resources>
     <!-- @author Maximilian Knodt -->
     <!-- Reply Preference -->
+    <!-- Language -->
     <string-array name="language_entries">
         <item>@string/english</item>
         <item>@string/german</item>
@@ -11,7 +12,7 @@
         <item>@string/german_value</item>
     </string-array>
 
-
+    <!-- Timer -->
     <string-array name="timer_entries">
         <item>@string/five</item>
         <item>@string/ten</item>
@@ -26,6 +27,7 @@
         <item>@string/twenty</item>
     </string-array>
 
+    <!-- Dark Mode -->
     <string-array name="mode_entries">
         <item>@string/dark_mode_default</item>
         <item>@string/dark_mode_on</item>

@@ -53,8 +53,7 @@
 
     <Button
         android:id="@+id/button_Players_Screen_add_player"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button_Base"
         android:text="@string/add_player"
         app:layout_constraintBottom_toTopOf="@+id/button_Players_Screen_start_game"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
@@ -63,8 +62,7 @@
 
     <Button
         android:id="@+id/button_Players_Screen_remove_player"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button_Base"
         android:text="@string/remove_player"
         app:layout_constraintBottom_toTopOf="@+id/button_Players_Screen_add_player"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
@@ -73,8 +71,7 @@
 
     <Button
         android:id="@+id/button_Players_Screen_start_game"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/Button_Base"
         android:text="@string/start_game"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Players_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Right"
@@ -84,7 +81,7 @@
         android:id="@+id/players_scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_Players_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Players_Screen_Buttondivider2"
         app:layout_constraintStart_toStartOf="@+id/guideline_Players_Screen_Left"
@@ -108,8 +105,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_input_player_name"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            style="@style/TextInput"
             android:hint="@string/player_name"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>

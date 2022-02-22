@@ -11,9 +11,8 @@
 
     <ImageButton
         android:id="@+id/imageButton_End_Screen_Share"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
+        style="@style/ImageButton"
+        android:background="@drawable/imagebutton"
         android:contentDescription="@string/resume_game"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Game_End_Right"
         app:layout_constraintTop_toTopOf="@+id/guideline_Game_End_Top"
@@ -52,14 +51,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Textdivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_Game_End_Textdivider_Left"
