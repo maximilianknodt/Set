@@ -1,6 +1,5 @@
 package edu.hsos.set.controller;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -23,8 +22,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
      *
      * @author Maximilian Knodt
      *
-     * @param savedInstanceState
-     * @param rootKey
+     * @param savedInstanceState Bundle with saved data
+     * @param rootKey Key of the preference, can be null
      */
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

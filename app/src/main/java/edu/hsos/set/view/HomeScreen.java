@@ -40,11 +40,10 @@ public class HomeScreen extends AppCompatActivity {
         SettingsScreen screen = new SettingsScreen();
         screen.changeMode(SettingsFragment.getDarkMode());
 
-        // Searching in Ressources for the IDs
+        // Searching in Resources for the IDs
         Button btnSP = this.findViewById(R.id.button_Start_Screen_SPG);
         Button btnMP = this.findViewById(R.id.button_Start_Screen_MPG);
         Button btnSettings = this.findViewById(R.id.button_Start_Screen_Settings);
-        Button btnScore = this.findViewById(R.id.button_Start_Screen_Highscore);
 
         // -------- SINGLEPLAYER --------
         btnSP.setOnClickListener(v -> {
@@ -67,13 +66,6 @@ public class HomeScreen extends AppCompatActivity {
             intentSettings.setClass(this, SettingsScreen.class);
             startActivity(intentSettings);
         });
-
-        // -------- HIGHSCORE --------
-        btnScore.setOnClickListener(v -> {
-            Intent intentScore = new Intent();
-            intentScore.setClass(this, SettingsScreen.class);       //TODO: Klasse Highscore + die entsprechende .xml Datei erzeugen
-            startActivity(intentScore);
-        });
     }
 
     /**
@@ -93,12 +85,12 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     /**
-     * Method to set a new context as Base
+     * Wraps the new generate context into the original
      * With a new start of the application the language will be changed
      *
      * @author Maximilian Knodt
      *
-     * @param newBase Context
+     * @param newBase original Context
      */
     @Override
     protected void attachBaseContext(Context newBase){

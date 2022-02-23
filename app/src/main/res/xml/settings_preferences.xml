@@ -2,16 +2,6 @@
 
     <!-- @author Maximilian Knodt -->
 
-    <PreferenceCategory app:title="@string/language">
-        <ListPreference
-            app:key="Settings_Preferences_Language"
-            app:title="@string/language_selection"
-            app:defaultValue="english"
-            app:entries="@array/language_entries"
-            app:entryValues="@array/language_values"
-            app:useSimpleSummaryProvider="true" />
-    </PreferenceCategory>
-
     <PreferenceCategory app:title="@string/rulesSP">
         <SwitchPreferenceCompat
             app:key="Settings_Preferences_SP_Deduction"
@@ -49,6 +39,16 @@
             app:defaultValue="@string/string_default"
             app:entries="@array/mode_entries"
             app:entryValues="@array/mode_values"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/language">
+        <ListPreference
+            app:key="Settings_Preferences_Language"
+            app:title="@string/language_selection"
+            app:defaultValue="@string/english"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 

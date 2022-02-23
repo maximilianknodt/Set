@@ -32,8 +32,8 @@
     <string name="deduction_off">Kein Punkt abzug bei falschem Set</string>
     <string name="suspension_off">Kein Aussetzten bis der nächste Spieler Set drückt</string>
     <string name="theme">Darstellung</string>
-    <string name="dark_mode_off">Dunkle Darstellung aus</string>
-    <string name="dark_mode_on">Dunkle Darstellung an</string>
+    <string name="light_mode_on">Helle Darstellung</string>
+    <string name="dark_mode_on">Dunkle Darstellung</string>
     <string name="language_selection">Sprachauswahl</string>
     <string name="english">Englisch</string>
     <string name="german">Deutsch</string>

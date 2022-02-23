@@ -32,9 +32,4 @@
         android:text="@string/settings"
         style="@style/Button_Base.LinearLayout" />
 
-    <Button
-        android:id="@+id/button_Start_Screen_Highscore"
-        android:text="@string/highscore"
-        style="@style/Button_Base.LinearLayout" />
-
 </LinearLayout>

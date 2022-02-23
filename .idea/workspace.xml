@@ -14,24 +14,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Dark Mode funktionsfaehig&#10;Spracheaenderung bei Neustart moeglich">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/imagebutton.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/playerselection.xml" afterDir="false" />
+    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Farben angepasst&#10;Styles fuer Spielerauswahl erstellt">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerPlayersScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerPlayersScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/multi_player_players_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/multi_player_players_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/single_player_game_selection_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/single_player_game_selection_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/controller/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/controller/SettingsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/HomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/LocalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/LocalManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SettingsScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/start_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/start_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/style.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/style.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -342,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645447700694</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Farben angepasst&#10;Styles fuer Spielerauswahl erstellt">
+      <created>1645530058053</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1645530058053</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +408,8 @@
     <MESSAGE value="Darkmode Anpassungen" />
     <MESSAGE value="Darkmode Anpassungen erneut" />
     <MESSAGE value="Dark Mode funktionsfaehig&#10;Spracheaenderung bei Neustart moeglich" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dark Mode funktionsfaehig&#10;Spracheaenderung bei Neustart moeglich" />
+    <MESSAGE value="Farben angepasst&#10;Styles fuer Spielerauswahl erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Farben angepasst&#10;Styles fuer Spielerauswahl erstellt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

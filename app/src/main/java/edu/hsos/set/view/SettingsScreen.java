@@ -12,6 +12,9 @@ import androidx.preference.PreferenceManager;
 import com.example.set.R;
 import edu.hsos.set.controller.SettingsFragment;
 
+//Quelle: https://developer.android.com/guide/topics/ui/settings
+//Quelle: https://stackoverflow.com/questions/2542938/sharedpreferences-onsharedpreferencechangelistener-not-being-called-consistently
+
 /**
  * Class for the Settings Screen to load the SettingsFragment
  *
@@ -19,14 +22,14 @@ import edu.hsos.set.controller.SettingsFragment;
  */
 public class SettingsScreen extends AppCompatActivity{
     /**
-     * the lister as static field to keep the SharedPreference and avoid the garbage collection
+     * the listener as static field to keep the SharedPreference and avoid the garbage collection
      */
     private static SharedPreferences.OnSharedPreferenceChangeListener preferenceListener;
 
     /**
      * the method called when the screen is called
      *
-     * @param savedInstanceState
+     * @param savedInstanceState Bundle with saved data
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class SettingsScreen extends AppCompatActivity{
 
     /**
      * Method to change the Mode of the App
-     * It is called when the Dark Mode option in the Settingsscreen is changed
+     * It is called when the Dark Mode option in the SettingsScreen is changed
      */
     protected void changeMode(String mode){
         switch(mode){

@@ -9,19 +9,29 @@ import android.preference.PreferenceManager;
 
 import java.util.Locale;
 
+//Quelle: https://www.geeksforgeeks.org/how-to-change-the-whole-app-language-in-android-programmatically/
+
 public class LocalManager {
+    /**
+     * Variable to hold the language
+     */
     private static final String SELECTED_LANGUAGE = "LocaleManager_Selected_Language";
 
     /**
+     * Constructor - private
+     */
+    private LocalManager(){}
+
+    /**
      * Method to update the language of the device at runtime
-     * it distinguishs between Version higher or lower Nougat
+     * it distinguishes between Version higher or lower Nougat
      *
-     * @param context
+     * @param context Context to set the new language to
      * @param language the language to change the device to
-     * @return
+     * @return Context
      */
     public static  Context setLocale(Context context, String language){
-        persist(context, language);
+        savePersist(context, language);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             return updateResourcesNHigher(context, language);
@@ -29,7 +39,13 @@ public class LocalManager {
         return updateResourcesNLower(context, language);
     }
 
-    private static void persist(Context context, String language){
+    /**
+     * Saves the language, writes it to the SharedPreferences
+     *
+     * @param context Context to set the new language to
+     * @param language the language to change the device to
+     */
+    private static void savePersist(Context context, String language){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(SELECTED_LANGUAGE, language);
@@ -39,20 +55,16 @@ public class LocalManager {
     /**
      * Method to update the language for devices with OS above android nougat
      *
-     * @param context
+     * @param context Context to set the new language to
      * @param language the language to change the device to
-     * @return
+     * @return Context
      */
     private static Context updateResourcesNHigher(Context context, String language){
-        // Locale is the Object to format languages or numbers to a specific region of the world
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
-        //Configuration describes all device information -> need to be changed when language is changed
         Configuration config = context.getResources().getConfiguration();
         config.setLocale(locale);
-        // Sets the Layout RTL or LTR depending on the locale
-        config.setLayoutDirection(locale);
 
         return context.createConfigurationContext(config);
     }
@@ -61,9 +73,9 @@ public class LocalManager {
      * Method to update the language for devices with OS lower android nougat
      * That is the reason of the use of deprecated hits and the SuppressionWarning
      *
-     * @param context
+     * @param context Context to set the new language to
      * @param language the language to change the device to
-     * @return
+     * @return Context
      */
     @SuppressWarnings("deprecation")
     private static Context updateResourcesNLower(Context context, String language){
