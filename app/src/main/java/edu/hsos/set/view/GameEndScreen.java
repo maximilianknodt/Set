@@ -163,7 +163,7 @@ public class GameEndScreen extends AppCompatActivity {
         btnMenu.setOnClickListener(v -> {
             Intent intentStart = new Intent();
             intentStart.setClass(this, HomeScreen.class);
-            intentStart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intentStart.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intentStart);
             finish();
         });
@@ -207,17 +207,17 @@ public class GameEndScreen extends AppCompatActivity {
      * @author Linus Kurze
      */
     private String mergeStringLists(String list1, String list2) {
-        String result = "";
-        String list1Array[] = list1.split("\\n");
-        String list2Array[] = list2.split("\\n");
+        StringBuilder result = new StringBuilder();
+        String[] list1Array = list1.split("\\n");
+        String[] list2Array = list2.split("\\n");
         if(list1Array.length != list2Array.length) {
-            return result;
+            return result.toString();
         }
 
         for(int i = 0; i < list1Array.length; i++) {
-            result += list1Array[i] + " " + list2Array[i] + "\n";
+            result.append(list1Array[i]).append(" ").append(list2Array[i]).append("\n");
         }
 
-        return result;
+        return result.toString();
     }
 }

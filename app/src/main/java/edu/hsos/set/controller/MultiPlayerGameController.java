@@ -1,7 +1,6 @@
 package edu.hsos.set.controller;
 
 import edu.hsos.set.model.MultiPlayerGame;
-import edu.hsos.set.model.MultiPlayerRules;
 import edu.hsos.set.model.Player;
 import edu.hsos.set.view.MultiPlayerGameScreen;
 
@@ -67,7 +66,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     protected void gameOver() {
-        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules) game.getRules()).isPlayerSuspension(), getLeaders());
+        ((MultiPlayerGameScreen) gameScreen).gameOver(game.isShortGame(), getPlayerPoints(), game.getDuration(), game.getStartTime(), ((MultiPlayerGame) game).getMultiPlayerRules().isPlayerDeduction(), ((MultiPlayerGame) game).getMultiPlayerRules().isMultiPlayerSuspension(), getLeaders());
         super.gameOver();
     }
 
@@ -102,7 +101,7 @@ public class MultiPlayerGameController extends GameController {
      */
     @Override
     public void pauseScreen() {
-        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), game.getRules().isPlayerDeduction(), ((MultiPlayerRules) game.getRules()).isPlayerSuspension());
+        ((MultiPlayerGameScreen) gameScreen).openPause(game.isShortGame(), getPlayerPoints(), game.getCardsLeft(), game.getDuration(), game.getStartTime(), ((MultiPlayerGame) game).getMultiPlayerRules().isPlayerDeduction(), ((MultiPlayerGame) game).getMultiPlayerRules().isMultiPlayerSuspension());
     }
 
     /**

@@ -2,13 +2,13 @@ package edu.hsos.set.controller;
 
 import android.content.Context;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import edu.hsos.set.model.Game;
 import edu.hsos.set.model.MultiPlayerRules;
 import edu.hsos.set.model.Rules;
 import edu.hsos.set.view.GameScreen;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * The game controller class
@@ -187,7 +187,7 @@ public abstract class GameController {
      *
      * @return the current multi player rules
      */
-    protected Rules getCurrentMultiPlayerRules() {
+    protected MultiPlayerRules getCurrentMultiPlayerRules() {
         return new MultiPlayerRules(SettingsFragment.getMPDeduction(), SettingsFragment.getSuspended(), SettingsFragment.getTimer());
     }
 

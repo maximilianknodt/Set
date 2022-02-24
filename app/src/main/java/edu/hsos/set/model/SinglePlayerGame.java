@@ -1,5 +1,6 @@
 package edu.hsos.set.model;
 
+import androidx.room.Embedded;
 import androidx.room.Entity;
 
 /**
@@ -19,13 +20,19 @@ public class SinglePlayerGame extends Game {
     private int setAmount;
 
     /**
+     * the single player rules for the game (not held by the superclass because it creates problems with room)
+     */
+    @Embedded
+    private Rules rules;
+    /**
      * Constructor
      * Calls super constructor with as parameter given rules. Initializes the amount of sets the player found with zero.
      *
      * @param rules the rules for the game
      */
     public SinglePlayerGame(Rules rules, boolean shortGame) {
-        super(rules, shortGame);
+        super(shortGame);
+        this.rules = rules;
         setAmount = 0;
     }
 
@@ -92,5 +99,15 @@ public class SinglePlayerGame extends Game {
      */
     public void setSetAmount(int setAmount) {
         this.setAmount = setAmount;
+    }
+
+    /**
+     * Getter
+     * Returns the rules of the game.
+     *
+     * @return the rules of the game
+     */
+    public Rules getRules() {
+        return rules;
     }
 }

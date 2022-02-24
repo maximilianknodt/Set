@@ -19,11 +19,6 @@ import java.util.concurrent.TimeUnit;
 @Entity
 public abstract class Game {
     /**
-     * the rules for the game
-     */
-    @Embedded
-    protected final Rules rules;
-    /**
      * the table for the game
      */
     @Embedded
@@ -48,13 +43,11 @@ public abstract class Game {
 
     /**
      * Constructor
-     * Creates a game with as parameter given rules. Creates a table for the game.
+     * Creates a game. Creates a table for the game.
      *
-     * @param rules     the rules for the game
      * @param shortGame if the game is a short game
      */
-    Game(Rules rules, boolean shortGame) {
-        this.rules = rules.clone();
+    Game(boolean shortGame) {
         this.table = new Table(shortGame);
         this.shortGame = shortGame;
     }
@@ -375,16 +368,6 @@ public abstract class Game {
      */
     public int getCardsLeft() {
         return table.getStackSize();
-    }
-
-    /**
-     * Getter
-     * Returns the rules of the game.
-     *
-     * @return the rules of the game
-     */
-    public Rules getRules() {
-        return rules;
     }
 
     /**
