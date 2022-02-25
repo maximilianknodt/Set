@@ -1,5 +1,6 @@
 package edu.hsos.set.model;
 
+import androidx.room.Embedded;
 import androidx.room.Entity;
 
 /**
@@ -16,7 +17,13 @@ public class MultiPlayerGame extends Game {
     /**
      * players playing in the game
      */
-    private final Player[] players;
+    private Player[] players;
+
+    /**
+     * the multi player rules for the game (not held by the superclass because it creates problems with room)
+     */
+    @Embedded
+    private MultiPlayerRules multiPlayerRules;
 
     /**
      * the time a player has pressed set or the time resumed
@@ -32,11 +39,13 @@ public class MultiPlayerGame extends Game {
      * Constructor
      * Calls super constructor with as parameter given rules. Initializes the players with the as parameter given ones.
      *
-     * @param players players playing in the game
-     * @param rules   the rules for the game
+     * @param players          players playing in the game
+     * @param multiPlayerRules the rules for the game
+     * @param shortGame        if the game should be a short game
      */
-    public MultiPlayerGame(Player[] players, Rules rules, boolean shortGame) {
-        super(rules, shortGame);
+    public MultiPlayerGame(Player[] players, MultiPlayerRules multiPlayerRules, boolean shortGame) {
+        super(shortGame);
+        this.multiPlayerRules = multiPlayerRules.clone();
         this.players = players;
     }
 
@@ -130,10 +139,10 @@ public class MultiPlayerGame extends Game {
      * @param player the player getting punished
      */
     public void punishPlayer(Player player) {
-        if (rules.isPlayerDeduction()) {
+        if (multiPlayerRules.isPlayerDeduction()) {
             player.decreaseSetAmount();
         }
-        if (((MultiPlayerRules) rules).isPlayerSuspension()) {
+        if (multiPlayerRules.isMultiPlayerSuspension()) {
             player.startSuspension();
         }
     }
@@ -145,7 +154,7 @@ public class MultiPlayerGame extends Game {
      * @return the time a player has left to select a set in seconds
      */
     public long getTakeSetTimeLeft() {
-        return ((MultiPlayerRules) rules).getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
+        return multiPlayerRules.getMultiPlayerSetTime() - getTakeSetDuration() / 1000;
     }
 
     /**
@@ -189,16 +198,6 @@ public class MultiPlayerGame extends Game {
     }
 
     /**
-     * Setter
-     * Sets the time a player has pressed set or the time resumed.
-     *
-     * @param takeSetTimeStart the time a player has pressed set or the time resumed
-     */
-    public void setTakeSetTimeStart(long takeSetTimeStart) {
-        this.takeSetTimeStart = takeSetTimeStart;
-    }
-
-    /**
      * Getter
      * Returns the time passed a player has pressed set before paused.
      *
@@ -206,6 +205,26 @@ public class MultiPlayerGame extends Game {
      */
     public long getTakeSetTimeBeforePaused() {
         return takeSetTimeBeforePaused;
+    }
+
+    /**
+     * Getter
+     * Returns the multi player rules of the game
+     *
+     * @return the multi player rules of the game
+     */
+    public MultiPlayerRules getMultiPlayerRules() {
+        return multiPlayerRules;
+    }
+
+    /**
+     * Setter
+     * Sets the time a player has pressed set or the time resumed.
+     *
+     * @param takeSetTimeStart the time a player has pressed set or the time resumed
+     */
+    public void setTakeSetTimeStart(long takeSetTimeStart) {
+        this.takeSetTimeStart = takeSetTimeStart;
     }
 
     /**

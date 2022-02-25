@@ -43,7 +43,7 @@ public class MultiPlayerRules extends Rules {
      * @return the cloned rule object
      */
     @NonNull
-    public Rules clone() {
+    public MultiPlayerRules clone() {
         return new MultiPlayerRules(this.isPlayerDeduction(), this.multiPlayerSuspension, this.multiPlayerSetTime);
     }
 
@@ -53,7 +53,7 @@ public class MultiPlayerRules extends Rules {
      *
      * @return if wrong set in multi player mode should lead to exposure
      */
-    public boolean isPlayerSuspension() {
+    public boolean isMultiPlayerSuspension() {
         return multiPlayerSuspension;
     }
 
