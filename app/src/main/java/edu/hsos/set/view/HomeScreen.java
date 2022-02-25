@@ -76,7 +76,7 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (lastPressedBackTime + 2000 > System.currentTimeMillis()) {
-            super.onBackPressed();
+            finishAffinity();
         } else {
             Toast.makeText(getBaseContext(), R.string.press_back_again, Toast.LENGTH_SHORT).show();
         }
