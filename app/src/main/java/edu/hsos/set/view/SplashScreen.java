@@ -22,6 +22,7 @@ import edu.hsos.set.controller.AppController;
  * <p>
  * the author is responsible for this class
  *
+ * @author Maximilian Knodt
  * @author Linus Kurze
  */
 public class SplashScreen extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Void> {

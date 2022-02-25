@@ -24,6 +24,7 @@ import edu.hsos.set.model.Color;
  * Players screen class
  * Implements the players screen where the user can adjust the players for the multiplayer
  *
+ * @author Maximilian Knodt
  * @author Linus Kurze
  */
 public class MultiPlayerPlayersScreen extends AppCompatActivity {

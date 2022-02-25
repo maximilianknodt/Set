@@ -19,6 +19,7 @@ import edu.hsos.set.controller.SettingsFragment;
  * <p>
  * The author is responsible for this class.
  *
+ * @author Maximilian Knodt
  * @author Linus Kurze
  * @version 1.0
  */

@@ -166,7 +166,7 @@
 
             <TextView
                 android:id="@+id/textView_Game_End_Screen_Rules_Body"
-                style="@style/TextView_Base.TableRow.Normal"
+                style="@style/TextView_Base.TableRow.Special.Body"
                 android:text="TextView" />
         </TableRow>
     </TableLayout>
@@ -209,11 +209,11 @@
 
             <TextView
                 android:id="@+id/textView_Game_End_Screen_Points_List_Header"
-                style="@style/TextView_Base.TableRow" />
+                style="@style/TextView_Base.TableRow.Special" />
 
             <TextView
                 android:id="@+id/textView_Game_End_Screen_Points_List_Body"
-                style="@style/TextView_Base.TableRow.Normal" />
+                style="@style/TextView_Base.TableRow.Special.Body" />
         </TableRow>
     </TableLayout>
 

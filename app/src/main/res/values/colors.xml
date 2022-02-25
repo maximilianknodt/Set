@@ -10,13 +10,13 @@
 
     <!-- @author Maximilian Knodt-->
     <!-- Colors for the Dark Mode -->
-    <color name="onSecondary">#FF2B2B2B</color>
-    <color name="onPrimary">#FFF2F2F2</color>
+    <color name="onSecondary">#FF212121</color>
+    <color name="onPrimary">#FFFDFDFD</color>
     <color name="primaryColor">#FFC25400</color>
     <color name="primaryColorVariant">#FFE0A02C</color>
     <color name="primaryColorVariantTwo">#FFECC780</color>
-    <color name="secondaryColor">#FF118de2</color>
-    <color name="secondaryColorVariant">#FFb8dbf5</color>
+    <color name="secondaryColor">#FF118DE2</color>
+    <color name="secondaryColorVariant">#FFB8DBF5</color>
     <color name="Underline">#FF6D6D6D</color>
 
     <!-- @author Linus Kurze-->

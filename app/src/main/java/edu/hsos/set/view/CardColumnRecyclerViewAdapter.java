@@ -34,6 +34,7 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
 
     /**
      * Constructor CardColumnRecyclerViewAdapter
+     *
      * @param context
      * @param gameScreen
      * @param cards int Array with Values for the Cards
@@ -47,9 +48,9 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     /**
      * Creates a new View for every Card Column
      *
-     * @param viewGroup
-     * @param viewType
-     * @return
+     * @param viewGroup Group to be added afterwards (the RecyclerView)
+     * @param viewType Type of the new view
+     * @return not yet filled ViewHolder object
      */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
@@ -58,9 +59,10 @@ public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColu
     }
 
     /**
+     * Callbackmethod to create one Viewholder for every position
      *
-     * @param holder
-     * @param position
+     * @param holder ViewHolder object to be filled
+     * @param position Position of the array
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position){

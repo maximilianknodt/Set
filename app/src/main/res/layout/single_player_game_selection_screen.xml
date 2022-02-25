@@ -16,8 +16,7 @@
     <View
         android:id="@+id/view_Singleplayer_Underline"
         style="@style/View_Base.Underline_Linear"
-        android:layout_marginBottom="40dp"
-        android:background="#777676"/>
+        android:layout_marginBottom="40dp" />
 
     <Button
         android:id="@+id/button_Singleplayer_Screen_NG"

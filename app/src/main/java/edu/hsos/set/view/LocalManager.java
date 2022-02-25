@@ -11,6 +11,12 @@ import java.util.Locale;
 
 //Quelle: https://www.geeksforgeeks.org/how-to-change-the-whole-app-language-in-android-programmatically/
 
+/**
+ * Class with primary function to change the language of the application
+ *
+ * @author Maximilian Knodt
+ */
+
 public class LocalManager {
     /**
      * Variable to hold the language
