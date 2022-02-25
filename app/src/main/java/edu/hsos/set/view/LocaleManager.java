@@ -17,7 +17,7 @@ import java.util.Locale;
  * @author Maximilian Knodt
  */
 
-public class LocalManager {
+public class LocaleManager {
     /**
      * Variable to hold the language
      */
@@ -26,10 +26,10 @@ public class LocalManager {
     /**
      * Constructor - private
      */
-    private LocalManager(){}
+    private LocaleManager(){}
 
     /**
-     * Method to update the language of the device at runtime
+     * Method to update the language of the device
      * it distinguishes between Version higher or lower Nougat
      *
      * @param context Context to set the new language to

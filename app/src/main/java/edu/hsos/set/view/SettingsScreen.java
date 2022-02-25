@@ -45,8 +45,12 @@ public class SettingsScreen extends AppCompatActivity{
 
         preferenceListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                if(key.equals("Settings_Preferences_Dark_Mode")) changeMode(SettingsFragment.getDarkMode());
-                if(key.equals("Settings_Preferences_Language")) Toast.makeText(SettingsScreen.this, R.string.language_changed, Toast.LENGTH_SHORT).show();
+                if(key.equals("Settings_Preferences_Dark_Mode")){
+                    changeMode(SettingsFragment.getDarkMode());
+                }
+                if(key.equals("Settings_Preferences_Language")){
+                    Toast.makeText(SettingsScreen.this, R.string.language_changed, Toast.LENGTH_SHORT).show();
+                }
             }
         };
 

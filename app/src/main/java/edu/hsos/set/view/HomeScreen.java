@@ -94,6 +94,6 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase){
         SettingsFragment.setSharedPreferences(PreferenceManager.getDefaultSharedPreferences(newBase));
-        super.attachBaseContext(LocalManager.setLocale(newBase, SettingsFragment.getLanguage()));
+        super.attachBaseContext(LocaleManager.setLocale(newBase, SettingsFragment.getLanguage()));
     }
 }
