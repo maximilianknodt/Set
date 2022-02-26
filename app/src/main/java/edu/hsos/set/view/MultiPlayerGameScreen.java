@@ -169,6 +169,7 @@ public class MultiPlayerGameScreen extends GameScreen {
         String[] names = ((MultiPlayerGameController) gameController).getPlayerNames();
         for (int i = 0; i < names.length; i++) {
             Button button = new Button(this);
+            button.setBackgroundResource(R.drawable.playerselection);
             button.setText(names[i]);
             playersLayout.addView(button, buttonLayoutParams);
             final int finalI = i;

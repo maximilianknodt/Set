@@ -35,6 +35,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     /**
      * Method to set the SharedPreference
      *
+     * @author Maximilian Knodt
+     *
      * @param sp SharedPreference
      */
     public static void setSharedPreferences(SharedPreferences sp){
@@ -43,6 +45,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     /**
      * Method to get the SharedPreference
+     *
+     * @author Maximilian Knodt
      *
      * @return SharedPreference
      */
@@ -53,6 +57,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     /**
      * Method to get the string value of the language list of the SharedPreference
      *
+     * @author Maximilian Knodt
+     *
      * @return String - language code
      */
     public static String getLanguage(){
@@ -61,6 +67,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     /**
      * Method to get the boolean value the single player deduction state of the SharedPreference
+     *
+     * @author Maximilian Knodt
      *
      * @return boolean - true if deduction is active
      */
@@ -71,6 +79,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     /**
      * Method to get the boolean value the multiplayer deduction state of the SharedPreference
      *
+     * @author Maximilian Knodt
+     *
      * @return boolean - true if deduction is active
      */
     public static boolean getMPDeduction(){
@@ -79,6 +89,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     /**
      * Method to get the boolean value the suspended state of the SharedPreference
+     *
+     * @author Maximilian Knodt
      *
      * @return boolean - true if suspended
      */
@@ -90,6 +102,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
      * Method to get the String value of the timer state of the SharedPreference
      * It converts the String to int
      *
+     * @author Maximilian Knodt
+     *
      * @return int - array value
      */
     public static int getTimer(){
@@ -99,6 +113,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     /**
      * Method to get the array value of the dark mode state of the SharedPreference
+     *
+     * @author Maximilian Knodt
      *
      * @return String - array value
      */
