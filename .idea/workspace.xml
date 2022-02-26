@@ -14,39 +14,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Kleine Aenderungen">
+    <list default="true" id="769b30b5-7706-4ea0-906d-2b7a866494fb" name="Default Changelist" comment="Verantwortung hinzugeüfgt und obsolete Klasse entfernt">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/controller/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/controller/SettingsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/CardColumnRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/CardColumnRecyclerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/GameEndScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/GameEndScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/HomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/HomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/LocaleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/LocaleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerGameSelectionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerGameSelectionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerPlayersScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/MultiPlayerPlayersScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/PauseScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/PauseScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SettingsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SinglePlayerGameSelectionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/hsos/set/view/SinglePlayerGameSelectionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/imagebutton.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/imagebutton.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/playerselection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/playerselection.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_end_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/game_screen_card_column.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/game_screen_card_column.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/multi_player_players_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/multi_player_players_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pause_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/settings_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/settings_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/single_player_game_selection_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/single_player_game_selection_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/start_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/start_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/style.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/style.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/settings_preferences.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -384,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645803318579</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Verantwortung hinzugeüfgt und obsolete Klasse entfernt">
+      <created>1645912169347</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1645912169347</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -453,7 +435,8 @@
     <MESSAGE value="Highscore Button geloescht&#10;Kommentare im Code angepasst" />
     <MESSAGE value="Codekommentare angepasst&#10;Text im Pause und End Screen nicht mehr abgeschnitten" />
     <MESSAGE value="Kleine Aenderungen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kleine Aenderungen" />
+    <MESSAGE value="Verantwortung hinzugeüfgt und obsolete Klasse entfernt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verantwortung hinzugeüfgt und obsolete Klasse entfernt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

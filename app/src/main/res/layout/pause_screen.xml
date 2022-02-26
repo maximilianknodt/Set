@@ -57,7 +57,7 @@
         android:id="@+id/view_Pausee_Screen_Underline"
         style="@style/View_Base.Underline_Constraint"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout_Pausee_Screen_DefaultGameInfo"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton_Pause_Screen_Play"
         app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Left"
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.68" />
 
     <ImageButton
         android:id="@+id/imageButton_Pause_Screen_Play"
@@ -102,125 +102,134 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Buttondivider" />
 
-    <TableLayout
-        android:id="@+id/tableLayout_Pausee_Screen_DefaultGameInfo"
-        style="@style/Table"
-
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_Pause_Screen_Bottom"
         app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Right"
         app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Left"
-        app:layout_constraintTop_toBottomOf="@+id/view_Pausee_Screen_Underline">
+        app:layout_constraintTop_toBottomOf="@+id/textview_Pause_Screen_Headline">
 
-        <TableRow style="@style/Table_Row">
+        <TableLayout
+            android:id="@+id/tableLayout_Pausee_Screen_DefaultGameInfo"
+            style="@style/Table"
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Game_Mode_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/game_mode" />
+            app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Left"
+            app:layout_constraintTop_toBottomOf="@+id/view_Pausee_Screen_Underline">
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Game_Mode_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="@string/game_mode" />
-        </TableRow>
+            <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Time_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/duration" />
 
-        <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Time_Body"
+                    style="@style/TextView_Base.TableRow.Normal"
+                    android:text="@string/zero_timer" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Game_Type_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/game_type" />
+            <TableRow style="@style/Table_Row">
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Game_Type_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="Game Type" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Cards_Left_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/cards_left" />
 
-        <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Cards_Left_Body"
+                    style="@style/TextView_Base.TableRow.Normal"
+                    android:text="@string/zero" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Start_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/game_start" />
+            <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Points_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/points" />
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Start_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="00.00.2022" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Points_Body"
+                    style="@style/TextView_Base.TableRow.Normal" />
+            </TableRow>
 
-        <TableRow style="@style/Table_Row">
+            <TableRow
+                style="@style/Table_Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Rules_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/rules" />
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Points_List_Header"
+                    style="@style/TextView_Base.TableRow.Special" />
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Rules_Body"
-                style="@style/TextView_Base.TableRow.Special.Body"
-                android:text="TextView" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Points_List_Body"
+                    style="@style/TextView_Base.TableRow.Special.Body" />
+            </TableRow>
 
-    <TableLayout
-        android:id="@+id/tableLayout_End_Screen_SpecificMatchInfo"
-        style="@style/Table"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_Pause_Screen_Buttondivider"
-        app:layout_constraintStart_toStartOf="@+id/guideline_Pause_Screen_Textdivider_Right"
-        app:layout_constraintTop_toBottomOf="@+id/view_Pausee_Screen_Underline">
+            <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Rules_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/rules" />
 
-        <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Rules_Body"
+                    style="@style/TextView_Base.TableRow.Special.Body"
+                    android:text="" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Time_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/duration" />
+            <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Game_Mode_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/game_mode" />
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Time_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="@string/zero_timer" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Game_Mode_Body"
+                    style="@style/TextView_Base.TableRow.Normal"
+                    android:text="" />
+            </TableRow>
 
-        <TableRow style="@style/Table_Row">
+            <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Game_Type_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/game_type" />
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Cards_Left_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/cards_left" />
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Game_Type_Body"
+                    style="@style/TextView_Base.TableRow.Normal"
+                    android:text="" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Cards_Left_Body"
-                style="@style/TextView_Base.TableRow.Normal"
-                android:text="@string/zero" />
-        </TableRow>
+            <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Start_Header"
+                    style="@style/TextView_Base.TableRow"
+                    android:text="@string/game_start" />
 
-        <TableRow style="@style/Table_Row">
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Start_Body"
+                    style="@style/TextView_Base.TableRow.Normal"
+                    android:text="" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Points_Header"
-                style="@style/TextView_Base.TableRow"
-                android:text="@string/points" />
+            <TableRow
+                style="@style/Table_Row"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Points_Body"
-                style="@style/TextView_Base.TableRow.Normal" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Header_Border"
+                    style="@style/TextView_Base.TableRow.Special" />
 
-        <TableRow
-            style="@style/Table_Row"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Points_List_Header"
-                style="@style/TextView_Base.TableRow.Special" />
-
-            <TextView
-                android:id="@+id/textView_Pause_Screen_Points_List_Body"
-                style="@style/TextView_Base.TableRow.Special.Body" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/textView_Pause_Screen_Body_Border"
+                    style="@style/TextView_Base.TableRow.Special.Body" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
