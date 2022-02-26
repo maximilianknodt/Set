@@ -71,6 +71,8 @@ public class HomeScreen extends AppCompatActivity {
     /**
      * Method called when back button is pressed.
      *
+     * the author is responsible for this method.
+     *
      * @author Linus Kurze
      */
     @Override
