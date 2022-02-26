@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- @author Maximilian Knodt-->
+    <!-- @author Maximilian Knodt - responsible for this data -->
 
     <TextView
         android:id="@+id/textview_Singleplayer_Headline"

@@ -14,7 +14,7 @@ import com.example.set.R;
  * Pause screen class
  * Implements the pause screen.
  *
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  * @author Linus Kurze
  */
 public class PauseScreen extends AppCompatActivity {

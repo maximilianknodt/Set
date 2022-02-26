@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- @author Maximilian Knodt -->
+    <!-- @author Maximilian Knodt - responsible for this data -->
 
     <!-- Base application theme. -->
     <style name="Theme.Set" parent="Theme.MaterialComponents.DayNight.NoActionBar">

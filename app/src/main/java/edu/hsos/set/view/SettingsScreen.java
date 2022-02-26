@@ -1,13 +1,11 @@
 package edu.hsos.set.view;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.preference.PreferenceManager;
 
 import com.example.set.R;
 import edu.hsos.set.controller.SettingsFragment;
@@ -18,7 +16,7 @@ import edu.hsos.set.controller.SettingsFragment;
 /**
  * Class for the Settings Screen to load the SettingsFragment
  *
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  */
 public class SettingsScreen extends AppCompatActivity{
     /**

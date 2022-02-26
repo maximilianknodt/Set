@@ -24,7 +24,7 @@ import edu.hsos.set.model.Shape;
 /**
  * The RecyclerViewAdapter for the Card Columns to display on the Game Screen
  *
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  */
 public class CardColumnRecyclerViewAdapter extends RecyclerView.Adapter<CardColumnRecyclerViewAdapter.ViewHolder>{
     // Contains the Data for the RecyclerView

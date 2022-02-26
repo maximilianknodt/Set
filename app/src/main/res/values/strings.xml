@@ -1,4 +1,5 @@
 <resources>
+    <!-- The author is responsible for this data -->
     <!-- @author Maximilian Knodt-->
     <string name="app_name">SET</string>
     <string name="single_player">Singleplayer</string>

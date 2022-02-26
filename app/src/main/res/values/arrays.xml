@@ -1,5 +1,5 @@
 <resources>
-    <!-- @author Maximilian Knodt -->
+    <!-- @author Maximilian Knodt - responsible for this data -->
     <!-- Reply Preference -->
     <!-- Language -->
     <string-array name="language_entries">

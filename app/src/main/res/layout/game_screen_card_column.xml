@@ -8,7 +8,7 @@
     android:layout_gravity="center_horizontal"
     android:layout_marginHorizontal="10dp">
 
-    <!-- @author Maximilian Knodt-->
+    <!-- @author Maximilian Knodt - responsible for this data -->
 
     <LinearLayout
         android:id="@+id/cardTop"

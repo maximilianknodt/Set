@@ -1,6 +1,6 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- @author Maximilian Knodt -->
+    <!-- @author Maximilian Knodt - responsible for this data -->
 
     <PreferenceCategory app:title="@string/rulesSP">
         <SwitchPreferenceCompat

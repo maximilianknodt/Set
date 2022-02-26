@@ -18,11 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.set.R;
 import com.google.android.material.textfield.TextInputEditText;
 
-import edu.hsos.set.model.Color;
-
 /**
  * Players screen class
  * Implements the players screen where the user can adjust the players for the multiplayer
+ *
+ * The author is responsible for this class.
  *
  * @author Maximilian Knodt
  * @author Linus Kurze

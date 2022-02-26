@@ -3,8 +3,6 @@ package edu.hsos.set.view;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
 import android.preference.PreferenceManager;
 
 import java.util.Locale;
@@ -14,7 +12,7 @@ import java.util.Locale;
 /**
  * Class with primary function to change the language of the application
  *
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  */
 
 public class LocaleManager {
@@ -38,11 +36,7 @@ public class LocaleManager {
      */
     public static  Context setLocale(Context context, String language){
         savePersist(context, language);
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-            return updateResourcesNHigher(context, language);
-        }
-        return updateResourcesNLower(context, language);
+        return updateResourcesNHigher(context, language);
     }
 
     /**
@@ -73,28 +67,5 @@ public class LocaleManager {
         config.setLocale(locale);
 
         return context.createConfigurationContext(config);
-    }
-
-    /**
-     * Method to update the language for devices with OS lower android nougat
-     * That is the reason of the use of deprecated hits and the SuppressionWarning
-     *
-     * @param context Context to set the new language to
-     * @param language the language to change the device to
-     * @return Context
-     */
-    @SuppressWarnings("deprecation")
-    private static Context updateResourcesNLower(Context context, String language){
-        Locale locale = new Locale(language);
-        Locale.setDefault(locale);
-
-        Resources resources = context.getResources();
-
-        Configuration config = resources.getConfiguration();
-        config.locale = locale;
-
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
-
-        return context;
     }
 }

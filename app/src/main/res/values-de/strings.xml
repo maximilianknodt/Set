@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- the author is responsible for this data -->
     <!-- @author Maximilian Knodt-->
     <string name="app_name">SET</string>
     <string name="single_player">Einzelspieler</string>

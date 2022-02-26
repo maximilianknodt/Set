@@ -17,7 +17,7 @@ import edu.hsos.set.controller.SettingsFragment;
  * Home screen class
  * Implements the main menu.
  *
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  * @author Linus Kurze
  */
 public class HomeScreen extends AppCompatActivity {

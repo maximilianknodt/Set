@@ -10,7 +10,7 @@ import com.example.set.R;
 /**
  * Fragmentclass for the settingFragment of the SettingScreen
  *
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  */
 public class SettingsFragment extends PreferenceFragmentCompat {
     /**

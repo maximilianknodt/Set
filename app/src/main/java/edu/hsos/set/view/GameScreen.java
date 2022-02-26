@@ -26,8 +26,8 @@ import java.util.Objects;
  * Game screen class
  * Class which implements the view and their function for the game
  *
- * @author Maximilian Knodt
- * @author Linus Kurze
+ * @author Maximilian Knodt - responsible for this class.
+ * @author Linus Kurze - responsible for this class.
  */
 public abstract class GameScreen extends AppCompatActivity {
     private static final int ROW_COUNT = 3;

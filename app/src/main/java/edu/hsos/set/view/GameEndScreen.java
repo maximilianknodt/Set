@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.set.R;
 
 /**
- * @author Maximilian Knodt
+ * @author Maximilian Knodt - responsible for this class.
  * @author Linus Kurze
  */
 public class GameEndScreen extends AppCompatActivity {
