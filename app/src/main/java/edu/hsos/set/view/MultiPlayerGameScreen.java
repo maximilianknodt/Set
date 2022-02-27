@@ -120,15 +120,18 @@ public class MultiPlayerGameScreen extends GameScreen {
         mainLayout = findViewById(R.id.linear_layout_game_screen_main);
 
         buttonLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(15,0,15,0);
 
         set = new Button(this);
         set.setText(R.string.set);
+        set.setBackgroundResource(R.drawable.playerselection);
         set.setOnClickListener(view -> {
             ((MultiPlayerGameController) gameController).setPressed();
         });
 
         addCards = new Button(this);
         addCards.setText(R.string.add_cards);
+        addCards.setBackgroundResource(R.drawable.playerselection);
         addCards.setOnClickListener(view -> {
             if (((MultiPlayerGameController) gameController).addCards()) {
                 Toast.makeText(this.getBaseContext(), R.string.message_add_cards_successful, Toast.LENGTH_SHORT).show();
@@ -139,12 +142,14 @@ public class MultiPlayerGameScreen extends GameScreen {
 
         cancelPlayerSelection = new Button(this);
         cancelPlayerSelection.setText(R.string.cancel);
+        cancelPlayerSelection.setBackgroundResource(R.drawable.playerselection);
         cancelPlayerSelection.setOnClickListener(view -> {
             ((MultiPlayerGameController) gameController).playerSelectionCanceled();
         });
 
         cancelSetSelection = new Button(this);
         cancelSetSelection.setText(R.string.cancel);
+        cancelSetSelection.setBackgroundResource(R.drawable.playerselection);
         cancelSetSelection.setOnClickListener(view -> {
             ((MultiPlayerGameController) gameController).cancelSetSelection();
         });

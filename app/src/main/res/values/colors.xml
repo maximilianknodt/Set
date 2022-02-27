@@ -12,7 +12,7 @@
     <!-- @author Maximilian Knodt-->
     <!-- Colors for the Dark Mode -->
     <color name="onSecondary">#FF212121</color>
-    <color name="onPrimary">#FFFDFDFD</color>
+    <color name="onPrimary">#FFEDEDED</color>
     <color name="primaryColor">#FFC25400</color>
     <color name="primaryColorVariant">#FFE0A02C</color>
     <color name="primaryColorVariantTwo">#FFECC780</color>
