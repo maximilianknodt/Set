@@ -102,8 +102,9 @@
 
     <TextView
         android:id="@+id/duration_text"
-        android:text="@string/duration"
         style="@style/TextView_Base.Constraint.Header"
+        android:layout_width="wrap_content"
+        android:text="@string/duration"
         app:layout_constraintBottom_toTopOf="@+id/cards_left_text"
         app:layout_constraintEnd_toStartOf="@+id/duration_content"
         app:layout_constraintHorizontal_bias="0.5"
